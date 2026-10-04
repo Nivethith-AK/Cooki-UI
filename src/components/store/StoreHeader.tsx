@@ -1,5 +1,5 @@
 import React from 'react'
-import { MagnifyingGlass, Sun, Moon, Funnel, Heart, Cpu, Sparkle } from '@phosphor-icons/react'
+import { MagnifyingGlass, Sun, Moon, Funnel, Heart, Cpu, GithubLogo, ArrowSquareOut } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
@@ -15,16 +15,16 @@ export const StoreHeader: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2.5 text-left focus:outline-none"
+            className="flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-inner">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-indigo-600 to-violet-600 shadow-inner">
               <Cpu size={18} weight="bold" className="text-white" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5 font-mono text-sm font-bold tracking-wider text-white dark:text-white text-zinc-900">
-                <span>COOK</span>
-                <span className="rounded bg-emerald-500/20 px-1 py-0.2 text-[9px] font-medium text-emerald-400 border border-emerald-500/30">
-                  STORE
+                <span>COOKI UI</span>
+                <span className="rounded bg-indigo-500/20 px-1.5 py-0.2 text-[9px] font-medium text-indigo-300 border border-indigo-500/30">
+                  REGISTRY
                 </span>
               </div>
             </div>
@@ -39,13 +39,13 @@ export const StoreHeader: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search 22+ components, animations, backgrounds..."
+              placeholder="Search 1,000+ components, animations, backgrounds..."
               className="w-full rounded-full border border-white/10 dark:border-white/10 border-zinc-200 bg-zinc-900/70 dark:bg-zinc-900/70 bg-zinc-100 py-1.5 pl-9 pr-8 text-xs text-zinc-100 dark:text-zinc-100 text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-white/30 font-sans"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 text-[10px] font-mono text-zinc-400 hover:text-white"
+                className="absolute right-3 text-[10px] font-mono text-zinc-400 hover:text-white cursor-pointer"
               >
                 CLEAR
               </button>
@@ -59,16 +59,28 @@ export const StoreHeader: React.FC = () => {
           {/* Mobile Filter Toggle */}
           <button
             onClick={() => setMobileFilterOpen(true)}
-            className="flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs text-zinc-300 lg:hidden hover:bg-white/10"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs text-zinc-300 lg:hidden hover:bg-white/10 cursor-pointer"
           >
             <Funnel size={14} />
             <span>Filters</span>
           </button>
 
+          {/* GitHub Repository Link */}
+          <a
+            href="https://github.com/Nivethith-AK/Cooki-UI"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View on GitHub"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-mono text-zinc-300 hover:bg-white/10 hover:text-white transition-colors"
+          >
+            <GithubLogo size={14} weight="fill" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+
           {/* Favorites Button */}
           <button
             onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-            className={`flex h-8 items-center gap-1.5 rounded-full border px-3 text-xs font-mono transition-colors ${
+            className={`flex h-8 items-center gap-1.5 rounded-full border px-3 text-xs font-mono transition-colors cursor-pointer ${
               showFavoritesOnly
                 ? 'border-rose-500/50 bg-rose-500/20 text-rose-300'
                 : 'border-white/10 bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
@@ -82,7 +94,7 @@ export const StoreHeader: React.FC = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark/light theme"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white transition-colors"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
           >
             {isDark ? <Sun size={15} /> : <Moon size={15} />}
           </button>
