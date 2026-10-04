@@ -65,13 +65,20 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, usage }) => {
       </div>
 
       {/* Code Body with Line Numbers */}
-      <div className="max-h-[380px] overflow-auto p-4 flex gap-4 text-zinc-300 leading-relaxed">
+      <div 
+        data-lenis-prevent="true"
+        onWheel={(e) => e.stopPropagation()}
+        className="max-h-[380px] overflow-auto modal-scroll p-4 flex gap-4 text-zinc-300 leading-relaxed"
+      >
         <div className="select-none text-zinc-600 text-right pr-2 border-r border-white/5 font-mono text-[11px]">
           {lines.map((_, i) => (
             <div key={i}>{i + 1}</div>
           ))}
         </div>
-        <pre className="overflow-x-auto whitespace-pre font-mono text-zinc-200 text-[11px]">
+        <pre 
+          data-lenis-prevent="true"
+          className="overflow-x-auto whitespace-pre font-mono text-zinc-200 text-[11px] modal-scroll"
+        >
           {lines.map((line, i) => (
             <div key={i} className="hover:bg-white/[0.02]">
               {line}

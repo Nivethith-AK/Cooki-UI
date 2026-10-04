@@ -4,11 +4,8 @@ import {
   X, 
   Copy, 
   Check, 
-  Terminal, 
   Heart, 
   Sliders, 
-  Code, 
-  ShieldCheck, 
   ArrowSquareOut,
   ArrowsOutSimple,
   ArrowsInSimple,
@@ -73,13 +70,28 @@ export const ComponentDetailModal: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install' | 'registry'>('preview')
   const [isFullscreen, setIsFullscreen] = useState(false)
 
-  // Lock background scroll when modal is open
+  // Lock background scroll and halt Lenis virtual scroll when modal is open
   useEffect(() => {
     if (selectedComponent) {
-      const prevOverflow = document.body.style.overflow
+      const prevBodyOverflow = document.body.style.overflow
+      const prevHtmlOverflow = document.documentElement.style.overflow
+      
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      
+      // Explicitly pause Lenis smooth scroll engine
+      if (typeof (window as any).__lenis?.stop === 'function') {
+        ;(window as any).__lenis.stop()
+      }
+
       return () => {
-        document.body.style.overflow = prevOverflow
+        document.body.style.overflow = prevBodyOverflow
+        document.documentElement.style.overflow = prevHtmlOverflow
+
+        // Explicitly resume Lenis smooth scroll engine
+        if (typeof (window as any).__lenis?.start === 'function') {
+          ;(window as any).__lenis.start()
+        }
       }
     }
   }, [selectedComponent])
@@ -123,364 +135,395 @@ export const ComponentDetailModal: React.FC = () => {
     <AnimatePresence>
       {selectedComponent && (
         <div 
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setSelectedComponent(null)
-          }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 overflow-y-auto"
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-5 md:p-6 overflow-hidden"
         >
-          
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedComponent(null)}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            className="absolute inset-0 bg-black/75 dark:bg-black/85 backdrop-blur-md cursor-pointer"
           />
 
           {/* Modal Window */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            data-lenis-prevent="true"
+            initial={{ opacity: 0, scale: 0.96, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+            exit={{ opacity: 0, scale: 0.96, y: 16 }}
+            transition={{ type: 'spring', damping: 28, stiffness: 320 }}
             className={`relative z-10 w-full ${
-              isFullscreen ? 'max-w-[96vw] max-h-[96vh]' : 'max-w-5xl max-h-[92vh]'
-            } rounded-[2.5rem] border border-zinc-200 dark:border-white/15 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 shadow-2xl overflow-hidden my-auto flex flex-col transition-all duration-300`}
+              isFullscreen ? 'max-w-[98vw] h-[96vh]' : 'max-w-5xl h-[88vh] max-h-[920px]'
+            } rounded-2xl sm:rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 shadow-2xl flex flex-col overflow-hidden transition-all duration-200`}
           >
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 px-6 py-4">
-            <div className="flex items-center gap-3">
-              <span className="rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 px-2.5 py-0.5 font-mono text-[10px] text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                {selectedComponent.category.toUpperCase()}
-              </span>
-              <h2 className="text-lg font-bold text-zinc-900 dark:text-white">{selectedComponent.name}</h2>
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-zinc-200/80 dark:border-white/10 px-5 sm:px-6 py-3.5 sm:py-4 shrink-0 bg-white/95 dark:bg-zinc-950/95">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-3">
+                <span className="shrink-0 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                  {selectedComponent.category.toUpperCase()}
+                </span>
+                <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white truncate">
+                  {selectedComponent.name}
+                </h2>
+                <span className="hidden md:inline-block text-xs text-zinc-400 dark:text-zinc-500 font-mono truncate">
+                  &bull; {selectedComponent.subcategory}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <button
+                  onClick={() => setIsFullscreen(!isFullscreen)}
+                  className="flex h-8 w-8 items-center justify-center rounded-xl text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                  aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+                  title={isFullscreen ? 'Exit fullscreen' : 'Expand full screen'}
+                >
+                  {isFullscreen ? <ArrowsInSimple size={16} weight="bold" /> : <ArrowsOutSimple size={16} weight="bold" />}
+                </button>
+                <button
+                  onClick={() => toggleFavorite(selectedComponent.id)}
+                  className="flex h-8 w-8 items-center justify-center rounded-xl text-zinc-400 hover:text-rose-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                  aria-label="Bookmark component"
+                  title="Bookmark"
+                >
+                  <Heart size={18} weight={isFav ? 'fill' : 'regular'} className={isFav ? 'text-rose-500' : ''} />
+                </button>
+                <button
+                  onClick={() => setSelectedComponent(null)}
+                  className="flex h-8 w-8 items-center justify-center rounded-xl text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                  title="Close (ESC)"
+                >
+                  <X size={18} weight="bold" />
+                </button>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setIsFullscreen(!isFullscreen)}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
-                aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-                title={isFullscreen ? 'Exit fullscreen' : 'Expand full screen'}
-              >
-                {isFullscreen ? <ArrowsInSimple size={16} weight="bold" /> : <ArrowsOutSimple size={16} weight="bold" />}
-              </button>
-              <button
-                onClick={() => toggleFavorite(selectedComponent.id)}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 hover:text-rose-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
-                aria-label="Bookmark"
-              >
-                <Heart size={18} weight={isFav ? 'fill' : 'regular'} className={isFav ? 'text-rose-500' : ''} />
-              </button>
-              <button
-                onClick={() => setSelectedComponent(null)}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
-                aria-label="Close modal"
-              >
-                <X size={18} weight="bold" />
-              </button>
-            </div>
-          </div>
+            {/* Subheader / Tabs */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 border-b border-zinc-200/80 dark:border-white/5 px-5 sm:px-6 py-2.5 sm:py-3 bg-zinc-50/90 dark:bg-zinc-900/60 shrink-0">
+              <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                <button
+                  onClick={() => setActiveTab('preview')}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 cursor-pointer ${
+                    activeTab === 'preview'
+                      ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-xs'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
+                  }`}
+                >
+                  Interactive Playground
+                </button>
+                <button
+                  onClick={() => setActiveTab('code')}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 cursor-pointer ${
+                    activeTab === 'code'
+                      ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-xs'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
+                  }`}
+                >
+                  Source Code
+                </button>
+                <button
+                  onClick={() => setActiveTab('install')}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 cursor-pointer ${
+                    activeTab === 'install'
+                      ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-xs'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
+                  }`}
+                >
+                  Installation & CLI
+                </button>
+                <button
+                  onClick={() => setActiveTab('registry')}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all shrink-0 cursor-pointer ${
+                    activeTab === 'registry'
+                      ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-xs'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
+                  }`}
+                >
+                  Registry API
+                </button>
+              </div>
 
-          {/* Subheader / Tabs */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 dark:border-white/5 px-6 py-3 bg-zinc-100/70 dark:bg-zinc-900/50">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setActiveTab('preview')}
-                className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === 'preview'
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
-                }`}
-              >
-                Interactive Playground
-              </button>
-              <button
-                onClick={() => setActiveTab('code')}
-                className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === 'code'
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
-                }`}
-              >
-                Source Code
-              </button>
-              <button
-                onClick={() => setActiveTab('install')}
-                className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === 'install'
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
-                }`}
-              >
-                Installation & CLI
-              </button>
-              <button
-                onClick={() => setActiveTab('registry' as any)}
-                className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
-                  activeTab === ('registry' as any)
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
-                }`}
-              >
-                Registry API
-              </button>
+              {/* Quick Install Copy */}
+              <div className="flex items-center gap-2 rounded-xl border border-zinc-200/80 dark:border-white/10 bg-white dark:bg-black/60 px-3 py-1 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 self-start sm:self-auto shrink-0 max-w-full">
+                <span className="text-emerald-500 dark:text-emerald-400 font-bold">$</span>
+                <span className="truncate max-w-[200px] sm:max-w-[280px]">{selectedComponent.installCommand}</span>
+                <button
+                  onClick={copyInstall}
+                  aria-label="Copy install command"
+                  className="ml-auto text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer p-0.5"
+                >
+                  {copiedInstall ? <Check size={13} className="text-emerald-500 dark:text-emerald-400" /> : <Copy size={13} />}
+                </button>
+              </div>
             </div>
 
-            {/* Quick Install Copy */}
-            <div className="flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-black/60 px-3 py-1 font-mono text-[11px] text-zinc-700 dark:text-zinc-300">
-              <span className="text-emerald-500 dark:text-emerald-400">$</span>
-              <span className="truncate max-w-[240px]">{selectedComponent.installCommand}</span>
-              <button
-                onClick={copyInstall}
-                className="ml-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
-              >
-                {copiedInstall ? <Check size={13} className="text-emerald-500 dark:text-emerald-400" /> : <Copy size={13} />}
-              </button>
-            </div>
-          </div>
-
-          {/* Modal Body */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6">
-            
-            {/* TAB 1: PLAYGROUND & PREVIEW */}
-            {activeTab === 'preview' && (
-              <div className="space-y-6">
-                
-                {/* Live Sandbox Area */}
-                <div className={`relative ${
-                  isFullscreen ? 'min-h-[520px]' : selectedComponent.category === 'sections' ? 'min-h-[440px]' : 'min-h-[360px]'
-                } flex items-center justify-center rounded-3xl border border-zinc-200 dark:border-white/10 bg-zinc-100/60 dark:bg-[#060608] p-8 overflow-hidden shadow-inner transition-all`}>
-                  <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
-                  <div className="relative isolate z-10 w-full flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                    <PreviewErrorBoundary key={selectedComponent.id}>
-                      {selectedComponent.renderPreview(controlValues, isDark)}
-                    </PreviewErrorBoundary>
-                  </div>
-                </div>
-
-                {/* Customization Controls (If available) */}
-                {selectedComponent.controls && selectedComponent.controls.length > 0 && (
-                  <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-900/60 p-4 transition-colors">
-                    <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4 pb-2 border-b border-zinc-200 dark:border-white/5">
-                      <Sliders size={14} />
-                      <span>PLAYGROUND PARAMETERS</span>
+            {/* Modal Scrollable Body */}
+            <div 
+              data-lenis-prevent="true"
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
+              className="flex-1 min-h-0 overflow-y-auto modal-scroll p-4 sm:p-6 space-y-6"
+            >
+              
+              {/* TAB 1: PLAYGROUND & PREVIEW */}
+              {activeTab === 'preview' && (
+                <div className="space-y-6">
+                  
+                  {/* Live Sandbox Area with Auto-Centering and Scrollable Safety */}
+                  <div 
+                    data-lenis-prevent="true"
+                    onWheel={(e) => e.stopPropagation()}
+                    className={`relative ${
+                      isFullscreen 
+                        ? 'min-h-[500px]' 
+                        : selectedComponent.category === 'sections' 
+                        ? 'min-h-[420px]' 
+                        : 'min-h-[340px]'
+                    } w-full flex items-center justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-auto modal-scroll shadow-inner transition-all`}
+                  >
+                    <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
+                    <div className="relative isolate z-10 w-full flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 my-auto">
+                      <PreviewErrorBoundary key={selectedComponent.id}>
+                        {selectedComponent.renderPreview(controlValues, isDark)}
+                      </PreviewErrorBoundary>
                     </div>
+                  </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                      {selectedComponent.controls.map((ctrl) => (
-                        <div key={ctrl.name} className="flex flex-col gap-1.5">
-                          <label className="text-xs font-mono text-zinc-500 dark:text-zinc-400">{ctrl.label}</label>
+                  {/* Customization Controls (If available) */}
+                  {selectedComponent.controls && selectedComponent.controls.length > 0 && (
+                    <div className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/50 p-4 sm:p-5 transition-colors">
+                      <div className="flex items-center gap-2 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400 mb-4 pb-2.5 border-b border-zinc-200/80 dark:border-white/5">
+                        <Sliders size={14} weight="bold" />
+                        <span>PLAYGROUND PARAMETERS</span>
+                      </div>
 
-                          {ctrl.type === 'select' && (
-                            <Combobox
-                              items={ctrl.options || []}
-                              value={controlValues[ctrl.name] ?? ctrl.defaultValue}
-                              onValueChange={(val) => handleControlChange(ctrl.name, val)}
-                              className="w-full"
-                            >
-                              <ComboboxInput
-                                placeholder={controlValues[ctrl.name] ?? ctrl.defaultValue ?? `Select ${ctrl.label}...`}
-                                className="py-1 text-xs font-mono"
-                                wrapperClassName="h-8.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-xs hover:border-zinc-300 dark:hover:border-white/20 transition-colors"
-                              />
-                              <ComboboxContent className="z-50 min-w-full">
-                                <ComboboxEmpty>No options</ComboboxEmpty>
-                                <ComboboxList>
-                                  {(opt) => (
-                                    <ComboboxItem
-                                      key={opt}
-                                      value={opt}
-                                      className="text-xs font-mono py-1.5"
-                                    >
-                                      {opt}
-                                    </ComboboxItem>
-                                  )}
-                                </ComboboxList>
-                              </ComboboxContent>
-                            </Combobox>
-                          )}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {selectedComponent.controls.map((ctrl) => (
+                          <div key={ctrl.name} className="flex flex-col gap-1.5">
+                            <label className="text-xs font-mono text-zinc-500 dark:text-zinc-400 font-medium">
+                              {ctrl.label}
+                            </label>
 
-                          {ctrl.type === 'number' && (
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="range"
-                                min={ctrl.min}
-                                max={ctrl.max}
-                                step={ctrl.step}
+                            {ctrl.type === 'select' && (
+                              <Combobox
+                                items={ctrl.options || []}
                                 value={controlValues[ctrl.name] ?? ctrl.defaultValue}
-                                onChange={(e) => handleControlChange(ctrl.name, parseFloat(e.target.value))}
-                                className="w-full accent-emerald-500 dark:accent-emerald-400"
+                                onValueChange={(val) => handleControlChange(ctrl.name, val)}
+                                className="w-full"
+                              >
+                                <ComboboxInput
+                                  placeholder={controlValues[ctrl.name] ?? ctrl.defaultValue ?? `Select ${ctrl.label}...`}
+                                  className="py-1 text-xs font-mono"
+                                  wrapperClassName="h-9 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-xs hover:border-zinc-300 dark:hover:border-white/20 transition-colors"
+                                />
+                                <ComboboxContent 
+                                  data-lenis-prevent="true"
+                                  className="z-50 min-w-full modal-scroll max-h-48"
+                                >
+                                  <ComboboxEmpty>No options found</ComboboxEmpty>
+                                  <ComboboxList>
+                                    {(opt) => (
+                                      <ComboboxItem
+                                        key={opt}
+                                        value={opt}
+                                        className="text-xs font-mono py-1.5"
+                                      >
+                                        {opt}
+                                      </ComboboxItem>
+                                    )}
+                                  </ComboboxList>
+                                </ComboboxContent>
+                              </Combobox>
+                            )}
+
+                            {ctrl.type === 'number' && (
+                              <div className="flex items-center gap-3 h-9">
+                                <input
+                                  type="range"
+                                  min={ctrl.min}
+                                  max={ctrl.max}
+                                  step={ctrl.step}
+                                  value={controlValues[ctrl.name] ?? ctrl.defaultValue}
+                                  onChange={(e) => handleControlChange(ctrl.name, parseFloat(e.target.value))}
+                                  className="w-full accent-indigo-600 dark:accent-indigo-400 cursor-pointer"
+                                />
+                                <span className="font-mono text-xs font-semibold text-zinc-800 dark:text-white w-12 text-right">
+                                  {controlValues[ctrl.name] ?? ctrl.defaultValue}
+                                </span>
+                              </div>
+                            )}
+
+                            {ctrl.type === 'text' && (
+                              <input
+                                type="text"
+                                value={controlValues[ctrl.name] ?? ctrl.defaultValue}
+                                onChange={(e) => handleControlChange(ctrl.name, e.target.value)}
+                                className="h-9 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 px-3 text-xs text-zinc-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
                               />
-                              <span className="font-mono text-xs text-zinc-800 dark:text-white w-12 text-right">
-                                {controlValues[ctrl.name] ?? ctrl.defaultValue}
-                              </span>
-                            </div>
-                          )}
+                            )}
 
-                          {ctrl.type === 'text' && (
-                            <input
-                              type="text"
-                              value={controlValues[ctrl.name] ?? ctrl.defaultValue}
-                              onChange={(e) => handleControlChange(ctrl.name, e.target.value)}
-                              className="rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 px-3 py-1.5 text-xs text-zinc-900 dark:text-white focus:outline-none"
-                            />
-                          )}
+                            {ctrl.type === 'boolean' && (
+                              <button
+                                onClick={() => handleControlChange(ctrl.name, !(controlValues[ctrl.name] ?? ctrl.defaultValue))}
+                                className={`h-9 rounded-xl px-3 text-xs font-mono font-medium transition-colors text-left flex items-center justify-between cursor-pointer border ${
+                                  (controlValues[ctrl.name] ?? ctrl.defaultValue)
+                                    ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30'
+                                    : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-white/10'
+                                }`}
+                              >
+                                <span>{(controlValues[ctrl.name] ?? ctrl.defaultValue) ? 'ENABLED' : 'DISABLED'}</span>
+                                <span className={`h-2 w-2 rounded-full ${
+                                  (controlValues[ctrl.name] ?? ctrl.defaultValue) ? 'bg-emerald-500' : 'bg-zinc-400'
+                                }`} />
+                              </button>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-                          {ctrl.type === 'boolean' && (
-                            <button
-                              onClick={() => handleControlChange(ctrl.name, !(controlValues[ctrl.name] ?? ctrl.defaultValue))}
-                              className={`rounded-xl px-3 py-1.5 text-xs font-mono transition-colors text-left cursor-pointer ${
-                                (controlValues[ctrl.name] ?? ctrl.defaultValue)
-                                  ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
-                                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/10'
-                              }`}
-                            >
-                              {(controlValues[ctrl.name] ?? ctrl.defaultValue) ? 'ENABLED' : 'DISABLED'}
-                            </button>
-                          )}
-                        </div>
-                      ))}
+                </div>
+              )}
+
+              {/* TAB 2: SOURCE CODE */}
+              {activeTab === 'code' && (
+                <div className="space-y-4">
+                  <CodeViewer files={selectedComponent.files} usage={selectedComponent.usage} />
+                </div>
+              )}
+
+              {/* TAB 3: INSTALLATION & SPECS */}
+              {activeTab === 'install' && (
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">1. SHADCN REGISTRY INSTALLATION</h4>
+                      <span className="text-[10px] font-mono uppercase text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">RECOMMENDED</span>
+                    </div>
+                    <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
+                      <span className="text-emerald-400 truncate mr-2">
+                        $ npx shadcn@latest add https://cooki-ui.vercel.app/r/{selectedComponent.slug}.json
+                      </span>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(`npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                          setCopiedInstall(true)
+                          setTimeout(() => setCopiedInstall(false), 2000)
+                        }}
+                        className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
+                      >
+                        {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
+                      </button>
+                    </div>
+                    <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
+                      Directly downloads and installs the component into your project&apos;s <code className="text-zinc-700 dark:text-zinc-300">components/ui/</code> directory.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">2. COOKI UI CLI (PREVIEW)</h4>
+                    <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
+                      <span className="text-indigo-400">$ npx cooki-ui add {selectedComponent.slug}</span>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(`npx cooki-ui add ${selectedComponent.slug}`)
+                          setCopiedInstall(true)
+                          setTimeout(() => setCopiedInstall(false), 2000)
+                        }}
+                        className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
+                      >
+                        {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
+                      </button>
                     </div>
                   </div>
-                )}
 
-              </div>
-            )}
-
-            {/* TAB 2: SOURCE CODE */}
-            {activeTab === 'code' && (
-              <div className="space-y-4">
-                <CodeViewer files={selectedComponent.files} usage={selectedComponent.usage} />
-              </div>
-            )}
-
-            {/* TAB 3: INSTALLATION & SPECS */}
-            {activeTab === 'install' && (
-              <div className="space-y-6">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">1. SHADCN REGISTRY INSTALLATION</h4>
-                    <span className="text-[10px] font-mono uppercase text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">RECOMMENDED</span>
+                  <div>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">3. DEPENDENCIES</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedComponent.dependencies.length > 0 ? (
+                        selectedComponent.dependencies.map((dep) => (
+                          <span key={dep} className="rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 px-3 py-1 text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                            npm i {dep}
+                          </span>
+                        ))
+                      ) : (
+                        <span className="text-xs font-mono text-zinc-500">Zero additional dependencies required. Pure React.</span>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
-                    <span className="text-emerald-400 truncate mr-2">
-                      $ npx shadcn@latest add https://cooki-ui.vercel.app/r/{selectedComponent.slug}.json
-                    </span>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(`npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
-                        setCopiedInstall(true)
-                        setTimeout(() => setCopiedInstall(false), 2000)
-                      }}
-                      className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
+
+                  <div>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">4. COMPONENT METADATA</h4>
+                    <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/40 p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+                      <div>
+                        <span className="text-zinc-500">Frameworks:</span>
+                        <div className="mt-1 text-zinc-800 dark:text-zinc-200">{selectedComponent.frameworks.join(', ')}</div>
+                      </div>
+                      <div>
+                        <span className="text-zinc-500">Category:</span>
+                        <div className="mt-1 text-zinc-800 dark:text-zinc-200">{selectedComponent.subcategory}</div>
+                      </div>
+                      <div>
+                        <span className="text-zinc-500">Target Path:</span>
+                        <div className="mt-1 text-zinc-700 dark:text-zinc-300 truncate">components/ui/{selectedComponent.slug}.tsx</div>
+                      </div>
+                      <div>
+                        <span className="text-zinc-500">Status:</span>
+                        <div className="mt-1 text-emerald-600 dark:text-emerald-400 font-semibold">Production Ready</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: REGISTRY API ENDPOINT */}
+              {activeTab === 'registry' && (
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">REGISTRY ENDPOINT</h4>
+                      <a
+                        href={`/r/${selectedComponent.slug}.json`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-600 dark:text-cyan-400 hover:underline"
+                      >
+                        <span>Open Endpoint</span>
+                        <ArrowSquareOut size={13} />
+                      </a>
+                    </div>
+                    <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
+                      <span className="text-cyan-400">GET /r/{selectedComponent.slug}.json</span>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(`https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                          setCopiedInstall(true)
+                          setTimeout(() => setCopiedInstall(false), 2000)
+                        }}
+                        className="flex items-center gap-1 rounded bg-zinc-800 px-2 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 cursor-pointer"
+                      >
+                        <Copy size={12} />
+                        <span>Copy URL</span>
+                      </button>
+                    </div>
+                    <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
+                      Served statically via Vercel CDN. Owned natively by Cooki UI repository.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">REGISTRY SCHEMA PAYLOAD</h4>
+                    <div 
+                      data-lenis-prevent="true"
+                      onWheel={(e) => e.stopPropagation()}
+                      className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/90 p-4 font-mono text-xs text-zinc-200 dark:text-zinc-300 max-h-[260px] overflow-auto modal-scroll"
                     >
-                      {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-                      <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
-                    </button>
-                  </div>
-                  <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
-                    Directly downloads and installs the component into your project's <code className="text-zinc-700 dark:text-zinc-300">components/ui/</code> directory.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">2. COOKI UI CLI (PREVIEW)</h4>
-                  <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
-                    <span className="text-indigo-400">$ npx cooki-ui add {selectedComponent.slug}</span>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(`npx cooki-ui add ${selectedComponent.slug}`)
-                        setCopiedInstall(true)
-                        setTimeout(() => setCopiedInstall(false), 2000)
-                      }}
-                      className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
-                    >
-                      <Copy size={12} />
-                      <span>Copy</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">3. DEPENDENCIES</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedComponent.dependencies.length > 0 ? (
-                      selectedComponent.dependencies.map((dep) => (
-                        <span key={dep} className="rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 px-3 py-1 text-xs font-mono text-zinc-700 dark:text-zinc-300">
-                          npm i {dep}
-                        </span>
-                      ))
-                    ) : (
-                      <span className="text-xs font-mono text-zinc-500">Zero additional dependencies required. Pure React.</span>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">4. COMPONENT METADATA</h4>
-                  <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-900/40 p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
-                    <div>
-                      <span className="text-zinc-500">Frameworks:</span>
-                      <div className="mt-1 text-zinc-800 dark:text-zinc-200">{selectedComponent.frameworks.join(', ')}</div>
-                    </div>
-                    <div>
-                      <span className="text-zinc-500">Category:</span>
-                      <div className="mt-1 text-zinc-800 dark:text-zinc-200">{selectedComponent.subcategory}</div>
-                    </div>
-                    <div>
-                      <span className="text-zinc-500">Target Path:</span>
-                      <div className="mt-1 text-zinc-700 dark:text-zinc-300">components/ui/{selectedComponent.slug}.tsx</div>
-                    </div>
-                    <div>
-                      <span className="text-zinc-500">Status:</span>
-                      <div className="mt-1 text-emerald-600 dark:text-emerald-400 font-semibold">Production Ready</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* TAB 4: REGISTRY API ENDPOINT */}
-            {activeTab === 'registry' && (
-              <div className="space-y-6">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">REGISTRY ENDPOINT</h4>
-                    <a
-                      href={`/r/${selectedComponent.slug}.json`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-600 dark:text-cyan-400 hover:underline"
-                    >
-                      <span>Open Endpoint</span>
-                      <ArrowSquareOut size={13} />
-                    </a>
-                  </div>
-                  <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
-                    <span className="text-cyan-400">GET /r/{selectedComponent.slug}.json</span>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(`https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
-                        setCopiedInstall(true)
-                        setTimeout(() => setCopiedInstall(false), 2000)
-                      }}
-                      className="flex items-center gap-1 rounded bg-zinc-800 px-2 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 cursor-pointer"
-                    >
-                      <Copy size={12} />
-                      <span>Copy URL</span>
-                    </button>
-                  </div>
-                  <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
-                    Served statically via Vercel CDN. Owned natively by Cooki UI repository.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">REGISTRY SCHEMA PAYLOAD</h4>
-                  <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/90 p-4 font-mono text-xs text-zinc-200 dark:text-zinc-300 max-h-[260px] overflow-auto">
-                    <pre className="text-zinc-300 dark:text-zinc-400">
+                      <pre className="text-zinc-300 dark:text-zinc-400">
 {JSON.stringify(
   {
     $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
@@ -500,25 +543,27 @@ export const ComponentDetailModal: React.FC = () => {
   null,
   2
 )}
-                    </pre>
+                      </pre>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-          </div>
-
-          {/* Footer info */}
-          <div className="border-t border-zinc-200 dark:border-white/10 px-6 py-3 bg-zinc-50 dark:bg-zinc-950/80 flex flex-wrap items-center justify-between text-xs font-mono text-zinc-500 transition-colors">
-            <span>COOKI Component Registry v2.4</span>
-            <div className="flex gap-2">
-              {selectedComponent.tags.map((t) => (
-                <span key={t}>#{t}</span>
-              ))}
             </div>
-          </div>
 
-        </motion.div>
+            {/* Footer info */}
+            <div className="border-t border-zinc-200/80 dark:border-white/10 px-5 sm:px-6 py-3 bg-zinc-50/90 dark:bg-zinc-950/90 shrink-0 flex flex-wrap items-center justify-between text-xs font-mono text-zinc-500 transition-colors">
+              <span className="font-semibold text-zinc-600 dark:text-zinc-400">COOKI UI Component Registry</span>
+              <div className="flex flex-wrap gap-1.5 mt-1 sm:mt-0">
+                {selectedComponent.tags.map((t) => (
+                  <span key={t} className="rounded bg-zinc-200/60 dark:bg-white/5 px-1.5 py-0.2 text-[10px] text-zinc-600 dark:text-zinc-400">
+                    #{t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </motion.div>
         </div>
       )}
     </AnimatePresence>

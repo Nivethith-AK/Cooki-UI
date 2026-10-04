@@ -42,12 +42,28 @@ export const GlobalCommandPalette: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
 
-  // Focus input when opened
+  // Focus input and lock background scroll when opened
   useEffect(() => {
     if (commandPaletteOpen) {
       setQuery('')
       setSelectedIndex(0)
       setTimeout(() => inputRef.current?.focus(), 50)
+
+      const prevBody = document.body.style.overflow
+      const prevHtml = document.documentElement.style.overflow
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      if (typeof (window as any).__lenis?.stop === 'function') {
+        ;(window as any).__lenis.stop()
+      }
+
+      return () => {
+        document.body.style.overflow = prevBody
+        document.documentElement.style.overflow = prevHtml
+        if (typeof (window as any).__lenis?.start === 'function') {
+          ;(window as any).__lenis.start()
+        }
+      }
     }
   }, [commandPaletteOpen])
 
@@ -141,7 +157,10 @@ export const GlobalCommandPalette: React.FC = () => {
   return (
     <AnimatePresence>
       {commandPaletteOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 overflow-y-auto">
+        <div 
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[60] flex items-start justify-center pt-16 sm:pt-24 px-4 overflow-hidden"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -149,11 +168,12 @@ export const GlobalCommandPalette: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
             onClick={() => setCommandPaletteOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-md"
+            className="fixed inset-0 bg-black/70 backdrop-blur-md"
           />
 
           {/* Modal Container */}
           <motion.div
+            data-lenis-prevent="true"
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -209,7 +229,12 @@ export const GlobalCommandPalette: React.FC = () => {
             )}
 
             {/* Component Results List */}
-            <div ref={listRef} className="max-h-[360px] overflow-y-auto p-2 space-y-1">
+            <div 
+              ref={listRef} 
+              data-lenis-prevent="true"
+              onWheel={(e) => e.stopPropagation()}
+              className="max-h-[360px] overflow-y-auto modal-scroll p-2 space-y-1"
+            >
               <div className="px-2 py-1 text-[11px] font-mono uppercase tracking-wider text-zinc-400 flex items-center justify-between">
                 <span>{query ? `Results (${filteredComponents.length})` : 'Featured Components'}</span>
                 <span>Select to Preview</span>

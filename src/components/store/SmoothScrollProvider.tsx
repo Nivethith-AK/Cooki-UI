@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
 
 export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const lenisRef = useRef<Lenis | null>(null)
+
   useEffect(() => {
     // Initialize Lenis for luxurious, silky smooth kinetic scrolling
     const lenis = new Lenis({
@@ -14,14 +16,33 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ 
       infinite: false,
     })
 
-    let rafId: number
+    lenisRef.current = lenis
+    ;(window as any).__lenis = lenis
 
+    let rafId: number
     function raf(time: number) {
       lenis.raf(time)
       rafId = requestAnimationFrame(raf)
     }
-
     rafId = requestAnimationFrame(raf)
+
+    // MutationObserver to automatically halt Lenis virtual scroll whenever a modal locks body scroll
+    const checkScrollLock = () => {
+      const isLocked =
+        document.body.style.overflow === 'hidden' ||
+        document.documentElement.style.overflow === 'hidden' ||
+        document.body.classList.contains('overflow-hidden')
+
+      if (isLocked) {
+        lenis.stop()
+      } else {
+        lenis.start()
+      }
+    }
+
+    const observer = new MutationObserver(checkScrollLock)
+    observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style', 'class'] })
 
     // Smoothly route in-page hash links through Lenis
     const handleAnchorClick = (e: MouseEvent) => {
@@ -38,8 +59,11 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
     return () => {
       cancelAnimationFrame(rafId)
+      observer.disconnect()
       document.removeEventListener('click', handleAnchorClick)
       lenis.destroy()
+      lenisRef.current = null
+      delete (window as any).__lenis
     }
   }, [])
 
