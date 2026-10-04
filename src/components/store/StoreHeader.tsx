@@ -1,15 +1,15 @@
 import React from 'react'
-import { MagnifyingGlass, Sun, Moon, Funnel, Heart, Cpu, GithubLogo, ArrowSquareOut } from '@phosphor-icons/react'
+import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
 export const StoreHeader: React.FC = () => {
-  const { searchQuery, setSearchQuery, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly } = useStore()
+  const { favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/80 dark:border-white/10 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-2xl transition-colors">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-[1780px] w-full items-center justify-between gap-4 px-4 sm:px-8 xl:px-12 py-3">
         
         {/* Brand */}
         <div className="flex items-center gap-3">
@@ -31,26 +31,10 @@ export const StoreHeader: React.FC = () => {
           </button>
         </div>
 
-        {/* Real-time Global Search Input */}
-        <div className="flex-1 max-w-md hidden md:block">
-          <div className="relative flex items-center">
-            <MagnifyingGlass size={15} className="absolute left-3.5 text-zinc-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search components, animations, backgrounds..."
-              className="w-full rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/70 py-1.5 pl-9 pr-8 text-xs text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/40 font-sans transition-colors"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 text-[10px] font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white cursor-pointer"
-              >
-                CLEAR
-              </button>
-            )}
-          </div>
+        {/* Center Tagline / Status */}
+        <div className="hidden md:flex items-center gap-2 text-xs font-mono text-zinc-500">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span>70 Canonical Components &bull; Production Ready</span>
         </div>
 
         {/* Right Utilities */}
@@ -101,20 +85,6 @@ export const StoreHeader: React.FC = () => {
 
         </div>
 
-      </div>
-
-      {/* Mobile Search Bar */}
-      <div className="px-4 pb-3 md:hidden">
-        <div className="relative flex items-center">
-          <MagnifyingGlass size={15} className="absolute left-3.5 text-zinc-400" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search components, tags, frameworks..."
-            className="w-full rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 py-1.5 pl-9 pr-3 text-xs text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none"
-          />
-        </div>
       </div>
     </header>
   )

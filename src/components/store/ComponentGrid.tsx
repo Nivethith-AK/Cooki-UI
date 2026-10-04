@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MagnifyingGlass, ArrowClockwise, CaretLeft, CaretRight } from '@phosphor-icons/react'
+import { MagnifyingGlass, ArrowClockwise, CaretLeft, CaretRight, SquaresFour, Rows, ArrowsOut } from '@phosphor-icons/react'
 import { useStore, SortOption } from '../../context/StoreContext'
 import { ComponentCard } from './ComponentCard'
 
@@ -8,6 +8,7 @@ const ITEMS_PER_PAGE = 24
 export const ComponentGrid: React.FC = () => {
   const { filteredComponents, sortBy, setSortBy, searchQuery, resetFilters, selectedCategory, selectedFramework } = useStore()
   const [currentPage, setCurrentPage] = useState(1)
+  const [isExpansiveView, setIsExpansiveView] = useState(false)
 
   // Reset page whenever filter changes
   useEffect(() => {
@@ -31,10 +32,19 @@ export const ComponentGrid: React.FC = () => {
     { id: 'a-z', label: 'A to Z' },
   ]
 
+  // Detect whether a component benefits from a wider column span
+  const isWideComponent = (slug: string, category: string) => {
+    return category === 'sections' || 
+           ['comparative-feature-table', 'pricing-comparison-block', 'feature-bento-block', 'scroll-timeline', 'interactive-terminal-block', 'testimonial-marquee-block'].includes(slug)
+  }
+
   return (
-    <div id="component-catalogue" className="flex-1">
-      {/* Top Filter & Count Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-white/5 mb-6">
+    <div id="component-catalogue" className="flex-1 w-full min-w-0">
+      
+      {/* Top Filter, Count & Viewport Mode Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/5 mb-6">
+        
+        {/* Left Count & Results Status */}
         <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400">
           <span>CATALOGUE:</span>
           <span className="font-bold text-zinc-900 dark:text-white">
@@ -47,34 +57,62 @@ export const ComponentGrid: React.FC = () => {
           </span>
         </div>
 
-        {/* Sort Controls */}
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono text-zinc-500 uppercase">Sort:</span>
-          <div className="flex gap-1 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-950/70 p-1">
-            {sortOptions.map((opt) => (
-              <button
-                key={opt.id}
-                onClick={() => setSortBy(opt.id)}
-                className={`rounded-lg px-2.5 py-1 text-[11px] font-mono transition-colors cursor-pointer ${
-                  sortBy === opt.id
-                    ? 'bg-zinc-900 text-white dark:bg-white/15 dark:text-white font-semibold shadow-xs'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+        {/* Right Viewport Mode & Sort Controls */}
+        <div className="flex flex-wrap items-center gap-3">
+          
+          {/* Expansive Canvas Showcase Mode Switch */}
+          <button
+            onClick={() => setIsExpansiveView(!isExpansiveView)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono transition-colors cursor-pointer ${
+              isExpansiveView
+                ? 'border-indigo-500 bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 font-semibold'
+                : 'border-zinc-200 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-950/70 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+            }`}
+            title="Toggle between standard grid and expansive tall canvas view"
+          >
+            <ArrowsOut size={13} weight="bold" />
+            <span>{isExpansiveView ? 'Expansive View' : 'Standard View'}</span>
+          </button>
+
+          {/* Sort Controls */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-zinc-500 uppercase hidden sm:inline">Sort:</span>
+            <div className="flex gap-1 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-950/70 p-1">
+              {sortOptions.map((opt) => (
+                <button
+                  key={opt.id}
+                  onClick={() => setSortBy(opt.id)}
+                  className={`rounded-lg px-2.5 py-1 text-[11px] font-mono transition-colors cursor-pointer ${
+                    sortBy === opt.id
+                      ? 'bg-zinc-900 text-white dark:bg-white/15 dark:text-white font-semibold shadow-2xs'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
+
         </div>
+
       </div>
 
-      {/* Grid of Real Components */}
+      {/* Grid of Real Components with Adaptive Column Spanning */}
       {currentItems.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {currentItems.map((item) => (
-              <ComponentCard key={item.id} item={item} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
+            {currentItems.map((item) => {
+              const wide = isWideComponent(item.slug, item.category)
+              return (
+                <div 
+                  key={item.id}
+                  className={wide ? 'col-span-1 md:col-span-2 xl:col-span-2 2xl:col-span-3' : 'col-span-1'}
+                >
+                  <ComponentCard item={item} forceExpanded={isExpansiveView} />
+                </div>
+              )
+            })}
           </div>
 
           {/* High-Performance Pagination Bar */}
@@ -107,7 +145,7 @@ export const ComponentGrid: React.FC = () => {
                         onClick={() => handlePageChange(pageNum)}
                         className={`w-8 h-8 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                           currentPage === pageNum
-                            ? 'bg-indigo-600 text-white font-bold shadow-xs'
+                            ? 'bg-indigo-600 text-white font-bold shadow-2xs'
                             : 'bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 text-zinc-700 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800'
                         }`}
                       >
@@ -120,7 +158,7 @@ export const ComponentGrid: React.FC = () => {
                 <button
                   disabled={currentPage === totalPages}
                   onClick={() => handlePageChange(currentPage + 1)}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 bg-zinc-900 text-xs font-mono text-zinc-300 hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
                 >
                   <span>Next</span>
                   <CaretRight size={14} />
@@ -131,25 +169,26 @@ export const ComponentGrid: React.FC = () => {
         </>
       ) : (
         /* Empty State */
-        <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-white/15 p-12 text-center my-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-zinc-400 mb-4">
+        <div className="flex flex-col items-center justify-center rounded-[2rem] border border-dashed border-zinc-300 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/40 p-12 text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-200 dark:bg-white/5 text-zinc-500 mb-4">
             <MagnifyingGlass size={24} />
           </div>
-          <h3 className="text-base font-bold text-white dark:text-white text-zinc-900">No components found</h3>
-          <p className="mt-1 text-xs text-zinc-400 max-w-sm">
-            {searchQuery
-              ? `No artifacts matching "${searchQuery}". Try searching for buttons, cards, or backgrounds.`
-              : 'No components match your selected filters.'}
+          <h3 className="text-base font-bold text-zinc-900 dark:text-white">
+            No components found
+          </h3>
+          <p className="mt-1 max-w-sm text-xs text-zinc-500">
+            No components match your search query "{searchQuery}". Try searching for another keyword or reset active filters.
           </p>
           <button
             onClick={resetFilters}
-            className="mt-6 flex items-center gap-2 rounded-full border border-white/15 bg-white text-zinc-950 px-5 py-2 text-xs font-semibold hover:bg-zinc-200 transition-colors cursor-pointer"
+            className="mt-6 flex items-center gap-1.5 rounded-xl bg-zinc-900 dark:bg-white px-4 py-2 text-xs font-mono text-white dark:text-zinc-950 hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
           >
-            <ArrowClockwise size={14} weight="bold" />
+            <ArrowClockwise size={14} />
             <span>Reset All Filters</span>
           </button>
         </div>
       )}
+
     </div>
   )
 }
