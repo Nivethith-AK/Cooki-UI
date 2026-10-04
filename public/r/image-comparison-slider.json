@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-comparison-slider",
+  "type": "registry:ui",
+  "title": "Split Image Comparison Slider",
+  "description": "Interactive before-and-after split image comparison container with draggable center divider handle.",
+  "category": "layout",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/image-comparison-slider/image-comparison-slider.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/image-comparison-slider.tsx",
+      "content": "import React, { useState, useRef } from 'react';\r\nimport { ArrowsLeftRight } from '@phosphor-icons/react';\r\n\r\nexport const ImageComparisonSlider: React.FC = () => {\r\n  const [sliderPos, setSliderPos] = useState(50);\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n\r\n  const handleMove = (clientX: number) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));\r\n    setSliderPos((x / rect.width) * 100);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={(e) => e.buttons === 1 && handleMove(e.clientX)}\r\n      onTouchMove={(e) => handleMove(e.touches[0].clientX)}\r\n      className=\"relative w-full max-w-md h-48 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 select-none cursor-ew-resize\"\r\n    >\r\n      {/* Background (After / Wireframe) */}\r\n      <div className=\"absolute inset-0 bg-zinc-900 flex items-center justify-center\">\r\n        <div className=\"text-center font-mono text-zinc-500\">\r\n          <span className=\"text-xs uppercase tracking-widest text-indigo-400 font-bold\">AFTER (OPTIMIZED)</span>\r\n          <p className=\"text-[11px] mt-1 text-zinc-400\">Zero JS Payload • 60 FPS Canvas WebGL</p>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Foreground (Before / Legacy) with clipPath */}\r\n      <div\r\n        className=\"absolute inset-0 bg-indigo-950 flex items-center justify-center\"\r\n        style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}\r\n      >\r\n        <div className=\"text-center font-mono text-white\">\r\n          <span className=\"text-xs uppercase tracking-widest text-cyan-300 font-bold\">BEFORE (LEGACY)</span>\r\n          <p className=\"text-[11px] mt-1 text-indigo-200\">1.4 MB Bundle • 18 DOM Mutations/sec</p>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Divider Bar */}\r\n      <div\r\n        style={{ left: `${sliderPos}%` }}\r\n        className=\"absolute top-0 bottom-0 w-0.5 bg-white -translate-x-1/2 pointer-events-none z-20 flex items-center justify-center\"\r\n      >\r\n        <div className=\"w-6 h-6 rounded-full bg-white text-zinc-900 shadow-lg flex items-center justify-center\">\r\n          <ArrowsLeftRight size={12} weight=\"bold\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

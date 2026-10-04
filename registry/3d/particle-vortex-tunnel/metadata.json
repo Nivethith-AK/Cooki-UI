@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "particle-vortex-tunnel",
+  "type": "registry:ui",
+  "title": "Hypnotic Particle Vortex Tunnel",
+  "description": "HTML5 Canvas warp-speed vortex tunnel accelerating star particles inward toward a deep gravity well.",
+  "category": "3d",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/3d/particle-vortex-tunnel/particle-vortex-tunnel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/particle-vortex-tunnel.tsx"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-prompt-input",
+  "type": "registry:ui",
+  "title": "AI Prompt Studio Input",
+  "description": "Production LLM prompt container with auto-expanding textarea, model selector pill, token counter, attachment badge, and keyboard submit.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-prompt-input/ai-prompt-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-prompt-input.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { Paperclip, Sparkle, ArrowUp, Globe, CaretDown } from '@phosphor-icons/react';\r\n\r\nexport const AiPromptInput: React.FC = () => {\r\n  const [value, setValue] = useState('');\r\n  const [model, setModel] = useState('Claude 3.7 Sonnet');\r\n  const [webSearch, setWebSearch] = useState(false);\r\n\r\n  const tokenCount = Math.round(value.length / 3.8);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-lg mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/90 shadow-xl backdrop-blur-xl p-3.5 transition-all focus-within:border-indigo-500/50 focus-within:ring-2 focus-within:ring-indigo-500/20\">\r\n      <textarea\r\n        value={value}\r\n        onChange={(e) => setValue(e.target.value)}\r\n        placeholder=\"Ask anything or generate complex UI components...\"\r\n        rows={2}\r\n        className=\"w-full bg-transparent resize-none text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none font-sans\"\r\n      />\r\n\r\n      <div className=\"mt-3 flex items-center justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-1.5 flex-wrap\">\r\n          {/* Model Selector Chip */}\r\n          <div className=\"flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-white/5\">\r\n            <Sparkle size={12} className=\"text-indigo-500\" />\r\n            <span>{model}</span>\r\n          </div>\r\n\r\n          {/* Web Search Toggle */}\r\n          <button\r\n            onClick={() => setWebSearch(!webSearch)}\r\n            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${\r\n              webSearch\r\n                ? 'bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'\r\n                : 'text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5'\r\n            }`}\r\n          >\r\n            <Globe size={12} />\r\n            <span className=\"hidden sm:inline\">Search</span>\r\n          </button>\r\n        </div>\r\n\r\n        <div className=\"flex items-center gap-2\">\r\n          {value.length > 0 && (\r\n            <span className=\"text-[10px] font-mono text-zinc-400\">\r\n              ~{tokenCount} tokens\r\n            </span>\r\n          )}\r\n\r\n          <button\r\n            disabled={!value.trim()}\r\n            className=\"flex h-7 w-7 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-indigo-600 dark:hover:bg-indigo-400 transition-colors shadow-xs\"\r\n          >\r\n            <ArrowUp size={13} weight=\"bold\" />\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

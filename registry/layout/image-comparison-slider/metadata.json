@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-comparison-slider",
+  "type": "registry:ui",
+  "title": "Split Image Comparison Slider",
+  "description": "Interactive before-and-after split image comparison container with draggable center divider handle.",
+  "category": "layout",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/image-comparison-slider/image-comparison-slider.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/image-comparison-slider.tsx"
+    }
+  ]
+}

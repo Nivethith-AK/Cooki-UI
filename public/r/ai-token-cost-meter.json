@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-token-cost-meter",
+  "type": "registry:ui",
+  "title": "AI Token Cost & Context Meter",
+  "description": "Visual context window monitor tracking token consumption, context fill percentage, and calculated USD API invocation expense.",
+  "category": "ai",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-token-cost-meter/ai-token-cost-meter.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-token-cost-meter.tsx",
+      "content": "import React from 'react';\r\nimport { Coins, Cpu } from '@phosphor-icons/react';\r\n\r\nexport const AiTokenCostMeter: React.FC = () => {\r\n  const promptTokens = 4280;\r\n  const completionTokens = 910;\r\n  const totalTokens = promptTokens + completionTokens;\r\n  const maxContext = 128000;\r\n  const percentage = ((totalTokens / maxContext) * 100).toFixed(1);\r\n  const costUsd = ((promptTokens * 0.000003) + (completionTokens * 0.000015)).toFixed(4);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-sm mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 p-4 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 font-semibold\">\r\n          <Cpu size={14} className=\"text-cyan-400\" />\r\n          <span>Context Utilization</span>\r\n        </div>\r\n        <span className=\"text-[10px] text-zinc-500\">128K Window</span>\r\n      </div>\r\n\r\n      <div className=\"mt-3\">\r\n        <div className=\"flex justify-between text-[11px] mb-1\">\r\n          <span className=\"text-zinc-500\">{totalTokens.toLocaleString()} tokens</span>\r\n          <span className=\"font-bold text-indigo-500\">{percentage}%</span>\r\n        </div>\r\n        <div className=\"w-full h-2 rounded-full bg-zinc-100 dark:bg-white/10 overflow-hidden\">\r\n          <div\r\n            className=\"h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 rounded-full\"\r\n            style={{ width: `${Math.max(4, Number(percentage) * 5)}%` }}\r\n          />\r\n        </div>\r\n      </div>\r\n\r\n      <div className=\"mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between text-zinc-600 dark:text-zinc-400 text-[11px]\">\r\n        <div className=\"flex items-center gap-1 text-emerald-500\">\r\n          <Coins size={13} />\r\n          <span className=\"font-bold\">${costUsd} USD</span>\r\n        </div>\r\n        <span>P: {promptTokens} / C: {completionTokens}</span>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

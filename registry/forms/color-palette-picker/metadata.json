@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-palette-picker",
+  "type": "registry:ui",
+  "title": "Luminescent Color Palette Swatch",
+  "description": "Interactive hex color picker with preset neon palettes, live RGB hex badge, and clipboard copy confirmation.",
+  "category": "forms",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/color-palette-picker/color-palette-picker.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/color-palette-picker.tsx"
+    }
+  ]
+}

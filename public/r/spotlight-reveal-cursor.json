@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-reveal-cursor",
+  "type": "registry:ui",
+  "title": "Spotlight Mask Reveal Cursor",
+  "description": "Circular flashlight cursor mask revealing an illuminated technical circuit layer concealed beneath the dark surface.",
+  "category": "cursors",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/cursors/spotlight-reveal-cursor/spotlight-reveal-cursor.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spotlight-reveal-cursor.tsx",
+      "content": "import React, { useState, useRef } from 'react';\r\n\r\nexport const SpotlightRevealCursor: React.FC = () => {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [pos, setPos] = useState({ x: -200, y: -200 });\r\n  const [isInside, setIsInside] = useState(false);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    setPos({\r\n      x: e.clientX - rect.left,\r\n      y: e.clientY - rect.top,\r\n    });\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={() => setIsInside(true)}\r\n      onMouseLeave={() => setIsInside(false)}\r\n      className=\"relative w-full h-64 rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 flex items-center justify-center p-8 select-none\"\r\n    >\r\n      {/* Hidden Technical Layer */}\r\n      <div\r\n        className=\"absolute inset-0 p-8 flex flex-col justify-center items-center pointer-events-none transition-opacity duration-300\"\r\n        style={{\r\n          background: 'radial-gradient(ellipse at center, #1e1b4b 0%, #030712 100%)',\r\n          maskImage: isInside\r\n            ? `radial-gradient(circle 120px at ${pos.x}px ${pos.y}px, black 30%, transparent 100%)`\r\n            : 'none',\r\n          WebkitMaskImage: isInside\r\n            ? `radial-gradient(circle 120px at ${pos.x}px ${pos.y}px, black 30%, transparent 100%)`\r\n            : 'none',\r\n          opacity: isInside ? 1 : 0,\r\n        }}\r\n      >\r\n        <div className=\"font-mono text-cyan-400 text-sm font-bold tracking-widest uppercase\">\r\n          [ DECLASSIFIED KERNEL SPECIFICATION ]\r\n        </div>\r\n        <p className=\"mt-2 text-xs font-mono text-indigo-300 text-center max-w-sm\">\r\n          SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\r\n          <br />\r\n          Quantum Zero-Knowledge Cryptographic Channel Ready.\r\n        </p>\r\n      </div>\r\n\r\n      {/* Surface Masked Layer */}\r\n      <div className=\"z-10 text-center pointer-events-none\">\r\n        <span className=\"text-xs font-mono uppercase tracking-widest text-zinc-500\">\r\n          HOVER FLASHLIGHT TO REVEAL CIPHER\r\n        </span>\r\n        <h4 className=\"text-xl font-bold text-zinc-200 mt-1\">Concealed Cryptographic Buffer</h4>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "git-contribution-heatmap",
+  "type": "registry:ui",
+  "title": "Git Activity Contribution Heatmap",
+  "description": "GitHub-inspired commit calendar heatmap grid with 5 luminescent intensity levels, month labels, and live hover tooltips.",
+  "category": "data",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/data/git-contribution-heatmap/git-contribution-heatmap.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/git-contribution-heatmap.tsx"
+    }
+  ]
+}

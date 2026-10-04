@@ -1,6 +1,15 @@
 import React from 'react'
 
-export type ComponentCategory = 'components' | 'animations' | 'backgrounds' | 'sections'
+export type ComponentCategory = 
+  | 'components' 
+  | 'animations' 
+  | 'backgrounds' 
+  | 'sections'
+  | 'ai'
+  | 'cursors'
+  | 'forms'
+  | 'data'
+  | 'layout'
 
 export type Framework = 'React' | 'Next.js' | 'Vite' | 'TypeScript' | 'Tailwind CSS' | 'shadcn/ui' | 'Motion'
 

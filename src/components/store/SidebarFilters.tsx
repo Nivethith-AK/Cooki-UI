@@ -8,7 +8,13 @@ import {
   Heart, 
   X, 
   ArrowClockwise,
-  Check
+  Check,
+  Sparkle,
+  Cursor,
+  Rows,
+  Sliders,
+  Database,
+  Code
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { ComponentCategory, Framework } from '../../types/component'
@@ -29,11 +35,16 @@ export const SidebarFilters: React.FC = () => {
   } = useStore()
 
   const categories: { id: ComponentCategory | 'all'; label: string; icon: React.ReactNode }[] = [
-    { id: 'all', label: 'All Artifacts', icon: <SquaresFour size={16} /> },
-    { id: 'components', label: 'Components', icon: <Browsers size={16} /> },
-    { id: 'animations', label: 'Animations', icon: <Waveform size={16} /> },
-    { id: 'backgrounds', label: 'Backgrounds', icon: <PaintBrush size={16} /> },
-    { id: 'sections', label: 'UI Sections', icon: <SquaresFour size={16} /> },
+    { id: 'all', label: 'All Artifacts', icon: <SquaresFour size={15} /> },
+    { id: 'components', label: 'UI Components', icon: <Browsers size={15} /> },
+    { id: 'ai', label: 'AI & LLM Tools', icon: <Sparkle size={15} /> },
+    { id: 'cursors', label: 'Cursors & Pointer FX', icon: <Cursor size={15} /> },
+    { id: 'layout', label: 'Layout & Elements', icon: <Rows size={15} /> },
+    { id: 'forms', label: 'Forms & Inputs', icon: <Sliders size={15} /> },
+    { id: 'data', label: 'Data & Dashboards', icon: <Database size={15} /> },
+    { id: 'animations', label: 'Motion & 3D', icon: <Waveform size={15} /> },
+    { id: 'backgrounds', label: 'Shaders & Backgrounds', icon: <PaintBrush size={15} /> },
+    { id: 'sections', label: 'UI Sections', icon: <Code size={15} /> },
   ]
 
   const frameworks: (Framework | 'all')[] = [

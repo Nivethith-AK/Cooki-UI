@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-faq-group",
+  "type": "registry:ui",
+  "title": "Kinetic Spring Accordion",
+  "description": "Smooth physics-driven accordion stack with morphing plus/minus indicator, aria-expanded accessibility, and height interpolation.",
+  "category": "layout",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/accordion-faq-group/accordion-faq-group.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/accordion-faq-group.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Plus } from '@phosphor-icons/react';\r\n\r\nconst ITEMS = [\r\n  {\r\n    id: '1',\r\n    q: 'How does Cooki UI achieve zero-backend delivery?',\r\n    a: 'Components are compiled directly into static JSON registry artifacts deployed over Vercel Edge CDN without requiring database lookups.'\r\n  },\r\n  {\r\n    id: '2',\r\n    q: 'Can components be installed via shadcn CLI?',\r\n    a: 'Yes, every component complies with the official shadcn registry schema endpoint at https://cooki-ui.vercel.app/r/{slug}.json.'\r\n  },\r\n  {\r\n    id: '3',\r\n    q: 'Are these components compatible with React 19 and Next.js 15?',\r\n    a: 'Fully verified with modern React 19 Server Components and Tailwind CSS v4 styling.'\r\n  }\r\n];\r\n\r\nexport const AccordionFaqGroup: React.FC = () => {\r\n  const [openId, setOpenId] = useState<string | null>('1');\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto space-y-2.5\">\r\n      {ITEMS.map((item) => {\r\n        const isOpen = openId === item.id;\r\n        return (\r\n          <div\r\n            key={item.id}\r\n            className=\"rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/80 overflow-hidden backdrop-blur-md transition-colors\"\r\n          >\r\n            <button\r\n              onClick={() => setOpenId(isOpen ? null : item.id)}\r\n              className=\"w-full flex items-center justify-between p-4 text-left font-sans text-xs sm:text-sm font-semibold text-zinc-900 dark:text-zinc-100 cursor-pointer\"\r\n            >\r\n              <span>{item.q}</span>\r\n              <motion.div\r\n                animate={{ rotate: isOpen ? 45 : 0 }}\r\n                transition={{ duration: 0.2 }}\r\n                className=\"text-zinc-400 shrink-0 ml-2\"\r\n              >\r\n                <Plus size={14} weight=\"bold\" />\r\n              </motion.div>\r\n            </button>\r\n\r\n            <AnimatePresence>\r\n              {isOpen && (\r\n                <motion.div\r\n                  initial={{ height: 0, opacity: 0 }}\r\n                  animate={{ height: 'auto', opacity: 1 }}\r\n                  exit={{ height: 0, opacity: 0 }}\r\n                  transition={{ duration: 0.25, ease: 'easeInOut' }}\r\n                  className=\"overflow-hidden\"\r\n                >\r\n                  <p className=\"px-4 pb-4 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans border-t border-zinc-100 dark:border-white/5 pt-2\">\r\n                    {item.a}\r\n                  </p>\r\n                </motion.div>\r\n              )}\r\n            </AnimatePresence>\r\n          </div>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

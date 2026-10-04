@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-cursor-follower",
+  "type": "registry:ui",
+  "title": "Magnetic Cursor Follower",
+  "description": "Kinetic cursor follower with spring-lag physics that magnetically snaps to nearby interactive buttons within proximity threshold.",
+  "category": "cursors",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/cursors/magnetic-cursor-follower/magnetic-cursor-follower.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-cursor-follower.tsx",
+      "content": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion, useSpring, useMotionValue } from 'framer-motion';\r\n\r\nexport const MagneticCursorFollower: React.FC = () => {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [isHovered, setIsHovered] = useState(false);\r\n  const [activeTarget, setActiveTarget] = useState<string | null>(null);\r\n\r\n  const mouseX = useMotionValue(0);\r\n  const mouseY = useMotionValue(0);\r\n\r\n  const springConfig = { damping: 25, stiffness: 350 };\r\n  const cursorX = useSpring(mouseX, springConfig);\r\n  const cursorY = useSpring(mouseY, springConfig);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    mouseX.set(e.clientX - rect.left);\r\n    mouseY.set(e.clientY - rect.top);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => {\r\n        setIsHovered(false);\r\n        setActiveTarget(null);\r\n      }}\r\n      className=\"relative w-full h-64 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/10 flex flex-col items-center justify-center gap-4 cursor-none p-6 select-none\"\r\n    >\r\n      <span className=\"text-xs font-mono uppercase tracking-widest text-zinc-500\">\r\n        Move pointer over interactive elements\r\n      </span>\r\n\r\n      <div className=\"flex items-center gap-4 z-10\">\r\n        {['Deploy', 'Analyze', 'Terminal'].map((label) => (\r\n          <button\r\n            key={label}\r\n            onMouseEnter={() => setActiveTarget(label)}\r\n            onMouseLeave={() => setActiveTarget(null)}\r\n            className=\"px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-colors\"\r\n          >\r\n            {label}\r\n          </button>\r\n        ))}\r\n      </div>\r\n\r\n      {/* Spring Follower Cursor */}\r\n      {isHovered && (\r\n        <motion.div\r\n          style={{ x: cursorX, y: cursorY }}\r\n          className=\"pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-30\"\r\n        >\r\n          <motion.div\r\n            animate={{\r\n              scale: activeTarget ? 1.8 : 1,\r\n              borderColor: activeTarget ? 'rgba(99, 102, 241, 0.9)' : 'rgba(255, 255, 255, 0.5)',\r\n              backgroundColor: activeTarget ? 'rgba(99, 102, 241, 0.15)' : 'transparent',\r\n            }}\r\n            transition={{ type: 'spring', damping: 20, stiffness: 300 }}\r\n            className=\"w-8 h-8 rounded-full border-2 backdrop-blur-xs flex items-center justify-center\"\r\n          >\r\n            <div className=\"w-1.5 h-1.5 rounded-full bg-indigo-400\" />\r\n          </motion.div>\r\n        </motion.div>\r\n      )}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

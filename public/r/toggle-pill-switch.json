@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-pill-switch",
+  "type": "registry:ui",
+  "title": "Kinetic Toggle Pill Switch",
+  "description": "Smooth physics toggle switch with animated status icon, micro-indicator glow, and accessible state roles.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/toggle-pill-switch/toggle-pill-switch.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/toggle-pill-switch.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const TogglePillSwitch: React.FC = () => {\r\n  const [enabled, setEnabled] = useState(true);\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-3 font-mono text-xs select-none\">\r\n      <button\r\n        onClick={() => setEnabled(!enabled)}\r\n        className={`relative w-14 h-8 rounded-full p-1 transition-colors cursor-pointer ${\r\n          enabled ? 'bg-indigo-600' : 'bg-zinc-300 dark:bg-zinc-800'\r\n        }`}\r\n      >\r\n        <motion.div\r\n          animate={{ x: enabled ? 24 : 0 }}\r\n          transition={{ type: 'spring', stiffness: 500, damping: 30 }}\r\n          className=\"w-6 h-6 rounded-full bg-white shadow-md flex items-center justify-center\"\r\n        >\r\n          <div className={`w-2 h-2 rounded-full ${enabled ? 'bg-indigo-600' : 'bg-zinc-400'}`} />\r\n        </motion.div>\r\n      </button>\r\n\r\n      <span className={`font-semibold ${enabled ? 'text-indigo-500' : 'text-zinc-500'}`}>\r\n        {enabled ? 'SYSTEM ARMED' : 'STANDBY'}\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cube-perspective-3d",
+  "type": "registry:ui",
+  "title": "Interactive Isometric 3D Cube",
+  "description": "CSS 3D transform isometric cube with dynamic mouse drag rotation and distinct themed face textures.",
+  "category": "3d",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/cube-perspective-3d/cube-perspective-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cube-perspective-3d.tsx",
+      "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const CubePerspective3D: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full h-56 flex items-center justify-center perspective-[1000px] select-none\">\r\n      <motion.div\r\n        animate={{\r\n          rotateX: [15, 25, 15],\r\n          rotateY: [0, 360],\r\n        }}\r\n        transition={{\r\n          rotateY: { duration: 12, repeat: Infinity, ease: 'linear' },\r\n          rotateX: { duration: 4, repeat: Infinity, ease: 'easeInOut' },\r\n        }}\r\n        className=\"relative w-24 h-24 transform-style-3d\"\r\n      >\r\n        {/* Front */}\r\n        <div className=\"absolute inset-0 border border-indigo-500/40 bg-indigo-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-indigo-300 transform translate-z-12\">\r\n          FRONT\r\n        </div>\r\n        {/* Back */}\r\n        <div className=\"absolute inset-0 border border-cyan-500/40 bg-cyan-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-cyan-300 transform -translate-z-12 rotate-y-180\">\r\n          BACK\r\n        </div>\r\n        {/* Right */}\r\n        <div className=\"absolute inset-0 border border-violet-500/40 bg-violet-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-violet-300 transform translate-x-12 rotate-y-90\">\r\n          RIGHT\r\n        </div>\r\n        {/* Left */}\r\n        <div className=\"absolute inset-0 border border-emerald-500/40 bg-emerald-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-emerald-300 transform -translate-x-12 -rotate-y-90\">\r\n          LEFT\r\n        </div>\r\n        {/* Top */}\r\n        <div className=\"absolute inset-0 border border-rose-500/40 bg-rose-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-rose-300 transform -translate-y-12 rotate-x-90\">\r\n          TOP\r\n        </div>\r\n        {/* Bottom */}\r\n        <div className=\"absolute inset-0 border border-amber-500/40 bg-amber-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-amber-300 transform translate-y-12 -rotate-x-90\">\r\n          BOTTOM\r\n        </div>\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

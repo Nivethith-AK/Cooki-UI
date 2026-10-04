@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-faq-group",
+  "type": "registry:ui",
+  "title": "Kinetic Spring Accordion",
+  "description": "Smooth physics-driven accordion stack with morphing plus/minus indicator, aria-expanded accessibility, and height interpolation.",
+  "category": "layout",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/accordion-faq-group/accordion-faq-group.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/accordion-faq-group.tsx"
+    }
+  ]
+}

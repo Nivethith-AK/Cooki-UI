@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-token-cost-meter",
+  "type": "registry:ui",
+  "title": "AI Token Cost & Context Meter",
+  "description": "Visual context window monitor tracking token consumption, context fill percentage, and calculated USD API invocation expense.",
+  "category": "ai",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-token-cost-meter/ai-token-cost-meter.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-token-cost-meter.tsx"
+    }
+  ]
+}

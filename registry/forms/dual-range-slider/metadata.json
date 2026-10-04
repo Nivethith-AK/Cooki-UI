@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dual-range-slider",
+  "type": "registry:ui",
+  "title": "Precision Dual Range Slider",
+  "description": "Multi-handle min and max numerical range slider with gradient active span and dynamic floating value tooltips.",
+  "category": "forms",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/forms/dual-range-slider/dual-range-slider.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/dual-range-slider.tsx"
+    }
+  ]
+}

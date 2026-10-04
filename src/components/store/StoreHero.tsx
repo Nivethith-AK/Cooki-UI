@@ -8,7 +8,11 @@ import {
   Waveform, 
   Code, 
   SquaresFour,
-  Sparkle
+  Sparkle,
+  Cursor,
+  Rows,
+  Sliders,
+  Database
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { ComponentCategory } from '../../types/component'
@@ -28,11 +32,16 @@ export const StoreHero: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const categories: { id: ComponentCategory | 'all'; label: string; count: number; icon: React.ReactNode }[] = [
-    { id: 'all', label: 'All Artifacts', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={14} /> },
-    { id: 'components', label: 'Components', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'components').length, icon: <Browsers size={14} /> },
-    { id: 'animations', label: 'Motion & 3D', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'animations').length, icon: <Waveform size={14} /> },
-    { id: 'backgrounds', label: 'Backgrounds', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'backgrounds').length, icon: <PaintBrush size={14} /> },
-    { id: 'sections', label: 'UI Sections', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'sections').length, icon: <Code size={14} /> },
+    { id: 'all', label: 'All Artifacts', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={13} /> },
+    { id: 'components', label: 'Components', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'components').length, icon: <Browsers size={13} /> },
+    { id: 'ai', label: 'AI & LLM Tools', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'ai').length, icon: <Sparkle size={13} /> },
+    { id: 'cursors', label: 'Cursors', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'cursors').length, icon: <Cursor size={13} /> },
+    { id: 'layout', label: 'Layout', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'layout').length, icon: <Rows size={13} /> },
+    { id: 'forms', label: 'Forms', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'forms').length, icon: <Sliders size={13} /> },
+    { id: 'data', label: 'Data', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'data').length, icon: <Database size={13} /> },
+    { id: 'animations', label: 'Motion & 3D', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'animations').length, icon: <Waveform size={13} /> },
+    { id: 'backgrounds', label: 'Backgrounds', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'backgrounds').length, icon: <PaintBrush size={13} /> },
+    { id: 'sections', label: 'UI Sections', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'sections').length, icon: <Code size={13} /> },
   ]
 
   // Listen for '/' key to quickly focus the search bar

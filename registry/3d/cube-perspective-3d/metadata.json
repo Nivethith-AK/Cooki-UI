@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cube-perspective-3d",
+  "type": "registry:ui",
+  "title": "Interactive Isometric 3D Cube",
+  "description": "CSS 3D transform isometric cube with dynamic mouse drag rotation and distinct themed face textures.",
+  "category": "3d",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/cube-perspective-3d/cube-perspective-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cube-perspective-3d.tsx"
+    }
+  ]
+}

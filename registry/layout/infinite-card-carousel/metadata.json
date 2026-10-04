@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "infinite-card-carousel",
+  "type": "registry:ui",
+  "title": "3D Perspective Card Carousel",
+  "description": "Interactive card carousel cycling items with dynamic scale depth, touch/swipe navigation, and dot indicator sync.",
+  "category": "layout",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/infinite-card-carousel/infinite-card-carousel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/infinite-card-carousel.tsx"
+    }
+  ]
+}

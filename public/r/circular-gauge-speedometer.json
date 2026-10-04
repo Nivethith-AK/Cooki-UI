@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circular-gauge-speedometer",
+  "type": "registry:ui",
+  "title": "Precision Speedometer Radial Gauge",
+  "description": "Semicircular radial telemetry gauge with angular needle deflection, threshold gradient arc, and real-time numeric indicator.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/circular-gauge-speedometer/circular-gauge-speedometer.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/circular-gauge-speedometer.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { Gauge } from '@phosphor-icons/react';\r\n\r\nexport const CircularGaugeSpeedometer: React.FC = () => {\r\n  const [val, setVal] = useState(78);\r\n\r\n  // Map 0-100 to -90 to +90 degrees\r\n  const angle = (val / 100) * 180 - 90;\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xs mx-auto p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 shadow-lg backdrop-blur-md flex flex-col items-center font-mono\">\r\n      <div className=\"relative w-40 h-24 overflow-hidden flex items-end justify-center\">\r\n        {/* Arc Background */}\r\n        <div className=\"w-36 h-36 rounded-full border-[10px] border-zinc-200 dark:border-white/10 border-b-transparent border-l-transparent -rotate-45\" />\r\n\r\n        {/* Active Needle */}\r\n        <div\r\n          style={{ transform: `rotate(${angle}deg)` }}\r\n          className=\"absolute bottom-0 w-1.5 h-18 bg-indigo-500 rounded-full origin-bottom transition-transform duration-500 ease-out shadow-[0_0_8px_rgba(99,102,241,0.8)]\"\r\n        />\r\n\r\n        {/* Center Pivot */}\r\n        <div className=\"absolute bottom-0 w-4 h-4 rounded-full bg-white dark:bg-zinc-200 shadow\" />\r\n      </div>\r\n\r\n      <div className=\"mt-3 text-center\">\r\n        <span className=\"text-2xl font-bold text-zinc-900 dark:text-white\">{val}%</span>\r\n        <div className=\"text-[10px] text-zinc-500 uppercase tracking-widest mt-0.5\">Cluster Throughput</div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

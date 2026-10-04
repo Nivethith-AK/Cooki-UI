@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circular-gauge-speedometer",
+  "type": "registry:ui",
+  "title": "Precision Speedometer Radial Gauge",
+  "description": "Semicircular radial telemetry gauge with angular needle deflection, threshold gradient arc, and real-time numeric indicator.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/circular-gauge-speedometer/circular-gauge-speedometer.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/circular-gauge-speedometer.tsx"
+    }
+  ]
+}

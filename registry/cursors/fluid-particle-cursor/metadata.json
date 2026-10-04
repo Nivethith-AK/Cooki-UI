@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-particle-cursor",
+  "type": "registry:ui",
+  "title": "Fluid Particle Stardust Cursor",
+  "description": "Interactive stardust cursor trail emitting glowing fading chromatic particle motes that decay with physical drag and opacity dissipation.",
+  "category": "cursors",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/cursors/fluid-particle-cursor/fluid-particle-cursor.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-particle-cursor.tsx"
+    }
+  ]
+}

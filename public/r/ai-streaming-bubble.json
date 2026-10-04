@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-streaming-bubble",
+  "type": "registry:ui",
+  "title": "AI Streaming Message Bubble",
+  "description": "Simulated live streaming assistant bubble with glowing typing cursor, latency metrics, code snippet highlighter, and copy action.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-streaming-bubble/ai-streaming-bubble.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-streaming-bubble.tsx",
+      "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Copy, Check, ArrowClockwise, Sparkle } from '@phosphor-icons/react';\r\n\r\nconst FULL_TEXT = `import { MagneticDock } from '@/components/ui'\r\n\r\n// Instantiating zero-backend component\r\nexport default function Preview() {\r\n  return <MagneticDock maxScale={1.4} />\r\n}`;\r\n\r\nexport const AiStreamingBubble: React.FC = () => {\r\n  const [displayedText, setDisplayedText] = useState('');\r\n  const [isDone, setIsDone] = useState(false);\r\n  const [copied, setCopied] = useState(false);\r\n\r\n  const startStream = () => {\r\n    setDisplayedText('');\r\n    setIsDone(false);\r\n    let index = 0;\r\n    const interval = setInterval(() => {\r\n      index++;\r\n      setDisplayedText(FULL_TEXT.slice(0, index));\r\n      if (index >= FULL_TEXT.length) {\r\n        clearInterval(interval);\r\n        setIsDone(true);\r\n      }\r\n    }, 28);\r\n  };\r\n\r\n  useEffect(() => {\r\n    startStream();\r\n  }, []);\r\n\r\n  const handleCopy = () => {\r\n    navigator.clipboard.writeText(FULL_TEXT);\r\n    setCopied(true);\r\n    setTimeout(() => setCopied(false), 2000);\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 p-4 shadow-lg backdrop-blur-md\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-2\">\r\n          <div className=\"h-6 w-6 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400\">\r\n            <Sparkle size={13} weight=\"fill\" />\r\n          </div>\r\n          <span className=\"text-xs font-mono font-semibold text-zinc-900 dark:text-zinc-100\">\r\n            Assistant Stream\r\n          </span>\r\n          <span className=\"text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20\">\r\n            128 t/s\r\n          </span>\r\n        </div>\r\n\r\n        <div className=\"flex items-center gap-1\">\r\n          <button\r\n            onClick={startStream}\r\n            className=\"p-1 rounded text-zinc-400 hover:text-zinc-900 dark:hover:text-white\"\r\n            title=\"Replay stream\"\r\n          >\r\n            <ArrowClockwise size={13} />\r\n          </button>\r\n          <button\r\n            onClick={handleCopy}\r\n            className=\"p-1 rounded text-zinc-400 hover:text-zinc-900 dark:hover:text-white\"\r\n            title=\"Copy response\"\r\n          >\r\n            {copied ? <Check size={13} className=\"text-emerald-500\" /> : <Copy size={13} />}\r\n          </button>\r\n        </div>\r\n      </div>\r\n\r\n      <div className=\"mt-3 font-mono text-xs text-zinc-800 dark:text-zinc-200 whitespace-pre leading-relaxed bg-zinc-50 dark:bg-zinc-950/80 p-3 rounded-xl border border-zinc-200/50 dark:border-white/5\">\r\n        {displayedText}\r\n        {!isDone && (\r\n          <motion.span\r\n            animate={{ opacity: [1, 0, 1] }}\r\n            transition={{ repeat: Infinity, duration: 0.6 }}\r\n            className=\"inline-block w-2 h-4 bg-indigo-500 ml-0.5 align-middle\"\r\n          />\r\n        )}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

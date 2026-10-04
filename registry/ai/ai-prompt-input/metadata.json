@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-prompt-input",
+  "type": "registry:ui",
+  "title": "AI Prompt Studio Input",
+  "description": "Production LLM prompt container with auto-expanding textarea, model selector pill, token counter, attachment badge, and keyboard submit.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-prompt-input/ai-prompt-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-prompt-input.tsx"
+    }
+  ]
+}

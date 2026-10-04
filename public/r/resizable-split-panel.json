@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable-split-panel",
+  "type": "registry:ui",
+  "title": "Draggable Split Viewport Pane",
+  "description": "Interactive two-column split panel with draggable separator handle, percentage readout, and clamped boundary limits.",
+  "category": "layout",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/resizable-split-panel/resizable-split-panel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/resizable-split-panel.tsx",
+      "content": "import React, { useState, useRef } from 'react';\r\nimport { DotsThreeVertical } from '@phosphor-icons/react';\r\n\r\nexport const ResizableSplitPanel: React.FC = () => {\r\n  const [splitPos, setSplitPos] = useState(50);\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const isDragging = useRef(false);\r\n\r\n  const handleMouseDown = () => {\r\n    isDragging.current = true;\r\n    const handleMouseMove = (e: MouseEvent) => {\r\n      if (!isDragging.current || !containerRef.current) return;\r\n      const rect = containerRef.current.getBoundingClientRect();\r\n      const pct = ((e.clientX - rect.left) / rect.width) * 100;\r\n      setSplitPos(Math.min(80, Math.max(20, pct)));\r\n    };\r\n    const handleMouseUp = () => {\r\n      isDragging.current = false;\r\n      window.removeEventListener('mousemove', handleMouseMove);\r\n      window.removeEventListener('mouseup', handleMouseUp);\r\n    };\r\n    window.addEventListener('mousemove', handleMouseMove);\r\n    window.addEventListener('mouseup', handleMouseUp);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      className=\"relative w-full max-w-lg h-48 rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-950 overflow-hidden flex select-none font-mono text-xs\"\r\n    >\r\n      {/* Left Code View */}\r\n      <div\r\n        style={{ width: `${splitPos}%` }}\r\n        className=\"h-full bg-zinc-900/60 p-4 flex flex-col justify-between overflow-hidden\"\r\n      >\r\n        <span className=\"text-[10px] text-indigo-400 font-bold uppercase\">Code View ({Math.round(splitPos)}%)</span>\r\n        <div className=\"text-[11px] text-zinc-300 font-mono\">\r\n          const status = \"verified\";\r\n          <br />\r\n          render(&lt;Dock /&gt;);\r\n        </div>\r\n        <span className=\"text-[9px] text-zinc-600\">TypeScript 5.9</span>\r\n      </div>\r\n\r\n      {/* Drag Divider */}\r\n      <div\r\n        onMouseDown={handleMouseDown}\r\n        className=\"w-2.5 h-full bg-zinc-800 hover:bg-indigo-500 cursor-col-resize flex items-center justify-center transition-colors z-10 shrink-0\"\r\n      >\r\n        <DotsThreeVertical size={12} className=\"text-zinc-500\" />\r\n      </div>\r\n\r\n      {/* Right Canvas Preview */}\r\n      <div\r\n        style={{ width: `${100 - splitPos}%` }}\r\n        className=\"h-full bg-zinc-950 p-4 flex flex-col justify-between items-center text-center overflow-hidden\"\r\n      >\r\n        <span className=\"text-[10px] text-cyan-400 font-bold uppercase\">Live Canvas</span>\r\n        <div className=\"w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 shadow-lg\" />\r\n        <span className=\"text-[9px] text-zinc-600\">Interactive</span>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

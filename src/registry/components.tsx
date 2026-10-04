@@ -50,6 +50,28 @@ import { NoiseGrainOverlay } from '../components/library/effects/NoiseGrainOverl
 import { PricingComparisonBlock } from '../components/library/sections/PricingComparisonBlock'
 import { TestimonialMarqueeBlock } from '../components/library/sections/TestimonialMarqueeBlock'
 
+// 20 Diversified Core Additions (AI, Cursors, Layout, Forms, Data, 3D)
+import { MagneticCursorFollower } from '../components/library/cursors/MagneticCursorFollower'
+import { FluidParticleCursor } from '../components/library/cursors/FluidParticleCursor'
+import { SpotlightRevealCursor } from '../components/library/cursors/SpotlightRevealCursor'
+import { AiPromptInput } from '../components/library/ai/AiPromptInput'
+import { AiStreamingBubble } from '../components/library/ai/AiStreamingBubble'
+import { AiCodeDiffViewer } from '../components/library/ai/AiCodeDiffViewer'
+import { AiTokenCostMeter } from '../components/library/ai/AiTokenCostMeter'
+import { AccordionFaqGroup } from '../components/library/layout/AccordionFaqGroup'
+import { ResizableSplitPanel } from '../components/library/layout/ResizableSplitPanel'
+import { InfiniteCardCarousel } from '../components/library/layout/InfiniteCardCarousel'
+import { SegmentedControlSwitch } from '../components/library/layout/SegmentedControlSwitch'
+import { ImageComparisonSlider } from '../components/library/layout/ImageComparisonSlider'
+import { DualRangeSlider } from '../components/library/forms/DualRangeSlider'
+import { TogglePillSwitch } from '../components/library/forms/TogglePillSwitch'
+import { ColorPalettePicker } from '../components/library/forms/ColorPalettePicker'
+import { GitContributionHeatmap } from '../components/library/data/GitContributionHeatmap'
+import { CircularGaugeSpeedometer } from '../components/library/data/CircularGaugeSpeedometer'
+import { LiveTelemetryStatusGrid } from '../components/library/data/LiveTelemetryStatusGrid'
+import { CubePerspective3D } from '../components/library/3d/CubePerspective3D'
+import { ParticleVortexTunnel } from '../components/library/3d/ParticleVortexTunnel'
+
 // 26 Diverse Production Components
 import { OtpInput } from '../components/library/forms/OtpInput'
 import { AnimatedFloatingInput } from '../components/library/forms/AnimatedFloatingInput'
@@ -2405,6 +2427,627 @@ export default function ButtonDemo() {
         name: 'ScrambleText.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['scramble-text'] || ''
+      }
+    ]
+  },
+
+
+  // 71. Magnetic Cursor Follower
+  {
+    id: 'magnetic-cursor-follower',
+    name: 'Magnetic Cursor Follower',
+    slug: 'magnetic-cursor-follower',
+    category: 'cursors',
+    subcategory: 'Cursors & Pointer FX',
+    description: 'Kinetic cursor follower with spring-lag physics that magnetically snaps to nearby interactive buttons within proximity threshold.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'spring-physics'],
+    tags: ['cursor', 'magnetic', 'pointer', 'spring physics', 'mouse effect'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add magnetic-cursor-follower',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <MagneticCursorFollower />
+      </div>
+    ),
+    usage: `<MagneticCursorFollower />`,
+    files: [
+      {
+        name: 'MagneticCursorFollower.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['magnetic-cursor-follower'] || ''
+      }
+    ]
+  },
+
+  // 72. Fluid Particle Stardust Cursor
+  {
+    id: 'fluid-particle-cursor',
+    name: 'Fluid Particle Stardust Cursor',
+    slug: 'fluid-particle-cursor',
+    category: 'cursors',
+    subcategory: 'Cursors & Pointer FX',
+    description: 'Interactive stardust cursor trail emitting glowing fading chromatic particle motes that decay with physical drag and opacity dissipation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['html5-canvas', 'particles', 'drag-physics'],
+    tags: ['cursor', 'particles', 'canvas', 'trail', 'stardust', 'mouse effect'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add fluid-particle-cursor',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <FluidParticleCursor />
+      </div>
+    ),
+    usage: `<FluidParticleCursor />`,
+    files: [
+      {
+        name: 'FluidParticleCursor.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['fluid-particle-cursor'] || ''
+      }
+    ]
+  },
+
+  // 73. Spotlight Mask Reveal Cursor
+  {
+    id: 'spotlight-reveal-cursor',
+    name: 'Spotlight Mask Reveal Cursor',
+    slug: 'spotlight-reveal-cursor',
+    category: 'cursors',
+    subcategory: 'Cursors & Pointer FX',
+    description: 'Circular flashlight cursor mask revealing an illuminated technical circuit layer concealed beneath the dark surface.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['css-mask', 'spotlight'],
+    tags: ['cursor', 'mask', 'spotlight', 'reveal', 'flashlight'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add spotlight-reveal-cursor',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <SpotlightRevealCursor />
+      </div>
+    ),
+    usage: `<SpotlightRevealCursor />`,
+    files: [
+      {
+        name: 'SpotlightRevealCursor.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['spotlight-reveal-cursor'] || ''
+      }
+    ]
+  },
+
+  // 74. AI Prompt Studio Input
+  {
+    id: 'ai-prompt-input',
+    name: 'AI Prompt Studio Input',
+    slug: 'ai-prompt-input',
+    category: 'ai',
+    subcategory: 'AI UI & LLM Tools',
+    description: 'Production LLM prompt container with auto-expanding textarea, model selector pill, token counter, attachment badge, and keyboard submit.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwind-css', '@phosphor-icons/react'],
+    tags: ['ai', 'prompt', 'llm', 'input', 'chat', 'tokens'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-prompt-input',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <AiPromptInput />
+      </div>
+    ),
+    usage: `<AiPromptInput />`,
+    files: [
+      {
+        name: 'AiPromptInput.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-prompt-input'] || ''
+      }
+    ]
+  },
+
+  // 75. AI Streaming Message Bubble
+  {
+    id: 'ai-streaming-bubble',
+    name: 'AI Streaming Message Bubble',
+    slug: 'ai-streaming-bubble',
+    category: 'ai',
+    subcategory: 'AI UI & LLM Tools',
+    description: 'Simulated live streaming assistant bubble with glowing typing cursor, latency metrics, code snippet highlighter, and copy action.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['ai', 'streaming', 'chat', 'message', 'tokens', 'markdown'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-streaming-bubble',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <AiStreamingBubble />
+      </div>
+    ),
+    usage: `<AiStreamingBubble />`,
+    files: [
+      {
+        name: 'AiStreamingBubble.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-streaming-bubble'] || ''
+      }
+    ]
+  },
+
+  // 76. AI Code Diff Inspector
+  {
+    id: 'ai-code-diff-viewer',
+    name: 'AI Code Diff Inspector',
+    slug: 'ai-code-diff-viewer',
+    category: 'ai',
+    subcategory: 'AI UI & LLM Tools',
+    description: 'Developer diff comparison view displaying green additions and red deletions generated by automated AI coding agents.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['diff-view', '@phosphor-icons/react'],
+    tags: ['ai', 'diff', 'code', 'git', 'developer tools'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-code-diff-viewer',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <AiCodeDiffViewer />
+      </div>
+    ),
+    usage: `<AiCodeDiffViewer />`,
+    files: [
+      {
+        name: 'AiCodeDiffViewer.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-code-diff-viewer'] || ''
+      }
+    ]
+  },
+
+  // 77. AI Token Cost & Context Meter
+  {
+    id: 'ai-token-cost-meter',
+    name: 'AI Token Cost & Context Meter',
+    slug: 'ai-token-cost-meter',
+    category: 'ai',
+    subcategory: 'AI UI & LLM Tools',
+    description: 'Visual context window monitor tracking token consumption, context fill percentage, and calculated USD API invocation expense.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['telemetry', '@phosphor-icons/react'],
+    tags: ['ai', 'tokens', 'cost', 'telemetry', 'context window'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-token-cost-meter',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <AiTokenCostMeter />
+      </div>
+    ),
+    usage: `<AiTokenCostMeter />`,
+    files: [
+      {
+        name: 'AiTokenCostMeter.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-token-cost-meter'] || ''
+      }
+    ]
+  },
+
+  // 78. Kinetic Spring Accordion
+  {
+    id: 'accordion-faq-group',
+    name: 'Kinetic Spring Accordion',
+    slug: 'accordion-faq-group',
+    category: 'layout',
+    subcategory: 'Layout & UI Elements',
+    description: 'Smooth physics-driven accordion stack with morphing plus/minus indicator, aria-expanded accessibility, and height interpolation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['accordion', 'faq', 'collapse', 'spring', 'layout'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add accordion-faq-group',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <AccordionFaqGroup />
+      </div>
+    ),
+    usage: `<AccordionFaqGroup />`,
+    files: [
+      {
+        name: 'AccordionFaqGroup.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['accordion-faq-group'] || ''
+      }
+    ]
+  },
+
+  // 79. Draggable Split Viewport Pane
+  {
+    id: 'resizable-split-panel',
+    name: 'Draggable Split Viewport Pane',
+    slug: 'resizable-split-panel',
+    category: 'layout',
+    subcategory: 'Layout & UI Elements',
+    description: 'Interactive two-column split panel with draggable separator handle, percentage readout, and clamped boundary limits.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['drag-resize', '@phosphor-icons/react'],
+    tags: ['split panel', 'resizable', 'layout', 'divider', 'ide'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add resizable-split-panel',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <ResizableSplitPanel />
+      </div>
+    ),
+    usage: `<ResizableSplitPanel />`,
+    files: [
+      {
+        name: 'ResizableSplitPanel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['resizable-split-panel'] || ''
+      }
+    ]
+  },
+
+  // 80. 3D Perspective Card Carousel
+  {
+    id: 'infinite-card-carousel',
+    name: '3D Perspective Card Carousel',
+    slug: 'infinite-card-carousel',
+    category: 'layout',
+    subcategory: 'Layout & UI Elements',
+    description: 'Interactive card carousel cycling items with dynamic scale depth, touch/swipe navigation, and dot indicator sync.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['carousel', 'cards', '3d', 'slider', 'layout'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add infinite-card-carousel',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <InfiniteCardCarousel />
+      </div>
+    ),
+    usage: `<InfiniteCardCarousel />`,
+    files: [
+      {
+        name: 'InfiniteCardCarousel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['infinite-card-carousel'] || ''
+      }
+    ]
+  },
+
+  // 81. Apple-Style Segmented Control
+  {
+    id: 'segmented-control-switch',
+    name: 'Apple-Style Segmented Control',
+    slug: 'segmented-control-switch',
+    category: 'layout',
+    subcategory: 'Layout & UI Elements',
+    description: 'Fluid segmented tab switcher with gliding spring layout indicator and micro-haptic state feedback.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'layout-animation'],
+    tags: ['segmented control', 'tabs', 'switch', 'layout', 'apple'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add segmented-control-switch',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <SegmentedControlSwitch />
+      </div>
+    ),
+    usage: `<SegmentedControlSwitch />`,
+    files: [
+      {
+        name: 'SegmentedControlSwitch.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['segmented-control-switch'] || ''
+      }
+    ]
+  },
+
+  // 82. Split Image Comparison Slider
+  {
+    id: 'image-comparison-slider',
+    name: 'Split Image Comparison Slider',
+    slug: 'image-comparison-slider',
+    category: 'layout',
+    subcategory: 'Layout & UI Elements',
+    description: 'Interactive before-and-after split image comparison container with draggable center divider handle.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['clipping-path', '@phosphor-icons/react'],
+    tags: ['image', 'slider', 'comparison', 'split', 'layout'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add image-comparison-slider',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <ImageComparisonSlider />
+      </div>
+    ),
+    usage: `<ImageComparisonSlider />`,
+    files: [
+      {
+        name: 'ImageComparisonSlider.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['image-comparison-slider'] || ''
+      }
+    ]
+  },
+
+  // 83. Precision Dual Range Slider
+  {
+    id: 'dual-range-slider',
+    name: 'Precision Dual Range Slider',
+    slug: 'dual-range-slider',
+    category: 'forms',
+    subcategory: 'Forms & Inputs',
+    description: 'Multi-handle min and max numerical range slider with gradient active span and dynamic floating value tooltips.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['range-input', 'dual-slider'],
+    tags: ['slider', 'range', 'form', 'filter', 'price'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add dual-range-slider',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4">
+        <DualRangeSlider />
+      </div>
+    ),
+    usage: `<DualRangeSlider />`,
+    files: [
+      {
+        name: 'DualRangeSlider.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['dual-range-slider'] || ''
+      }
+    ]
+  },
+
+  // 84. Kinetic Toggle Pill Switch
+  {
+    id: 'toggle-pill-switch',
+    name: 'Kinetic Toggle Pill Switch',
+    slug: 'toggle-pill-switch',
+    category: 'forms',
+    subcategory: 'Forms & Inputs',
+    description: 'Smooth physics toggle switch with animated status icon, micro-indicator glow, and accessible state roles.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['toggle', 'switch', 'form', 'controls', 'pill'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add toggle-pill-switch',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <TogglePillSwitch />
+      </div>
+    ),
+    usage: `<TogglePillSwitch />`,
+    files: [
+      {
+        name: 'TogglePillSwitch.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['toggle-pill-switch'] || ''
+      }
+    ]
+  },
+
+  // 85. Luminescent Color Palette Swatch
+  {
+    id: 'color-palette-picker',
+    name: 'Luminescent Color Palette Swatch',
+    slug: 'color-palette-picker',
+    category: 'forms',
+    subcategory: 'Forms & Inputs',
+    description: 'Interactive hex color picker with preset neon palettes, live RGB hex badge, and clipboard copy confirmation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['color-picker', '@phosphor-icons/react'],
+    tags: ['color picker', 'swatch', 'palette', 'form'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add color-palette-picker',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4">
+        <ColorPalettePicker />
+      </div>
+    ),
+    usage: `<ColorPalettePicker />`,
+    files: [
+      {
+        name: 'ColorPalettePicker.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['color-palette-picker'] || ''
+      }
+    ]
+  },
+
+  // 86. Git Activity Contribution Heatmap
+  {
+    id: 'git-contribution-heatmap',
+    name: 'Git Activity Contribution Heatmap',
+    slug: 'git-contribution-heatmap',
+    category: 'data',
+    subcategory: 'Data Display',
+    description: 'GitHub-inspired commit calendar heatmap grid with 5 luminescent intensity levels, month labels, and live hover tooltips.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['heatmap-grid', 'activity-chart'],
+    tags: ['heatmap', 'git', 'contributions', 'data', 'github', 'chart'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add git-contribution-heatmap',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <GitContributionHeatmap />
+      </div>
+    ),
+    usage: `<GitContributionHeatmap />`,
+    files: [
+      {
+        name: 'GitContributionHeatmap.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['git-contribution-heatmap'] || ''
+      }
+    ]
+  },
+
+  // 87. Precision Speedometer Radial Gauge
+  {
+    id: 'circular-gauge-speedometer',
+    name: 'Precision Speedometer Radial Gauge',
+    slug: 'circular-gauge-speedometer',
+    category: 'data',
+    subcategory: 'Data Display',
+    description: 'Semicircular radial telemetry gauge with angular needle deflection, threshold gradient arc, and real-time numeric indicator.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['gauge-needle', '@phosphor-icons/react'],
+    tags: ['gauge', 'speedometer', 'data', 'metric', 'telemetry'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add circular-gauge-speedometer',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <CircularGaugeSpeedometer />
+      </div>
+    ),
+    usage: `<CircularGaugeSpeedometer />`,
+    files: [
+      {
+        name: 'CircularGaugeSpeedometer.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['circular-gauge-speedometer'] || ''
+      }
+    ]
+  },
+
+  // 88. Global Edge Telemetry Node Grid
+  {
+    id: 'live-telemetry-status-grid',
+    name: 'Global Edge Telemetry Node Grid',
+    slug: 'live-telemetry-status-grid',
+    category: 'data',
+    subcategory: 'Data Display',
+    description: 'Real-time edge cluster status dashboard displaying geographical regions, latency round-trip ping, and heartbeat health indicators.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['edge-grid', '@phosphor-icons/react'],
+    tags: ['telemetry', 'nodes', 'edge', 'status', 'dashboard', 'data'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add live-telemetry-status-grid',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-3">
+        <LiveTelemetryStatusGrid />
+      </div>
+    ),
+    usage: `<LiveTelemetryStatusGrid />`,
+    files: [
+      {
+        name: 'LiveTelemetryStatusGrid.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['live-telemetry-status-grid'] || ''
+      }
+    ]
+  },
+
+  // 89. Interactive Isometric 3D Cube
+  {
+    id: 'cube-perspective-3d',
+    name: 'Interactive Isometric 3D Cube',
+    slug: 'cube-perspective-3d',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'CSS 3D transform isometric cube with dynamic mouse drag rotation and distinct themed face textures.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['css-3d-transforms', 'framer-motion'],
+    tags: ['3d', 'cube', 'isometric', 'transform', 'interactive'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add cube-perspective-3d',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full">
+        <CubePerspective3D />
+      </div>
+    ),
+    usage: `<CubePerspective3D />`,
+    files: [
+      {
+        name: 'CubePerspective3D.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['cube-perspective-3d'] || ''
+      }
+    ]
+  },
+
+  // 90. Hypnotic Particle Vortex Tunnel
+  {
+    id: 'particle-vortex-tunnel',
+    name: 'Hypnotic Particle Vortex Tunnel',
+    slug: 'particle-vortex-tunnel',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'HTML5 Canvas warp-speed vortex tunnel accelerating star particles inward toward a deep gravity well.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['html5-canvas', 'warp-physics'],
+    tags: ['vortex', 'tunnel', 'canvas', 'particles', '3d', 'hypnotic'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add particle-vortex-tunnel',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <ParticleVortexTunnel />
+      </div>
+    ),
+    usage: `<ParticleVortexTunnel />`,
+    files: [
+      {
+        name: 'ParticleVortexTunnel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['particle-vortex-tunnel'] || ''
       }
     ]
   },

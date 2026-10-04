@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-streaming-bubble",
+  "type": "registry:ui",
+  "title": "AI Streaming Message Bubble",
+  "description": "Simulated live streaming assistant bubble with glowing typing cursor, latency metrics, code snippet highlighter, and copy action.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-streaming-bubble/ai-streaming-bubble.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-streaming-bubble.tsx"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "git-contribution-heatmap",
+  "type": "registry:ui",
+  "title": "Git Activity Contribution Heatmap",
+  "description": "GitHub-inspired commit calendar heatmap grid with 5 luminescent intensity levels, month labels, and live hover tooltips.",
+  "category": "data",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/data/git-contribution-heatmap/git-contribution-heatmap.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/git-contribution-heatmap.tsx",
+      "content": "import React, { useState } from 'react';\r\n\r\nexport const GitContributionHeatmap: React.FC = () => {\r\n  const [hoveredDay, setHoveredDay] = useState<{ week: number; day: number; count: number } | null>(null);\r\n\r\n  // Generate 20 weeks x 7 days\r\n  const weeks = 18;\r\n  const days = 7;\r\n\r\n  const getIntensity = (w: number, d: number) => {\r\n    const val = (w * 3 + d * 7) % 11;\r\n    if (val > 8) return 'bg-emerald-400 dark:bg-emerald-400';\r\n    if (val > 5) return 'bg-emerald-500/70 dark:bg-emerald-500/70';\r\n    if (val > 2) return 'bg-emerald-600/40 dark:bg-emerald-600/40';\r\n    return 'bg-zinc-200 dark:bg-white/10';\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between mb-3 text-[11px] text-zinc-500\">\r\n        <span>524 INVOCATIONS IN LAST 18 WEEKS</span>\r\n        {hoveredDay ? (\r\n          <span className=\"text-emerald-500 font-bold\">{hoveredDay.count} commits</span>\r\n        ) : (\r\n          <span>Hover cell</span>\r\n        )}\r\n      </div>\r\n\r\n      <div className=\"flex gap-1 overflow-x-auto pb-1\">\r\n        {Array.from({ length: weeks }).map((_, w) => (\r\n          <div key={w} className=\"flex flex-col gap-1\">\r\n            {Array.from({ length: days }).map((_, d) => (\r\n              <div\r\n                key={d}\r\n                onMouseEnter={() => setHoveredDay({ week: w, day: d, count: ((w + d * 2) % 9) + 1 })}\r\n                onMouseLeave={() => setHoveredDay(null)}\r\n                className={`w-3.5 h-3.5 rounded-xs transition-transform hover:scale-125 cursor-pointer ${getIntensity(w, d)}`}\r\n              />\r\n            ))}\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

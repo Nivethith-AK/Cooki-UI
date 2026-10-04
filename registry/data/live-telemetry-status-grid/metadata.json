@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "live-telemetry-status-grid",
+  "type": "registry:ui",
+  "title": "Global Edge Telemetry Node Grid",
+  "description": "Real-time edge cluster status dashboard displaying geographical regions, latency round-trip ping, and heartbeat health indicators.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/live-telemetry-status-grid/live-telemetry-status-grid.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/live-telemetry-status-grid.tsx"
+    }
+  ]
+}

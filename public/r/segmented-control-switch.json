@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "segmented-control-switch",
+  "type": "registry:ui",
+  "title": "Apple-Style Segmented Control",
+  "description": "Fluid segmented tab switcher with gliding spring layout indicator and micro-haptic state feedback.",
+  "category": "layout",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/segmented-control-switch/segmented-control-switch.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/segmented-control-switch.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nconst OPTIONS = ['Daily', 'Weekly', 'Monthly', 'Annual'];\r\n\r\nexport const SegmentedControlSwitch: React.FC = () => {\r\n  const [active, setActive] = useState('Monthly');\r\n\r\n  return (\r\n    <div className=\"flex items-center p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 font-mono text-xs\">\r\n      {OPTIONS.map((opt) => {\r\n        const isSelected = active === opt;\r\n        return (\r\n          <button\r\n            key={opt}\r\n            onClick={() => setActive(opt)}\r\n            className={`relative px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer ${\r\n              isSelected ? 'text-zinc-900 dark:text-white font-bold' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300'\r\n            }`}\r\n          >\r\n            {isSelected && (\r\n              <motion.div\r\n                layoutId=\"segmented-pill\"\r\n                className=\"absolute inset-0 rounded-lg bg-white dark:bg-zinc-800 shadow-xs border border-zinc-200/50 dark:border-white/10\"\r\n                transition={{ type: 'spring', stiffness: 450, damping: 30 }}\r\n              />\r\n            )}\r\n            <span className=\"relative z-10\">{opt}</span>\r\n          </button>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

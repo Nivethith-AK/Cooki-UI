@@ -40,6 +40,25 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "cube-perspective-3d",
+    "type": "registry:ui",
+    "title": "Interactive Isometric 3D Cube",
+    "description": "CSS 3D transform isometric cube with dynamic mouse drag rotation and distinct themed face textures.",
+    "category": "3d",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/3d/cube-perspective-3d/cube-perspective-3d.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/cube-perspective-3d.tsx",
+        "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const CubePerspective3D: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full h-56 flex items-center justify-center perspective-[1000px] select-none\">\r\n      <motion.div\r\n        animate={{\r\n          rotateX: [15, 25, 15],\r\n          rotateY: [0, 360],\r\n        }}\r\n        transition={{\r\n          rotateY: { duration: 12, repeat: Infinity, ease: 'linear' },\r\n          rotateX: { duration: 4, repeat: Infinity, ease: 'easeInOut' },\r\n        }}\r\n        className=\"relative w-24 h-24 transform-style-3d\"\r\n      >\r\n        {/* Front */}\r\n        <div className=\"absolute inset-0 border border-indigo-500/40 bg-indigo-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-indigo-300 transform translate-z-12\">\r\n          FRONT\r\n        </div>\r\n        {/* Back */}\r\n        <div className=\"absolute inset-0 border border-cyan-500/40 bg-cyan-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-cyan-300 transform -translate-z-12 rotate-y-180\">\r\n          BACK\r\n        </div>\r\n        {/* Right */}\r\n        <div className=\"absolute inset-0 border border-violet-500/40 bg-violet-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-violet-300 transform translate-x-12 rotate-y-90\">\r\n          RIGHT\r\n        </div>\r\n        {/* Left */}\r\n        <div className=\"absolute inset-0 border border-emerald-500/40 bg-emerald-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-emerald-300 transform -translate-x-12 -rotate-y-90\">\r\n          LEFT\r\n        </div>\r\n        {/* Top */}\r\n        <div className=\"absolute inset-0 border border-rose-500/40 bg-rose-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-rose-300 transform -translate-y-12 rotate-x-90\">\r\n          TOP\r\n        </div>\r\n        {/* Bottom */}\r\n        <div className=\"absolute inset-0 border border-amber-500/40 bg-amber-500/20 backdrop-blur-xs flex items-center justify-center font-mono text-[10px] text-amber-300 transform translate-y-12 -rotate-x-90\">\r\n          BOTTOM\r\n        </div>\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "hanging-id-card",
     "type": "registry:ui",
     "title": "Hanging ID Card",
@@ -60,6 +79,23 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "particle-vortex-tunnel",
+    "type": "registry:ui",
+    "title": "Hypnotic Particle Vortex Tunnel",
+    "description": "HTML5 Canvas warp-speed vortex tunnel accelerating star particles inward toward a deep gravity well.",
+    "category": "3d",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "registry/3d/particle-vortex-tunnel/particle-vortex-tunnel.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/particle-vortex-tunnel.tsx",
+        "content": "import React, { useRef, useEffect } from 'react';\r\n\r\nexport const ParticleVortexTunnel: React.FC = () => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n\r\n  useEffect(() => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    let animId: number;\r\n    const stars: { x: number; y: number; z: number }[] = [];\r\n    const count = 120;\r\n\r\n    for (let i = 0; i < count; i++) {\r\n      stars.push({\r\n        x: (Math.random() - 0.5) * 400,\r\n        y: (Math.random() - 0.5) * 400,\r\n        z: Math.random() * 400,\r\n      });\r\n    }\r\n\r\n    const render = () => {\r\n      ctx.fillStyle = 'rgba(5, 5, 8, 0.25)';\r\n      ctx.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n      const cx = canvas.width / 2;\r\n      const cy = canvas.height / 2;\r\n\r\n      for (let s of stars) {\r\n        s.z -= 2.2;\r\n        if (s.z <= 0) s.z = 400;\r\n\r\n        const k = 200 / s.z;\r\n        const px = s.x * k + cx;\r\n        const py = s.y * k + cy;\r\n\r\n        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {\r\n          const size = Math.max(0.8, (1 - s.z / 400) * 3);\r\n          const alpha = 1 - s.z / 400;\r\n\r\n          ctx.fillStyle = `rgba(129, 140, 248, ${alpha})`;\r\n          ctx.beginPath();\r\n          ctx.arc(px, py, size, 0, Math.PI * 2);\r\n          ctx.fill();\r\n        }\r\n      }\r\n\r\n      animId = requestAnimationFrame(render);\r\n    };\r\n\r\n    render();\r\n\r\n    return () => cancelAnimationFrame(animId);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"relative w-full h-56 rounded-2xl overflow-hidden bg-black border border-white/10 flex items-center justify-center\">\r\n      <canvas ref={canvasRef} width={400} height={224} className=\"w-full h-full\" />\r\n      <span className=\"absolute z-10 bottom-3 px-3 py-1 rounded-full bg-zinc-900/80 text-[10px] font-mono text-zinc-400 border border-white/10\">\r\n        WARP TUNNEL VELOCITY\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "plasma-globe",
     "type": "registry:ui",
     "title": "Plasma Globe",
@@ -72,6 +108,84 @@
         "type": "registry:ui",
         "target": "components/ui/plasma-globe.tsx",
         "content": "import React, { useRef, useEffect } from 'react';\r\n\r\nexport const PlasmaGlobe: React.FC = () => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n\r\n  useEffect(() => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    let animId: number;\r\n    let t = 0;\r\n\r\n    const render = () => {\r\n      t += 0.03;\r\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\r\n      const cx = canvas.width / 2;\r\n      const cy = canvas.height / 2;\r\n      const radius = 50;\r\n\r\n      const grad = ctx.createRadialGradient(cx, cy, 5, cx, cy, radius + 20);\r\n      grad.addColorStop(0, '#a855f7');\r\n      grad.addColorStop(0.4, '#6366f1');\r\n      grad.addColorStop(0.8, '#06b6d4');\r\n      grad.addColorStop(1, 'transparent');\r\n\r\n      ctx.fillStyle = grad;\r\n      ctx.beginPath();\r\n      ctx.arc(cx, cy, radius + 20, 0, Math.PI * 2);\r\n      ctx.fill();\r\n\r\n      for (let i = 0; i < 7; i++) {\r\n        const angle = (i * Math.PI * 2) / 7 + Math.sin(t + i) * 0.3;\r\n        const ex = cx + Math.cos(angle) * (radius + Math.sin(t * 2 + i) * 10);\r\n        const ey = cy + Math.sin(angle) * (radius + Math.cos(t * 2 + i) * 10);\r\n\r\n        ctx.strokeStyle = i % 2 === 0 ? '#38bdf8' : '#e879f9';\r\n        ctx.lineWidth = 1.5;\r\n        ctx.beginPath();\r\n        ctx.moveTo(cx, cy);\r\n        ctx.quadraticCurveTo(\r\n          cx + Math.cos(angle + 0.5) * 25,\r\n          cy + Math.sin(angle + 0.5) * 25,\r\n          ex,\r\n          ey\r\n        );\r\n        ctx.stroke();\r\n      }\r\n\r\n      animId = requestAnimationFrame(render);\r\n    };\r\n\r\n    render();\r\n    return () => cancelAnimationFrame(animId);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center justify-center p-3\">\r\n      <div className=\"relative rounded-full p-2 border border-white/20 bg-black/80 shadow-2xl\">\r\n        <canvas ref={canvasRef} width={160} height={160} className=\"rounded-full\" />\r\n      </div>\r\n      <span className=\"mt-2 text-[10px] font-mono text-zinc-500 uppercase tracking-widest\">\r\n        Parametric Plasma Orb\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ai-code-diff-viewer",
+    "type": "registry:ui",
+    "title": "AI Code Diff Inspector",
+    "description": "Developer diff comparison view displaying green additions and red deletions generated by automated AI coding agents.",
+    "category": "ai",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/ai/ai-code-diff-viewer/ai-code-diff-viewer.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-code-diff-viewer.tsx",
+        "content": "import React from 'react';\r\nimport { GitDiff, CheckCircle } from '@phosphor-icons/react';\r\n\r\nconst DIFF_LINES = [\r\n  { type: 'ctx', oldNum: 14, newNum: 14, text: \"export function configureTheme() {\" },\r\n  { type: 'del', oldNum: 15, newNum: null, text: \"-  const fallback = 'dark';\" },\r\n  { type: 'add', oldNum: null, newNum: 15, text: \"+  const fallback = window.matchMedia('(prefers-color-scheme: dark)');\" },\r\n  { type: 'add', oldNum: null, newNum: 16, text: \"+  document.documentElement.classList.toggle('dark', fallback.matches);\" },\r\n  { type: 'ctx', oldNum: 16, newNum: 17, text: \"   return { status: 'active' };\" },\r\n  { type: 'ctx', oldNum: 17, newNum: 18, text: \"}\" },\r\n];\r\n\r\nexport const AiCodeDiffViewer: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-950 font-mono text-xs overflow-hidden shadow-xl\">\r\n      <div className=\"flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-white/10 text-zinc-300\">\r\n        <div className=\"flex items-center gap-2\">\r\n          <GitDiff size={14} className=\"text-indigo-400\" />\r\n          <span className=\"text-[11px] font-semibold text-zinc-200\">ThemeContext.tsx</span>\r\n        </div>\r\n        <div className=\"flex items-center gap-2 text-[10px]\">\r\n          <span className=\"text-emerald-400 font-bold\">+2</span>\r\n          <span className=\"text-rose-400 font-bold\">-1</span>\r\n        </div>\r\n      </div>\r\n\r\n      <div className=\"p-2 space-y-0.5 overflow-x-auto text-[11px] leading-relaxed\">\r\n        {DIFF_LINES.map((line, idx) => {\r\n          const isAdd = line.type === 'add';\r\n          const isDel = line.type === 'del';\r\n\r\n          return (\r\n            <div\r\n              key={idx}\r\n              className={`flex items-center px-2 py-0.5 rounded ${\r\n                isAdd\r\n                  ? 'bg-emerald-500/15 text-emerald-300'\r\n                  : isDel\r\n                  ? 'bg-rose-500/15 text-rose-300'\r\n                  : 'text-zinc-400'\r\n              }`}\r\n            >\r\n              <span className=\"w-6 text-[10px] text-zinc-600 select-none\">{line.newNum || line.oldNum}</span>\r\n              <span className=\"whitespace-pre\">{line.text}</span>\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ai-prompt-input",
+    "type": "registry:ui",
+    "title": "AI Prompt Studio Input",
+    "description": "Production LLM prompt container with auto-expanding textarea, model selector pill, token counter, attachment badge, and keyboard submit.",
+    "category": "ai",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/ai/ai-prompt-input/ai-prompt-input.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-prompt-input.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { Paperclip, Sparkle, ArrowUp, Globe, CaretDown } from '@phosphor-icons/react';\r\n\r\nexport const AiPromptInput: React.FC = () => {\r\n  const [value, setValue] = useState('');\r\n  const [model, setModel] = useState('Claude 3.7 Sonnet');\r\n  const [webSearch, setWebSearch] = useState(false);\r\n\r\n  const tokenCount = Math.round(value.length / 3.8);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-lg mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/90 shadow-xl backdrop-blur-xl p-3.5 transition-all focus-within:border-indigo-500/50 focus-within:ring-2 focus-within:ring-indigo-500/20\">\r\n      <textarea\r\n        value={value}\r\n        onChange={(e) => setValue(e.target.value)}\r\n        placeholder=\"Ask anything or generate complex UI components...\"\r\n        rows={2}\r\n        className=\"w-full bg-transparent resize-none text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none font-sans\"\r\n      />\r\n\r\n      <div className=\"mt-3 flex items-center justify-between gap-2 pt-2 border-t border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-1.5 flex-wrap\">\r\n          {/* Model Selector Chip */}\r\n          <div className=\"flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-white/5\">\r\n            <Sparkle size={12} className=\"text-indigo-500\" />\r\n            <span>{model}</span>\r\n          </div>\r\n\r\n          {/* Web Search Toggle */}\r\n          <button\r\n            onClick={() => setWebSearch(!webSearch)}\r\n            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${\r\n              webSearch\r\n                ? 'bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'\r\n                : 'text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5'\r\n            }`}\r\n          >\r\n            <Globe size={12} />\r\n            <span className=\"hidden sm:inline\">Search</span>\r\n          </button>\r\n        </div>\r\n\r\n        <div className=\"flex items-center gap-2\">\r\n          {value.length > 0 && (\r\n            <span className=\"text-[10px] font-mono text-zinc-400\">\r\n              ~{tokenCount} tokens\r\n            </span>\r\n          )}\r\n\r\n          <button\r\n            disabled={!value.trim()}\r\n            className=\"flex h-7 w-7 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-indigo-600 dark:hover:bg-indigo-400 transition-colors shadow-xs\"\r\n          >\r\n            <ArrowUp size={13} weight=\"bold\" />\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ai-streaming-bubble",
+    "type": "registry:ui",
+    "title": "AI Streaming Message Bubble",
+    "description": "Simulated live streaming assistant bubble with glowing typing cursor, latency metrics, code snippet highlighter, and copy action.",
+    "category": "ai",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/ai/ai-streaming-bubble/ai-streaming-bubble.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-streaming-bubble.tsx",
+        "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Copy, Check, ArrowClockwise, Sparkle } from '@phosphor-icons/react';\r\n\r\nconst FULL_TEXT = `import { MagneticDock } from '@/components/ui'\r\n\r\n// Instantiating zero-backend component\r\nexport default function Preview() {\r\n  return <MagneticDock maxScale={1.4} />\r\n}`;\r\n\r\nexport const AiStreamingBubble: React.FC = () => {\r\n  const [displayedText, setDisplayedText] = useState('');\r\n  const [isDone, setIsDone] = useState(false);\r\n  const [copied, setCopied] = useState(false);\r\n\r\n  const startStream = () => {\r\n    setDisplayedText('');\r\n    setIsDone(false);\r\n    let index = 0;\r\n    const interval = setInterval(() => {\r\n      index++;\r\n      setDisplayedText(FULL_TEXT.slice(0, index));\r\n      if (index >= FULL_TEXT.length) {\r\n        clearInterval(interval);\r\n        setIsDone(true);\r\n      }\r\n    }, 28);\r\n  };\r\n\r\n  useEffect(() => {\r\n    startStream();\r\n  }, []);\r\n\r\n  const handleCopy = () => {\r\n    navigator.clipboard.writeText(FULL_TEXT);\r\n    setCopied(true);\r\n    setTimeout(() => setCopied(false), 2000);\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 p-4 shadow-lg backdrop-blur-md\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-2\">\r\n          <div className=\"h-6 w-6 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400\">\r\n            <Sparkle size={13} weight=\"fill\" />\r\n          </div>\r\n          <span className=\"text-xs font-mono font-semibold text-zinc-900 dark:text-zinc-100\">\r\n            Assistant Stream\r\n          </span>\r\n          <span className=\"text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20\">\r\n            128 t/s\r\n          </span>\r\n        </div>\r\n\r\n        <div className=\"flex items-center gap-1\">\r\n          <button\r\n            onClick={startStream}\r\n            className=\"p-1 rounded text-zinc-400 hover:text-zinc-900 dark:hover:text-white\"\r\n            title=\"Replay stream\"\r\n          >\r\n            <ArrowClockwise size={13} />\r\n          </button>\r\n          <button\r\n            onClick={handleCopy}\r\n            className=\"p-1 rounded text-zinc-400 hover:text-zinc-900 dark:hover:text-white\"\r\n            title=\"Copy response\"\r\n          >\r\n            {copied ? <Check size={13} className=\"text-emerald-500\" /> : <Copy size={13} />}\r\n          </button>\r\n        </div>\r\n      </div>\r\n\r\n      <div className=\"mt-3 font-mono text-xs text-zinc-800 dark:text-zinc-200 whitespace-pre leading-relaxed bg-zinc-50 dark:bg-zinc-950/80 p-3 rounded-xl border border-zinc-200/50 dark:border-white/5\">\r\n        {displayedText}\r\n        {!isDone && (\r\n          <motion.span\r\n            animate={{ opacity: [1, 0, 1] }}\r\n            transition={{ repeat: Infinity, duration: 0.6 }}\r\n            className=\"inline-block w-2 h-4 bg-indigo-500 ml-0.5 align-middle\"\r\n          />\r\n        )}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ai-token-cost-meter",
+    "type": "registry:ui",
+    "title": "AI Token Cost & Context Meter",
+    "description": "Visual context window monitor tracking token consumption, context fill percentage, and calculated USD API invocation expense.",
+    "category": "ai",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/ai/ai-token-cost-meter/ai-token-cost-meter.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-token-cost-meter.tsx",
+        "content": "import React from 'react';\r\nimport { Coins, Cpu } from '@phosphor-icons/react';\r\n\r\nexport const AiTokenCostMeter: React.FC = () => {\r\n  const promptTokens = 4280;\r\n  const completionTokens = 910;\r\n  const totalTokens = promptTokens + completionTokens;\r\n  const maxContext = 128000;\r\n  const percentage = ((totalTokens / maxContext) * 100).toFixed(1);\r\n  const costUsd = ((promptTokens * 0.000003) + (completionTokens * 0.000015)).toFixed(4);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-sm mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 p-4 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5\">\r\n        <div className=\"flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 font-semibold\">\r\n          <Cpu size={14} className=\"text-cyan-400\" />\r\n          <span>Context Utilization</span>\r\n        </div>\r\n        <span className=\"text-[10px] text-zinc-500\">128K Window</span>\r\n      </div>\r\n\r\n      <div className=\"mt-3\">\r\n        <div className=\"flex justify-between text-[11px] mb-1\">\r\n          <span className=\"text-zinc-500\">{totalTokens.toLocaleString()} tokens</span>\r\n          <span className=\"font-bold text-indigo-500\">{percentage}%</span>\r\n        </div>\r\n        <div className=\"w-full h-2 rounded-full bg-zinc-100 dark:bg-white/10 overflow-hidden\">\r\n          <div\r\n            className=\"h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 rounded-full\"\r\n            style={{ width: `${Math.max(4, Number(percentage) * 5)}%` }}\r\n          />\r\n        </div>\r\n      </div>\r\n\r\n      <div className=\"mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between text-zinc-600 dark:text-zinc-400 text-[11px]\">\r\n        <div className=\"flex items-center gap-1 text-emerald-500\">\r\n          <Coins size={13} />\r\n          <span className=\"font-bold\">${costUsd} USD</span>\r\n        </div>\r\n        <span>P: {promptTokens} / C: {completionTokens}</span>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
       }
     ]
   },
@@ -845,6 +959,59 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "fluid-particle-cursor",
+    "type": "registry:ui",
+    "title": "Fluid Particle Stardust Cursor",
+    "description": "Interactive stardust cursor trail emitting glowing fading chromatic particle motes that decay with physical drag and opacity dissipation.",
+    "category": "cursors",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "registry/cursors/fluid-particle-cursor/fluid-particle-cursor.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/fluid-particle-cursor.tsx",
+        "content": "import React, { useRef, useEffect } from 'react';\r\n\r\ninterface Particle {\r\n  x: number;\r\n  y: number;\r\n  vx: number;\r\n  vy: number;\r\n  size: number;\r\n  alpha: number;\r\n  color: string;\r\n}\r\n\r\nexport const FluidParticleCursor: React.FC = () => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n  const particlesRef = useRef<Particle[]>([]);\r\n  const lastPosRef = useRef<{ x: number; y: number } | null>(null);\r\n\r\n  useEffect(() => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    let animId: number;\r\n    const colors = ['#6366f1', '#38bdf8', '#a855f7', '#34d399', '#f43f5e'];\r\n\r\n    const render = () => {\r\n      ctx.clearRect(0, 0, canvas.width, canvas.height);\r\n\r\n      for (let i = particlesRef.current.length - 1; i >= 0; i--) {\r\n        const p = particlesRef.current[i];\r\n        p.x += p.vx;\r\n        p.y += p.vy;\r\n        p.alpha *= 0.94;\r\n        p.size *= 0.97;\r\n\r\n        if (p.alpha < 0.02 || p.size < 0.5) {\r\n          particlesRef.current.splice(i, 1);\r\n          continue;\r\n        }\r\n\r\n        ctx.save();\r\n        ctx.globalAlpha = p.alpha;\r\n        ctx.fillStyle = p.color;\r\n        ctx.shadowColor = p.color;\r\n        ctx.shadowBlur = 8;\r\n        ctx.beginPath();\r\n        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);\r\n        ctx.fill();\r\n        ctx.restore();\r\n      }\r\n\r\n      animId = requestAnimationFrame(render);\r\n    };\r\n\r\n    render();\r\n\r\n    return () => cancelAnimationFrame(animId);\r\n  }, []);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const rect = canvas.getBoundingClientRect();\r\n    const x = e.clientX - rect.left;\r\n    const y = e.clientY - rect.top;\r\n\r\n    const colors = ['#6366f1', '#38bdf8', '#a855f7', '#34d399', '#f43f5e'];\r\n\r\n    for (let i = 0; i < 3; i++) {\r\n      particlesRef.current.push({\r\n        x,\r\n        y,\r\n        vx: (Math.random() - 0.5) * 2.5,\r\n        vy: (Math.random() - 0.5) * 2.5,\r\n        size: Math.random() * 3.5 + 2,\r\n        alpha: 1,\r\n        color: colors[Math.floor(Math.random() * colors.length)],\r\n      });\r\n    }\r\n  };\r\n\r\n  return (\r\n    <div className=\"relative w-full h-64 rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 flex items-center justify-center\">\r\n      <div className=\"absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10\">\r\n        <span className=\"text-xs font-mono uppercase tracking-widest text-zinc-500\">\r\n          Move cursor to draw luminous stardust\r\n        </span>\r\n        <span className=\"text-[11px] font-mono text-zinc-600 mt-1\">Velocity Particle Dispersion</span>\r\n      </div>\r\n      <canvas\r\n        ref={canvasRef}\r\n        width={500}\r\n        height={256}\r\n        onMouseMove={handleMouseMove}\r\n        className=\"w-full h-full cursor-crosshair\"\r\n      />\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "magnetic-cursor-follower",
+    "type": "registry:ui",
+    "title": "Magnetic Cursor Follower",
+    "description": "Kinetic cursor follower with spring-lag physics that magnetically snaps to nearby interactive buttons within proximity threshold.",
+    "category": "cursors",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/cursors/magnetic-cursor-follower/magnetic-cursor-follower.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/magnetic-cursor-follower.tsx",
+        "content": "import React, { useState, useEffect, useRef } from 'react';\r\nimport { motion, useSpring, useMotionValue } from 'framer-motion';\r\n\r\nexport const MagneticCursorFollower: React.FC = () => {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [isHovered, setIsHovered] = useState(false);\r\n  const [activeTarget, setActiveTarget] = useState<string | null>(null);\r\n\r\n  const mouseX = useMotionValue(0);\r\n  const mouseY = useMotionValue(0);\r\n\r\n  const springConfig = { damping: 25, stiffness: 350 };\r\n  const cursorX = useSpring(mouseX, springConfig);\r\n  const cursorY = useSpring(mouseY, springConfig);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    mouseX.set(e.clientX - rect.left);\r\n    mouseY.set(e.clientY - rect.top);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => {\r\n        setIsHovered(false);\r\n        setActiveTarget(null);\r\n      }}\r\n      className=\"relative w-full h-64 rounded-2xl overflow-hidden bg-zinc-950/80 border border-white/10 flex flex-col items-center justify-center gap-4 cursor-none p-6 select-none\"\r\n    >\r\n      <span className=\"text-xs font-mono uppercase tracking-widest text-zinc-500\">\r\n        Move pointer over interactive elements\r\n      </span>\r\n\r\n      <div className=\"flex items-center gap-4 z-10\">\r\n        {['Deploy', 'Analyze', 'Terminal'].map((label) => (\r\n          <button\r\n            key={label}\r\n            onMouseEnter={() => setActiveTarget(label)}\r\n            onMouseLeave={() => setActiveTarget(null)}\r\n            className=\"px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-colors\"\r\n          >\r\n            {label}\r\n          </button>\r\n        ))}\r\n      </div>\r\n\r\n      {/* Spring Follower Cursor */}\r\n      {isHovered && (\r\n        <motion.div\r\n          style={{ x: cursorX, y: cursorY }}\r\n          className=\"pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-30\"\r\n        >\r\n          <motion.div\r\n            animate={{\r\n              scale: activeTarget ? 1.8 : 1,\r\n              borderColor: activeTarget ? 'rgba(99, 102, 241, 0.9)' : 'rgba(255, 255, 255, 0.5)',\r\n              backgroundColor: activeTarget ? 'rgba(99, 102, 241, 0.15)' : 'transparent',\r\n            }}\r\n            transition={{ type: 'spring', damping: 20, stiffness: 300 }}\r\n            className=\"w-8 h-8 rounded-full border-2 backdrop-blur-xs flex items-center justify-center\"\r\n          >\r\n            <div className=\"w-1.5 h-1.5 rounded-full bg-indigo-400\" />\r\n          </motion.div>\r\n        </motion.div>\r\n      )}\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "spotlight-reveal-cursor",
+    "type": "registry:ui",
+    "title": "Spotlight Mask Reveal Cursor",
+    "description": "Circular flashlight cursor mask revealing an illuminated technical circuit layer concealed beneath the dark surface.",
+    "category": "cursors",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "registry/cursors/spotlight-reveal-cursor/spotlight-reveal-cursor.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spotlight-reveal-cursor.tsx",
+        "content": "import React, { useState, useRef } from 'react';\r\n\r\nexport const SpotlightRevealCursor: React.FC = () => {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [pos, setPos] = useState({ x: -200, y: -200 });\r\n  const [isInside, setIsInside] = useState(false);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    setPos({\r\n      x: e.clientX - rect.left,\r\n      y: e.clientY - rect.top,\r\n    });\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={() => setIsInside(true)}\r\n      onMouseLeave={() => setIsInside(false)}\r\n      className=\"relative w-full h-64 rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 flex items-center justify-center p-8 select-none\"\r\n    >\r\n      {/* Hidden Technical Layer */}\r\n      <div\r\n        className=\"absolute inset-0 p-8 flex flex-col justify-center items-center pointer-events-none transition-opacity duration-300\"\r\n        style={{\r\n          background: 'radial-gradient(ellipse at center, #1e1b4b 0%, #030712 100%)',\r\n          maskImage: isInside\r\n            ? `radial-gradient(circle 120px at ${pos.x}px ${pos.y}px, black 30%, transparent 100%)`\r\n            : 'none',\r\n          WebkitMaskImage: isInside\r\n            ? `radial-gradient(circle 120px at ${pos.x}px ${pos.y}px, black 30%, transparent 100%)`\r\n            : 'none',\r\n          opacity: isInside ? 1 : 0,\r\n        }}\r\n      >\r\n        <div className=\"font-mono text-cyan-400 text-sm font-bold tracking-widest uppercase\">\r\n          [ DECLASSIFIED KERNEL SPECIFICATION ]\r\n        </div>\r\n        <p className=\"mt-2 text-xs font-mono text-indigo-300 text-center max-w-sm\">\r\n          SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\r\n          <br />\r\n          Quantum Zero-Knowledge Cryptographic Channel Ready.\r\n        </p>\r\n      </div>\r\n\r\n      {/* Surface Masked Layer */}\r\n      <div className=\"z-10 text-center pointer-events-none\">\r\n        <span className=\"text-xs font-mono uppercase tracking-widest text-zinc-500\">\r\n          HOVER FLASHLIGHT TO REVEAL CIPHER\r\n        </span>\r\n        <h4 className=\"text-xl font-bold text-zinc-200 mt-1\">Concealed Cryptographic Buffer</h4>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "activity-feed-stream",
     "type": "registry:ui",
     "title": "Activity Feed Stream",
@@ -865,6 +1032,25 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "circular-gauge-speedometer",
+    "type": "registry:ui",
+    "title": "Precision Speedometer Radial Gauge",
+    "description": "Semicircular radial telemetry gauge with angular needle deflection, threshold gradient arc, and real-time numeric indicator.",
+    "category": "data",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/data/circular-gauge-speedometer/circular-gauge-speedometer.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/circular-gauge-speedometer.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { Gauge } from '@phosphor-icons/react';\r\n\r\nexport const CircularGaugeSpeedometer: React.FC = () => {\r\n  const [val, setVal] = useState(78);\r\n\r\n  // Map 0-100 to -90 to +90 degrees\r\n  const angle = (val / 100) * 180 - 90;\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xs mx-auto p-5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 shadow-lg backdrop-blur-md flex flex-col items-center font-mono\">\r\n      <div className=\"relative w-40 h-24 overflow-hidden flex items-end justify-center\">\r\n        {/* Arc Background */}\r\n        <div className=\"w-36 h-36 rounded-full border-[10px] border-zinc-200 dark:border-white/10 border-b-transparent border-l-transparent -rotate-45\" />\r\n\r\n        {/* Active Needle */}\r\n        <div\r\n          style={{ transform: `rotate(${angle}deg)` }}\r\n          className=\"absolute bottom-0 w-1.5 h-18 bg-indigo-500 rounded-full origin-bottom transition-transform duration-500 ease-out shadow-[0_0_8px_rgba(99,102,241,0.8)]\"\r\n        />\r\n\r\n        {/* Center Pivot */}\r\n        <div className=\"absolute bottom-0 w-4 h-4 rounded-full bg-white dark:bg-zinc-200 shadow\" />\r\n      </div>\r\n\r\n      <div className=\"mt-3 text-center\">\r\n        <span className=\"text-2xl font-bold text-zinc-900 dark:text-white\">{val}%</span>\r\n        <div className=\"text-[10px] text-zinc-500 uppercase tracking-widest mt-0.5\">Cluster Throughput</div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "comparative-feature-table",
     "type": "registry:ui",
     "title": "Comparative Feature Table",
@@ -879,6 +1065,42 @@
         "type": "registry:ui",
         "target": "components/ui/comparative-feature-table.tsx",
         "content": "import React from 'react';\r\nimport { Check, X } from '@phosphor-icons/react';\r\n\r\nexport const ComparativeFeatureTable: React.FC = () => {\r\n  const rows = [\r\n    { name: '70+ Verified UI Components', starter: true, pro: true, enterprise: true },\r\n    { name: 'Framer Motion Spring Physics', starter: true, pro: true, enterprise: true },\r\n    { name: 'Interactive GLSL Shaders', starter: false, pro: true, enterprise: true },\r\n    { name: 'Zero-Lockin Source Ownership', starter: true, pro: true, enterprise: true },\r\n    { name: 'Dedicated SLAs & Audit Log', starter: false, pro: false, enterprise: true },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xl mx-auto rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 p-4 shadow-lg overflow-x-auto font-mono text-xs\">\r\n      <table className=\"w-full text-left border-collapse\">\r\n        <thead>\r\n          <tr className=\"border-b border-zinc-200 dark:border-white/10 text-[10px] text-zinc-500 uppercase\">\r\n            <th className=\"py-2.5 px-3\">CAPABILITY</th>\r\n            <th className=\"py-2.5 px-3 text-center\">STARTER</th>\r\n            <th className=\"py-2.5 px-3 text-center text-indigo-500 font-bold\">PRO STUDIO</th>\r\n            <th className=\"py-2.5 px-3 text-center\">ENTERPRISE</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody className=\"divide-y divide-zinc-200/60 dark:divide-white/5\">\r\n          {rows.map((r, i) => (\r\n            <tr key={i} className=\"hover:bg-zinc-50 dark:hover:bg-white/[0.02]\">\r\n              <td className=\"py-2.5 px-3 text-zinc-800 dark:text-zinc-200\">{r.name}</td>\r\n              <td className=\"py-2.5 px-3 text-center\">\r\n                {r.starter ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n              <td className=\"py-2.5 px-3 text-center bg-indigo-500/5\">\r\n                {r.pro ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n              <td className=\"py-2.5 px-3 text-center\">\r\n                {r.enterprise ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n            </tr>\r\n          ))}\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "git-contribution-heatmap",
+    "type": "registry:ui",
+    "title": "Git Activity Contribution Heatmap",
+    "description": "GitHub-inspired commit calendar heatmap grid with 5 luminescent intensity levels, month labels, and live hover tooltips.",
+    "category": "data",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "registry/data/git-contribution-heatmap/git-contribution-heatmap.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/git-contribution-heatmap.tsx",
+        "content": "import React, { useState } from 'react';\r\n\r\nexport const GitContributionHeatmap: React.FC = () => {\r\n  const [hoveredDay, setHoveredDay] = useState<{ week: number; day: number; count: number } | null>(null);\r\n\r\n  // Generate 20 weeks x 7 days\r\n  const weeks = 18;\r\n  const days = 7;\r\n\r\n  const getIntensity = (w: number, d: number) => {\r\n    const val = (w * 3 + d * 7) % 11;\r\n    if (val > 8) return 'bg-emerald-400 dark:bg-emerald-400';\r\n    if (val > 5) return 'bg-emerald-500/70 dark:bg-emerald-500/70';\r\n    if (val > 2) return 'bg-emerald-600/40 dark:bg-emerald-600/40';\r\n    return 'bg-zinc-200 dark:bg-white/10';\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/80 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between mb-3 text-[11px] text-zinc-500\">\r\n        <span>524 INVOCATIONS IN LAST 18 WEEKS</span>\r\n        {hoveredDay ? (\r\n          <span className=\"text-emerald-500 font-bold\">{hoveredDay.count} commits</span>\r\n        ) : (\r\n          <span>Hover cell</span>\r\n        )}\r\n      </div>\r\n\r\n      <div className=\"flex gap-1 overflow-x-auto pb-1\">\r\n        {Array.from({ length: weeks }).map((_, w) => (\r\n          <div key={w} className=\"flex flex-col gap-1\">\r\n            {Array.from({ length: days }).map((_, d) => (\r\n              <div\r\n                key={d}\r\n                onMouseEnter={() => setHoveredDay({ week: w, day: d, count: ((w + d * 2) % 9) + 1 })}\r\n                onMouseLeave={() => setHoveredDay(null)}\r\n                className={`w-3.5 h-3.5 rounded-xs transition-transform hover:scale-125 cursor-pointer ${getIntensity(w, d)}`}\r\n              />\r\n            ))}\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "live-telemetry-status-grid",
+    "type": "registry:ui",
+    "title": "Global Edge Telemetry Node Grid",
+    "description": "Real-time edge cluster status dashboard displaying geographical regions, latency round-trip ping, and heartbeat health indicators.",
+    "category": "data",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/data/live-telemetry-status-grid/live-telemetry-status-grid.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/live-telemetry-status-grid.tsx",
+        "content": "import React from 'react';\r\nimport { Globe } from '@phosphor-icons/react';\r\n\r\nconst NODES = [\r\n  { region: 'us-east-1 (N. Virginia)', ping: 12, status: 'operational' },\r\n  { region: 'eu-west-1 (Frankfurt)', ping: 24, status: 'operational' },\r\n  { region: 'ap-south-1 (Mumbai)', ping: 48, status: 'operational' },\r\n  { region: 'ap-northeast-1 (Tokyo)', ping: 31, status: 'operational' },\r\n];\r\n\r\nexport const LiveTelemetryStatusGrid: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5 text-[11px] text-zinc-500\">\r\n        <div className=\"flex items-center gap-1.5\">\r\n          <Globe size={13} className=\"text-cyan-400\" />\r\n          <span className=\"font-semibold text-zinc-800 dark:text-zinc-200\">Edge Network Health</span>\r\n        </div>\r\n        <span className=\"text-emerald-500 font-bold\">4/4 Nodes Healthy</span>\r\n      </div>\r\n\r\n      <div className=\"mt-3 space-y-2\">\r\n        {NODES.map((node) => (\r\n          <div\r\n            key={node.region}\r\n            className=\"flex items-center justify-between p-2 rounded-xl bg-zinc-50 dark:bg-zinc-950/50 border border-zinc-100 dark:border-white/5\"\r\n          >\r\n            <div className=\"flex items-center gap-2\">\r\n              <span className=\"h-2 w-2 rounded-full bg-emerald-400 animate-pulse\" />\r\n              <span className=\"text-[11px] text-zinc-700 dark:text-zinc-300 font-medium\">{node.region}</span>\r\n            </div>\r\n            <span className=\"text-[10px] text-zinc-500\">{node.ping}ms RTT</span>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
       }
     ]
   },
@@ -1157,6 +1379,25 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "color-palette-picker",
+    "type": "registry:ui",
+    "title": "Luminescent Color Palette Swatch",
+    "description": "Interactive hex color picker with preset neon palettes, live RGB hex badge, and clipboard copy confirmation.",
+    "category": "forms",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/forms/color-palette-picker/color-palette-picker.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/color-palette-picker.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { Check, Copy } from '@phosphor-icons/react';\r\n\r\nconst PRESETS = [\r\n  { name: 'Indigo Pulse', hex: '#6366f1' },\r\n  { name: 'Cyan Glow', hex: '#06b6d4' },\r\n  { name: 'Emerald Spark', hex: '#10b981' },\r\n  { name: 'Amber Sun', hex: '#f59e0b' },\r\n  { name: 'Rose Neon', hex: '#f43f5e' },\r\n];\r\n\r\nexport const ColorPalettePicker: React.FC = () => {\r\n  const [selected, setSelected] = useState(PRESETS[0]);\r\n  const [copied, setCopied] = useState(false);\r\n\r\n  const handleCopy = () => {\r\n    navigator.clipboard.writeText(selected.hex);\r\n    setCopied(true);\r\n    setTimeout(() => setCopied(false), 2000);\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xs mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between mb-3\">\r\n        <span className=\"text-zinc-500 text-[11px] uppercase\">Active Hue</span>\r\n        <button\r\n          onClick={handleCopy}\r\n          className=\"flex items-center gap-1 text-[11px] font-bold text-zinc-700 dark:text-zinc-200 hover:text-indigo-500 cursor-pointer\"\r\n        >\r\n          <span>{selected.hex}</span>\r\n          {copied ? <Check size={11} className=\"text-emerald-500\" /> : <Copy size={11} />}\r\n        </button>\r\n      </div>\r\n\r\n      <div className=\"flex items-center justify-between gap-2\">\r\n        {PRESETS.map((p) => {\r\n          const isSelected = selected.hex === p.hex;\r\n          return (\r\n            <button\r\n              key={p.hex}\r\n              onClick={() => setSelected(p)}\r\n              style={{ backgroundColor: p.hex }}\r\n              className={`w-9 h-9 rounded-xl transition-transform cursor-pointer shadow-sm ${\r\n                isSelected ? 'scale-110 ring-2 ring-white ring-offset-2 ring-offset-zinc-900' : 'hover:scale-105 opacity-80 hover:opacity-100'\r\n              }`}\r\n            />\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "drag-drop-file-upload",
     "type": "registry:ui",
     "title": "Drag & Drop File Upload",
@@ -1172,6 +1413,23 @@
         "type": "registry:ui",
         "target": "components/ui/drag-drop-file-upload.tsx",
         "content": "import React, { useState, useRef } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { CloudArrowUp, File, Check, Trash } from '@phosphor-icons/react';\r\n\r\nexport interface FileItem {\r\n  id: string;\r\n  name: string;\r\n  size: string;\r\n  progress: number;\r\n}\r\n\r\nexport const DragDropFileUpload: React.FC = () => {\r\n  const [isDragging, setIsDragging] = useState(false);\r\n  const [files, setFiles] = useState<FileItem[]>([\r\n    { id: '1', name: 'schema-kernel-v2.json', size: '24.8 KB', progress: 100 },\r\n  ]);\r\n  const inputRef = useRef<HTMLInputElement>(null);\r\n\r\n  const handleDrag = (e: React.DragEvent) => {\r\n    e.preventDefault();\r\n    e.stopPropagation();\r\n    if (e.type === 'dragenter' || e.type === 'dragover') setIsDragging(true);\r\n    else if (e.type === 'dragleave') setIsDragging(false);\r\n  };\r\n\r\n  const handleDrop = (e: React.DragEvent) => {\r\n    e.preventDefault();\r\n    e.stopPropagation();\r\n    setIsDragging(false);\r\n    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {\r\n      addFiles(Array.from(e.dataTransfer.files));\r\n    }\r\n  };\r\n\r\n  const addFiles = (newFiles: globalThis.File[]) => {\r\n    const items: FileItem[] = newFiles.map((f) => ({\r\n      id: Math.random().toString(36).substring(7),\r\n      name: f.name,\r\n      size: (f.size / 1024).toFixed(1) + ' KB',\r\n      progress: 100,\r\n    }));\r\n    setFiles((prev) => [...prev, ...items]);\r\n  };\r\n\r\n  const removeFile = (id: string) => {\r\n    setFiles((prev) => prev.filter((f) => f.id !== id));\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto space-y-4\">\r\n      <div\r\n        onDragEnter={handleDrag}\r\n        onDragLeave={handleDrag}\r\n        onDragOver={handleDrag}\r\n        onDrop={handleDrop}\r\n        onClick={() => inputRef.current?.click()}\r\n        className={`relative flex flex-col items-center justify-center p-8 rounded-3xl border-2 border-dashed transition-all cursor-pointer ${\r\n          isDragging\r\n            ? 'border-indigo-500 bg-indigo-500/10 scale-[1.01]'\r\n            : 'border-zinc-300 dark:border-white/15 bg-zinc-50 dark:bg-zinc-900/40 hover:border-indigo-400 dark:hover:border-white/30'\r\n        }`}\r\n      >\r\n        <input\r\n          ref={inputRef}\r\n          type=\"file\"\r\n          multiple\r\n          className=\"hidden\"\r\n          onChange={(e) => {\r\n            if (e.target.files) addFiles(Array.from(e.target.files));\r\n          }}\r\n        />\r\n        <div className=\"flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 mb-3 border border-indigo-500/20 shadow-inner\">\r\n          <CloudArrowUp size={24} weight=\"duotone\" />\r\n        </div>\r\n        <p className=\"text-xs font-semibold text-zinc-900 dark:text-white\">\r\n          Drop component artifacts or <span className=\"text-indigo-500 dark:text-indigo-400\">browse</span>\r\n        </p>\r\n        <p className=\"text-[10px] text-zinc-500 font-mono mt-1\">Accepts .TSX, .JSON, .MD, .CSS up to 10MB</p>\r\n      </div>\r\n\r\n      <AnimatePresence>\r\n        {files.length > 0 && (\r\n          <div className=\"space-y-2\">\r\n            {files.map((file) => (\r\n              <motion.div\r\n                key={file.id}\r\n                initial={{ opacity: 0, height: 0 }}\r\n                animate={{ opacity: 1, height: 'auto' }}\r\n                exit={{ opacity: 0, height: 0 }}\r\n                className=\"flex items-center justify-between p-3 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/60 shadow-xs\"\r\n              >\r\n                <div className=\"flex items-center gap-2.5 truncate\">\r\n                  <File size={16} className=\"text-zinc-400 shrink-0\" />\r\n                  <div className=\"truncate\">\r\n                    <p className=\"text-xs font-mono font-medium text-zinc-900 dark:text-white truncate\">{file.name}</p>\r\n                    <p className=\"text-[10px] font-mono text-zinc-500\">{file.size}</p>\r\n                  </div>\r\n                </div>\r\n                <div className=\"flex items-center gap-2\">\r\n                  <span className=\"flex items-center gap-1 text-[10px] font-mono text-emerald-500 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20\">\r\n                    <Check size={11} weight=\"bold\" /> Ready\r\n                  </span>\r\n                  <button\r\n                    onClick={(e) => {\r\n                      e.stopPropagation();\r\n                      removeFile(file.id);\r\n                    }}\r\n                    className=\"text-zinc-400 hover:text-rose-500 p-1 rounded-full transition-colors cursor-pointer\"\r\n                  >\r\n                    <Trash size={13} />\r\n                  </button>\r\n                </div>\r\n              </motion.div>\r\n            ))}\r\n          </div>\r\n        )}\r\n      </AnimatePresence>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "dual-range-slider",
+    "type": "registry:ui",
+    "title": "Precision Dual Range Slider",
+    "description": "Multi-handle min and max numerical range slider with gradient active span and dynamic floating value tooltips.",
+    "category": "forms",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "registry/forms/dual-range-slider/dual-range-slider.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dual-range-slider.tsx",
+        "content": "import React, { useState } from 'react';\r\n\r\nexport const DualRangeSlider: React.FC = () => {\r\n  const [minVal, setMinVal] = useState(24);\r\n  const [maxVal, setMaxVal] = useState(82);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-sm mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex justify-between items-center mb-4\">\r\n        <span className=\"text-zinc-500 uppercase tracking-wider text-[11px]\">Latency Threshold</span>\r\n        <span className=\"font-bold text-indigo-500\">{minVal}ms – {maxVal}ms</span>\r\n      </div>\r\n\r\n      <div className=\"relative w-full h-8 flex items-center\">\r\n        {/* Track Base */}\r\n        <div className=\"absolute w-full h-2 rounded-full bg-zinc-200 dark:bg-zinc-800\" />\r\n\r\n        {/* Highlight Span */}\r\n        <div\r\n          className=\"absolute h-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400\"\r\n          style={{\r\n            left: `${minVal}%`,\r\n            width: `${Math.max(0, maxVal - minVal)}%`,\r\n          }}\r\n        />\r\n\r\n        {/* Dual Input Controls */}\r\n        <input\r\n          type=\"range\"\r\n          min=\"0\"\r\n          max=\"100\"\r\n          value={minVal}\r\n          onChange={(e) => setMinVal(Math.min(Number(e.target.value), maxVal - 5))}\r\n          className=\"absolute w-full appearance-none bg-transparent pointer-events-auto cursor-pointer accent-indigo-600\"\r\n        />\r\n        <input\r\n          type=\"range\"\r\n          min=\"0\"\r\n          max=\"100\"\r\n          value={maxVal}\r\n          onChange={(e) => setMaxVal(Math.max(Number(e.target.value), minVal + 5))}\r\n          className=\"absolute w-full appearance-none bg-transparent pointer-events-auto cursor-pointer accent-cyan-400\"\r\n        />\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
       }
     ]
   },
@@ -1284,6 +1542,122 @@
       "react",
       "nextjs",
       "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "toggle-pill-switch",
+    "type": "registry:ui",
+    "title": "Kinetic Toggle Pill Switch",
+    "description": "Smooth physics toggle switch with animated status icon, micro-indicator glow, and accessible state roles.",
+    "category": "forms",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/forms/toggle-pill-switch/toggle-pill-switch.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/toggle-pill-switch.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const TogglePillSwitch: React.FC = () => {\r\n  const [enabled, setEnabled] = useState(true);\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-3 font-mono text-xs select-none\">\r\n      <button\r\n        onClick={() => setEnabled(!enabled)}\r\n        className={`relative w-14 h-8 rounded-full p-1 transition-colors cursor-pointer ${\r\n          enabled ? 'bg-indigo-600' : 'bg-zinc-300 dark:bg-zinc-800'\r\n        }`}\r\n      >\r\n        <motion.div\r\n          animate={{ x: enabled ? 24 : 0 }}\r\n          transition={{ type: 'spring', stiffness: 500, damping: 30 }}\r\n          className=\"w-6 h-6 rounded-full bg-white shadow-md flex items-center justify-center\"\r\n        >\r\n          <div className={`w-2 h-2 rounded-full ${enabled ? 'bg-indigo-600' : 'bg-zinc-400'}`} />\r\n        </motion.div>\r\n      </button>\r\n\r\n      <span className={`font-semibold ${enabled ? 'text-indigo-500' : 'text-zinc-500'}`}>\r\n        {enabled ? 'SYSTEM ARMED' : 'STANDBY'}\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "accordion-faq-group",
+    "type": "registry:ui",
+    "title": "Kinetic Spring Accordion",
+    "description": "Smooth physics-driven accordion stack with morphing plus/minus indicator, aria-expanded accessibility, and height interpolation.",
+    "category": "layout",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/accordion-faq-group/accordion-faq-group.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/accordion-faq-group.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Plus } from '@phosphor-icons/react';\r\n\r\nconst ITEMS = [\r\n  {\r\n    id: '1',\r\n    q: 'How does Cooki UI achieve zero-backend delivery?',\r\n    a: 'Components are compiled directly into static JSON registry artifacts deployed over Vercel Edge CDN without requiring database lookups.'\r\n  },\r\n  {\r\n    id: '2',\r\n    q: 'Can components be installed via shadcn CLI?',\r\n    a: 'Yes, every component complies with the official shadcn registry schema endpoint at https://cooki-ui.vercel.app/r/{slug}.json.'\r\n  },\r\n  {\r\n    id: '3',\r\n    q: 'Are these components compatible with React 19 and Next.js 15?',\r\n    a: 'Fully verified with modern React 19 Server Components and Tailwind CSS v4 styling.'\r\n  }\r\n];\r\n\r\nexport const AccordionFaqGroup: React.FC = () => {\r\n  const [openId, setOpenId] = useState<string | null>('1');\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto space-y-2.5\">\r\n      {ITEMS.map((item) => {\r\n        const isOpen = openId === item.id;\r\n        return (\r\n          <div\r\n            key={item.id}\r\n            className=\"rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/80 overflow-hidden backdrop-blur-md transition-colors\"\r\n          >\r\n            <button\r\n              onClick={() => setOpenId(isOpen ? null : item.id)}\r\n              className=\"w-full flex items-center justify-between p-4 text-left font-sans text-xs sm:text-sm font-semibold text-zinc-900 dark:text-zinc-100 cursor-pointer\"\r\n            >\r\n              <span>{item.q}</span>\r\n              <motion.div\r\n                animate={{ rotate: isOpen ? 45 : 0 }}\r\n                transition={{ duration: 0.2 }}\r\n                className=\"text-zinc-400 shrink-0 ml-2\"\r\n              >\r\n                <Plus size={14} weight=\"bold\" />\r\n              </motion.div>\r\n            </button>\r\n\r\n            <AnimatePresence>\r\n              {isOpen && (\r\n                <motion.div\r\n                  initial={{ height: 0, opacity: 0 }}\r\n                  animate={{ height: 'auto', opacity: 1 }}\r\n                  exit={{ height: 0, opacity: 0 }}\r\n                  transition={{ duration: 0.25, ease: 'easeInOut' }}\r\n                  className=\"overflow-hidden\"\r\n                >\r\n                  <p className=\"px-4 pb-4 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans border-t border-zinc-100 dark:border-white/5 pt-2\">\r\n                    {item.a}\r\n                  </p>\r\n                </motion.div>\r\n              )}\r\n            </AnimatePresence>\r\n          </div>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "image-comparison-slider",
+    "type": "registry:ui",
+    "title": "Split Image Comparison Slider",
+    "description": "Interactive before-and-after split image comparison container with draggable center divider handle.",
+    "category": "layout",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/image-comparison-slider/image-comparison-slider.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/image-comparison-slider.tsx",
+        "content": "import React, { useState, useRef } from 'react';\r\nimport { ArrowsLeftRight } from '@phosphor-icons/react';\r\n\r\nexport const ImageComparisonSlider: React.FC = () => {\r\n  const [sliderPos, setSliderPos] = useState(50);\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n\r\n  const handleMove = (clientX: number) => {\r\n    if (!containerRef.current) return;\r\n    const rect = containerRef.current.getBoundingClientRect();\r\n    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));\r\n    setSliderPos((x / rect.width) * 100);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      onMouseMove={(e) => e.buttons === 1 && handleMove(e.clientX)}\r\n      onTouchMove={(e) => handleMove(e.touches[0].clientX)}\r\n      className=\"relative w-full max-w-md h-48 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 select-none cursor-ew-resize\"\r\n    >\r\n      {/* Background (After / Wireframe) */}\r\n      <div className=\"absolute inset-0 bg-zinc-900 flex items-center justify-center\">\r\n        <div className=\"text-center font-mono text-zinc-500\">\r\n          <span className=\"text-xs uppercase tracking-widest text-indigo-400 font-bold\">AFTER (OPTIMIZED)</span>\r\n          <p className=\"text-[11px] mt-1 text-zinc-400\">Zero JS Payload • 60 FPS Canvas WebGL</p>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Foreground (Before / Legacy) with clipPath */}\r\n      <div\r\n        className=\"absolute inset-0 bg-indigo-950 flex items-center justify-center\"\r\n        style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}\r\n      >\r\n        <div className=\"text-center font-mono text-white\">\r\n          <span className=\"text-xs uppercase tracking-widest text-cyan-300 font-bold\">BEFORE (LEGACY)</span>\r\n          <p className=\"text-[11px] mt-1 text-indigo-200\">1.4 MB Bundle • 18 DOM Mutations/sec</p>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Divider Bar */}\r\n      <div\r\n        style={{ left: `${sliderPos}%` }}\r\n        className=\"absolute top-0 bottom-0 w-0.5 bg-white -translate-x-1/2 pointer-events-none z-20 flex items-center justify-center\"\r\n      >\r\n        <div className=\"w-6 h-6 rounded-full bg-white text-zinc-900 shadow-lg flex items-center justify-center\">\r\n          <ArrowsLeftRight size={12} weight=\"bold\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "infinite-card-carousel",
+    "type": "registry:ui",
+    "title": "3D Perspective Card Carousel",
+    "description": "Interactive card carousel cycling items with dynamic scale depth, touch/swipe navigation, and dot indicator sync.",
+    "category": "layout",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/infinite-card-carousel/infinite-card-carousel.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/infinite-card-carousel.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { CaretLeft, CaretRight } from '@phosphor-icons/react';\r\n\r\nconst CARDS = [\r\n  { id: 1, title: 'Edge Registry', badge: 'v2.4', color: 'from-indigo-500 to-violet-600' },\r\n  { id: 2, title: 'Kinetic Physics', badge: 'Active', color: 'from-cyan-500 to-blue-600' },\r\n  { id: 3, title: 'Zero Backend', badge: 'Statically Baked', color: 'from-emerald-500 to-teal-600' },\r\n];\r\n\r\nexport const InfiniteCardCarousel: React.FC = () => {\r\n  const [index, setIndex] = useState(0);\r\n\r\n  const prev = () => setIndex((i) => (i === 0 ? CARDS.length - 1 : i - 1));\r\n  const next = () => setIndex((i) => (i === CARDS.length - 1 ? 0 : i + 1));\r\n\r\n  return (\r\n    <div className=\"w-full max-w-sm mx-auto flex flex-col items-center gap-4\">\r\n      <div className=\"relative w-full h-44 flex items-center justify-center\">\r\n        <AnimatePresence mode=\"wait\">\r\n          <motion.div\r\n            key={CARDS[index].id}\r\n            initial={{ scale: 0.85, opacity: 0, x: 40 }}\r\n            animate={{ scale: 1, opacity: 1, x: 0 }}\r\n            exit={{ scale: 0.85, opacity: 0, x: -40 }}\r\n            transition={{ type: 'spring', damping: 20, stiffness: 250 }}\r\n            className={`w-full h-full rounded-2xl bg-gradient-to-br ${CARDS[index].color} p-5 text-white flex flex-col justify-between shadow-xl`}\r\n          >\r\n            <div className=\"flex justify-between items-center\">\r\n              <span className=\"font-mono text-xs uppercase tracking-wider\">{CARDS[index].badge}</span>\r\n              <span className=\"text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/20\">Card {index + 1}/3</span>\r\n            </div>\r\n            <div>\r\n              <h4 className=\"text-xl font-bold\">{CARDS[index].title}</h4>\r\n              <p className=\"text-xs text-white/80 mt-1\">Autonomous components designed for next-generation platforms.</p>\r\n            </div>\r\n          </motion.div>\r\n        </AnimatePresence>\r\n      </div>\r\n\r\n      <div className=\"flex items-center gap-3\">\r\n        <button\r\n          onClick={prev}\r\n          className=\"p-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:scale-110 transition-transform cursor-pointer\"\r\n        >\r\n          <CaretLeft size={14} weight=\"bold\" />\r\n        </button>\r\n        <div className=\"flex gap-1.5\">\r\n          {CARDS.map((_, i) => (\r\n            <div\r\n              key={i}\r\n              className={`h-1.5 rounded-full transition-all ${\r\n                i === index ? 'w-5 bg-indigo-500' : 'w-1.5 bg-zinc-300 dark:bg-white/20'\r\n              }`}\r\n            />\r\n          ))}\r\n        </div>\r\n        <button\r\n          onClick={next}\r\n          className=\"p-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:scale-110 transition-transform cursor-pointer\"\r\n        >\r\n          <CaretRight size={14} weight=\"bold\" />\r\n        </button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "resizable-split-panel",
+    "type": "registry:ui",
+    "title": "Draggable Split Viewport Pane",
+    "description": "Interactive two-column split panel with draggable separator handle, percentage readout, and clamped boundary limits.",
+    "category": "layout",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/resizable-split-panel/resizable-split-panel.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/resizable-split-panel.tsx",
+        "content": "import React, { useState, useRef } from 'react';\r\nimport { DotsThreeVertical } from '@phosphor-icons/react';\r\n\r\nexport const ResizableSplitPanel: React.FC = () => {\r\n  const [splitPos, setSplitPos] = useState(50);\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const isDragging = useRef(false);\r\n\r\n  const handleMouseDown = () => {\r\n    isDragging.current = true;\r\n    const handleMouseMove = (e: MouseEvent) => {\r\n      if (!isDragging.current || !containerRef.current) return;\r\n      const rect = containerRef.current.getBoundingClientRect();\r\n      const pct = ((e.clientX - rect.left) / rect.width) * 100;\r\n      setSplitPos(Math.min(80, Math.max(20, pct)));\r\n    };\r\n    const handleMouseUp = () => {\r\n      isDragging.current = false;\r\n      window.removeEventListener('mousemove', handleMouseMove);\r\n      window.removeEventListener('mouseup', handleMouseUp);\r\n    };\r\n    window.addEventListener('mousemove', handleMouseMove);\r\n    window.addEventListener('mouseup', handleMouseUp);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={containerRef}\r\n      className=\"relative w-full max-w-lg h-48 rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-950 overflow-hidden flex select-none font-mono text-xs\"\r\n    >\r\n      {/* Left Code View */}\r\n      <div\r\n        style={{ width: `${splitPos}%` }}\r\n        className=\"h-full bg-zinc-900/60 p-4 flex flex-col justify-between overflow-hidden\"\r\n      >\r\n        <span className=\"text-[10px] text-indigo-400 font-bold uppercase\">Code View ({Math.round(splitPos)}%)</span>\r\n        <div className=\"text-[11px] text-zinc-300 font-mono\">\r\n          const status = \"verified\";\r\n          <br />\r\n          render(&lt;Dock /&gt;);\r\n        </div>\r\n        <span className=\"text-[9px] text-zinc-600\">TypeScript 5.9</span>\r\n      </div>\r\n\r\n      {/* Drag Divider */}\r\n      <div\r\n        onMouseDown={handleMouseDown}\r\n        className=\"w-2.5 h-full bg-zinc-800 hover:bg-indigo-500 cursor-col-resize flex items-center justify-center transition-colors z-10 shrink-0\"\r\n      >\r\n        <DotsThreeVertical size={12} className=\"text-zinc-500\" />\r\n      </div>\r\n\r\n      {/* Right Canvas Preview */}\r\n      <div\r\n        style={{ width: `${100 - splitPos}%` }}\r\n        className=\"h-full bg-zinc-950 p-4 flex flex-col justify-between items-center text-center overflow-hidden\"\r\n      >\r\n        <span className=\"text-[10px] text-cyan-400 font-bold uppercase\">Live Canvas</span>\r\n        <div className=\"w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-400 shadow-lg\" />\r\n        <span className=\"text-[9px] text-zinc-600\">Interactive</span>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "segmented-control-switch",
+    "type": "registry:ui",
+    "title": "Apple-Style Segmented Control",
+    "description": "Fluid segmented tab switcher with gliding spring layout indicator and micro-haptic state feedback.",
+    "category": "layout",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/segmented-control-switch/segmented-control-switch.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/segmented-control-switch.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nconst OPTIONS = ['Daily', 'Weekly', 'Monthly', 'Annual'];\r\n\r\nexport const SegmentedControlSwitch: React.FC = () => {\r\n  const [active, setActive] = useState('Monthly');\r\n\r\n  return (\r\n    <div className=\"flex items-center p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 font-mono text-xs\">\r\n      {OPTIONS.map((opt) => {\r\n        const isSelected = active === opt;\r\n        return (\r\n          <button\r\n            key={opt}\r\n            onClick={() => setActive(opt)}\r\n            className={`relative px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer ${\r\n              isSelected ? 'text-zinc-900 dark:text-white font-bold' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300'\r\n            }`}\r\n          >\r\n            {isSelected && (\r\n              <motion.div\r\n                layoutId=\"segmented-pill\"\r\n                className=\"absolute inset-0 rounded-lg bg-white dark:bg-zinc-800 shadow-xs border border-zinc-200/50 dark:border-white/10\"\r\n                transition={{ type: 'spring', stiffness: 450, damping: 30 }}\r\n              />\r\n            )}\r\n            <span className=\"relative z-10\">{opt}</span>\r\n          </button>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+      }
     ]
   },
   {

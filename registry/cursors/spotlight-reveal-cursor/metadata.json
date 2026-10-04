@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-reveal-cursor",
+  "type": "registry:ui",
+  "title": "Spotlight Mask Reveal Cursor",
+  "description": "Circular flashlight cursor mask revealing an illuminated technical circuit layer concealed beneath the dark surface.",
+  "category": "cursors",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/cursors/spotlight-reveal-cursor/spotlight-reveal-cursor.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spotlight-reveal-cursor.tsx"
+    }
+  ]
+}

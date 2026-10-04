@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-cursor-follower",
+  "type": "registry:ui",
+  "title": "Magnetic Cursor Follower",
+  "description": "Kinetic cursor follower with spring-lag physics that magnetically snaps to nearby interactive buttons within proximity threshold.",
+  "category": "cursors",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/cursors/magnetic-cursor-follower/magnetic-cursor-follower.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-cursor-follower.tsx"
+    }
+  ]
+}
