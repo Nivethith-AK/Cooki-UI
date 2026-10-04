@@ -26,7 +26,29 @@ interface StoreContextType {
   resetFilters: () => void
 }
 
-const StoreContext = createContext<StoreContextType | null>(null)
+const defaultStoreContext: StoreContextType = {
+  components: ALL_REGISTRY_ITEMS,
+  filteredComponents: ALL_REGISTRY_ITEMS,
+  selectedCategory: 'all',
+  setSelectedCategory: () => {},
+  selectedFramework: 'all',
+  setSelectedFramework: () => {},
+  searchQuery: '',
+  setSearchQuery: () => {},
+  sortBy: 'featured',
+  setSortBy: () => {},
+  showFavoritesOnly: false,
+  setShowFavoritesOnly: () => {},
+  favorites: [],
+  toggleFavorite: () => {},
+  selectedComponent: null,
+  setSelectedComponent: () => {},
+  mobileFilterOpen: false,
+  setMobileFilterOpen: () => {},
+  resetFilters: () => {},
+}
+
+const StoreContext = createContext<StoreContextType>(defaultStoreContext)
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState<ComponentCategory | 'all'>('all')
@@ -141,6 +163,5 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
 export const useStore = () => {
   const ctx = useContext(StoreContext)
-  if (!ctx) throw new Error('useStore must be used within StoreProvider')
-  return ctx
+  return ctx || defaultStoreContext
 }

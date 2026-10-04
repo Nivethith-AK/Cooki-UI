@@ -35,7 +35,7 @@ export const ComponentGrid: React.FC = () => {
   // Detect whether a component benefits from a wider column span
   const isWideComponent = (slug: string, category: string) => {
     return category === 'sections' || 
-           ['comparative-feature-table', 'pricing-comparison-block', 'feature-bento-block', 'scroll-timeline', 'interactive-terminal-block', 'testimonial-marquee-block'].includes(slug)
+           ['comparative-feature-table', 'pricing-comparison-block', 'feature-bento-block', 'scroll-timeline', 'interactive-terminal-block', 'testimonial-marquee-block', 'git-contribution-heatmap', 'live-telemetry-status-grid'].includes(slug)
   }
 
   return (

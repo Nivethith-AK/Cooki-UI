@@ -54,7 +54,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
       <div className="relative z-30 flex items-center justify-between p-4 pb-3 border-b border-zinc-200/60 dark:border-white/5 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
         
         {/* Left Badges */}
-        <div className="flex items-center gap-2 overflow-hidden">
+        <div className="flex items-center gap-2 overflow-hidden mr-2 min-w-0">
           <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 truncate">
             {item.subcategory}
           </span>
@@ -134,7 +134,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-dots" />
 
         {/* Live Component Render Canvas with unconstrained child sizing */}
-        <div className="relative z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100">
+        <div className="relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100">
           {item.renderPreview({}, isDark)}
         </div>
       </div>

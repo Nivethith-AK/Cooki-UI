@@ -88,7 +88,7 @@ export const StoreHero: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search 70 components, backgrounds, shaders, or tags (e.g. 'dock', '3d', 'pricing', 'otp')..."
+              placeholder={`Search ${ALL_REGISTRY_ITEMS.length}+ components, backgrounds, shaders, or tags (e.g. 'dock', '3d', 'pricing', 'card')...`}
               className="w-full bg-transparent py-3 pr-24 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none font-sans"
             />
             

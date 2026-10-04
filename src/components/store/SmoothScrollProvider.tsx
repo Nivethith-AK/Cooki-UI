@@ -23,8 +23,22 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
     rafId = requestAnimationFrame(raf)
 
+    // Smoothly route in-page hash links through Lenis
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest('a')
+      if (target && target.hash && target.hash.startsWith('#') && target.origin === window.location.origin) {
+        const elem = document.querySelector(target.hash)
+        if (elem) {
+          e.preventDefault()
+          lenis.scrollTo(elem as HTMLElement, { offset: -80, duration: 1.2 })
+        }
+      }
+    }
+    document.addEventListener('click', handleAnchorClick)
+
     return () => {
       cancelAnimationFrame(rafId)
+      document.removeEventListener('click', handleAnchorClick)
       lenis.destroy()
     }
   }, [])
