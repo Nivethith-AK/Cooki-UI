@@ -10,13 +10,13 @@
 # Cooki UI
 
 **The AI-native, source-first component registry & interactive UI store for React & Next.js.**  
-105+ animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
+120+ animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
 
 <br/>
 
 [![GitHub stars](https://img.shields.io/github/stars/Nivethith-AK/Cooki-UI?style=flat-square&label=stars&color=f59e0b)](https://github.com/Nivethith-AK/Cooki-UI)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live-000000?style=flat-square&logo=vercel&logoColor=white)](https://cooki-ui.vercel.app)
-[![Components](https://img.shields.io/badge/components-105%20canonical-0ea5e9?style=flat-square)](https://cooki-ui.vercel.app)
+[![Components](https://img.shields.io/badge/components-120%20canonical-0ea5e9?style=flat-square)](https://cooki-ui.vercel.app)
 [![shadcn compatible](https://img.shields.io/badge/shadcn-compatible-black?style=flat-square)](https://cooki-ui.vercel.app/r/index.json)
 [![License](https://img.shields.io/github/license/Nivethith-AK/Cooki-UI?style=flat-square&color=8b5cf6)](./LICENSE)
 
@@ -200,7 +200,7 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 
 | Tool | Description |
 |---|---|
-| `list_components` | Browse all 105+ canonical components with categories and tags |
+| `list_components` | Browse all 120+ canonical components with categories and tags |
 | `search_components` | Search components by keyword, technology, or UI use-case |
 | `get_component_source` | Fetch raw TypeScript source code ready for disk writes |
 | `get_component_dependencies` | Read package dependencies required for a component |
@@ -220,7 +220,7 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 }
 ```
 
-#### Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json` on Windows / `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS)
+#### Claude Desktop (`%APPDATA%\\Claude\\claude_desktop_config.json` on Windows / `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS)
 ```json
 {
   "mcpServers": {
@@ -236,7 +236,7 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 
 ---
 
-## Component Library (105 Canonical Components)
+## Component Library (120 Canonical Components)
 
 ### 🧊 3D & Holograms
 `audio-waveform-visualizer` · `code-hover-card` · `cube-perspective-3d` · `hanging-id-card` · `particle-vortex-tunnel` · `plasma-globe`
@@ -248,43 +248,43 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 `wave-frequency-bars`
 
 ### 🌅 Backgrounds & Shaders
-`animated-mesh-background` · `aurora-background` · `beam-grid-background` · `cosmic-dust-background` · `cyber-hive-background` · `dot-background` · `flowing-lines-wave-background` · `grid-background` · `quantum-field-background` · `starfield-hyperdrive-background`
+`animated-mesh-background` · `aurora-background` · `beam-grid-background` · `cosmic-dust-background` · `cyber-hive-background` · `dot-background` · `flowing-lines-wave-background` · `grid-background` · `morphing-blob-background` · `particle-constellation-background` · `quantum-field-background` · `starfield-hyperdrive-background`
 
 ### 🔘 Interactive Buttons
-`confetti-button` · `floating-action-button` · `glow-action-button` · `gradient-shimmer-button` · `hold-to-confirm-button` · `liquid-glass-button` · `magnetic-button` · `ripple-button` · `slide-to-confirm`
+`confetti-button` · `floating-action-button` · `fluid-liquid-button` · `glow-action-button` · `gradient-shimmer-button` · `hold-to-confirm-button` · `liquid-glass-button` · `magnetic-button` · `ripple-button` · `slide-to-confirm`
 
 ### 🎴 Advanced Cards & Decks
-`expandable-card` · `glare-hologram-card` · `glass-card` · `interactive-tilt-card` · `orbit-card` · `perspective-card-3d` · `spotlight-card` · `stack-card-deck` · `terminal-card`
+`expandable-card` · `glare-hologram-card` · `glass-card` · `interactive-tilt-card` · `orbit-card` · `perspective-card-3d` · `scratch-to-reveal-card` · `spotlight-border-card` · `spotlight-card` · `stack-card-deck` · `terminal-card`
 
 ### 🖱️ Cursor Physics & Followers
 `fluid-particle-cursor` · `magnetic-cursor-follower` · `spotlight-reveal-cursor`
 
 ### 📊 Data Visualizations & Feeds
-`activity-feed-stream` · `circular-gauge-speedometer` · `comparative-feature-table` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `scroll-timeline` · `telemetry-metric-card`
+`activity-feed-stream` · `circular-gauge-speedometer` · `comparative-feature-table` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `radial-progress-gauge` · `scroll-timeline` · `telemetry-metric-card`
 
 ### 🔮 Shaders & Atmospheric Effects
-`ascii-wave` · `border-beam` · `light-pillar-beacon` · `metaball-gooey-effect` · `noise-grain-overlay` · `spectrum-loader`
+`ascii-wave` · `border-beam` · `light-pillar-beacon` · `matrix-rain-terminal` · `metaball-gooey-effect` · `noise-grain-overlay` · `spectrum-loader`
 
 ### 🔔 Feedback & Indicators
-`progress-step-loader` · `skeleton-shimmer-card` · `status-radar-badge` · `toast-notification-hub`
+`animated-counter-pill` · `progress-step-loader` · `skeleton-shimmer-card` · `status-radar-badge` · `toast-notification-hub`
 
 ### 📝 Form Controls & Keypads
-`animated-floating-input` · `color-palette-picker` · `drag-drop-file-upload` · `dual-range-slider` · `expandable-search-bar` · `multi-select-combobox` · `otp-input` · `password-strength-indicator` · `pin-code-vault-input` · `toggle-pill-switch`
+`animated-floating-input` · `color-palette-picker` · `color-theme-switcher-pill` · `drag-drop-file-upload` · `dual-range-slider` · `expandable-search-bar` · `multi-select-combobox` · `otp-input` · `password-strength-indicator` · `pin-code-vault-input` · `toggle-pill-switch`
 
 ### 📐 Layout & Dynamic Splitters
-`accordion-faq-group` · `image-comparison-slider` · `infinite-card-carousel` · `resizable-split-panel` · `segmented-control-switch`
+`accordion-faq-group` · `image-comparison-slider` · `infinite-card-carousel` · `interactive-image-compare-lens` · `resizable-split-panel` · `segmented-control-switch`
 
 ### 🧭 Navigation & App Shells
-`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `floating-navbar` · `fluid-action-panel` · `magnetic-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `sliding-logo-marquee` · `tabs-morph`
+`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `cyber-command-menu` · `floating-navbar` · `fluid-action-panel` · `magnetic-dock` · `magnetic-social-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `sliding-logo-marquee` · `tabs-morph`
 
 ### 🪟 Overlays & Dialogs
 `context-action-menu` · `interactive-dialog-modal` · `sliding-drawer-sheet` · `tooltip-popover`
 
 ### 💼 High-Converting Sections & Blocks
-`animated-cta-block` · `faq-accordion-section` · `feature-bento-block` · `hero-geometry-glow-section` · `interactive-terminal-block` · `pricing-comparison-block` · `stats-counter-strip-block` · `testimonial-marquee-block`
+`animated-cta-block` · `faq-accordion-section` · `feature-bento-block` · `hero-geometry-glow-section` · `holographic-pricing-table` · `interactive-terminal-block` · `interactive-workflow-pipeline` · `pricing-comparison-block` · `stats-counter-strip-block` · `testimonial-marquee-block`
 
 ### ✨ Text Effects & Typographic Motion
-`blur-reveal` · `glitch-cyber-text` · `rolling-text-3d` · `scramble-text` · `shiny-text` · `sliding-number` · `split-text` · `text-reveal` · `typing-text`
+`blur-reveal` · `glitch-cyber-text` · `kinetic-text-marquee` · `rolling-text-3d` · `scramble-text` · `shiny-text` · `sliding-number` · `split-text` · `text-reveal` · `typing-text`
 
 <br/>
 

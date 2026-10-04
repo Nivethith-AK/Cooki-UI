@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-liquid-button",
+  "type": "registry:ui",
+  "title": "Fluid Liquid Button",
+  "description": "Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/fluid-liquid-button/fluid-liquid-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-liquid-button.tsx"
+    }
+  ]
+}

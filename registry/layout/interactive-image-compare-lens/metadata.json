@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-image-compare-lens",
+  "type": "registry:ui",
+  "title": "Image Compare Lens",
+  "description": "Split-screen before and after comparison slider with interactive dragger handle and visual contrast.",
+  "category": "layout",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/interactive-image-compare-lens/interactive-image-compare-lens.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-image-compare-lens.tsx"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-counter-pill",
+  "type": "registry:ui",
+  "title": "Animated Counter Pill",
+  "description": "Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/animated-counter-pill/animated-counter-pill.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-counter-pill.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { TrendUp, ArrowClockwise } from '@phosphor-icons/react';\r\n\r\nexport const AnimatedCounterPill: React.FC = () => {\r\n  const [count, setCount] = useState(84920);\r\n\r\n  const randomize = () => {\r\n    setCount((prev) => prev + Math.floor(Math.random() * 2500) + 100);\r\n  };\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-3 p-3 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-md\">\r\n      <div className=\"flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/60 dark:border-white/5\">\r\n        <span className=\"h-2 w-2 rounded-full bg-emerald-500 animate-pulse\" />\r\n        <span className=\"font-mono text-xs font-bold text-zinc-900 dark:text-white\">\r\n          {count.toLocaleString()}\r\n        </span>\r\n      </div>\r\n\r\n      <div className=\"flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold\">\r\n        <TrendUp size={14} weight=\"bold\" />\r\n        <span>+14.8%</span>\r\n      </div>\r\n\r\n      <button\r\n        onClick={randomize}\r\n        title=\"Simulate Event Burst\"\r\n        className=\"flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 cursor-pointer transition-colors\"\r\n      >\r\n        <ArrowClockwise size={13} weight=\"bold\" />\r\n      </button>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -315,6 +315,40 @@
       ]
     },
     {
+      "name": "morphing-blob-background",
+      "type": "registry:ui",
+      "title": "Morphing Blob Background",
+      "description": "Organic SVG fluid blob gradients that softly pulse and deform in high dynamic range colors.",
+      "category": "backgrounds",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/morphing-blob-background/morphing-blob-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morphing-blob-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "particle-constellation-background",
+      "type": "registry:ui",
+      "title": "Particle Constellation Background",
+      "description": "Interactive HTML5 canvas constellation network that links floating particle nodes with glowing lines when the cursor gets close.",
+      "category": "backgrounds",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/particle-constellation-background/particle-constellation-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/particle-constellation-background.tsx"
+        }
+      ]
+    },
+    {
       "name": "quantum-field-background",
       "type": "registry:ui",
       "title": "Quantum Field Background",
@@ -377,6 +411,23 @@
           "path": "registry/buttons/floating-action-button/floating-action-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/floating-action-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fluid-liquid-button",
+      "type": "registry:ui",
+      "title": "Fluid Liquid Button",
+      "description": "Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/fluid-liquid-button/fluid-liquid-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-liquid-button.tsx"
         }
       ]
     },
@@ -607,6 +658,41 @@
       ]
     },
     {
+      "name": "scratch-to-reveal-card",
+      "type": "registry:ui",
+      "title": "Scratch to Reveal Card",
+      "description": "Interactive HTML5 canvas scratch card where user drags cursor or finger to scrape away silver coating and reveal reward code.",
+      "category": "cards",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/scratch-to-reveal-card/scratch-to-reveal-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scratch-to-reveal-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-border-card",
+      "type": "registry:ui",
+      "title": "Spotlight Border Card",
+      "description": "Interactive card with dynamic cursor-following illuminated rainbow perimeter border glow using mouse position geometry.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/spotlight-border-card/spotlight-border-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spotlight-border-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "spotlight-card",
       "type": "registry:ui",
       "title": "Radial Cursor Spotlight Card",
@@ -790,6 +876,23 @@
       ]
     },
     {
+      "name": "radial-progress-gauge",
+      "type": "registry:ui",
+      "title": "Radial Progress Gauge",
+      "description": "Precision industrial speedometer dial with curved SVG gradients, animated needle, and real-time RPM/percentage readout.",
+      "category": "data",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/data/radial-progress-gauge/radial-progress-gauge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radial-progress-gauge.tsx"
+        }
+      ]
+    },
+    {
       "name": "scroll-timeline",
       "type": "registry:ui",
       "title": "Scroll Timeline",
@@ -874,6 +977,24 @@
       ]
     },
     {
+      "name": "matrix-rain-terminal",
+      "type": "registry:ui",
+      "title": "Matrix Rain Terminal",
+      "description": "Digital matrix rain stream with animated falling glyphs and interactive cybernetic text decryption.",
+      "category": "effects",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/matrix-rain-terminal/matrix-rain-terminal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/matrix-rain-terminal.tsx"
+        }
+      ]
+    },
+    {
       "name": "metaball-gooey-effect",
       "type": "registry:ui",
       "title": "Metaball Gooey Fluid Drops",
@@ -920,6 +1041,24 @@
           "path": "registry/effects/spectrum-loader/spectrum-loader.tsx",
           "type": "registry:ui",
           "target": "components/ui/spectrum-loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-counter-pill",
+      "type": "registry:ui",
+      "title": "Animated Counter Pill",
+      "description": "Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.",
+      "category": "feedback",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/feedback/animated-counter-pill/animated-counter-pill.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-counter-pill.tsx"
         }
       ]
     },
@@ -1023,6 +1162,24 @@
           "path": "registry/forms/color-palette-picker/color-palette-picker.tsx",
           "type": "registry:ui",
           "target": "components/ui/color-palette-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "color-theme-switcher-pill",
+      "type": "registry:ui",
+      "title": "Color Theme Switcher Pill",
+      "description": "Tactile theme pill toggle with animated sun/moon morph physics and interactive swatch switching.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/color-theme-switcher-pill/color-theme-switcher-pill.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/color-theme-switcher-pill.tsx"
         }
       ]
     },
@@ -1217,6 +1374,23 @@
       ]
     },
     {
+      "name": "interactive-image-compare-lens",
+      "type": "registry:ui",
+      "title": "Image Compare Lens",
+      "description": "Split-screen before and after comparison slider with interactive dragger handle and visual contrast.",
+      "category": "layout",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/layout/interactive-image-compare-lens/interactive-image-compare-lens.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-image-compare-lens.tsx"
+        }
+      ]
+    },
+    {
       "name": "resizable-split-panel",
       "type": "registry:ui",
       "title": "Draggable Split Viewport Pane",
@@ -1304,6 +1478,24 @@
       ]
     },
     {
+      "name": "cyber-command-menu",
+      "type": "registry:ui",
+      "title": "Cyber Command Menu",
+      "description": "HUD command palette with live keyboard navigation, sound toggle state, category tags, and hotkey accelerators.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/cyber-command-menu/cyber-command-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cyber-command-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "floating-navbar",
       "type": "registry:ui",
       "title": "Dynamic Floating Capsule Navbar",
@@ -1355,6 +1547,24 @@
           "path": "registry/navigation/magnetic-dock/magnetic-dock.tsx",
           "type": "registry:ui",
           "target": "components/ui/magnetic-dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-social-dock",
+      "type": "registry:ui",
+      "title": "Magnetic Social Dock",
+      "description": "Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/magnetic-social-dock/magnetic-social-dock.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic-social-dock.tsx"
         }
       ]
     },
@@ -1572,6 +1782,24 @@
       ]
     },
     {
+      "name": "holographic-pricing-table",
+      "type": "registry:ui",
+      "title": "Holographic Pricing Table",
+      "description": "3-tier SaaS pricing table featuring animated holographic spotlight, monthly/annual billing toggle, and tier comparison.",
+      "category": "sections",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/holographic-pricing-table/holographic-pricing-table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/holographic-pricing-table.tsx"
+        }
+      ]
+    },
+    {
       "name": "interactive-terminal-block",
       "type": "registry:ui",
       "title": "Installation Terminal Block",
@@ -1585,6 +1813,24 @@
           "path": "registry/sections/interactive-terminal-block/interactive-terminal-block.tsx",
           "type": "registry:ui",
           "target": "components/ui/interactive-terminal-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-workflow-pipeline",
+      "type": "registry:ui",
+      "title": "Workflow Pipeline Diagram",
+      "description": "Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.",
+      "category": "sections",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/interactive-workflow-pipeline/interactive-workflow-pipeline.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-workflow-pipeline.tsx"
         }
       ]
     },
@@ -1671,6 +1917,23 @@
           "path": "registry/text/glitch-cyber-text/glitch-cyber-text.tsx",
           "type": "registry:ui",
           "target": "components/ui/glitch-cyber-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kinetic-text-marquee",
+      "type": "registry:ui",
+      "title": "Kinetic Text Marquee",
+      "description": "Bidirectional variable velocity typography ticker with velocity skew effects and pause on hover.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/kinetic-text-marquee/kinetic-text-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kinetic-text-marquee.tsx"
         }
       ]
     },

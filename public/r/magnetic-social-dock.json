@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-social-dock",
+  "type": "registry:ui",
+  "title": "Magnetic Social Dock",
+  "description": "Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/magnetic-social-dock/magnetic-social-dock.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-social-dock.tsx",
+      "content": "import React, { useRef, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { GithubLogo, TwitterLogo, DiscordLogo, Globe, TelegramLogo } from '@phosphor-icons/react';\r\n\r\nexport const MagneticSocialDock: React.FC = () => {\r\n  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);\r\n\r\n  const items = [\r\n    { icon: <GithubLogo size={20} weight=\"fill\" />, label: 'GitHub', color: 'hover:text-white hover:bg-zinc-800' },\r\n    { icon: <TwitterLogo size={20} weight=\"fill\" />, label: 'Twitter', color: 'hover:text-sky-400 hover:bg-sky-500/10' },\r\n    { icon: <DiscordLogo size={20} weight=\"fill\" />, label: 'Discord', color: 'hover:text-indigo-400 hover:bg-indigo-500/10' },\r\n    { icon: <TelegramLogo size={20} weight=\"fill\" />, label: 'Telegram', color: 'hover:text-cyan-400 hover:bg-cyan-500/10' },\r\n    { icon: <Globe size={20} weight=\"bold\" />, label: 'Network', color: 'hover:text-emerald-400 hover:bg-emerald-500/10' },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-2 p-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-xl\">\r\n      {items.map((item, idx) => {\r\n        const isHovered = hoveredIndex === idx;\r\n        const isAdjacent = hoveredIndex !== null && Math.abs(hoveredIndex - idx) === 1;\r\n\r\n        return (\r\n          <motion.button\r\n            key={item.label}\r\n            onMouseEnter={() => setHoveredIndex(idx)}\r\n            onMouseLeave={() => setHoveredIndex(null)}\r\n            animate={{\r\n              scale: isHovered ? 1.3 : isAdjacent ? 1.12 : 1,\r\n              y: isHovered ? -4 : 0,\r\n            }}\r\n            transition={{ type: 'spring', stiffness: 350, damping: 20 }}\r\n            className={`relative flex h-10 w-10 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 transition-colors ${item.color} cursor-pointer`}\r\n          >\r\n            {item.icon}\r\n            {isHovered && (\r\n              <motion.span\r\n                initial={{ opacity: 0, y: 8, scale: 0.8 }}\r\n                animate={{ opacity: 1, y: 0, scale: 1 }}\r\n                className=\"absolute -top-8 px-2 py-0.5 rounded-md bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-[9px] font-bold shadow-lg pointer-events-none whitespace-nowrap\"\r\n              >\r\n                {item.label}\r\n              </motion.span>\r\n            )}\r\n          </motion.button>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

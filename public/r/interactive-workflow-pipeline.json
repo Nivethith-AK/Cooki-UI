@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-workflow-pipeline",
+  "type": "registry:ui",
+  "title": "Workflow Pipeline Diagram",
+  "description": "Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.",
+  "category": "sections",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/interactive-workflow-pipeline/interactive-workflow-pipeline.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-workflow-pipeline.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Cpu, Terminal, ShieldCheck, Check } from '@phosphor-icons/react';\r\n\r\nexport const InteractiveWorkflowPipeline: React.FC = () => {\r\n  const [activeStep, setActiveStep] = useState(1);\r\n\r\n  const steps = [\r\n    { id: 0, title: 'Extract Code', desc: 'Read TSX from static CDN', icon: <Terminal size={16} /> },\r\n    { id: 1, title: 'Lint & Audit', desc: 'Typecheck & isolate deps', icon: <Cpu size={16} /> },\r\n    { id: 2, title: 'Verify Signature', desc: 'Cryptographic hash pass', icon: <ShieldCheck size={16} /> },\r\n    { id: 3, title: 'Write to Disk', desc: 'Inject in components/ui/', icon: <Check size={16} /> },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-3xl p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl\">\r\n      <div className=\"grid grid-cols-1 sm:grid-cols-4 gap-4 relative\">\r\n        {steps.map((st, i) => {\r\n          const isDone = i < activeStep;\r\n          const isCurrent = i === activeStep;\r\n\r\n          return (\r\n            <div\r\n              key={st.id}\r\n              onClick={() => setActiveStep(i)}\r\n              className={`p-4 rounded-2xl border transition-all cursor-pointer ${\r\n                isCurrent\r\n                  ? 'border-indigo-500 bg-indigo-500/10 shadow-lg scale-105'\r\n                  : isDone\r\n                  ? 'border-emerald-500/30 bg-emerald-500/5'\r\n                  : 'border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-900/40'\r\n              }`}\r\n            >\r\n              <div className=\"flex items-center justify-between mb-2\">\r\n                <span className={`p-1.5 rounded-lg ${\r\n                  isCurrent ? 'bg-indigo-600 text-white' : isDone ? 'bg-emerald-500 text-white' : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-500'\r\n                }`}>\r\n                  {st.icon}\r\n                </span>\r\n                <span className=\"font-mono text-[10px] text-zinc-400\">STEP 0{i + 1}</span>\r\n              </div>\r\n              <h4 className=\"text-xs font-bold text-zinc-900 dark:text-white font-mono\">{st.title}</h4>\r\n              <p className=\"mt-1 text-[11px] text-zinc-500 leading-tight\">{st.desc}</p>\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

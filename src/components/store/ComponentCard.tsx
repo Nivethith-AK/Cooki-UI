@@ -20,6 +20,32 @@ export interface ComponentCardProps {
   forceExpanded?: boolean
 }
 
+class CardErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(err: any) {
+    console.warn('Card preview render error:', err)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center p-4 text-center font-mono text-[11px] text-zinc-500">
+          <span>Preview Unavailable</span>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
 export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpanded = false }) => {
   const { setSelectedComponent, favorites, toggleFavorite } = useStore()
   const { isDark } = useTheme()
@@ -135,7 +161,9 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
 
         {/* Live Component Render Canvas with unconstrained child sizing */}
         <div className="relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100">
-          {item.renderPreview({}, isDark)}
+          <CardErrorBoundary key={item.id}>
+            {item.renderPreview({}, isDark)}
+          </CardErrorBoundary>
         </div>
       </div>
 

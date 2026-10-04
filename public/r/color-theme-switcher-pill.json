@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color-theme-switcher-pill",
+  "type": "registry:ui",
+  "title": "Color Theme Switcher Pill",
+  "description": "Tactile theme pill toggle with animated sun/moon morph physics and interactive swatch switching.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/color-theme-switcher-pill/color-theme-switcher-pill.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/color-theme-switcher-pill.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Check } from '@phosphor-icons/react';\r\n\r\nexport const ColorThemeSwitcherPill: React.FC = () => {\r\n  const [selectedColor, setSelectedColor] = useState('indigo');\r\n\r\n  const themes = [\r\n    { id: 'indigo', name: 'Indigo Pulse', bg: 'bg-indigo-500', hex: '#6366f1' },\r\n    { id: 'emerald', name: 'Emerald Forest', bg: 'bg-emerald-500', hex: '#10b981' },\r\n    { id: 'rose', name: 'Rose Cyber', bg: 'bg-rose-500', hex: '#f43f5e' },\r\n    { id: 'amber', name: 'Amber Gold', bg: 'bg-amber-500', hex: '#f59e0b' },\r\n    { id: 'cyan', name: 'Cyan Deep', bg: 'bg-cyan-500', hex: '#06b6d4' },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-2 p-2 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-lg\">\r\n      {themes.map((t) => (\r\n        <button\r\n          key={t.id}\r\n          onClick={() => setSelectedColor(t.id)}\r\n          className=\"relative flex h-8 w-8 items-center justify-center rounded-xl transition-transform hover:scale-105 active:scale-95 cursor-pointer\"\r\n        >\r\n          <span className={`h-6 w-6 rounded-lg ${t.bg} shadow-sm flex items-center justify-center`}>\r\n            {selectedColor === t.id && (\r\n              <Check size={12} weight=\"bold\" className=\"text-white\" />\r\n            )}\r\n          </span>\r\n          {selectedColor === t.id && (\r\n            <motion.div\r\n              layoutId=\"theme-active-ring\"\r\n              className=\"absolute inset-0 rounded-xl border-2 border-zinc-900 dark:border-white\"\r\n            />\r\n          )}\r\n        </button>\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-border-card",
+  "type": "registry:ui",
+  "title": "Spotlight Border Card",
+  "description": "Interactive card with dynamic cursor-following illuminated rainbow perimeter border glow using mouse position geometry.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/spotlight-border-card/spotlight-border-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spotlight-border-card.tsx"
+    }
+  ]
+}

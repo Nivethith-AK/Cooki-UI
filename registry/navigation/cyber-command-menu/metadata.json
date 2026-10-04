@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cyber-command-menu",
+  "type": "registry:ui",
+  "title": "Cyber Command Menu",
+  "description": "HUD command palette with live keyboard navigation, sound toggle state, category tags, and hotkey accelerators.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/cyber-command-menu/cyber-command-menu.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cyber-command-menu.tsx"
+    }
+  ]
+}

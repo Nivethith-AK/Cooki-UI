@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-04T17:33:35.693Z
-Components in Registry: 105
+Generated: 2026-10-04T18:07:04.984Z
+Components in Registry: 120
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -371,6 +371,44 @@ export default function Example() {
 
 ---
 
+### Morphing Blob Background (`morphing-blob-background`)
+- **Category**: backgrounds
+- **Description**: Organic SVG fluid blob gradients that softly pulse and deform in high dynamic range colors.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/morphing-blob-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/morphing-blob-background.json`
+
+#### Installation & Usage
+```tsx
+import { MorphingBlobBackground } from "@/components/ui/morphing-blob-background"
+
+export default function Example() {
+  return <MorphingBlobBackground />
+}
+```
+
+---
+
+### Particle Constellation Background (`particle-constellation-background`)
+- **Category**: backgrounds
+- **Description**: Interactive HTML5 canvas constellation network that links floating particle nodes with glowing lines when the cursor gets close.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/particle-constellation-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/particle-constellation-background.json`
+
+#### Installation & Usage
+```tsx
+import { ParticleConstellationBackground } from "@/components/ui/particle-constellation-background"
+
+export default function Example() {
+  return <ParticleConstellationBackground />
+}
+```
+
+---
+
 ### Quantum Field Background (`quantum-field-background`)
 - **Category**: backgrounds
 - **Description**: Dynamic canvas particle constellation with nodes drifting and interconnecting dynamically.
@@ -442,6 +480,25 @@ import { FloatingActionButton } from "@/components/ui/floating-action-button"
 
 export default function Example() {
   return <FloatingActionButton />
+}
+```
+
+---
+
+### Fluid Liquid Button (`fluid-liquid-button`)
+- **Category**: buttons
+- **Description**: Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/fluid-liquid-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-liquid-button.json`
+
+#### Installation & Usage
+```tsx
+import { FluidLiquidButton } from "@/components/ui/fluid-liquid-button"
+
+export default function Example() {
+  return <FluidLiquidButton />
 }
 ```
 
@@ -694,6 +751,44 @@ export default function Example() {
 
 ---
 
+### Scratch to Reveal Card (`scratch-to-reveal-card`)
+- **Category**: cards
+- **Description**: Interactive HTML5 canvas scratch card where user drags cursor or finger to scrape away silver coating and reveal reward code.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scratch-to-reveal-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scratch-to-reveal-card.json`
+
+#### Installation & Usage
+```tsx
+import { ScratchToRevealCard } from "@/components/ui/scratch-to-reveal-card"
+
+export default function Example() {
+  return <ScratchToRevealCard />
+}
+```
+
+---
+
+### Spotlight Border Card (`spotlight-border-card`)
+- **Category**: cards
+- **Description**: Interactive card with dynamic cursor-following illuminated rainbow perimeter border glow using mouse position geometry.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spotlight-border-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-border-card.json`
+
+#### Installation & Usage
+```tsx
+import { SpotlightBorderCard } from "@/components/ui/spotlight-border-card"
+
+export default function Example() {
+  return <SpotlightBorderCard />
+}
+```
+
+---
+
 ### Radial Cursor Spotlight Card (`spotlight-card`)
 - **Category**: cards
 - **Description**: Card with a dynamic radial cursor spotlight illuminating borders and background on hover.
@@ -903,6 +998,25 @@ export default function Example() {
 
 ---
 
+### Radial Progress Gauge (`radial-progress-gauge`)
+- **Category**: data
+- **Description**: Precision industrial speedometer dial with curved SVG gradients, animated needle, and real-time RPM/percentage readout.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/radial-progress-gauge.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/radial-progress-gauge.json`
+
+#### Installation & Usage
+```tsx
+import { RadialProgressGauge } from "@/components/ui/radial-progress-gauge"
+
+export default function Example() {
+  return <RadialProgressGauge />
+}
+```
+
+---
+
 ### Scroll Timeline (`scroll-timeline`)
 - **Category**: data
 - **Description**: Vertical interactive audit timeline with connecting glowing track and milestone checkpoints.
@@ -998,6 +1112,25 @@ export default function Example() {
 
 ---
 
+### Matrix Rain Terminal (`matrix-rain-terminal`)
+- **Category**: effects
+- **Description**: Digital matrix rain stream with animated falling glyphs and interactive cybernetic text decryption.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/matrix-rain-terminal.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/matrix-rain-terminal.json`
+
+#### Installation & Usage
+```tsx
+import { MatrixRainTerminal } from "@/components/ui/matrix-rain-terminal"
+
+export default function Example() {
+  return <MatrixRainTerminal />
+}
+```
+
+---
+
 ### Metaball Gooey Fluid Drops (`metaball-gooey-effect`)
 - **Category**: effects
 - **Description**: Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.
@@ -1050,6 +1183,25 @@ import { SpectrumLoader } from "@/components/ui/spectrum-loader"
 
 export default function Example() {
   return <SpectrumLoader />
+}
+```
+
+---
+
+### Animated Counter Pill (`animated-counter-pill`)
+- **Category**: feedback
+- **Description**: Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-counter-pill.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-counter-pill.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedCounterPill } from "@/components/ui/animated-counter-pill"
+
+export default function Example() {
+  return <AnimatedCounterPill />
 }
 ```
 
@@ -1164,6 +1316,25 @@ import { ColorPalettePicker } from "@/components/ui/color-palette-picker"
 
 export default function Example() {
   return <ColorPalettePicker />
+}
+```
+
+---
+
+### Color Theme Switcher Pill (`color-theme-switcher-pill`)
+- **Category**: forms
+- **Description**: Tactile theme pill toggle with animated sun/moon morph physics and interactive swatch switching.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/color-theme-switcher-pill.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/color-theme-switcher-pill.json`
+
+#### Installation & Usage
+```tsx
+import { ColorThemeSwitcherPill } from "@/components/ui/color-theme-switcher-pill"
+
+export default function Example() {
+  return <ColorThemeSwitcherPill />
 }
 ```
 
@@ -1378,6 +1549,25 @@ export default function Example() {
 
 ---
 
+### Image Compare Lens (`interactive-image-compare-lens`)
+- **Category**: layout
+- **Description**: Split-screen before and after comparison slider with interactive dragger handle and visual contrast.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-image-compare-lens.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-image-compare-lens.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveImageCompareLens } from "@/components/ui/interactive-image-compare-lens"
+
+export default function Example() {
+  return <InteractiveImageCompareLens />
+}
+```
+
+---
+
 ### Draggable Split Viewport Pane (`resizable-split-panel`)
 - **Category**: layout
 - **Description**: Interactive two-column split panel with draggable separator handle, percentage readout, and clamped boundary limits.
@@ -1473,6 +1663,25 @@ export default function Example() {
 
 ---
 
+### Cyber Command Menu (`cyber-command-menu`)
+- **Category**: navigation
+- **Description**: HUD command palette with live keyboard navigation, sound toggle state, category tags, and hotkey accelerators.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cyber-command-menu.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-command-menu.json`
+
+#### Installation & Usage
+```tsx
+import { CyberCommandMenu } from "@/components/ui/cyber-command-menu"
+
+export default function Example() {
+  return <CyberCommandMenu />
+}
+```
+
+---
+
 ### Dynamic Floating Capsule Navbar (`floating-navbar`)
 - **Category**: navigation
 - **Description**: Adaptive capsule navigation bar with backdrop blur and pill indicators.
@@ -1525,6 +1734,25 @@ import { MagneticDock } from "@/components/ui/magnetic-dock"
 
 export default function Example() {
   return <MagneticDock />
+}
+```
+
+---
+
+### Magnetic Social Dock (`magnetic-social-dock`)
+- **Category**: navigation
+- **Description**: Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-social-dock.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-dock.json`
+
+#### Installation & Usage
+```tsx
+import { MagneticSocialDock } from "@/components/ui/magnetic-social-dock"
+
+export default function Example() {
+  return <MagneticSocialDock />
 }
 ```
 
@@ -1758,6 +1986,25 @@ export default function Example() {
 
 ---
 
+### Holographic Pricing Table (`holographic-pricing-table`)
+- **Category**: sections
+- **Description**: 3-tier SaaS pricing table featuring animated holographic spotlight, monthly/annual billing toggle, and tier comparison.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/holographic-pricing-table.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/holographic-pricing-table.json`
+
+#### Installation & Usage
+```tsx
+import { HolographicPricingTable } from "@/components/ui/holographic-pricing-table"
+
+export default function Example() {
+  return <HolographicPricingTable />
+}
+```
+
+---
+
 ### Installation Terminal Block (`interactive-terminal-block`)
 - **Category**: sections
 - **Description**: Interactive CLI command runner terminal with execution simulation and tab controls.
@@ -1772,6 +2019,25 @@ import { InteractiveTerminalBlock } from "@/components/ui/interactive-terminal-b
 
 export default function Example() {
   return <InteractiveTerminalBlock />
+}
+```
+
+---
+
+### Workflow Pipeline Diagram (`interactive-workflow-pipeline`)
+- **Category**: sections
+- **Description**: Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-workflow-pipeline.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-workflow-pipeline.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveWorkflowPipeline } from "@/components/ui/interactive-workflow-pipeline"
+
+export default function Example() {
+  return <InteractiveWorkflowPipeline />
 }
 ```
 
@@ -1867,6 +2133,25 @@ import { GlitchCyberText } from "@/components/ui/glitch-cyber-text"
 
 export default function Example() {
   return <GlitchCyberText />
+}
+```
+
+---
+
+### Kinetic Text Marquee (`kinetic-text-marquee`)
+- **Category**: text
+- **Description**: Bidirectional variable velocity typography ticker with velocity skew effects and pause on hover.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/kinetic-text-marquee.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/kinetic-text-marquee.json`
+
+#### Installation & Usage
+```tsx
+import { KineticTextMarquee } from "@/components/ui/kinetic-text-marquee"
+
+export default function Example() {
+  return <KineticTextMarquee />
 }
 ```
 

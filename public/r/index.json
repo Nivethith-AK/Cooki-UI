@@ -446,6 +446,44 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "morphing-blob-background",
+    "type": "registry:ui",
+    "title": "Morphing Blob Background",
+    "description": "Organic SVG fluid blob gradients that softly pulse and deform in high dynamic range colors.",
+    "category": "backgrounds",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/morphing-blob-background/morphing-blob-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-blob-background.tsx",
+        "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const MorphingBlobBackground: React.FC = () => {\r\n  return (\r\n    <div className=\"relative w-full h-[260px] rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 flex items-center justify-center\">\r\n      {/* Orb 1 */}\r\n      <motion.div\r\n        animate={{\r\n          scale: [1, 1.25, 0.95, 1],\r\n          x: [-20, 30, -10, -20],\r\n          y: [-15, 20, -30, -15],\r\n        }}\r\n        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}\r\n        className=\"absolute w-48 h-48 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 blur-3xl opacity-60\"\r\n      />\r\n\r\n      {/* Orb 2 */}\r\n      <motion.div\r\n        animate={{\r\n          scale: [1, 0.85, 1.3, 1],\r\n          x: [25, -20, 15, 25],\r\n          y: [20, -25, 10, 20],\r\n        }}\r\n        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}\r\n        className=\"absolute w-56 h-56 rounded-full bg-gradient-to-r from-cyan-400 to-emerald-500 blur-3xl opacity-50\"\r\n      />\r\n\r\n      {/* Orb 3 */}\r\n      <motion.div\r\n        animate={{\r\n          scale: [1, 1.3, 0.8, 1],\r\n          x: [0, 15, -25, 0],\r\n          y: [0, -20, 20, 0],\r\n        }}\r\n        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}\r\n        className=\"absolute w-44 h-44 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 blur-3xl opacity-40\"\r\n      />\r\n\r\n      <div className=\"relative z-10 px-4 py-2 rounded-xl bg-zinc-900/60 backdrop-blur-md border border-white/10 text-xs font-mono text-zinc-300\">\r\n        Morphing Vector Ambience\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "particle-constellation-background",
+    "type": "registry:ui",
+    "title": "Particle Constellation Background",
+    "description": "Interactive HTML5 canvas constellation network that links floating particle nodes with glowing lines when the cursor gets close.",
+    "category": "backgrounds",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/particle-constellation-background/particle-constellation-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/particle-constellation-background.tsx",
+        "content": "import React, { useEffect, useRef } from 'react';\r\n\r\nexport interface ParticleConstellationBackgroundProps {\r\n  particleCount?: number;\r\n  connectionDistance?: number;\r\n  className?: string;\r\n}\r\n\r\nexport const ParticleConstellationBackground: React.FC<ParticleConstellationBackgroundProps> = ({\r\n  particleCount = 50,\r\n  connectionDistance = 110,\r\n  className = '',\r\n}) => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n\r\n  useEffect(() => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    let width = (canvas.width = canvas.parentElement?.clientWidth || 400);\r\n    let height = (canvas.height = canvas.parentElement?.clientHeight || 260);\r\n\r\n    const particles: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];\r\n    for (let i = 0; i < particleCount; i++) {\r\n      particles.push({\r\n        x: Math.random() * width,\r\n        y: Math.random() * height,\r\n        vx: (Math.random() - 0.5) * 0.9,\r\n        vy: (Math.random() - 0.5) * 0.9,\r\n        radius: Math.random() * 2 + 1,\r\n      });\r\n    }\r\n\r\n    let mouse = { x: -1000, y: -1000 };\r\n    const handleMouseMove = (e: MouseEvent) => {\r\n      const rect = canvas.getBoundingClientRect();\r\n      mouse = { x: e.clientX - rect.left, y: e.clientY - rect.top };\r\n    };\r\n\r\n    let animId: number;\r\n    const render = () => {\r\n      ctx.clearRect(0, 0, width, height);\r\n\r\n      // Draw connections\r\n      for (let i = 0; i < particles.length; i++) {\r\n        for (let j = i + 1; j < particles.length; j++) {\r\n          const dx = particles[i].x - particles[j].x;\r\n          const dy = particles[i].y - particles[j].y;\r\n          const dist = Math.sqrt(dx * dx + dy * dy);\r\n\r\n          if (dist < connectionDistance) {\r\n            const alpha = 1 - dist / connectionDistance;\r\n            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha * 0.35})`;\r\n            ctx.lineWidth = 1;\r\n            ctx.beginPath();\r\n            ctx.moveTo(particles[i].x, particles[i].y);\r\n            ctx.lineTo(particles[j].x, particles[j].y);\r\n            ctx.stroke();\r\n          }\r\n        }\r\n\r\n        // Mouse connection\r\n        const mdx = particles[i].x - mouse.x;\r\n        const mdy = particles[i].y - mouse.y;\r\n        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);\r\n        if (mdist < 140) {\r\n          const alpha = 1 - mdist / 140;\r\n          ctx.strokeStyle = `rgba(56, 189, 248, ${alpha * 0.6})`;\r\n          ctx.beginPath();\r\n          ctx.moveTo(particles[i].x, particles[i].y);\r\n          ctx.lineTo(mouse.x, mouse.y);\r\n          ctx.stroke();\r\n        }\r\n      }\r\n\r\n      // Draw and move particles\r\n      for (let p of particles) {\r\n        ctx.fillStyle = '#818cf8';\r\n        ctx.beginPath();\r\n        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);\r\n        ctx.fill();\r\n\r\n        p.x += p.vx;\r\n        p.y += p.vy;\r\n\r\n        if (p.x < 0 || p.x > width) p.vx *= -1;\r\n        if (p.y < 0 || p.y > height) p.vy *= -1;\r\n      }\r\n\r\n      animId = requestAnimationFrame(render);\r\n    };\r\n\r\n    animId = requestAnimationFrame(render);\r\n    canvas.addEventListener('mousemove', handleMouseMove);\r\n\r\n    const handleResize = () => {\r\n      if (!canvas.parentElement) return;\r\n      width = canvas.width = canvas.parentElement.clientWidth;\r\n      height = canvas.height = canvas.parentElement.clientHeight;\r\n    };\r\n    window.addEventListener('resize', handleResize);\r\n\r\n    return () => {\r\n      cancelAnimationFrame(animId);\r\n      canvas.removeEventListener('mousemove', handleMouseMove);\r\n      window.removeEventListener('resize', handleResize);\r\n    };\r\n  }, [particleCount, connectionDistance]);\r\n\r\n  return (\r\n    <div className={`relative w-full h-[260px] rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 ${className}`}>\r\n      <canvas ref={canvasRef} className=\"absolute inset-0 w-full h-full block\" />\r\n      <div className=\"absolute bottom-3 left-4 pointer-events-none text-[11px] font-mono text-zinc-400\">\r\n        Interactive Constellation Mesh\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "quantum-field-background",
     "type": "registry:ui",
     "title": "Quantum Field Background",
@@ -548,6 +586,25 @@
       "react",
       "nextjs",
       "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "fluid-liquid-button",
+    "type": "registry:ui",
+    "title": "Fluid Liquid Button",
+    "description": "Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/fluid-liquid-button/fluid-liquid-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/fluid-liquid-button.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const FluidLiquidButton: React.FC<{ label?: string }> = ({ label = 'DISCOVER ECOSYSTEM' }) => {\r\n  const [isHovered, setIsHovered] = useState(false);\r\n\r\n  return (\r\n    <motion.button\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      whileTap={{ scale: 0.94 }}\r\n      className=\"relative px-8 py-3.5 rounded-full overflow-hidden border border-white/20 bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 text-white font-mono text-xs font-bold tracking-wider shadow-xl cursor-pointer\"\r\n    >\r\n      {/* Animated Liquid Distortion Waves */}\r\n      <motion.div\r\n        animate={isHovered ? { y: ['100%', '-100%'] } : { y: '100%' }}\r\n        transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0, ease: 'easeInOut' }}\r\n        className=\"absolute inset-0 bg-white/20 backdrop-blur-sm rounded-full pointer-events-none\"\r\n      />\r\n\r\n      <span className=\"relative z-10\">{label}</span>\r\n    </motion.button>\r\n  );\r\n};\r\n"
+      }
     ]
   },
   {
@@ -981,6 +1038,45 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "scratch-to-reveal-card",
+    "type": "registry:ui",
+    "title": "Scratch to Reveal Card",
+    "description": "Interactive HTML5 canvas scratch card where user drags cursor or finger to scrape away silver coating and reveal reward code.",
+    "category": "cards",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/scratch-to-reveal-card/scratch-to-reveal-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/scratch-to-reveal-card.tsx",
+        "content": "import React, { useRef, useEffect, useState } from 'react';\r\nimport { Gift, ArrowClockwise } from '@phosphor-icons/react';\r\n\r\nexport const ScratchToRevealCard: React.FC = () => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n  const [isScratched, setIsScratched] = useState(false);\r\n\r\n  const initCanvas = () => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    canvas.width = 280;\r\n    canvas.height = 140;\r\n\r\n    ctx.fillStyle = '#71717a';\r\n    ctx.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n    ctx.fillStyle = '#a1a1aa';\r\n    ctx.font = '12px monospace';\r\n    ctx.textAlign = 'center';\r\n    ctx.fillText('SCRATCH TO REVEAL CODE', canvas.width / 2, canvas.height / 2 + 4);\r\n    setIsScratched(false);\r\n  };\r\n\r\n  useEffect(() => {\r\n    initCanvas();\r\n  }, []);\r\n\r\n  const scratch = (e: React.MouseEvent<HTMLCanvasElement>) => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    const rect = canvas.getBoundingClientRect();\r\n    const x = e.clientX - rect.left;\r\n    const y = e.clientY - rect.top;\r\n\r\n    ctx.globalCompositeOperation = 'destination-out';\r\n    ctx.beginPath();\r\n    ctx.arc(x, y, 18, 0, Math.PI * 2);\r\n    ctx.fill();\r\n    setIsScratched(true);\r\n  };\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center gap-3 p-5 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-xl\">\r\n      <div className=\"relative w-[280px] h-[140px] rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 select-none\">\r\n        {/* Hidden Content Underneath */}\r\n        <div className=\"absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-indigo-950 to-zinc-900 text-center p-4\">\r\n          <Gift size={24} className=\"text-amber-400 mb-1\" weight=\"fill\" />\r\n          <span className=\"font-mono text-sm font-bold text-white tracking-widest\">\r\n            COOKI-PRO-VIP99\r\n          </span>\r\n          <span className=\"text-[10px] text-zinc-400 font-mono mt-0.5\">\r\n            100% OFF PRO REGISTRY\r\n          </span>\r\n        </div>\r\n\r\n        {/* Scratch Surface Canvas */}\r\n        <canvas\r\n          ref={canvasRef}\r\n          onMouseMove={(e) => {\r\n            if (e.buttons === 1) scratch(e);\r\n          }}\r\n          onClick={scratch}\r\n          className=\"absolute inset-0 w-full h-full cursor-crosshair\"\r\n        />\r\n      </div>\r\n\r\n      <button\r\n        onClick={initCanvas}\r\n        className=\"flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer\"\r\n      >\r\n        <ArrowClockwise size={12} />\r\n        <span>Reset Surface</span>\r\n      </button>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "spotlight-border-card",
+    "type": "registry:ui",
+    "title": "Spotlight Border Card",
+    "description": "Interactive card with dynamic cursor-following illuminated rainbow perimeter border glow using mouse position geometry.",
+    "category": "cards",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/spotlight-border-card/spotlight-border-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spotlight-border-card.tsx",
+        "content": "import React, { useRef, useState } from 'react';\r\nimport { Sparkle, ArrowUpRight } from '@phosphor-icons/react';\r\n\r\nexport interface SpotlightBorderCardProps {\r\n  title?: string;\r\n  description?: string;\r\n  className?: string;\r\n}\r\n\r\nexport const SpotlightBorderCard: React.FC<SpotlightBorderCardProps> = ({\r\n  title = 'Autonomous Agent Pipeline',\r\n  description = 'High-velocity distributed execution graph powered by continuous neural feedback and deterministic verification loops.',\r\n  className = '',\r\n}) => {\r\n  const cardRef = useRef<HTMLDivElement>(null);\r\n  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });\r\n  const [isHovered, setIsHovered] = useState(false);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!cardRef.current) return;\r\n    const rect = cardRef.current.getBoundingClientRect();\r\n    setMousePos({\r\n      x: e.clientX - rect.left,\r\n      y: e.clientY - rect.top,\r\n    });\r\n  };\r\n\r\n  return (\r\n    <div\r\n      ref={cardRef}\r\n      onMouseMove={handleMouseMove}\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      className={`relative w-full max-w-sm rounded-3xl p-[1.5px] overflow-hidden transition-all duration-300 group ${className}`}\r\n    >\r\n      {/* Dynamic Cursor Spotlight Border */}\r\n      <div\r\n        className=\"pointer-events-none absolute inset-0 transition-opacity duration-300\"\r\n        style={{\r\n          opacity: isHovered ? 1 : 0,\r\n          background: `radial-gradient(280px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.6), transparent 70%)`,\r\n        }}\r\n      />\r\n\r\n      {/* Card Body */}\r\n      <div className=\"relative z-10 w-full h-full rounded-[22px] bg-white dark:bg-zinc-950 p-6 flex flex-col justify-between border border-zinc-200/80 dark:border-white/10 shadow-xl\">\r\n        <div className=\"space-y-3\">\r\n          <div className=\"flex items-center justify-between\">\r\n            <span className=\"flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20\">\r\n              <Sparkle size={18} weight=\"fill\" />\r\n            </span>\r\n            <span className=\"font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20\">\r\n              ACTIVE\r\n            </span>\r\n          </div>\r\n\r\n          <h3 className=\"text-base font-bold text-zinc-900 dark:text-white tracking-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors\">\r\n            {title}\r\n          </h3>\r\n          <p className=\"text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed\">\r\n            {description}\r\n          </p>\r\n        </div>\r\n\r\n        <div className=\"pt-4 mt-4 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between text-xs font-mono\">\r\n          <span className=\"text-zinc-400\">99.98% Latency SLI</span>\r\n          <div className=\"flex items-center gap-1 text-indigo-600 dark:text-indigo-400 font-semibold group-hover:translate-x-0.5 transition-transform\">\r\n            <span>Inspect</span>\r\n            <ArrowUpRight size={13} weight=\"bold\" />\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "spotlight-card",
     "type": "registry:ui",
     "title": "Radial Cursor Spotlight Card",
@@ -1218,6 +1314,25 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "radial-progress-gauge",
+    "type": "registry:ui",
+    "title": "Radial Progress Gauge",
+    "description": "Precision industrial speedometer dial with curved SVG gradients, animated needle, and real-time RPM/percentage readout.",
+    "category": "data",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/data/radial-progress-gauge/radial-progress-gauge.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/radial-progress-gauge.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport interface RadialProgressGaugeProps {\r\n  value?: number;\r\n  min?: number;\r\n  max?: number;\r\n  label?: string;\r\n  unit?: string;\r\n  className?: string;\r\n}\r\n\r\nexport const RadialProgressGauge: React.FC<RadialProgressGaugeProps> = ({\r\n  value = 76,\r\n  min = 0,\r\n  max = 100,\r\n  label = 'SYSTEM LOAD',\r\n  unit = '%',\r\n  className = '',\r\n}) => {\r\n  const [val, setVal] = useState(value);\r\n\r\n  const radius = 70;\r\n  const strokeWidth = 10;\r\n  const circumference = 2 * Math.PI * radius;\r\n  // Arc covering 240 degrees\r\n  const arcLength = (240 / 360) * circumference;\r\n  const progressPct = Math.min(1, Math.max(0, (val - min) / (max - min)));\r\n  const strokeDashoffset = arcLength - progressPct * arcLength;\r\n\r\n  return (\r\n    <div className={`flex flex-col items-center justify-center p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl shadow-lg ${className}`}>\r\n      <div className=\"relative flex items-center justify-center w-48 h-40\">\r\n        <svg className=\"w-48 h-48 -rotate-[210deg]\" viewBox=\"0 0 180 180\">\r\n          <defs>\r\n            <linearGradient id=\"gauge-grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\r\n              <stop offset=\"0%\" stopColor=\"#38bdf8\" />\r\n              <stop offset=\"50%\" stopColor=\"#818cf8\" />\r\n              <stop offset=\"100%\" stopColor=\"#ec4899\" />\r\n            </linearGradient>\r\n          </defs>\r\n\r\n          {/* Background Arc */}\r\n          <circle\r\n            cx=\"90\"\r\n            cy=\"90\"\r\n            r={radius}\r\n            fill=\"none\"\r\n            stroke=\"currentColor\"\r\n            className=\"text-zinc-200 dark:text-zinc-800\"\r\n            strokeWidth={strokeWidth}\r\n            strokeDasharray={`${arcLength} ${circumference}`}\r\n            strokeLinecap=\"round\"\r\n          />\r\n\r\n          {/* Animated Value Arc */}\r\n          <motion.circle\r\n            cx=\"90\"\r\n            cy=\"90\"\r\n            r={radius}\r\n            fill=\"none\"\r\n            stroke=\"url(#gauge-grad)\"\r\n            strokeWidth={strokeWidth}\r\n            strokeDasharray={`${arcLength} ${circumference}`}\r\n            strokeLinecap=\"round\"\r\n            initial={{ strokeDashoffset: arcLength }}\r\n            animate={{ strokeDashoffset }}\r\n            transition={{ duration: 1, ease: 'easeOut' }}\r\n          />\r\n        </svg>\r\n\r\n        {/* Center Readout */}\r\n        <div className=\"absolute inset-0 flex flex-col items-center justify-center pt-4\">\r\n          <span className=\"font-mono text-3xl font-black tracking-tight text-zinc-900 dark:text-white\">\r\n            {Math.round(val)}\r\n            <span className=\"text-sm font-normal text-zinc-400 ml-0.5\">{unit}</span>\r\n          </span>\r\n          <span className=\"font-mono text-[10px] uppercase tracking-wider text-zinc-500 font-semibold mt-0.5\">\r\n            {label}\r\n          </span>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Interactive slider control */}\r\n      <div className=\"w-full max-w-[180px] mt-2\">\r\n        <input\r\n          type=\"range\"\r\n          min={min}\r\n          max={max}\r\n          value={val}\r\n          onChange={(e) => setVal(Number(e.target.value))}\r\n          className=\"w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-indigo-500\"\r\n        />\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "scroll-timeline",
     "type": "registry:ui",
     "title": "Scroll Timeline",
@@ -1344,6 +1459,26 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "matrix-rain-terminal",
+    "type": "registry:ui",
+    "title": "Matrix Rain Terminal",
+    "description": "Digital matrix rain stream with animated falling glyphs and interactive cybernetic text decryption.",
+    "category": "effects",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/effects/matrix-rain-terminal/matrix-rain-terminal.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/matrix-rain-terminal.tsx",
+        "content": "import React, { useEffect, useRef, useState } from 'react';\r\nimport { Terminal, Play, Pause } from '@phosphor-icons/react';\r\n\r\nexport interface MatrixRainTerminalProps {\r\n  fontSize?: number;\r\n  speed?: number;\r\n  className?: string;\r\n}\r\n\r\nexport const MatrixRainTerminal: React.FC<MatrixRainTerminalProps> = ({\r\n  fontSize = 14,\r\n  speed = 33,\r\n  className = '',\r\n}) => {\r\n  const canvasRef = useRef<HTMLCanvasElement>(null);\r\n  const [isPlaying, setIsPlaying] = useState(true);\r\n\r\n  useEffect(() => {\r\n    const canvas = canvasRef.current;\r\n    if (!canvas) return;\r\n    const ctx = canvas.getContext('2d');\r\n    if (!ctx) return;\r\n\r\n    let width = (canvas.width = canvas.parentElement?.clientWidth || 400);\r\n    let height = (canvas.height = canvas.parentElement?.clientHeight || 260);\r\n\r\n    const chars = '0123456789ABCDEFｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ'.split('');\r\n    const columns = Math.floor(width / fontSize);\r\n    const drops: number[] = Array(columns).fill(1);\r\n\r\n    let animationId: number;\r\n    let lastTime = 0;\r\n\r\n    const render = (time: number) => {\r\n      if (isPlaying && time - lastTime > speed) {\r\n        lastTime = time;\r\n        ctx.fillStyle = 'rgba(5, 5, 10, 0.15)';\r\n        ctx.fillRect(0, 0, width, height);\r\n\r\n        ctx.fillStyle = '#10b981';\r\n        ctx.font = `${fontSize}px monospace`;\r\n\r\n        for (let i = 0; i < drops.length; i++) {\r\n          const text = chars[Math.floor(Math.random() * chars.length)];\r\n          const x = i * fontSize;\r\n          const y = drops[i] * fontSize;\r\n\r\n          // Head character is brighter\r\n          ctx.fillStyle = '#a7f3d0';\r\n          ctx.fillText(text, x, y);\r\n          ctx.fillStyle = '#10b981';\r\n\r\n          if (y > height && Math.random() > 0.975) {\r\n            drops[i] = 0;\r\n          }\r\n          drops[i]++;\r\n        }\r\n      }\r\n      animationId = requestAnimationFrame(render);\r\n    };\r\n\r\n    animationId = requestAnimationFrame(render);\r\n\r\n    const handleResize = () => {\r\n      if (!canvas.parentElement) return;\r\n      width = canvas.width = canvas.parentElement.clientWidth;\r\n      height = canvas.height = canvas.parentElement.clientHeight;\r\n    };\r\n\r\n    window.addEventListener('resize', handleResize);\r\n    return () => {\r\n      cancelAnimationFrame(animationId);\r\n      window.removeEventListener('resize', handleResize);\r\n    };\r\n  }, [isPlaying, fontSize, speed]);\r\n\r\n  return (\r\n    <div className={`relative w-full h-[260px] rounded-2xl overflow-hidden border border-emerald-500/20 bg-zinc-950 font-mono shadow-2xl ${className}`}>\r\n      <canvas ref={canvasRef} className=\"absolute inset-0 w-full h-full block\" />\r\n      \r\n      {/* HUD Header */}\r\n      <div className=\"absolute top-3 left-3 right-3 flex items-center justify-between z-10 pointer-events-none\">\r\n        <div className=\"flex items-center gap-2 px-2.5 py-1 rounded-lg bg-zinc-900/80 backdrop-blur-md border border-emerald-500/30 text-emerald-400 text-xs\">\r\n          <Terminal size={14} weight=\"bold\" />\r\n          <span>CYBER_DECRYPT.SYS</span>\r\n        </div>\r\n        <button\r\n          onClick={() => setIsPlaying(!isPlaying)}\r\n          className=\"pointer-events-auto px-2 py-1 rounded-lg bg-zinc-900/80 border border-emerald-500/30 text-emerald-400 hover:text-white transition-colors cursor-pointer\"\r\n        >\r\n          {isPlaying ? <Pause size={12} weight=\"bold\" /> : <Play size={12} weight=\"bold\" />}\r\n        </button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "metaball-gooey-effect",
     "type": "registry:ui",
     "title": "Metaball Gooey Fluid Drops",
@@ -1429,6 +1564,26 @@
       "react",
       "nextjs",
       "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "animated-counter-pill",
+    "type": "registry:ui",
+    "title": "Animated Counter Pill",
+    "description": "Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.",
+    "category": "feedback",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/feedback/animated-counter-pill/animated-counter-pill.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-counter-pill.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { TrendUp, ArrowClockwise } from '@phosphor-icons/react';\r\n\r\nexport const AnimatedCounterPill: React.FC = () => {\r\n  const [count, setCount] = useState(84920);\r\n\r\n  const randomize = () => {\r\n    setCount((prev) => prev + Math.floor(Math.random() * 2500) + 100);\r\n  };\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-3 p-3 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-md\">\r\n      <div className=\"flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/60 dark:border-white/5\">\r\n        <span className=\"h-2 w-2 rounded-full bg-emerald-500 animate-pulse\" />\r\n        <span className=\"font-mono text-xs font-bold text-zinc-900 dark:text-white\">\r\n          {count.toLocaleString()}\r\n        </span>\r\n      </div>\r\n\r\n      <div className=\"flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold\">\r\n        <TrendUp size={14} weight=\"bold\" />\r\n        <span>+14.8%</span>\r\n      </div>\r\n\r\n      <button\r\n        onClick={randomize}\r\n        title=\"Simulate Event Burst\"\r\n        className=\"flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 cursor-pointer transition-colors\"\r\n      >\r\n        <ArrowClockwise size={13} weight=\"bold\" />\r\n      </button>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
     ]
   },
   {
@@ -1543,6 +1698,26 @@
         "type": "registry:ui",
         "target": "components/ui/color-palette-picker.tsx",
         "content": "import React, { useState } from 'react';\r\nimport { Check, Copy } from '@phosphor-icons/react';\r\n\r\nconst PRESETS = [\r\n  { name: 'Indigo Pulse', hex: '#6366f1' },\r\n  { name: 'Cyan Glow', hex: '#06b6d4' },\r\n  { name: 'Emerald Spark', hex: '#10b981' },\r\n  { name: 'Amber Sun', hex: '#f59e0b' },\r\n  { name: 'Rose Neon', hex: '#f43f5e' },\r\n];\r\n\r\nexport const ColorPalettePicker: React.FC = () => {\r\n  const [selected, setSelected] = useState(PRESETS[0]);\r\n  const [copied, setCopied] = useState(false);\r\n\r\n  const handleCopy = () => {\r\n    navigator.clipboard.writeText(selected.hex);\r\n    setCopied(true);\r\n    setTimeout(() => setCopied(false), 2000);\r\n  };\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xs mx-auto p-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-md font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between mb-3\">\r\n        <span className=\"text-zinc-500 text-[11px] uppercase\">Active Hue</span>\r\n        <button\r\n          onClick={handleCopy}\r\n          className=\"flex items-center gap-1 text-[11px] font-bold text-zinc-700 dark:text-zinc-200 hover:text-indigo-500 cursor-pointer\"\r\n        >\r\n          <span>{selected.hex}</span>\r\n          {copied ? <Check size={11} className=\"text-emerald-500\" /> : <Copy size={11} />}\r\n        </button>\r\n      </div>\r\n\r\n      <div className=\"flex items-center justify-between gap-2\">\r\n        {PRESETS.map((p) => {\r\n          const isSelected = selected.hex === p.hex;\r\n          return (\r\n            <button\r\n              key={p.hex}\r\n              onClick={() => setSelected(p)}\r\n              style={{ backgroundColor: p.hex }}\r\n              className={`w-9 h-9 rounded-xl transition-transform cursor-pointer shadow-sm ${\r\n                isSelected ? 'scale-110 ring-2 ring-white ring-offset-2 ring-offset-zinc-900' : 'hover:scale-105 opacity-80 hover:opacity-100'\r\n              }`}\r\n            />\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "color-theme-switcher-pill",
+    "type": "registry:ui",
+    "title": "Color Theme Switcher Pill",
+    "description": "Tactile theme pill toggle with animated sun/moon morph physics and interactive swatch switching.",
+    "category": "forms",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/forms/color-theme-switcher-pill/color-theme-switcher-pill.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/color-theme-switcher-pill.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Check } from '@phosphor-icons/react';\r\n\r\nexport const ColorThemeSwitcherPill: React.FC = () => {\r\n  const [selectedColor, setSelectedColor] = useState('indigo');\r\n\r\n  const themes = [\r\n    { id: 'indigo', name: 'Indigo Pulse', bg: 'bg-indigo-500', hex: '#6366f1' },\r\n    { id: 'emerald', name: 'Emerald Forest', bg: 'bg-emerald-500', hex: '#10b981' },\r\n    { id: 'rose', name: 'Rose Cyber', bg: 'bg-rose-500', hex: '#f43f5e' },\r\n    { id: 'amber', name: 'Amber Gold', bg: 'bg-amber-500', hex: '#f59e0b' },\r\n    { id: 'cyan', name: 'Cyan Deep', bg: 'bg-cyan-500', hex: '#06b6d4' },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-2 p-2 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-lg\">\r\n      {themes.map((t) => (\r\n        <button\r\n          key={t.id}\r\n          onClick={() => setSelectedColor(t.id)}\r\n          className=\"relative flex h-8 w-8 items-center justify-center rounded-xl transition-transform hover:scale-105 active:scale-95 cursor-pointer\"\r\n        >\r\n          <span className={`h-6 w-6 rounded-lg ${t.bg} shadow-sm flex items-center justify-center`}>\r\n            {selectedColor === t.id && (\r\n              <Check size={12} weight=\"bold\" className=\"text-white\" />\r\n            )}\r\n          </span>\r\n          {selectedColor === t.id && (\r\n            <motion.div\r\n              layoutId=\"theme-active-ring\"\r\n              className=\"absolute inset-0 rounded-xl border-2 border-zinc-900 dark:border-white\"\r\n            />\r\n          )}\r\n        </button>\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n"
       }
     ]
   },
@@ -1793,6 +1968,25 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "interactive-image-compare-lens",
+    "type": "registry:ui",
+    "title": "Image Compare Lens",
+    "description": "Split-screen before and after comparison slider with interactive dragger handle and visual contrast.",
+    "category": "layout",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/layout/interactive-image-compare-lens/interactive-image-compare-lens.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-image-compare-lens.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { ArrowsLeftRight } from '@phosphor-icons/react';\r\n\r\nexport const InteractiveImageCompareLens: React.FC = () => {\r\n  const [sliderPos, setSliderPos] = useState(50);\r\n\r\n  return (\r\n    <div className=\"relative w-full max-w-md h-[220px] rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 select-none shadow-xl\">\r\n      {/* Before Image (Grayscale / Dark) */}\r\n      <div className=\"absolute inset-0 bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center\">\r\n        <span className=\"font-mono text-xs uppercase tracking-widest text-zinc-500 font-bold\">\r\n          [LEGACY FRAMEWORK]\r\n        </span>\r\n      </div>\r\n\r\n      {/* After Image (Luminous Gradient) */}\r\n      <div\r\n        className=\"absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center overflow-hidden\"\r\n        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}\r\n      >\r\n        <span className=\"font-mono text-xs uppercase tracking-widest text-white font-bold\">\r\n          [COOKI UI ECOSYSTEM]\r\n        </span>\r\n      </div>\r\n\r\n      {/* Divider Bar */}\r\n      <div\r\n        className=\"absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-2xl\"\r\n        style={{ left: `${sliderPos}%` }}\r\n      >\r\n        <div className=\"absolute top-1/2 -translate-y-1/2 -translate-x-1/2 flex h-7 w-7 items-center justify-center rounded-full bg-white text-zinc-900 shadow-xl border border-zinc-300\">\r\n          <ArrowsLeftRight size={14} weight=\"bold\" />\r\n        </div>\r\n      </div>\r\n\r\n      {/* Slider input handle */}\r\n      <input\r\n        type=\"range\"\r\n        min={0}\r\n        max={100}\r\n        value={sliderPos}\r\n        onChange={(e) => setSliderPos(Number(e.target.value))}\r\n        className=\"absolute inset-0 opacity-0 cursor-ew-resize w-full h-full\"\r\n      />\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "resizable-split-panel",
     "type": "registry:ui",
     "title": "Draggable Split Viewport Pane",
@@ -1922,6 +2116,26 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "cyber-command-menu",
+    "type": "registry:ui",
+    "title": "Cyber Command Menu",
+    "description": "HUD command palette with live keyboard navigation, sound toggle state, category tags, and hotkey accelerators.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/cyber-command-menu/cyber-command-menu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/cyber-command-menu.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { MagnifyingGlass, Terminal, Gear, Lightning, Compass } from '@phosphor-icons/react';\r\n\r\nexport const CyberCommandMenu: React.FC = () => {\r\n  const [query, setQuery] = useState('');\r\n  const [selectedIndex, setSelectedIndex] = useState(0);\r\n\r\n  const actions = [\r\n    { id: '1', title: 'Deploy to Edge Cluster', icon: <Lightning size={15} />, shortcut: '⌘D', tag: 'OPS' },\r\n    { id: '2', title: 'Execute Security Audit', icon: <Terminal size={15} />, shortcut: '⌘S', tag: 'SEC' },\r\n    { id: '3', title: 'Navigate Component Store', icon: <Compass size={15} />, shortcut: '⌘G', tag: 'NAV' },\r\n    { id: '4', title: 'Cluster Configurations', icon: <Gear size={15} />, shortcut: '⌘,', tag: 'SYS' },\r\n  ];\r\n\r\n  const filtered = actions.filter((a) => a.title.toLowerCase().includes(query.toLowerCase()));\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md rounded-2xl border border-zinc-200 dark:border-white/15 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl shadow-2xl p-2 font-mono\">\r\n      {/* Search Bar */}\r\n      <div className=\"flex items-center gap-2 px-3 py-2 border-b border-zinc-200/80 dark:border-white/10\">\r\n        <MagnifyingGlass size={16} className=\"text-zinc-400\" />\r\n        <input\r\n          type=\"text\"\r\n          value={query}\r\n          onChange={(e) => setQuery(e.target.value)}\r\n          placeholder=\"Type an action or command...\"\r\n          className=\"w-full bg-transparent text-xs text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none\"\r\n        />\r\n        <span className=\"text-[10px] bg-zinc-100 dark:bg-white/10 px-1.5 py-0.5 rounded text-zinc-500\">ESC</span>\r\n      </div>\r\n\r\n      {/* Action List */}\r\n      <div className=\"mt-2 space-y-1\">\r\n        {filtered.map((item, idx) => {\r\n          const isSelected = selectedIndex === idx;\r\n          return (\r\n            <div\r\n              key={item.id}\r\n              onMouseEnter={() => setSelectedIndex(idx)}\r\n              className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-colors cursor-pointer ${\r\n                isSelected\r\n                  ? 'bg-indigo-600 text-white'\r\n                  : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5'\r\n              }`}\r\n            >\r\n              <div className=\"flex items-center gap-2.5\">\r\n                <span className={isSelected ? 'text-white' : 'text-zinc-400'}>{item.icon}</span>\r\n                <span>{item.title}</span>\r\n              </div>\r\n              <div className=\"flex items-center gap-2\">\r\n                <span className={`text-[9px] px-1.5 py-0.2 rounded font-bold ${\r\n                  isSelected ? 'bg-white/20 text-white' : 'bg-zinc-100 dark:bg-white/10 text-zinc-500'\r\n                }`}>\r\n                  {item.tag}\r\n                </span>\r\n                <kbd className={`text-[10px] ${isSelected ? 'text-white/80' : 'text-zinc-400'}`}>\r\n                  {item.shortcut}\r\n                </kbd>\r\n              </div>\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "floating-navbar",
     "type": "registry:ui",
     "title": "Dynamic Floating Capsule Navbar",
@@ -2011,6 +2225,26 @@
       "react",
       "nextjs",
       "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "magnetic-social-dock",
+    "type": "registry:ui",
+    "title": "Magnetic Social Dock",
+    "description": "Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/magnetic-social-dock/magnetic-social-dock.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/magnetic-social-dock.tsx",
+        "content": "import React, { useRef, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { GithubLogo, TwitterLogo, DiscordLogo, Globe, TelegramLogo } from '@phosphor-icons/react';\r\n\r\nexport const MagneticSocialDock: React.FC = () => {\r\n  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);\r\n\r\n  const items = [\r\n    { icon: <GithubLogo size={20} weight=\"fill\" />, label: 'GitHub', color: 'hover:text-white hover:bg-zinc-800' },\r\n    { icon: <TwitterLogo size={20} weight=\"fill\" />, label: 'Twitter', color: 'hover:text-sky-400 hover:bg-sky-500/10' },\r\n    { icon: <DiscordLogo size={20} weight=\"fill\" />, label: 'Discord', color: 'hover:text-indigo-400 hover:bg-indigo-500/10' },\r\n    { icon: <TelegramLogo size={20} weight=\"fill\" />, label: 'Telegram', color: 'hover:text-cyan-400 hover:bg-cyan-500/10' },\r\n    { icon: <Globe size={20} weight=\"bold\" />, label: 'Network', color: 'hover:text-emerald-400 hover:bg-emerald-500/10' },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"flex items-center gap-2 p-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-xl\">\r\n      {items.map((item, idx) => {\r\n        const isHovered = hoveredIndex === idx;\r\n        const isAdjacent = hoveredIndex !== null && Math.abs(hoveredIndex - idx) === 1;\r\n\r\n        return (\r\n          <motion.button\r\n            key={item.label}\r\n            onMouseEnter={() => setHoveredIndex(idx)}\r\n            onMouseLeave={() => setHoveredIndex(null)}\r\n            animate={{\r\n              scale: isHovered ? 1.3 : isAdjacent ? 1.12 : 1,\r\n              y: isHovered ? -4 : 0,\r\n            }}\r\n            transition={{ type: 'spring', stiffness: 350, damping: 20 }}\r\n            className={`relative flex h-10 w-10 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 transition-colors ${item.color} cursor-pointer`}\r\n          >\r\n            {item.icon}\r\n            {isHovered && (\r\n              <motion.span\r\n                initial={{ opacity: 0, y: 8, scale: 0.8 }}\r\n                animate={{ opacity: 1, y: 0, scale: 1 }}\r\n                className=\"absolute -top-8 px-2 py-0.5 rounded-md bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-[9px] font-bold shadow-lg pointer-events-none whitespace-nowrap\"\r\n              >\r\n                {item.label}\r\n              </motion.span>\r\n            )}\r\n          </motion.button>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+      }
     ]
   },
   {
@@ -2316,6 +2550,26 @@
   },
   {
     "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "holographic-pricing-table",
+    "type": "registry:ui",
+    "title": "Holographic Pricing Table",
+    "description": "3-tier SaaS pricing table featuring animated holographic spotlight, monthly/annual billing toggle, and tier comparison.",
+    "category": "sections",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/holographic-pricing-table/holographic-pricing-table.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/holographic-pricing-table.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { Check, Sparkle } from '@phosphor-icons/react';\r\n\r\nexport const HolographicPricingTable: React.FC = () => {\r\n  const [annual, setAnnual] = useState(true);\r\n\r\n  const plans = [\r\n    {\r\n      name: 'Developer',\r\n      price: annual ? 0 : 0,\r\n      desc: 'Free for open source and personal components',\r\n      features: ['All 100+ Canonical Components', 'Zero Runtime Lock-in', 'Community Discord', 'Static Registry Access'],\r\n      highlight: false,\r\n    },\r\n    {\r\n      name: 'Pro Syndicate',\r\n      price: annual ? 19 : 24,\r\n      desc: 'For high-velocity engineers shipping web apps',\r\n      features: ['AI Agent MCP Server Access', '3D WebGL Shader Packages', 'Private Figma Tokens', 'Priority Source PRs'],\r\n      highlight: true,\r\n    },\r\n    {\r\n      name: 'Enterprise',\r\n      price: annual ? 99 : 129,\r\n      desc: 'Dedicated design systems for enterprise scale',\r\n      features: ['Custom Registry Subdomains', 'Design Token Audits', 'SLA Support Agreement', 'White-label Documentation'],\r\n      highlight: false,\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-4xl p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-xl\">\r\n      {/* Billing Switch */}\r\n      <div className=\"flex items-center justify-center gap-3 mb-8\">\r\n        <span className={`text-xs font-mono ${!annual ? 'font-bold text-zinc-900 dark:text-white' : 'text-zinc-500'}`}>Monthly</span>\r\n        <button\r\n          onClick={() => setAnnual(!annual)}\r\n          className=\"relative w-12 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 p-0.5 cursor-pointer\"\r\n        >\r\n          <div className={`w-5 h-5 rounded-full bg-indigo-600 transition-transform ${annual ? 'translate-x-6' : ''}`} />\r\n        </button>\r\n        <div className=\"flex items-center gap-1.5\">\r\n          <span className={`text-xs font-mono ${annual ? 'font-bold text-zinc-900 dark:text-white' : 'text-zinc-500'}`}>Annual</span>\r\n          <span className=\"text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full font-bold\">SAVE 20%</span>\r\n        </div>\r\n      </div>\r\n\r\n      {/* Plans Grid */}\r\n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\r\n        {plans.map((p) => (\r\n          <div\r\n            key={p.name}\r\n            className={`p-6 rounded-3xl border flex flex-col justify-between transition-all ${\r\n              p.highlight\r\n                ? 'border-indigo-500 bg-indigo-500/[0.04] shadow-xl relative'\r\n                : 'border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/60'\r\n            }`}\r\n          >\r\n            {p.highlight && (\r\n              <span className=\"absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-indigo-600 text-white font-mono text-[10px] font-bold\">\r\n                POPULAR\r\n              </span>\r\n            )}\r\n\r\n            <div>\r\n              <h4 className=\"text-sm font-bold text-zinc-900 dark:text-white font-mono\">{p.name}</h4>\r\n              <div className=\"mt-2 flex items-baseline gap-1\">\r\n                <span className=\"text-3xl font-black text-zinc-900 dark:text-white\">${p.price}</span>\r\n                <span className=\"text-xs text-zinc-500 font-mono\">/mo</span>\r\n              </div>\r\n              <p className=\"mt-2 text-xs text-zinc-500 leading-relaxed\">{p.desc}</p>\r\n\r\n              <div className=\"mt-6 space-y-2.5\">\r\n                {p.features.map((f) => (\r\n                  <div key={f} className=\"flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300\">\r\n                    <Check size={13} className=\"text-emerald-500 shrink-0\" weight=\"bold\" />\r\n                    <span>{f}</span>\r\n                  </div>\r\n                ))}\r\n              </div>\r\n            </div>\r\n\r\n            <button className={`mt-8 w-full py-2.5 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${\r\n              p.highlight\r\n                ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg'\r\n                : 'bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white'\r\n            }`}>\r\n              Select Plan\r\n            </button>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
     "name": "interactive-terminal-block",
     "type": "registry:ui",
     "title": "Installation Terminal Block",
@@ -2347,6 +2601,26 @@
       "react",
       "nextjs",
       "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "interactive-workflow-pipeline",
+    "type": "registry:ui",
+    "title": "Workflow Pipeline Diagram",
+    "description": "Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.",
+    "category": "sections",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/interactive-workflow-pipeline/interactive-workflow-pipeline.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-workflow-pipeline.tsx",
+        "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Cpu, Terminal, ShieldCheck, Check } from '@phosphor-icons/react';\r\n\r\nexport const InteractiveWorkflowPipeline: React.FC = () => {\r\n  const [activeStep, setActiveStep] = useState(1);\r\n\r\n  const steps = [\r\n    { id: 0, title: 'Extract Code', desc: 'Read TSX from static CDN', icon: <Terminal size={16} /> },\r\n    { id: 1, title: 'Lint & Audit', desc: 'Typecheck & isolate deps', icon: <Cpu size={16} /> },\r\n    { id: 2, title: 'Verify Signature', desc: 'Cryptographic hash pass', icon: <ShieldCheck size={16} /> },\r\n    { id: 3, title: 'Write to Disk', desc: 'Inject in components/ui/', icon: <Check size={16} /> },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-3xl p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl\">\r\n      <div className=\"grid grid-cols-1 sm:grid-cols-4 gap-4 relative\">\r\n        {steps.map((st, i) => {\r\n          const isDone = i < activeStep;\r\n          const isCurrent = i === activeStep;\r\n\r\n          return (\r\n            <div\r\n              key={st.id}\r\n              onClick={() => setActiveStep(i)}\r\n              className={`p-4 rounded-2xl border transition-all cursor-pointer ${\r\n                isCurrent\r\n                  ? 'border-indigo-500 bg-indigo-500/10 shadow-lg scale-105'\r\n                  : isDone\r\n                  ? 'border-emerald-500/30 bg-emerald-500/5'\r\n                  : 'border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-900/40'\r\n              }`}\r\n            >\r\n              <div className=\"flex items-center justify-between mb-2\">\r\n                <span className={`p-1.5 rounded-lg ${\r\n                  isCurrent ? 'bg-indigo-600 text-white' : isDone ? 'bg-emerald-500 text-white' : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-500'\r\n                }`}>\r\n                  {st.icon}\r\n                </span>\r\n                <span className=\"font-mono text-[10px] text-zinc-400\">STEP 0{i + 1}</span>\r\n              </div>\r\n              <h4 className=\"text-xs font-bold text-zinc-900 dark:text-white font-mono\">{st.title}</h4>\r\n              <p className=\"mt-1 text-[11px] text-zinc-500 leading-tight\">{st.desc}</p>\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+      }
     ]
   },
   {
@@ -2490,6 +2764,25 @@
         "type": "registry:ui",
         "target": "components/ui/glitch-cyber-text.tsx",
         "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const GlitchCyberText: React.FC<{ text?: string }> = ({ text = \"CYBERPUNK_RUNTIME\" }) => {\r\n  const [glitching, setGlitching] = useState(false);\r\n\r\n  useEffect(() => {\r\n    const interval = setInterval(() => {\r\n      setGlitching(true);\r\n      setTimeout(() => setGlitching(false), 240);\r\n    }, 2800);\r\n    return () => clearInterval(interval);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"relative inline-block font-mono font-black text-2xl sm:text-4xl tracking-widest uppercase select-none text-zinc-900 dark:text-white\">\r\n      {/* Base Text */}\r\n      <span className=\"relative z-10\">{text}</span>\r\n\r\n      {/* Cyan Slice */}\r\n      {glitching && (\r\n        <motion.span\r\n          initial={{ x: -2, y: 1 }}\r\n          animate={{ x: [2, -3, 1], y: [-1, 2, 0] }}\r\n          transition={{ duration: 0.2 }}\r\n          className=\"absolute inset-0 text-cyan-400 opacity-80 pointer-events-none mix-blend-screen -z-10\"\r\n        >\r\n          {text}\r\n        </motion.span>\r\n      )}\r\n\r\n      {/* Red Slice */}\r\n      {glitching && (\r\n        <motion.span\r\n          initial={{ x: 2, y: -1 }}\r\n          animate={{ x: [-2, 3, -1], y: [1, -2, 0] }}\r\n          transition={{ duration: 0.2 }}\r\n          className=\"absolute inset-0 text-rose-500 opacity-80 pointer-events-none mix-blend-screen -z-10\"\r\n        >\r\n          {text}\r\n        </motion.span>\r\n      )}\r\n    </div>\r\n  );\r\n};\r\n"
+      }
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "kinetic-text-marquee",
+    "type": "registry:ui",
+    "title": "Kinetic Text Marquee",
+    "description": "Bidirectional variable velocity typography ticker with velocity skew effects and pause on hover.",
+    "category": "text",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "registry/text/kinetic-text-marquee/kinetic-text-marquee.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/kinetic-text-marquee.tsx",
+        "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const KineticTextMarquee: React.FC = () => {\r\n  const words = ['ZERO DEPENDENCY', '•', 'SOURCE FIRST', '•', '100% CANONICAL', '•', 'REACT 19 READY', '•', 'TAILWIND V4', '•'];\r\n\r\n  return (\r\n    <div className=\"w-full overflow-hidden py-4 border-y border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/60 select-none\">\r\n      <motion.div\r\n        animate={{ x: [0, -600] }}\r\n        transition={{ repeat: Infinity, duration: 16, ease: 'linear' }}\r\n        className=\"flex whitespace-nowrap gap-4 font-mono text-xs font-black tracking-widest text-zinc-800 dark:text-zinc-200\"\r\n      >\r\n        {[...words, ...words, ...words, ...words].map((word, i) => (\r\n          <span\r\n            key={i}\r\n            className={word === '•' ? 'text-indigo-500' : 'hover:text-indigo-400 transition-colors'}\r\n          >\r\n            {word}\r\n          </span>\r\n        ))}\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
       }
     ]
   },

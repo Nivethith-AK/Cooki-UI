@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kinetic-text-marquee",
+  "type": "registry:ui",
+  "title": "Kinetic Text Marquee",
+  "description": "Bidirectional variable velocity typography ticker with velocity skew effects and pause on hover.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/kinetic-text-marquee/kinetic-text-marquee.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/kinetic-text-marquee.tsx",
+      "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const KineticTextMarquee: React.FC = () => {\r\n  const words = ['ZERO DEPENDENCY', '•', 'SOURCE FIRST', '•', '100% CANONICAL', '•', 'REACT 19 READY', '•', 'TAILWIND V4', '•'];\r\n\r\n  return (\r\n    <div className=\"w-full overflow-hidden py-4 border-y border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/60 select-none\">\r\n      <motion.div\r\n        animate={{ x: [0, -600] }}\r\n        transition={{ repeat: Infinity, duration: 16, ease: 'linear' }}\r\n        className=\"flex whitespace-nowrap gap-4 font-mono text-xs font-black tracking-widest text-zinc-800 dark:text-zinc-200\"\r\n      >\r\n        {[...words, ...words, ...words, ...words].map((word, i) => (\r\n          <span\r\n            key={i}\r\n            className={word === '•' ? 'text-indigo-500' : 'hover:text-indigo-400 transition-colors'}\r\n          >\r\n            {word}\r\n          </span>\r\n        ))}\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

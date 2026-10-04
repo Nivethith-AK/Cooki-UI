@@ -131,6 +131,23 @@ import {
   CircleNotch
 } from '@phosphor-icons/react'
 
+// 15 New Canonical Additions (Batch 2)
+import { MatrixRainTerminal } from '../components/library/effects/MatrixRainTerminal'
+import { RadialProgressGauge } from '../components/library/data/RadialProgressGauge'
+import { SpotlightBorderCard } from '../components/library/cards/SpotlightBorderCard'
+import { MagneticSocialDock } from '../components/library/navigation/MagneticSocialDock'
+import { ParticleConstellationBackground } from '../components/library/backgrounds/ParticleConstellationBackground'
+import { CyberCommandMenu } from '../components/library/navigation/CyberCommandMenu'
+import { AnimatedCounterPill } from '../components/library/feedback/AnimatedCounterPill'
+import { MorphingBlobBackground } from '../components/library/backgrounds/MorphingBlobBackground'
+import { ScratchToRevealCard } from '../components/library/cards/ScratchToRevealCard'
+import { InteractiveImageCompareLens } from '../components/library/layout/InteractiveImageCompareLens'
+import { ColorThemeSwitcherPill } from '../components/library/forms/ColorThemeSwitcherPill'
+import { KineticTextMarquee } from '../components/library/text/KineticTextMarquee'
+import { HolographicPricingTable } from '../components/library/sections/HolographicPricingTable'
+import { InteractiveWorkflowPipeline } from '../components/library/sections/InteractiveWorkflowPipeline'
+import { FluidLiquidButton } from '../components/library/buttons/FluidLiquidButton'
+
 export const COMPONENT_REGISTRY: RegistryItem[] = [
   // 1. Magnetic Dock (Componentry)
   {
@@ -3535,4 +3552,468 @@ export default function ButtonDemo() {
     ]
   },
 
+// 106. Matrix Rain Terminal
+  {
+    id: 'matrix-rain-terminal',
+    name: 'Matrix Rain Terminal',
+    slug: 'matrix-rain-terminal',
+    category: 'effects' as any,
+    subcategory: 'Shaders & Atmospheric Effects',
+    description: 'Digital matrix rain stream with animated falling glyphs and interactive cybernetic text decryption.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'matrix', 'terminal', 'cyber'],
+    tags: ['matrix', 'hacker', 'cyber', 'terminal', 'animation'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add matrix-rain-terminal',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <MatrixRainTerminal />
+      </div>
+    ),
+    usage: `<MatrixRainTerminal />`,
+    files: [
+      {
+        name: 'MatrixRainTerminal.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['matrix-rain-terminal'] || ''
+      }
+    ]
+  },
+
+  // 107. Radial Progress Gauge
+  {
+    id: 'radial-progress-gauge',
+    name: 'Radial Progress Gauge',
+    slug: 'radial-progress-gauge',
+    category: 'data',
+    subcategory: 'Data & Dashboards',
+    description: 'Precision industrial speedometer dial with curved SVG gradients, animated needle, and real-time RPM/percentage readout.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['svg', 'gauge', 'framer-motion'],
+    tags: ['gauge', 'speedometer', 'progress', 'chart', 'metrics'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add radial-progress-gauge',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <RadialProgressGauge />
+      </div>
+    ),
+    usage: `<RadialProgressGauge value={76} label="SYSTEM LOAD" />`,
+    files: [
+      {
+        name: 'RadialProgressGauge.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['radial-progress-gauge'] || ''
+      }
+    ]
+  },
+
+  // 108. Spotlight Border Card
+  {
+    id: 'spotlight-border-card',
+    name: 'Spotlight Border Card',
+    slug: 'spotlight-border-card',
+    category: 'cards' as any,
+    subcategory: 'UI Components',
+    description: 'Interactive card with dynamic cursor-following illuminated rainbow perimeter border glow using mouse position geometry.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['hover-card', 'spotlight', 'border-glow'],
+    tags: ['card', 'spotlight', 'border', 'glow', 'hover'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add spotlight-border-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <SpotlightBorderCard />
+      </div>
+    ),
+    usage: `<SpotlightBorderCard />`,
+    files: [
+      {
+        name: 'SpotlightBorderCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['spotlight-border-card'] || ''
+      }
+    ]
+  },
+
+  // 109. Magnetic Social Dock
+  {
+    id: 'magnetic-social-dock',
+    name: 'Magnetic Social Dock',
+    slug: 'magnetic-social-dock',
+    category: 'navigation' as any,
+    subcategory: 'Layout & Elements',
+    description: 'Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['dock', 'framer-motion', 'spring-physics'],
+    tags: ['social', 'dock', 'navigation', 'magnetic', 'icons'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add magnetic-social-dock',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <MagneticSocialDock />
+      </div>
+    ),
+    usage: `<MagneticSocialDock />`,
+    files: [
+      {
+        name: 'MagneticSocialDock.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['magnetic-social-dock'] || ''
+      }
+    ]
+  },
+
+  // 110. Particle Constellation Background
+  {
+    id: 'particle-constellation-background',
+    name: 'Particle Constellation Background',
+    slug: 'particle-constellation-background',
+    category: 'backgrounds',
+    subcategory: 'Shaders & Backgrounds',
+    description: 'Interactive HTML5 canvas constellation network that links floating particle nodes with glowing lines when the cursor gets close.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'particles', 'constellation'],
+    tags: ['canvas', 'particles', 'constellation', 'interactive', 'background'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add particle-constellation-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <ParticleConstellationBackground />
+      </div>
+    ),
+    usage: `<ParticleConstellationBackground />`,
+    files: [
+      {
+        name: 'ParticleConstellationBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['particle-constellation-background'] || ''
+      }
+    ]
+  },
+
+  // 111. Cyber Command Menu
+  {
+    id: 'cyber-command-menu',
+    name: 'Cyber Command Menu',
+    slug: 'cyber-command-menu',
+    category: 'navigation' as any,
+    subcategory: 'Layout & Elements',
+    description: 'HUD command palette with live keyboard navigation, sound toggle state, category tags, and hotkey accelerators.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['command-menu', 'keyboard-nav', '@phosphor-icons/react'],
+    tags: ['command', 'menu', 'palette', 'shortcuts', 'hud'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add cyber-command-menu',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <CyberCommandMenu />
+      </div>
+    ),
+    usage: `<CyberCommandMenu />`,
+    files: [
+      {
+        name: 'CyberCommandMenu.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['cyber-command-menu'] || ''
+      }
+    ]
+  },
+
+  // 112. Animated Counter Pill
+  {
+    id: 'animated-counter-pill',
+    name: 'Animated Counter Pill',
+    slug: 'animated-counter-pill',
+    category: 'feedback' as any,
+    subcategory: 'UI Components',
+    description: 'Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['counter', 'framer-motion', 'metrics'],
+    tags: ['counter', 'pill', 'badge', 'metrics', 'data'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add animated-counter-pill',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <AnimatedCounterPill />
+      </div>
+    ),
+    usage: `<AnimatedCounterPill />`,
+    files: [
+      {
+        name: 'AnimatedCounterPill.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['animated-counter-pill'] || ''
+      }
+    ]
+  },
+
+  // 113. Morphing Blob Background
+  {
+    id: 'morphing-blob-background',
+    name: 'Morphing Blob Background',
+    slug: 'morphing-blob-background',
+    category: 'backgrounds',
+    subcategory: 'Shaders & Backgrounds',
+    description: 'Organic SVG fluid blob gradients that softly pulse and deform in high dynamic range colors.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['svg-filters', 'framer-motion', 'gradients'],
+    tags: ['blob', 'gradient', 'fluid', 'background', 'ambient'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add morphing-blob-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <MorphingBlobBackground />
+      </div>
+    ),
+    usage: `<MorphingBlobBackground />`,
+    files: [
+      {
+        name: 'MorphingBlobBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['morphing-blob-background'] || ''
+      }
+    ]
+  },
+
+  // 114. Scratch to Reveal Card
+  {
+    id: 'scratch-to-reveal-card',
+    name: 'Scratch to Reveal Card',
+    slug: 'scratch-to-reveal-card',
+    category: 'cards' as any,
+    subcategory: 'UI Components',
+    description: 'Interactive HTML5 canvas scratch card where user drags cursor or finger to scrape away silver coating and reveal reward code.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'scratch-card', 'interactive'],
+    tags: ['scratch', 'card', 'interactive', 'reward', 'game'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add scratch-to-reveal-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <ScratchToRevealCard />
+      </div>
+    ),
+    usage: `<ScratchToRevealCard />`,
+    files: [
+      {
+        name: 'ScratchToRevealCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['scratch-to-reveal-card'] || ''
+      }
+    ]
+  },
+
+  // 115. Interactive Image Compare Lens
+  {
+    id: 'interactive-image-compare-lens',
+    name: 'Interactive Image Compare Lens',
+    slug: 'interactive-image-compare-lens',
+    category: 'layout',
+    subcategory: 'Layout & Elements',
+    description: 'Split-screen before and after comparison slider with interactive dragger handle and visual contrast.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['split-slider', 'clip-path', 'interactive'],
+    tags: ['image', 'compare', 'slider', 'before-after', 'split'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add interactive-image-compare-lens',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <InteractiveImageCompareLens />
+      </div>
+    ),
+    usage: `<InteractiveImageCompareLens />`,
+    files: [
+      {
+        name: 'InteractiveImageCompareLens.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-image-compare-lens'] || ''
+      }
+    ]
+  },
+
+  // 116. Color Theme Switcher Pill
+  {
+    id: 'color-theme-switcher-pill',
+    name: 'Color Theme Switcher Pill',
+    slug: 'color-theme-switcher-pill',
+    category: 'forms',
+    subcategory: 'Forms & Inputs',
+    description: 'Tactile theme pill toggle with animated sun/moon morph physics and interactive swatch switching.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['theme-switcher', 'framer-motion', 'swatch'],
+    tags: ['theme', 'color', 'switcher', 'toggle', 'pill'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add color-theme-switcher-pill',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <ColorThemeSwitcherPill />
+      </div>
+    ),
+    usage: `<ColorThemeSwitcherPill />`,
+    files: [
+      {
+        name: 'ColorThemeSwitcherPill.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['color-theme-switcher-pill'] || ''
+      }
+    ]
+  },
+
+  // 117. Kinetic Text Marquee
+  {
+    id: 'kinetic-text-marquee',
+    name: 'Kinetic Text Marquee',
+    slug: 'kinetic-text-marquee',
+    category: 'text' as any,
+    subcategory: 'Text & Typography',
+    description: 'Bidirectional variable velocity typography ticker with velocity skew effects and pause on hover.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['marquee', 'framer-motion', 'typography'],
+    tags: ['text', 'marquee', 'kinetic', 'ticker', 'typography'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add kinetic-text-marquee',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <KineticTextMarquee />
+      </div>
+    ),
+    usage: `<KineticTextMarquee />`,
+    files: [
+      {
+        name: 'KineticTextMarquee.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['kinetic-text-marquee'] || ''
+      }
+    ]
+  },
+
+  // 118. Holographic Pricing Table
+  {
+    id: 'holographic-pricing-table',
+    name: 'Holographic Pricing Table',
+    slug: 'holographic-pricing-table',
+    category: 'sections',
+    subcategory: 'UI Sections',
+    description: '3-tier SaaS pricing table featuring animated holographic spotlight, monthly/annual billing toggle, and tier comparison.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['pricing-matrix', 'saas-section', 'framer-motion'],
+    tags: ['pricing', 'table', 'saas', 'tier', 'subscription'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add holographic-pricing-table',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <HolographicPricingTable />
+      </div>
+    ),
+    usage: `<HolographicPricingTable />`,
+    files: [
+      {
+        name: 'HolographicPricingTable.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['holographic-pricing-table'] || ''
+      }
+    ]
+  },
+
+  // 119. Interactive Workflow Pipeline
+  {
+    id: 'interactive-workflow-pipeline',
+    name: 'Interactive Workflow Pipeline',
+    slug: 'interactive-workflow-pipeline',
+    category: 'sections',
+    subcategory: 'UI Sections',
+    description: 'Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['workflow', 'pipeline-diagram', 'framer-motion'],
+    tags: ['workflow', 'pipeline', 'nodes', 'diagram', 'process'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add interactive-workflow-pipeline',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2 flex items-center justify-center">
+        <InteractiveWorkflowPipeline />
+      </div>
+    ),
+    usage: `<InteractiveWorkflowPipeline />`,
+    files: [
+      {
+        name: 'InteractiveWorkflowPipeline.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-workflow-pipeline'] || ''
+      }
+    ]
+  },
+
+  // 120. Fluid Liquid Button
+  {
+    id: 'fluid-liquid-button',
+    name: 'Fluid Liquid Button',
+    slug: 'fluid-liquid-button',
+    category: 'components',
+    subcategory: 'UI Components',
+    description: 'Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['liquid-button', 'framer-motion', 'fluid-physics'],
+    tags: ['button', 'liquid', 'fluid', 'gel', 'interactive'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add fluid-liquid-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <FluidLiquidButton />
+      </div>
+    ),
+    usage: `<FluidLiquidButton />`,
+    files: [
+      {
+        name: 'FluidLiquidButton.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['fluid-liquid-button'] || ''
+      }
+    ]
+  },
 ]

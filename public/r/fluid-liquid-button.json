@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-liquid-button",
+  "type": "registry:ui",
+  "title": "Fluid Liquid Button",
+  "description": "Gelatinous fluid mercury blob button with visceral ripple distortion and spring response.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/fluid-liquid-button/fluid-liquid-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-liquid-button.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const FluidLiquidButton: React.FC<{ label?: string }> = ({ label = 'DISCOVER ECOSYSTEM' }) => {\r\n  const [isHovered, setIsHovered] = useState(false);\r\n\r\n  return (\r\n    <motion.button\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      whileTap={{ scale: 0.94 }}\r\n      className=\"relative px-8 py-3.5 rounded-full overflow-hidden border border-white/20 bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 text-white font-mono text-xs font-bold tracking-wider shadow-xl cursor-pointer\"\r\n    >\r\n      {/* Animated Liquid Distortion Waves */}\r\n      <motion.div\r\n        animate={isHovered ? { y: ['100%', '-100%'] } : { y: '100%' }}\r\n        transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0, ease: 'easeInOut' }}\r\n        className=\"absolute inset-0 bg-white/20 backdrop-blur-sm rounded-full pointer-events-none\"\r\n      />\r\n\r\n      <span className=\"relative z-10\">{label}</span>\r\n    </motion.button>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

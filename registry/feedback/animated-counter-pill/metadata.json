@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-counter-pill",
+  "type": "registry:ui",
+  "title": "Animated Counter Pill",
+  "description": "Kinetic rolling counter pill with animated digit rolls, delta percentages (+14.2%), and status indicators.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/animated-counter-pill/animated-counter-pill.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-counter-pill.tsx"
+    }
+  ]
+}

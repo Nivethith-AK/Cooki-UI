@@ -1,9 +1,60 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Copy, Check, Terminal, Heart, Sliders, Code, ShieldCheck, ArrowSquareOut } from '@phosphor-icons/react'
+import { 
+  X, 
+  Copy, 
+  Check, 
+  Terminal, 
+  Heart, 
+  Sliders, 
+  Code, 
+  ShieldCheck, 
+  ArrowSquareOut,
+  ArrowsOutSimple,
+  ArrowsInSimple,
+  ArrowClockwise
+} from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 import { CodeViewer } from './CodeViewer'
+
+interface ErrorBoundaryState {
+  hasError: boolean
+  error?: Error
+}
+
+class PreviewErrorBoundary extends React.Component<{ children: React.ReactNode }, ErrorBoundaryState> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error }
+  }
+
+  componentDidCatch(error: Error, errorInfo: any) {
+    console.warn('Component Preview Error:', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center p-8 text-center text-rose-500 font-mono text-xs max-w-md">
+          <span className="font-bold">Preview could not be rendered</span>
+          <span className="text-[11px] text-zinc-500 mt-1">{this.state.error?.message}</span>
+          <button 
+            onClick={() => this.setState({ hasError: false })} 
+            className="mt-3 px-3 py-1 bg-zinc-800 text-white rounded-lg text-[11px] hover:bg-zinc-700 cursor-pointer transition-colors"
+          >
+            Retry Preview
+          </button>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
 
 export const ComponentDetailModal: React.FC = () => {
   const { selectedComponent, setSelectedComponent, favorites, toggleFavorite } = useStore()
@@ -12,6 +63,18 @@ export const ComponentDetailModal: React.FC = () => {
   const [controlValues, setControlValues] = useState<Record<string, any>>({})
   const [copiedInstall, setCopiedInstall] = useState(false)
   const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install' | 'registry'>('preview')
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (selectedComponent) {
+      const prevOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prevOverflow
+      }
+    }
+  }, [selectedComponent])
 
   useEffect(() => {
     if (selectedComponent?.controls) {
@@ -24,6 +87,7 @@ export const ComponentDetailModal: React.FC = () => {
       setControlValues({})
     }
     setActiveTab('preview')
+    setIsFullscreen(false)
   }, [selectedComponent])
 
   useEffect(() => {
@@ -34,11 +98,10 @@ export const ComponentDetailModal: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [setSelectedComponent])
 
-  if (!selectedComponent) return null
-
-  const isFav = favorites.includes(selectedComponent.id)
+  const isFav = selectedComponent ? favorites.includes(selectedComponent.id) : false
 
   const copyInstall = () => {
+    if (!selectedComponent) return
     navigator.clipboard.writeText(selectedComponent.installCommand)
     setCopiedInstall(true)
     setTimeout(() => setCopiedInstall(false), 2000)
@@ -50,25 +113,33 @@ export const ComponentDetailModal: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedComponent(null)}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md"
-        />
-
-        {/* Modal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-          className="relative z-10 w-full max-w-5xl rounded-[2.5rem] border border-zinc-200 dark:border-white/15 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col transition-colors"
+      {selectedComponent && (
+        <div 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedComponent(null)
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 overflow-y-auto"
         >
+          
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedComponent(null)}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+          />
+
+          {/* Modal Window */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+            className={`relative z-10 w-full ${
+              isFullscreen ? 'max-w-[96vw] max-h-[96vh]' : 'max-w-5xl max-h-[92vh]'
+            } rounded-[2.5rem] border border-zinc-200 dark:border-white/15 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 shadow-2xl overflow-hidden my-auto flex flex-col transition-all duration-300`}
+          >
           {/* Header */}
           <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 px-6 py-4">
             <div className="flex items-center gap-3">
@@ -79,6 +150,14 @@ export const ComponentDetailModal: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+                title={isFullscreen ? 'Exit fullscreen' : 'Expand full screen'}
+              >
+                {isFullscreen ? <ArrowsInSimple size={16} weight="bold" /> : <ArrowsOutSimple size={16} weight="bold" />}
+              </button>
               <button
                 onClick={() => toggleFavorite(selectedComponent.id)}
                 className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 hover:text-rose-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
@@ -162,10 +241,14 @@ export const ComponentDetailModal: React.FC = () => {
               <div className="space-y-6">
                 
                 {/* Live Sandbox Area */}
-                <div className="relative min-h-[340px] flex items-center justify-center rounded-3xl border border-zinc-200 dark:border-white/10 bg-zinc-100/60 dark:bg-[#060608] p-8 overflow-hidden shadow-inner transition-colors">
+                <div className={`relative ${
+                  isFullscreen ? 'min-h-[520px]' : selectedComponent.category === 'sections' ? 'min-h-[440px]' : 'min-h-[360px]'
+                } flex items-center justify-center rounded-3xl border border-zinc-200 dark:border-white/10 bg-zinc-100/60 dark:bg-[#060608] p-8 overflow-hidden shadow-inner transition-all`}>
                   <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
-                  <div className="relative z-10 w-full flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                    {selectedComponent.renderPreview(controlValues, isDark)}
+                  <div className="relative isolate z-10 w-full flex items-center justify-center text-zinc-900 dark:text-zinc-100">
+                    <PreviewErrorBoundary key={selectedComponent.id}>
+                      {selectedComponent.renderPreview(controlValues, isDark)}
+                    </PreviewErrorBoundary>
                   </div>
                 </div>
 
@@ -413,7 +496,8 @@ export const ComponentDetailModal: React.FC = () => {
           </div>
 
         </motion.div>
-      </div>
+        </div>
+      )}
     </AnimatePresence>
   )
 }

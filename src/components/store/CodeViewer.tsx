@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Copy, Check, FileCode } from '@phosphor-icons/react'
 import { ComponentFile } from '../../types/component'
 
@@ -16,7 +16,14 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, usage }) => {
   const [activeTab, setActiveTab] = useState(allTabs[0]?.id || '')
   const [copied, setCopied] = useState(false)
 
-  const activeContent = allTabs.find((t) => t.id === activeTab)?.content || ''
+  // Ensure activeTab is always valid when component files change
+  useEffect(() => {
+    if (allTabs.length > 0 && !allTabs.some((t) => t.id === activeTab)) {
+      setActiveTab(allTabs[0].id)
+    }
+  }, [files, usage, activeTab, allTabs])
+
+  const activeContent = allTabs.find((t) => t.id === activeTab)?.content || allTabs[0]?.content || ''
 
   const handleCopy = () => {
     navigator.clipboard.writeText(activeContent)

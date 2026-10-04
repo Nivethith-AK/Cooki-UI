@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scratch-to-reveal-card",
+  "type": "registry:ui",
+  "title": "Scratch to Reveal Card",
+  "description": "Interactive HTML5 canvas scratch card where user drags cursor or finger to scrape away silver coating and reveal reward code.",
+  "category": "cards",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/scratch-to-reveal-card/scratch-to-reveal-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/scratch-to-reveal-card.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-workflow-pipeline",
+  "type": "registry:ui",
+  "title": "Workflow Pipeline Diagram",
+  "description": "Node-based workflow pipeline steps with glowing pulsing laser data packets connecting steps.",
+  "category": "sections",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/interactive-workflow-pipeline/interactive-workflow-pipeline.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-workflow-pipeline.tsx"
+    }
+  ]
+}

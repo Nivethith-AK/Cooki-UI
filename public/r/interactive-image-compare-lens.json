@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-image-compare-lens",
+  "type": "registry:ui",
+  "title": "Image Compare Lens",
+  "description": "Split-screen before and after comparison slider with interactive dragger handle and visual contrast.",
+  "category": "layout",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/interactive-image-compare-lens/interactive-image-compare-lens.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-image-compare-lens.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { ArrowsLeftRight } from '@phosphor-icons/react';\r\n\r\nexport const InteractiveImageCompareLens: React.FC = () => {\r\n  const [sliderPos, setSliderPos] = useState(50);\r\n\r\n  return (\r\n    <div className=\"relative w-full max-w-md h-[220px] rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 select-none shadow-xl\">\r\n      {/* Before Image (Grayscale / Dark) */}\r\n      <div className=\"absolute inset-0 bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center\">\r\n        <span className=\"font-mono text-xs uppercase tracking-widest text-zinc-500 font-bold\">\r\n          [LEGACY FRAMEWORK]\r\n        </span>\r\n      </div>\r\n\r\n      {/* After Image (Luminous Gradient) */}\r\n      <div\r\n        className=\"absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center overflow-hidden\"\r\n        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}\r\n      >\r\n        <span className=\"font-mono text-xs uppercase tracking-widest text-white font-bold\">\r\n          [COOKI UI ECOSYSTEM]\r\n        </span>\r\n      </div>\r\n\r\n      {/* Divider Bar */}\r\n      <div\r\n        className=\"absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-2xl\"\r\n        style={{ left: `${sliderPos}%` }}\r\n      >\r\n        <div className=\"absolute top-1/2 -translate-y-1/2 -translate-x-1/2 flex h-7 w-7 items-center justify-center rounded-full bg-white text-zinc-900 shadow-xl border border-zinc-300\">\r\n          <ArrowsLeftRight size={14} weight=\"bold\" />\r\n        </div>\r\n      </div>\r\n\r\n      {/* Slider input handle */}\r\n      <input\r\n        type=\"range\"\r\n        min={0}\r\n        max={100}\r\n        value={sliderPos}\r\n        onChange={(e) => setSliderPos(Number(e.target.value))}\r\n        className=\"absolute inset-0 opacity-0 cursor-ew-resize w-full h-full\"\r\n      />\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

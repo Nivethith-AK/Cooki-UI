@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-social-dock",
+  "type": "registry:ui",
+  "title": "Magnetic Social Dock",
+  "description": "Fluid magnetic social icon pills that dynamically morph, scale, and spring toward the cursor with balloon tooltips.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/magnetic-social-dock/magnetic-social-dock.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-social-dock.tsx"
+    }
+  ]
+}

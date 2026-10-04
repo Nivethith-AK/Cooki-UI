@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "particle-constellation-background",
+  "type": "registry:ui",
+  "title": "Particle Constellation Background",
+  "description": "Interactive HTML5 canvas constellation network that links floating particle nodes with glowing lines when the cursor gets close.",
+  "category": "backgrounds",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/particle-constellation-background/particle-constellation-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/particle-constellation-background.tsx"
+    }
+  ]
+}

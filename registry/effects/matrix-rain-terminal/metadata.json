@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "matrix-rain-terminal",
+  "type": "registry:ui",
+  "title": "Matrix Rain Terminal",
+  "description": "Digital matrix rain stream with animated falling glyphs and interactive cybernetic text decryption.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/matrix-rain-terminal/matrix-rain-terminal.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/matrix-rain-terminal.tsx"
+    }
+  ]
+}

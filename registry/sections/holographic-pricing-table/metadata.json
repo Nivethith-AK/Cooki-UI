@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "holographic-pricing-table",
+  "type": "registry:ui",
+  "title": "Holographic Pricing Table",
+  "description": "3-tier SaaS pricing table featuring animated holographic spotlight, monthly/annual billing toggle, and tier comparison.",
+  "category": "sections",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/holographic-pricing-table/holographic-pricing-table.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/holographic-pricing-table.tsx"
+    }
+  ]
+}
