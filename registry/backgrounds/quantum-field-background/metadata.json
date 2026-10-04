@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quantum-field-background",
+  "type": "registry:ui",
+  "title": "Quantum Field Background",
+  "description": "Dynamic canvas particle constellation with nodes drifting and interconnecting dynamically.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/backgrounds/quantum-field-background/quantum-field-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/quantum-field-background.tsx"
+    }
+  ]
+}

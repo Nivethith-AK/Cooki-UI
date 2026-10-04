@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-timeline",
+  "type": "registry:ui",
+  "title": "Scroll Timeline",
+  "description": "Vertical interactive audit timeline with connecting glowing track and milestone checkpoints.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/scroll-timeline/scroll-timeline.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/scroll-timeline.tsx"
+    }
+  ]
+}

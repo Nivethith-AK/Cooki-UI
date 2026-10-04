@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-stepper",
+  "type": "registry:ui",
+  "title": "Breadcrumb Stepper",
+  "description": "Modern breadcrumb and multi-step progression bar with completed checkmarks and active glowing nodes.",
+  "category": "navigation",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/breadcrumb-stepper/breadcrumb-stepper.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/breadcrumb-stepper.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { Check, CaretRight } from '@phosphor-icons/react';\r\n\r\nconst STEPS = ['Design Tokens', 'Component Spec', 'Formal Proof', 'Deploy'];\r\n\r\nexport const BreadcrumbStepper: React.FC = () => {\r\n  const [activeStep, setActiveStep] = useState(2);\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center gap-4 w-full max-w-lg mx-auto\">\r\n      <div className=\"flex items-center gap-2 overflow-x-auto p-2 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/70 shadow-sm font-mono text-xs\">\r\n        {STEPS.map((step, idx) => {\r\n          const isDone = idx < activeStep;\r\n          const isCurrent = idx === activeStep;\r\n\r\n          return (\r\n            <React.Fragment key={step}>\r\n              <button\r\n                onClick={() => setActiveStep(idx)}\r\n                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl transition-colors cursor-pointer select-none ${\r\n                  isCurrent\r\n                    ? 'bg-indigo-600 text-white font-bold shadow-xs'\r\n                    : isDone\r\n                    ? 'text-emerald-500 font-semibold'\r\n                    : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'\r\n                }`}\r\n              >\r\n                <span\r\n                  className={`flex h-4 w-4 items-center justify-center rounded-full text-[10px] ${\r\n                    isDone ? 'bg-emerald-500/20 text-emerald-500 font-bold' : isCurrent ? 'bg-white/20' : 'bg-zinc-200 dark:bg-zinc-800'\r\n                  }`}\r\n                >\r\n                  {isDone ? <Check size={10} weight=\"bold\" /> : idx + 1}\r\n                </span>\r\n                <span>{step}</span>\r\n              </button>\r\n              {idx < STEPS.length - 1 && (\r\n                <CaretRight size={12} className=\"text-zinc-400 shrink-0\" />\r\n              )}\r\n            </React.Fragment>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

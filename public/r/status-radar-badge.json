@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-radar-badge",
+  "type": "registry:ui",
+  "title": "Status Radar Badge",
+  "description": "Live telemetry system status indicator badge with pulse sonar ring and calibrated state switches.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/status-radar-badge/status-radar-badge.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/status-radar-badge.tsx",
+      "content": "import React, { useState } from 'react';\r\n\r\nexport type SystemStatus = 'operational' | 'degraded' | 'outage' | 'maintenance';\r\n\r\nexport const StatusRadarBadge: React.FC = () => {\r\n  const [status, setStatus] = useState<SystemStatus>('operational');\r\n\r\n  const config = {\r\n    operational: { color: 'bg-emerald-400', ring: 'ring-emerald-400', label: 'OPERATIONAL', latency: '24ms' },\r\n    degraded: { color: 'bg-amber-400', ring: 'ring-amber-400', label: 'DEGRADED', latency: '190ms' },\r\n    outage: { color: 'bg-rose-500', ring: 'ring-rose-500', label: 'OUTAGE', latency: 'TIMEOUT' },\r\n    maintenance: { color: 'bg-cyan-400', ring: 'ring-cyan-400', label: 'MAINTENANCE', latency: 'STANDBY' },\r\n  };\r\n\r\n  const curr = config[status];\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center gap-4\">\r\n      <div className=\"inline-flex items-center gap-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-white/90 dark:bg-zinc-900/80 px-4 py-1.5 shadow-sm\">\r\n        <span className=\"relative flex h-2.5 w-2.5\">\r\n          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${curr.color}`} />\r\n          <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${curr.color}`} />\r\n        </span>\r\n        <span className=\"font-mono text-xs font-bold text-zinc-900 dark:text-white tracking-wider\">\r\n          {curr.label}\r\n        </span>\r\n        <span className=\"text-zinc-400\">&bull;</span>\r\n        <span className=\"font-mono text-[11px] text-zinc-500\">{curr.latency}</span>\r\n      </div>\r\n\r\n      <div className=\"flex gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/5\">\r\n        {(Object.keys(config) as SystemStatus[]).map((st) => (\r\n          <button\r\n            key={st}\r\n            onClick={() => setStatus(st)}\r\n            className={`px-2.5 py-1 rounded-lg text-[10px] font-mono transition-colors cursor-pointer capitalize ${\r\n              status === st\r\n                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white font-bold shadow-xs'\r\n                : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300'\r\n            }`}\r\n          >\r\n            {st}\r\n          </button>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-hover-card",
+  "type": "registry:ui",
+  "title": "Code Hover Card",
+  "description": "Interactive IDE preview card with syntax highlighted tokens, expandable line tabs, and copy feedback.",
+  "category": "3d",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/code-hover-card/code-hover-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/code-hover-card.tsx"
+    }
+  ]
+}

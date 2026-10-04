@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-text",
+  "type": "registry:ui",
+  "title": "Scramble Text",
+  "description": "Cyberpunk matrix character decryption animation on hover or trigger with glyph cyphers.",
+  "category": "text",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/text/scramble-text/scramble-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/scramble-text.tsx",
+      "content": "import React, { useState } from 'react';\r\n\r\nconst CHARS = '!<>-_\\\\/[]{}—=+*^?#________';\r\n\r\nexport const ScrambleText: React.FC<{ text?: string }> = ({\r\n  text = 'DETERMINISTIC CODE EMISSION',\r\n}) => {\r\n  const [displayText, setDisplayText] = useState(text);\r\n\r\n  const scramble = () => {\r\n    let iteration = 0;\r\n    const interval = setInterval(() => {\r\n      setDisplayText(() =>\r\n        text\r\n          .split('')\r\n          .map((_, index) => {\r\n            if (index < iteration) return text[index];\r\n            return CHARS[Math.floor(Math.random() * CHARS.length)];\r\n          })\r\n          .join('')\r\n      );\r\n\r\n      if (iteration >= text.length) clearInterval(interval);\r\n      iteration += 1 / 2;\r\n    }, 30);\r\n  };\r\n\r\n  return (\r\n    <div\r\n      onMouseEnter={scramble}\r\n      className=\"flex flex-col items-center justify-center p-6 font-mono text-center cursor-pointer select-none\"\r\n    >\r\n      <span className=\"text-[10px] uppercase tracking-widest text-zinc-500 mb-2\">HOVER TO DECRYPT</span>\r\n      <h3 className=\"text-sm sm:text-base font-bold text-emerald-400 tracking-wider\">\r\n        {displayText}\r\n      </h3>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

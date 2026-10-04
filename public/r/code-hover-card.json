@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-hover-card",
+  "type": "registry:ui",
+  "title": "Code Hover Card",
+  "description": "Interactive IDE preview card with syntax highlighted tokens, expandable line tabs, and copy feedback.",
+  "category": "3d",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/code-hover-card/code-hover-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/code-hover-card.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { Copy, Check, Terminal } from '@phosphor-icons/react';\r\n\r\nexport const CodeHoverCard: React.FC = () => {\r\n  const [copied, setCopied] = useState(false);\r\n\r\n  const snippet = `import { MagneticDock } from '@/components/ui'\r\n\r\nexport function App() {\r\n  return <MagneticDock maxScale={1.4} />\r\n}`;\r\n\r\n  const copy = () => {\r\n    navigator.clipboard.writeText(snippet);\r\n    setCopied(true);\r\n    setTimeout(() => setCopied(false), 2000);\r\n  };\r\n\r\n  return (\r\n    <div className=\"group relative w-full max-w-sm mx-auto rounded-3xl border border-zinc-200 dark:border-white/15 bg-zinc-950 p-4 text-xs font-mono text-zinc-300 shadow-xl transition-all hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/10\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-white/10 text-[10px] text-zinc-500\">\r\n        <div className=\"flex items-center gap-1.5\">\r\n          <Terminal size={14} className=\"text-indigo-400\" />\r\n          <span>App.tsx</span>\r\n        </div>\r\n        <button\r\n          onClick={copy}\r\n          className=\"flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-zinc-200 transition-colors cursor-pointer\"\r\n        >\r\n          {copied ? <Check size={11} className=\"text-emerald-400\" /> : <Copy size={11} />}\r\n          <span>{copied ? 'Copied' : 'Copy'}</span>\r\n        </button>\r\n      </div>\r\n\r\n      <pre className=\"mt-3 overflow-x-auto text-zinc-300 leading-relaxed font-mono\">\r\n        <code>\r\n          <div><span className=\"text-violet-400\">import</span> &#123; <span className=\"text-cyan-300\">MagneticDock</span> &#125; <span className=\"text-violet-400\">from</span> <span className=\"text-emerald-300\">'@/components/ui'</span></div>\r\n          <br />\r\n          <div><span className=\"text-violet-400\">export function</span> <span className=\"text-amber-300\">App</span>() &#123;</div>\r\n          <div>{'  '}<span className=\"text-violet-400\">return</span> &lt;<span className=\"text-cyan-300\">MagneticDock</span> <span className=\"text-indigo-300\">maxScale</span>=&#123;<span className=\"text-rose-300\">1.4</span>&#125; /&gt;</div>\r\n          <div>&#125;</div>\r\n        </code>\r\n      </pre>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

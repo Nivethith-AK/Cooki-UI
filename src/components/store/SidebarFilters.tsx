@@ -74,15 +74,15 @@ export const SidebarFilters: React.FC = () => {
                 }}
                 className={`flex w-full items-center justify-between rounded-xl px-3 py-2 transition-all ${
                   isActive
-                    ? 'bg-white text-zinc-950 font-semibold shadow-sm'
-                    : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-sm'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5'
                 }`}
               >
                 <div className="flex items-center gap-2">
                   <span>{cat.icon}</span>
                   <span>{cat.label}</span>
                 </div>
-                <span className={`font-mono text-[10px] ${isActive ? 'text-zinc-700' : 'text-zinc-600'}`}>
+                <span className={`font-mono text-[10px] ${isActive ? 'text-zinc-300 dark:text-zinc-700' : 'text-zinc-500 dark:text-zinc-600'}`}>
                   {count}
                 </span>
               </button>
@@ -104,7 +104,7 @@ export const SidebarFilters: React.FC = () => {
           className={`flex w-full items-center justify-between rounded-xl px-3 py-2 transition-all ${
             showFavoritesOnly
               ? 'bg-rose-500 text-white font-semibold shadow-sm'
-              : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5'
           }`}
         >
           <div className="flex items-center gap-2">
@@ -131,8 +131,8 @@ export const SidebarFilters: React.FC = () => {
                 onClick={() => setSelectedFramework(fw)}
                 className={`rounded-lg px-2.5 py-1 text-[11px] font-mono transition-all ${
                   isActive
-                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-medium'
-                    : 'bg-white/5 text-zinc-400 border border-white/5 hover:border-white/15 hover:text-zinc-200'
+                    ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-medium'
+                    : 'bg-zinc-100 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/15 hover:text-zinc-900 dark:hover:text-zinc-200'
                 }`}
               >
                 {fw === 'all' ? 'All Frameworks' : fw}
@@ -143,10 +143,10 @@ export const SidebarFilters: React.FC = () => {
       </div>
 
       {/* Reset Filter Button */}
-      <div className="pt-4 border-t border-white/5">
+      <div className="pt-4 border-t border-zinc-200 dark:border-white/5">
         <button
           onClick={resetFilters}
-          className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-mono text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 px-3 py-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors"
         >
           <ArrowClockwise size={13} />
           <span>Reset All Filters</span>
@@ -160,7 +160,7 @@ export const SidebarFilters: React.FC = () => {
     <>
       {/* Desktop Sidebar */}
       <aside className="hidden lg:block w-64 shrink-0 pr-4">
-        <div className="sticky top-28 rounded-3xl border border-white/10 bg-zinc-950/70 p-5 backdrop-blur-xl shadow-xl">
+        <div className="sticky top-28 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/80 dark:bg-zinc-950/70 p-5 backdrop-blur-xl shadow-sm dark:shadow-xl transition-colors">
           {sidebarContent}
         </div>
       </aside>
@@ -181,13 +181,13 @@ export const SidebarFilters: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="fixed inset-y-0 left-0 w-80 max-w-[85%] border-r border-white/15 bg-zinc-950 p-6 text-white shadow-2xl overflow-y-auto"
+              className="fixed inset-y-0 left-0 w-80 max-w-[85%] border-r border-zinc-200 dark:border-white/15 bg-white dark:bg-zinc-950 p-6 text-zinc-900 dark:text-white shadow-2xl overflow-y-auto"
             >
-              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-white">Filter Artifacts</span>
+              <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 pb-4 mb-6">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">Filter Artifacts</span>
                 <button
                   onClick={() => setMobileFilterOpen(false)}
-                  className="rounded-full p-1 text-zinc-400 hover:text-white"
+                  className="rounded-full p-1 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                 >
                   <X size={18} />
                 </button>

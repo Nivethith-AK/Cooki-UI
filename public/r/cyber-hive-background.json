@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cyber-hive-background",
+  "type": "registry:ui",
+  "title": "Cyber Hive Background",
+  "description": "Futuristic glowing hexagonal cyber matrix with animated light pulse propagation.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/backgrounds/cyber-hive-background/cyber-hive-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cyber-hive-background.tsx",
+      "content": "import React from 'react';\r\n\r\nexport const CyberHiveBackground: React.FC = () => {\r\n  return (\r\n    <div className=\"relative w-full h-44 rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-[#040810] flex items-center justify-center\">\r\n      <svg className=\"absolute inset-0 w-full h-full opacity-35\" xmlns=\"http://www.w3.org/2000/svg\">\r\n        <defs>\r\n          <pattern id=\"hexagons-hive\" width=\"28\" height=\"48.497\" patternUnits=\"userSpaceOnUse\" patternTransform=\"scale(1)\">\r\n            <path\r\n              d=\"M14 0 L28 8.082 L28 24.248 L14 32.331 L0 24.248 L0 8.082 Z M14 48.497 L28 40.415 L28 24.248 L14 32.331 L0 24.248 L0 40.415 Z\"\r\n              fill=\"none\"\r\n              stroke=\"#38bdf8\"\r\n              strokeWidth=\"0.8\"\r\n            />\r\n          </pattern>\r\n        </defs>\r\n        <rect width=\"100%\" height=\"100%\" fill=\"url(#hexagons-hive)\" />\r\n      </svg>\r\n      <div className=\"absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-28 w-28 rounded-full bg-cyan-500/20 blur-2xl\" />\r\n      <span className=\"relative z-10 text-xs font-mono font-bold tracking-widest text-cyan-300\">\r\n        CYBER HIVE MESH\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

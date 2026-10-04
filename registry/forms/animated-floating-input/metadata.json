@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-floating-input",
+  "type": "registry:ui",
+  "title": "Animated Floating Input",
+  "description": "Material/Vercel-style input with smooth spring floating label, clear action, and validation styling.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/animated-floating-input/animated-floating-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-floating-input.tsx"
+    }
+  ]
+}

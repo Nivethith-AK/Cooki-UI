@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "activity-feed-stream",
+  "type": "registry:ui",
+  "title": "Activity Feed Stream",
+  "description": "Real-time telemetry event stream with status badges, user tokens, and relative timestamp indicators.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/activity-feed-stream/activity-feed-stream.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/activity-feed-stream.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { GitCommit, Rocket, ShieldCheck } from '@phosphor-icons/react';\r\n\r\nconst INITIAL_EVENTS = [\r\n  { id: '1', type: 'deploy', user: 'alex.ts', text: 'Emitted production bundle to Vercel edge CDN', time: '1m ago' },\r\n  { id: '2', type: 'commit', user: 'nive.tsx', text: 'Refactored Dark/Light CSS tokens to @custom-variant', time: '4m ago' },\r\n  { id: '3', type: 'verify', user: 'kernel-bot', text: 'Validated 70 canonical component registry endpoints', time: '8m ago' },\r\n];\r\n\r\nexport const ActivityFeedStream: React.FC = () => {\r\n  const [events] = useState(INITIAL_EVENTS);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-sm mx-auto p-4 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/60 shadow-lg font-mono text-xs\">\r\n      <div className=\"flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-white/10 mb-3\">\r\n        <span className=\"text-[10px] uppercase font-bold text-zinc-500 tracking-wider\">LIVE AUDIT STREAM</span>\r\n        <span className=\"flex items-center gap-1.5 text-[10px] text-emerald-500 font-bold\">\r\n          <span className=\"h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse\" /> STREAMING\r\n        </span>\r\n      </div>\r\n\r\n      <div className=\"space-y-2.5\">\r\n        {events.map((ev) => (\r\n          <div key={ev.id} className=\"flex items-start gap-2.5 p-2 rounded-2xl hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors\">\r\n            <div className=\"p-1.5 rounded-xl bg-indigo-500/10 text-indigo-500 mt-0.5\">\r\n              {ev.type === 'deploy' && <Rocket size={13} weight=\"bold\" />}\r\n              {ev.type === 'commit' && <GitCommit size={13} weight=\"bold\" />}\r\n              {ev.type === 'verify' && <ShieldCheck size={13} weight=\"bold\" />}\r\n            </div>\r\n            <div className=\"flex-1 truncate\">\r\n              <div className=\"flex items-center justify-between text-[10px]\">\r\n                <span className=\"font-bold text-zinc-900 dark:text-white\">@{ev.user}</span>\r\n                <span className=\"text-zinc-400\">{ev.time}</span>\r\n              </div>\r\n              <p className=\"text-[11px] text-zinc-600 dark:text-zinc-400 truncate mt-0.5\">{ev.text}</p>\r\n            </div>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

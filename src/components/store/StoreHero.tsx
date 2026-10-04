@@ -10,10 +10,10 @@ export const StoreHero: React.FC = () => {
   const { setSelectedCategory, selectedCategory } = useStore()
 
   const shortcuts: { cat: ComponentCategory; label: string; icon: React.ReactNode }[] = [
-    { cat: 'components', label: 'Components (520+)', icon: <Browsers size={15} /> },
-    { cat: 'backgrounds', label: 'Backgrounds (500+)', icon: <PaintBrush size={15} /> },
-    { cat: 'animations', label: 'Animations', icon: <Waveform size={15} /> },
-    { cat: 'sections', label: 'UI Sections', icon: <Code size={15} /> },
+    { cat: 'components', label: 'UI Components', icon: <Browsers size={15} /> },
+    { cat: 'backgrounds', label: 'Backgrounds & Shaders', icon: <PaintBrush size={15} /> },
+    { cat: 'animations', label: 'Interactive Motion', icon: <Waveform size={15} /> },
+    { cat: 'sections', label: 'Production Sections', icon: <Code size={15} /> },
   ]
 
   const scrollToGrid = () => {
@@ -21,7 +21,7 @@ export const StoreHero: React.FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-10 sm:pt-20 sm:pb-14 border-b border-white/5">
+    <section className="relative overflow-hidden pt-12 pb-10 sm:pt-20 sm:pb-14 border-b border-zinc-200/80 dark:border-white/5">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-lines opacity-15" />
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[650px] rounded-full bg-cyan-500/5 blur-3xl -z-10" />
@@ -29,9 +29,9 @@ export const StoreHero: React.FC = () => {
       <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
         
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 dark:border-white/10 border-zinc-200 bg-white/5 dark:bg-white/5 bg-zinc-100 px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-400">
+        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-600 dark:text-zinc-400">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>520+ COMPONENTS &bull; 500+ BACKGROUNDS &bull; {ALL_REGISTRY_ITEMS.length} LIVE ARTIFACTS</span>
+          <span>SOURCE-FIRST REGISTRY &bull; {ALL_REGISTRY_ITEMS.length} VERIFIED ARTIFACTS</span>
         </div>
 
         {/* Headline */}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "plasma-globe",
+  "type": "registry:ui",
+  "title": "Plasma Globe",
+  "description": "Interactive HTML5 canvas plasma energy orb with electric arcs reacting to cursor proximity.",
+  "category": "3d",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/3d/plasma-globe/plasma-globe.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/plasma-globe.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-timeline",
+  "type": "registry:ui",
+  "title": "Scroll Timeline",
+  "description": "Vertical interactive audit timeline with connecting glowing track and milestone checkpoints.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/scroll-timeline/scroll-timeline.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/scroll-timeline.tsx",
+      "content": "import React from 'react';\r\nimport { CheckCircle, Clock } from '@phosphor-icons/react';\r\n\r\nconst EVENTS = [\r\n  { time: '14:22:01', title: 'Formal Invariant Verified', desc: 'Raft consensus quorum proven deterministic by Z3.', status: 'done' },\r\n  { time: '14:20:19', title: 'AST Synthesis Emitted', desc: 'Synthesized 2,840 nodes across TypeScript and Rust targets.', status: 'done' },\r\n  { time: '14:18:40', title: 'Dependency Graph Resolved', desc: 'Tailwind CSS v4 & Motion primitives synced without collision.', status: 'done' },\r\n];\r\n\r\nexport const ScrollTimeline: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto p-4 space-y-4 font-mono\">\r\n      <div className=\"relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-gradient-to-b before:from-emerald-500 before:via-indigo-500 before:to-zinc-700\">\r\n        {EVENTS.map((ev, idx) => (\r\n          <div key={idx} className=\"relative group\">\r\n            <span className=\"absolute -left-6 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 ring-4 ring-white dark:ring-zinc-950\">\r\n              <CheckCircle size={10} weight=\"bold\" className=\"text-white\" />\r\n            </span>\r\n            <div className=\"p-3.5 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/60 shadow-xs hover:border-indigo-500/50 transition-colors\">\r\n              <div className=\"flex items-center justify-between text-[10px] text-zinc-400\">\r\n                <span className=\"flex items-center gap-1\"><Clock size={11} /> {ev.time}</span>\r\n                <span className=\"text-emerald-500 font-bold\">VERIFIED</span>\r\n              </div>\r\n              <h5 className=\"mt-1 text-xs font-bold text-zinc-900 dark:text-white font-mono\">{ev.title}</h5>\r\n              <p className=\"mt-0.5 text-[11px] text-zinc-600 dark:text-zinc-400 font-sans\">{ev.desc}</p>\r\n            </div>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

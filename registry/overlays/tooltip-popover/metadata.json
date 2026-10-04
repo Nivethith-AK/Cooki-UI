@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-popover",
+  "type": "registry:ui",
+  "title": "Tooltip Popover",
+  "description": "Physics-based hover and click tooltip with collision detection and spring scale popping animation.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/tooltip-popover/tooltip-popover.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/tooltip-popover.tsx"
+    }
+  ]
+}

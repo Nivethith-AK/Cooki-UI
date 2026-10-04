@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-popover",
+  "type": "registry:ui",
+  "title": "Tooltip Popover",
+  "description": "Physics-based hover and click tooltip with collision detection and spring scale popping animation.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/tooltip-popover/tooltip-popover.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/tooltip-popover.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\n\r\nexport const TooltipPopover: React.FC = () => {\r\n  const [hovered, setHovered] = useState<string | null>(null);\r\n\r\n  const items = [\r\n    { id: '1', label: 'Fast AST Resolver', tip: 'Sub-millisecond abstract syntax tree parsing.' },\r\n    { id: '2', label: 'Zero-Copy Ring', tip: 'Lock-free SharedArrayBuffer ring stream.' },\r\n    { id: '3', label: 'Formal Proofs', tip: 'Z3 SMT solver proving loop invariants.' },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"flex flex-wrap items-center justify-center gap-4 py-8\">\r\n      {items.map((item) => (\r\n        <div\r\n          key={item.id}\r\n          className=\"relative inline-block\"\r\n          onMouseEnter={() => setHovered(item.id)}\r\n          onMouseLeave={() => setHovered(null)}\r\n        >\r\n          <button className=\"px-4 py-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 text-xs font-mono text-zinc-900 dark:text-white shadow-xs hover:border-indigo-500 transition-colors cursor-pointer\">\r\n            {item.label}\r\n          </button>\r\n\r\n          <AnimatePresence>\r\n            {hovered === item.id && (\r\n              <motion.div\r\n                initial={{ opacity: 0, y: 6, scale: 0.95 }}\r\n                animate={{ opacity: 1, y: 0, scale: 1 }}\r\n                exit={{ opacity: 0, y: 4, scale: 0.95 }}\r\n                transition={{ duration: 0.15 }}\r\n                className=\"absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 w-48 rounded-xl border border-zinc-200 dark:border-white/15 bg-zinc-950 p-2.5 text-center shadow-xl pointer-events-none\"\r\n              >\r\n                <p className=\"text-[11px] text-zinc-300 font-sans leading-tight\">{item.tip}</p>\r\n                <div className=\"absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-zinc-950\" />\r\n              </motion.div>\r\n            )}\r\n          </AnimatePresence>\r\n        </div>\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

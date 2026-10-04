@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-04T10:48:48.862Z
-Components in Registry: 44
+Generated: 2026-10-04T11:16:28.360Z
+Components in Registry: 70
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -9,6 +9,82 @@ Cooki UI is designed as a source-first, registry-driven component platform. Each
 ---
 
 ## Component Registry Directory
+
+### Audio Waveform Visualizer (`audio-waveform-visualizer`)
+- **Category**: 3d
+- **Description**: Kinetic frequency equalizer with spring bouncing bars, soundwave playback toggles, and BPM tracking.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json`
+
+#### Installation & Usage
+```tsx
+import { AudioWaveformVisualizer } from "@/components/ui/audio-waveform-visualizer"
+
+export default function Example() {
+  return <AudioWaveformVisualizer />
+}
+```
+
+---
+
+### Code Hover Card (`code-hover-card`)
+- **Category**: 3d
+- **Description**: Interactive IDE preview card with syntax highlighted tokens, expandable line tabs, and copy feedback.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/code-hover-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/code-hover-card.json`
+
+#### Installation & Usage
+```tsx
+import { CodeHoverCard } from "@/components/ui/code-hover-card"
+
+export default function Example() {
+  return <CodeHoverCard />
+}
+```
+
+---
+
+### Hanging ID Card (`hanging-id-card`)
+- **Category**: 3d
+- **Description**: Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hanging-id-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hanging-id-card.json`
+
+#### Installation & Usage
+```tsx
+import { HangingIdCard } from "@/components/ui/hanging-id-card"
+
+export default function Example() {
+  return <HangingIdCard />
+}
+```
+
+---
+
+### Plasma Globe (`plasma-globe`)
+- **Category**: 3d
+- **Description**: Interactive HTML5 canvas plasma energy orb with electric arcs reacting to cursor proximity.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/plasma-globe.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/plasma-globe.json`
+
+#### Installation & Usage
+```tsx
+import { PlasmaGlobe } from "@/components/ui/plasma-globe"
+
+export default function Example() {
+  return <PlasmaGlobe />
+}
+```
+
+---
 
 ### Generative Animated Mesh Gradient (`animated-mesh-background`)
 - **Category**: backgrounds
@@ -86,6 +162,25 @@ export default function Example() {
 
 ---
 
+### Cyber Hive Background (`cyber-hive-background`)
+- **Category**: backgrounds
+- **Description**: Futuristic glowing hexagonal cyber matrix with animated light pulse propagation.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cyber-hive-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-hive-background.json`
+
+#### Installation & Usage
+```tsx
+import { CyberHiveBackground } from "@/components/ui/cyber-hive-background"
+
+export default function Example() {
+  return <CyberHiveBackground />
+}
+```
+
+---
+
 ### Matrix Dot Grid Pattern (`dot-background`)
 - **Category**: backgrounds
 - **Description**: High-density micro-dot matrix pattern with subtle center bloom illumination.
@@ -119,6 +214,25 @@ import { GridBackground } from "@/components/ui/grid-background"
 
 export default function Example() {
   return <GridBackground />
+}
+```
+
+---
+
+### Quantum Field Background (`quantum-field-background`)
+- **Category**: backgrounds
+- **Description**: Dynamic canvas particle constellation with nodes drifting and interconnecting dynamically.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/quantum-field-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/quantum-field-background.json`
+
+#### Installation & Usage
+```tsx
+import { QuantumFieldBackground } from "@/components/ui/quantum-field-background"
+
+export default function Example() {
+  return <QuantumFieldBackground />
 }
 ```
 
@@ -409,6 +523,82 @@ export default function Example() {
 
 ---
 
+### Activity Feed Stream (`activity-feed-stream`)
+- **Category**: data
+- **Description**: Real-time telemetry event stream with status badges, user tokens, and relative timestamp indicators.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/activity-feed-stream.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/activity-feed-stream.json`
+
+#### Installation & Usage
+```tsx
+import { ActivityFeedStream } from "@/components/ui/activity-feed-stream"
+
+export default function Example() {
+  return <ActivityFeedStream />
+}
+```
+
+---
+
+### Comparative Feature Table (`comparative-feature-table`)
+- **Category**: data
+- **Description**: Matrix comparison table with collapsible feature groupings and plan tier checkmarks.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/comparative-feature-table.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/comparative-feature-table.json`
+
+#### Installation & Usage
+```tsx
+import { ComparativeFeatureTable } from "@/components/ui/comparative-feature-table"
+
+export default function Example() {
+  return <ComparativeFeatureTable />
+}
+```
+
+---
+
+### Scroll Timeline (`scroll-timeline`)
+- **Category**: data
+- **Description**: Vertical interactive audit timeline with connecting glowing track and milestone checkpoints.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scroll-timeline.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scroll-timeline.json`
+
+#### Installation & Usage
+```tsx
+import { ScrollTimeline } from "@/components/ui/scroll-timeline"
+
+export default function Example() {
+  return <ScrollTimeline />
+}
+```
+
+---
+
+### Telemetry Metric Card (`telemetry-metric-card`)
+- **Category**: data
+- **Description**: Financial & system performance telemetry card with SVG sparkline trend curve and live delta badge.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/telemetry-metric-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/telemetry-metric-card.json`
+
+#### Installation & Usage
+```tsx
+import { TelemetryMetricCard } from "@/components/ui/telemetry-metric-card"
+
+export default function Example() {
+  return <TelemetryMetricCard />
+}
+```
+
+---
+
 ### Generative ASCII Wave (`ascii-wave`)
 - **Category**: effects
 - **Description**: Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.
@@ -485,6 +675,120 @@ export default function Example() {
 
 ---
 
+### Progress Step Loader (`progress-step-loader`)
+- **Category**: feedback
+- **Description**: Multi-stage pipeline compilation loader with real-time status telemetry and spring animations.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/progress-step-loader.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/progress-step-loader.json`
+
+#### Installation & Usage
+```tsx
+import { ProgressStepLoader } from "@/components/ui/progress-step-loader"
+
+export default function Example() {
+  return <ProgressStepLoader />
+}
+```
+
+---
+
+### Skeleton Shimmer Card (`skeleton-shimmer-card`)
+- **Category**: feedback
+- **Description**: Realistic placeholder skeleton loader with smooth gradient shimmer sweep for dashboard layouts.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/skeleton-shimmer-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/skeleton-shimmer-card.json`
+
+#### Installation & Usage
+```tsx
+import { SkeletonShimmerCard } from "@/components/ui/skeleton-shimmer-card"
+
+export default function Example() {
+  return <SkeletonShimmerCard />
+}
+```
+
+---
+
+### Status Radar Badge (`status-radar-badge`)
+- **Category**: feedback
+- **Description**: Live telemetry system status indicator badge with pulse sonar ring and calibrated state switches.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/status-radar-badge.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/status-radar-badge.json`
+
+#### Installation & Usage
+```tsx
+import { StatusRadarBadge } from "@/components/ui/status-radar-badge"
+
+export default function Example() {
+  return <StatusRadarBadge />
+}
+```
+
+---
+
+### Toast Notification Hub (`toast-notification-hub`)
+- **Category**: feedback
+- **Description**: Stackable interactive toast manager with auto-dismiss timers, progress meters, and action hooks.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/toast-notification-hub.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/toast-notification-hub.json`
+
+#### Installation & Usage
+```tsx
+import { ToastNotificationHub } from "@/components/ui/toast-notification-hub"
+
+export default function Example() {
+  return <ToastNotificationHub />
+}
+```
+
+---
+
+### Animated Floating Input (`animated-floating-input`)
+- **Category**: forms
+- **Description**: Material/Vercel-style input with smooth spring floating label, clear action, and validation styling.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-floating-input.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-floating-input.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedFloatingInput } from "@/components/ui/animated-floating-input"
+
+export default function Example() {
+  return <AnimatedFloatingInput />
+}
+```
+
+---
+
+### Drag & Drop File Upload (`drag-drop-file-upload`)
+- **Category**: forms
+- **Description**: Interactive file drop zone with dashed border animation, file type validation, and preview chips.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/drag-drop-file-upload.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/drag-drop-file-upload.json`
+
+#### Installation & Usage
+```tsx
+import { DragDropFileUpload } from "@/components/ui/drag-drop-file-upload"
+
+export default function Example() {
+  return <DragDropFileUpload />
+}
+```
+
+---
+
 ### Expandable Command Search Bar (`expandable-search-bar`)
 - **Category**: forms
 - **Description**: Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.
@@ -499,6 +803,44 @@ import { ExpandableSearchBar } from "@/components/ui/expandable-search-bar"
 
 export default function Example() {
   return <ExpandableSearchBar />
+}
+```
+
+---
+
+### Multi-Select Combobox (`multi-select-combobox`)
+- **Category**: forms
+- **Description**: Searchable multi-select dropdown with animated tag removals, keyboard navigation, and custom counter.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/multi-select-combobox.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/multi-select-combobox.json`
+
+#### Installation & Usage
+```tsx
+import { MultiSelectCombobox } from "@/components/ui/multi-select-combobox"
+
+export default function Example() {
+  return <MultiSelectCombobox />
+}
+```
+
+---
+
+### OTP Pin Input (`otp-input`)
+- **Category**: forms
+- **Description**: 6-digit verification code input with auto-advance, backspace handling, paste support, and spring highlight.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/otp-input.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/otp-input.json`
+
+#### Installation & Usage
+```tsx
+import { OtpInput } from "@/components/ui/otp-input"
+
+export default function Example() {
+  return <OtpInput />
 }
 ```
 
@@ -542,6 +884,25 @@ export default function Example() {
 
 ---
 
+### Breadcrumb Stepper (`breadcrumb-stepper`)
+- **Category**: navigation
+- **Description**: Modern breadcrumb and multi-step progression bar with completed checkmarks and active glowing nodes.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/breadcrumb-stepper.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/breadcrumb-stepper.json`
+
+#### Installation & Usage
+```tsx
+import { BreadcrumbStepper } from "@/components/ui/breadcrumb-stepper"
+
+export default function Example() {
+  return <BreadcrumbStepper />
+}
+```
+
+---
+
 ### Spotlight Command Palette (⌘K) (`command-palette`)
 - **Category**: navigation
 - **Description**: Keyboard-first modal command center with fuzzy query matching and shortcuts.
@@ -575,6 +936,25 @@ import { FloatingNavbar } from "@/components/ui/floating-navbar"
 
 export default function Example() {
   return <FloatingNavbar />
+}
+```
+
+---
+
+### Fluid Action Panel (`fluid-action-panel`)
+- **Category**: navigation
+- **Description**: Floating quick-action toolbar that morphs dynamically with spring expansion and sub-action triggers.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/fluid-action-panel.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-action-panel.json`
+
+#### Installation & Usage
+```tsx
+import { FluidActionPanel } from "@/components/ui/fluid-action-panel"
+
+export default function Example() {
+  return <FluidActionPanel />
 }
 ```
 
@@ -632,6 +1012,82 @@ import { TabsMorph } from "@/components/ui/tabs-morph"
 
 export default function Example() {
   return <TabsMorph />
+}
+```
+
+---
+
+### Context Action Menu (`context-action-menu`)
+- **Category**: overlays
+- **Description**: Desktop-style right-click context menu with keyboard shortcuts, destructive actions, and submenus.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/context-action-menu.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/context-action-menu.json`
+
+#### Installation & Usage
+```tsx
+import { ContextActionMenu } from "@/components/ui/context-action-menu"
+
+export default function Example() {
+  return <ContextActionMenu />
+}
+```
+
+---
+
+### Interactive Dialog Modal (`interactive-dialog-modal`)
+- **Category**: overlays
+- **Description**: Accessible modal dialog with spring physics, backdrop blur, keyboard ESC trap, and customizable action slots.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-dialog-modal.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-dialog-modal.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveDialogModal } from "@/components/ui/interactive-dialog-modal"
+
+export default function Example() {
+  return <InteractiveDialogModal />
+}
+```
+
+---
+
+### Sliding Drawer Sheet (`sliding-drawer-sheet`)
+- **Category**: overlays
+- **Description**: Right-side sliding drawer panel with grab handle, spring slide physics, and backdrop blur.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json`
+
+#### Installation & Usage
+```tsx
+import { SlidingDrawerSheet } from "@/components/ui/sliding-drawer-sheet"
+
+export default function Example() {
+  return <SlidingDrawerSheet />
+}
+```
+
+---
+
+### Tooltip Popover (`tooltip-popover`)
+- **Category**: overlays
+- **Description**: Physics-based hover and click tooltip with collision detection and spring scale popping animation.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/tooltip-popover.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/tooltip-popover.json`
+
+#### Installation & Usage
+```tsx
+import { TooltipPopover } from "@/components/ui/tooltip-popover"
+
+export default function Example() {
+  return <TooltipPopover />
 }
 ```
 
@@ -746,6 +1202,44 @@ import { BlurReveal } from "@/components/ui/blur-reveal"
 
 export default function Example() {
   return <BlurReveal />
+}
+```
+
+---
+
+### Rolling Text 3D (`rolling-text-3d`)
+- **Category**: text
+- **Description**: Vertical 3D cylinder rotating headline ticker cycling through phrases with spring physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/rolling-text-3d.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/rolling-text-3d.json`
+
+#### Installation & Usage
+```tsx
+import { RollingText3d } from "@/components/ui/rolling-text-3d"
+
+export default function Example() {
+  return <RollingText3d />
+}
+```
+
+---
+
+### Scramble Text (`scramble-text`)
+- **Category**: text
+- **Description**: Cyberpunk matrix character decryption animation on hover or trigger with glyph cyphers.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scramble-text.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scramble-text.json`
+
+#### Installation & Usage
+```tsx
+import { ScrambleText } from "@/components/ui/scramble-text"
+
+export default function Example() {
+  return <ScrambleText />
 }
 ```
 

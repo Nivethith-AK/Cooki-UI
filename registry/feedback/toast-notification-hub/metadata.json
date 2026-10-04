@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast-notification-hub",
+  "type": "registry:ui",
+  "title": "Toast Notification Hub",
+  "description": "Stackable interactive toast manager with auto-dismiss timers, progress meters, and action hooks.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/toast-notification-hub/toast-notification-hub.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/toast-notification-hub.tsx"
+    }
+  ]
+}

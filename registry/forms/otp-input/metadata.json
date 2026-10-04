@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-input",
+  "type": "registry:ui",
+  "title": "OTP Pin Input",
+  "description": "6-digit verification code input with auto-advance, backspace handling, paste support, and spring highlight.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/otp-input/otp-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/otp-input.tsx"
+    }
+  ]
+}

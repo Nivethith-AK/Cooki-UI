@@ -8,7 +8,7 @@ export const StoreHeader: React.FC = () => {
   const { isDark, toggleTheme } = useTheme()
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 dark:border-white/10 border-zinc-200 bg-zinc-950/85 dark:bg-zinc-950/85 bg-white/85 backdrop-blur-2xl transition-colors">
+    <header className="sticky top-0 z-40 border-b border-zinc-200/80 dark:border-white/10 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-2xl transition-colors">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         
         {/* Brand */}
@@ -21,9 +21,9 @@ export const StoreHeader: React.FC = () => {
               <Cpu size={18} weight="bold" className="text-white" />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5 font-mono text-sm font-bold tracking-wider text-white dark:text-white text-zinc-900">
+              <div className="flex items-center gap-1.5 font-mono text-sm font-bold tracking-wider text-zinc-900 dark:text-white">
                 <span>COOKI UI</span>
-                <span className="rounded bg-indigo-500/20 px-1.5 py-0.2 text-[9px] font-medium text-indigo-300 border border-indigo-500/30">
+                <span className="rounded bg-indigo-500/15 dark:bg-indigo-500/20 px-1.5 py-0.2 text-[9px] font-medium text-indigo-600 dark:text-indigo-300 border border-indigo-500/25 dark:border-indigo-500/30">
                   REGISTRY
                 </span>
               </div>
@@ -39,13 +39,13 @@ export const StoreHeader: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search 1,000+ components, animations, backgrounds..."
-              className="w-full rounded-full border border-white/10 dark:border-white/10 border-zinc-200 bg-zinc-900/70 dark:bg-zinc-900/70 bg-zinc-100 py-1.5 pl-9 pr-8 text-xs text-zinc-100 dark:text-zinc-100 text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-white/30 font-sans"
+              placeholder="Search components, animations, backgrounds..."
+              className="w-full rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/70 py-1.5 pl-9 pr-8 text-xs text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/40 font-sans transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 text-[10px] font-mono text-zinc-400 hover:text-white cursor-pointer"
+                className="absolute right-3 text-[10px] font-mono text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white cursor-pointer"
               >
                 CLEAR
               </button>
@@ -59,7 +59,7 @@ export const StoreHeader: React.FC = () => {
           {/* Mobile Filter Toggle */}
           <button
             onClick={() => setMobileFilterOpen(true)}
-            className="flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs text-zinc-300 lg:hidden hover:bg-white/10 cursor-pointer"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 px-3 text-xs text-zinc-700 dark:text-zinc-300 lg:hidden hover:bg-zinc-200 dark:hover:bg-white/10 cursor-pointer transition-colors"
           >
             <Funnel size={14} />
             <span>Filters</span>
@@ -71,7 +71,7 @@ export const StoreHeader: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View on GitHub"
-            className="flex h-8 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 text-xs font-mono text-zinc-300 hover:bg-white/10 hover:text-white transition-colors"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 px-3 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors"
           >
             <GithubLogo size={14} weight="fill" />
             <span className="hidden sm:inline">GitHub</span>
@@ -82,11 +82,11 @@ export const StoreHeader: React.FC = () => {
             onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
             className={`flex h-8 items-center gap-1.5 rounded-full border px-3 text-xs font-mono transition-colors cursor-pointer ${
               showFavoritesOnly
-                ? 'border-rose-500/50 bg-rose-500/20 text-rose-300'
-                : 'border-white/10 bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
+                ? 'border-rose-500/50 bg-rose-500/20 text-rose-500 dark:text-rose-300'
+                : 'border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-white/10'
             }`}
           >
-            <Heart size={14} weight={favorites.length > 0 ? 'fill' : 'regular'} className={favorites.length > 0 ? 'text-rose-400' : ''} />
+            <Heart size={14} weight={favorites.length > 0 ? 'fill' : 'regular'} className={favorites.length > 0 ? 'text-rose-500' : ''} />
             <span>{favorites.length}</span>
           </button>
 
@@ -94,7 +94,7 @@ export const StoreHeader: React.FC = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark/light theme"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
           >
             {isDark ? <Sun size={15} /> : <Moon size={15} />}
           </button>
@@ -112,7 +112,7 @@ export const StoreHeader: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search components, tags, frameworks..."
-            className="w-full rounded-full border border-white/10 bg-zinc-900 py-1.5 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:outline-none"
+            className="w-full rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 py-1.5 pl-9 pr-3 text-xs text-zinc-900 dark:text-white placeholder-zinc-500 focus:outline-none"
           />
         </div>
       </div>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "telemetry-metric-card",
+  "type": "registry:ui",
+  "title": "Telemetry Metric Card",
+  "description": "Financial & system performance telemetry card with SVG sparkline trend curve and live delta badge.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/telemetry-metric-card/telemetry-metric-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/telemetry-metric-card.tsx"
+    }
+  ]
+}

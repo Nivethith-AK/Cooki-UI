@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hanging-id-card",
+  "type": "registry:ui",
+  "title": "Hanging ID Card",
+  "description": "Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.",
+  "category": "3d",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/hanging-id-card/hanging-id-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hanging-id-card.tsx",
+      "content": "import React, { useRef } from 'react';\r\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';\r\nimport { QrCode, Cpu } from '@phosphor-icons/react';\r\n\r\nexport const HangingIdCard: React.FC = () => {\r\n  const cardRef = useRef<HTMLDivElement>(null);\r\n\r\n  const x = useMotionValue(0);\r\n  const y = useMotionValue(0);\r\n\r\n  const mouseXSpring = useSpring(x, { stiffness: 200, damping: 20 });\r\n  const mouseYSpring = useSpring(y, { stiffness: 200, damping: 20 });\r\n\r\n  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['14deg', '-14deg']);\r\n  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-14deg', '14deg']);\r\n\r\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\r\n    if (!cardRef.current) return;\r\n    const rect = cardRef.current.getBoundingClientRect();\r\n    const width = rect.width;\r\n    const height = rect.height;\r\n    const mouseX = e.clientX - rect.left;\r\n    const mouseY = e.clientY - rect.top;\r\n    x.set(mouseX / width - 0.5);\r\n    y.set(mouseY / height - 0.5);\r\n  };\r\n\r\n  const handleMouseLeave = () => {\r\n    x.set(0);\r\n    y.set(0);\r\n  };\r\n\r\n  return (\r\n    <div className=\"perspective-1000 flex flex-col items-center justify-center p-4\">\r\n      <div className=\"h-8 w-2 bg-gradient-to-b from-indigo-700 to-indigo-500 rounded-t-sm shadow-md\" />\r\n      <div className=\"h-2.5 w-5 rounded-sm bg-zinc-800 border border-white/20 mb-[-3px] z-20 shadow\" />\r\n\r\n      <motion.div\r\n        ref={cardRef}\r\n        onMouseMove={handleMouseMove}\r\n        onMouseLeave={handleMouseLeave}\r\n        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}\r\n        className=\"relative w-52 h-76 rounded-3xl border border-white/20 bg-gradient-to-br from-zinc-900/90 via-zinc-950 to-black p-4 shadow-2xl backdrop-blur-xl flex flex-col justify-between text-white font-mono cursor-pointer select-none\"\r\n      >\r\n        <div className=\"pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-60\" />\r\n\r\n        <div className=\"flex items-center justify-between z-10\">\r\n          <div className=\"flex items-center gap-1.5\">\r\n            <Cpu size={16} className=\"text-cyan-400\" />\r\n            <span className=\"text-[11px] font-bold tracking-wider\">COOKI PASSPORT</span>\r\n          </div>\r\n          <span className=\"px-1.5 py-0.5 rounded-full bg-cyan-400/20 text-cyan-300 text-[8px] border border-cyan-400/30\">\r\n            PRO VIP\r\n          </span>\r\n        </div>\r\n\r\n        <div className=\"flex flex-col items-center my-auto z-10\">\r\n          <div className=\"h-14 w-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-1 shadow-lg shadow-indigo-500/20 mb-2 flex items-center justify-center font-sans font-extrabold text-lg text-white\">\r\n            CK\r\n          </div>\r\n          <h4 className=\"font-bold text-xs text-white\">Alex Vanguard</h4>\r\n          <p className=\"text-[9px] text-zinc-400 mt-0.5\">Staff Runtime Architect</p>\r\n        </div>\r\n\r\n        <div className=\"flex items-center justify-between border-t border-white/10 pt-2.5 z-10 text-[9px]\">\r\n          <div>\r\n            <span className=\"text-zinc-500\">ID TOKEN</span>\r\n            <div className=\"font-bold text-zinc-300\">#8942-CK</div>\r\n          </div>\r\n          <QrCode size={20} className=\"text-white\" />\r\n        </div>\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

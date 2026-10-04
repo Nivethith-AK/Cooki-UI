@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "multi-select-combobox",
+  "type": "registry:ui",
+  "title": "Multi-Select Combobox",
+  "description": "Searchable multi-select dropdown with animated tag removals, keyboard navigation, and custom counter.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/multi-select-combobox/multi-select-combobox.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/multi-select-combobox.tsx"
+    }
+  ]
+}

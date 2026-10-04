@@ -11,7 +11,7 @@ import { Footer } from './components/Footer'
 
 export const AppContent: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#050505] dark:bg-[#050505] bg-zinc-50 text-[#ededed] dark:text-[#ededed] text-zinc-900 antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-28">
+    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#050505] text-zinc-900 dark:text-[#ededed] antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-28">
       {/* Top Application Bar */}
       <StoreHeader />
 

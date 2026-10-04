@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comparative-feature-table",
+  "type": "registry:ui",
+  "title": "Comparative Feature Table",
+  "description": "Matrix comparison table with collapsible feature groupings and plan tier checkmarks.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/comparative-feature-table/comparative-feature-table.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/comparative-feature-table.tsx"
+    }
+  ]
+}

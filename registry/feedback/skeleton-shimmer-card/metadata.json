@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-shimmer-card",
+  "type": "registry:ui",
+  "title": "Skeleton Shimmer Card",
+  "description": "Realistic placeholder skeleton loader with smooth gradient shimmer sweep for dashboard layouts.",
+  "category": "feedback",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/feedback/skeleton-shimmer-card/skeleton-shimmer-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/skeleton-shimmer-card.tsx"
+    }
+  ]
+}

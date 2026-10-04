@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-step-loader",
+  "type": "registry:ui",
+  "title": "Progress Step Loader",
+  "description": "Multi-stage pipeline compilation loader with real-time status telemetry and spring animations.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/progress-step-loader/progress-step-loader.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/progress-step-loader.tsx"
+    }
+  ]
+}

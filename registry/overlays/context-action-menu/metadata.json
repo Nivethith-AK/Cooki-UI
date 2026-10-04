@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-action-menu",
+  "type": "registry:ui",
+  "title": "Context Action Menu",
+  "description": "Desktop-style right-click context menu with keyboard shortcuts, destructive actions, and submenus.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/context-action-menu/context-action-menu.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/context-action-menu.tsx"
+    }
+  ]
+}

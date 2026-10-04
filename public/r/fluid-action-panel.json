@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-action-panel",
+  "type": "registry:ui",
+  "title": "Fluid Action Panel",
+  "description": "Floating quick-action toolbar that morphs dynamically with spring expansion and sub-action triggers.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/fluid-action-panel/fluid-action-panel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-action-panel.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { Plus, MagnifyingGlass, Gear, Terminal, BookmarkSimple } from '@phosphor-icons/react';\r\n\r\nexport const FluidActionPanel: React.FC = () => {\r\n  const [isExpanded, setIsExpanded] = useState(false);\r\n\r\n  return (\r\n    <div className=\"flex items-center justify-center py-6\">\r\n      <motion.div\r\n        layout\r\n        transition={{ type: 'spring', stiffness: 450, damping: 30 }}\r\n        className=\"flex items-center gap-1.5 p-1.5 rounded-full border border-zinc-200 dark:border-white/15 bg-white/90 dark:bg-zinc-950/90 shadow-2xl backdrop-blur-2xl\"\r\n      >\r\n        <button\r\n          onClick={() => setIsExpanded(!isExpanded)}\r\n          className=\"flex h-9 w-9 items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-md transition-transform cursor-pointer\"\r\n        >\r\n          <motion.div animate={{ rotate: isExpanded ? 45 : 0 }} transition={{ duration: 0.2 }}>\r\n            <Plus size={16} weight=\"bold\" />\r\n          </motion.div>\r\n        </button>\r\n\r\n        <AnimatePresence>\r\n          {isExpanded && (\r\n            <motion.div\r\n              initial={{ opacity: 0, width: 0 }}\r\n              animate={{ opacity: 1, width: 'auto' }}\r\n              exit={{ opacity: 0, width: 0 }}\r\n              className=\"flex items-center gap-1 overflow-hidden\"\r\n            >\r\n              <button className=\"flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer\">\r\n                <MagnifyingGlass size={16} />\r\n              </button>\r\n              <button className=\"flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer\">\r\n                <Terminal size={16} />\r\n              </button>\r\n              <button className=\"flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer\">\r\n                <BookmarkSimple size={16} />\r\n              </button>\r\n              <button className=\"flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer\">\r\n                <Gear size={16} />\r\n              </button>\r\n            </motion.div>\r\n          )}\r\n        </AnimatePresence>\r\n      </motion.div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

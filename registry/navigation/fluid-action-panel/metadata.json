@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-action-panel",
+  "type": "registry:ui",
+  "title": "Fluid Action Panel",
+  "description": "Floating quick-action toolbar that morphs dynamically with spring expansion and sub-action triggers.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/fluid-action-panel/fluid-action-panel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-action-panel.tsx"
+    }
+  ]
+}

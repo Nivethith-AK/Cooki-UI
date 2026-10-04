@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-stepper",
+  "type": "registry:ui",
+  "title": "Breadcrumb Stepper",
+  "description": "Modern breadcrumb and multi-step progression bar with completed checkmarks and active glowing nodes.",
+  "category": "navigation",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/breadcrumb-stepper/breadcrumb-stepper.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/breadcrumb-stepper.tsx"
+    }
+  ]
+}

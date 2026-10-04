@@ -4,6 +4,74 @@
   "homepage": "https://cooki-ui.vercel.app",
   "items": [
     {
+      "name": "audio-waveform-visualizer",
+      "type": "registry:ui",
+      "title": "Audio Waveform Visualizer",
+      "description": "Kinetic frequency equalizer with spring bouncing bars, soundwave playback toggles, and BPM tracking.",
+      "category": "3d",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/3d/audio-waveform-visualizer/audio-waveform-visualizer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/audio-waveform-visualizer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "code-hover-card",
+      "type": "registry:ui",
+      "title": "Code Hover Card",
+      "description": "Interactive IDE preview card with syntax highlighted tokens, expandable line tabs, and copy feedback.",
+      "category": "3d",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/3d/code-hover-card/code-hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-hover-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hanging-id-card",
+      "type": "registry:ui",
+      "title": "Hanging ID Card",
+      "description": "Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.",
+      "category": "3d",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/3d/hanging-id-card/hanging-id-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hanging-id-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "plasma-globe",
+      "type": "registry:ui",
+      "title": "Plasma Globe",
+      "description": "Interactive HTML5 canvas plasma energy orb with electric arcs reacting to cursor proximity.",
+      "category": "3d",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/3d/plasma-globe/plasma-globe.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/plasma-globe.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-mesh-background",
       "type": "registry:ui",
       "title": "Generative Animated Mesh Gradient",
@@ -68,6 +136,21 @@
       ]
     },
     {
+      "name": "cyber-hive-background",
+      "type": "registry:ui",
+      "title": "Cyber Hive Background",
+      "description": "Futuristic glowing hexagonal cyber matrix with animated light pulse propagation.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/cyber-hive-background/cyber-hive-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cyber-hive-background.tsx"
+        }
+      ]
+    },
+    {
       "name": "dot-background",
       "type": "registry:ui",
       "title": "Matrix Dot Grid Pattern",
@@ -94,6 +177,21 @@
           "path": "registry/backgrounds/grid-background/grid-background.tsx",
           "type": "registry:ui",
           "target": "components/ui/grid-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "quantum-field-background",
+      "type": "registry:ui",
+      "title": "Quantum Field Background",
+      "description": "Dynamic canvas particle constellation with nodes drifting and interconnecting dynamically.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/quantum-field-background/quantum-field-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/quantum-field-background.tsx"
         }
       ]
     },
@@ -359,6 +457,75 @@
       ]
     },
     {
+      "name": "activity-feed-stream",
+      "type": "registry:ui",
+      "title": "Activity Feed Stream",
+      "description": "Real-time telemetry event stream with status badges, user tokens, and relative timestamp indicators.",
+      "category": "data",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/activity-feed-stream/activity-feed-stream.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/activity-feed-stream.tsx"
+        }
+      ]
+    },
+    {
+      "name": "comparative-feature-table",
+      "type": "registry:ui",
+      "title": "Comparative Feature Table",
+      "description": "Matrix comparison table with collapsible feature groupings and plan tier checkmarks.",
+      "category": "data",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/comparative-feature-table/comparative-feature-table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/comparative-feature-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-timeline",
+      "type": "registry:ui",
+      "title": "Scroll Timeline",
+      "description": "Vertical interactive audit timeline with connecting glowing track and milestone checkpoints.",
+      "category": "data",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/scroll-timeline/scroll-timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "telemetry-metric-card",
+      "type": "registry:ui",
+      "title": "Telemetry Metric Card",
+      "description": "Financial & system performance telemetry card with SVG sparkline trend curve and live delta badge.",
+      "category": "data",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/telemetry-metric-card/telemetry-metric-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/telemetry-metric-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "ascii-wave",
       "type": "registry:ui",
       "title": "Generative ASCII Wave",
@@ -425,6 +592,110 @@
       ]
     },
     {
+      "name": "progress-step-loader",
+      "type": "registry:ui",
+      "title": "Progress Step Loader",
+      "description": "Multi-stage pipeline compilation loader with real-time status telemetry and spring animations.",
+      "category": "feedback",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/feedback/progress-step-loader/progress-step-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress-step-loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton-shimmer-card",
+      "type": "registry:ui",
+      "title": "Skeleton Shimmer Card",
+      "description": "Realistic placeholder skeleton loader with smooth gradient shimmer sweep for dashboard layouts.",
+      "category": "feedback",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/feedback/skeleton-shimmer-card/skeleton-shimmer-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton-shimmer-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-radar-badge",
+      "type": "registry:ui",
+      "title": "Status Radar Badge",
+      "description": "Live telemetry system status indicator badge with pulse sonar ring and calibrated state switches.",
+      "category": "feedback",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/feedback/status-radar-badge/status-radar-badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/status-radar-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast-notification-hub",
+      "type": "registry:ui",
+      "title": "Toast Notification Hub",
+      "description": "Stackable interactive toast manager with auto-dismiss timers, progress meters, and action hooks.",
+      "category": "feedback",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/feedback/toast-notification-hub/toast-notification-hub.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toast-notification-hub.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-floating-input",
+      "type": "registry:ui",
+      "title": "Animated Floating Input",
+      "description": "Material/Vercel-style input with smooth spring floating label, clear action, and validation styling.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/animated-floating-input/animated-floating-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-floating-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drag-drop-file-upload",
+      "type": "registry:ui",
+      "title": "Drag & Drop File Upload",
+      "description": "Interactive file drop zone with dashed border animation, file type validation, and preview chips.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/drag-drop-file-upload/drag-drop-file-upload.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drag-drop-file-upload.tsx"
+        }
+      ]
+    },
+    {
       "name": "expandable-search-bar",
       "type": "registry:ui",
       "title": "Expandable Command Search Bar",
@@ -439,6 +710,41 @@
           "path": "registry/forms/expandable-search-bar/expandable-search-bar.tsx",
           "type": "registry:ui",
           "target": "components/ui/expandable-search-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-select-combobox",
+      "type": "registry:ui",
+      "title": "Multi-Select Combobox",
+      "description": "Searchable multi-select dropdown with animated tag removals, keyboard navigation, and custom counter.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/multi-select-combobox/multi-select-combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/multi-select-combobox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:ui",
+      "title": "OTP Pin Input",
+      "description": "6-digit verification code input with auto-advance, backspace handling, paste support, and spring highlight.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/otp-input/otp-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp-input.tsx"
         }
       ]
     },
@@ -478,6 +784,23 @@
       ]
     },
     {
+      "name": "breadcrumb-stepper",
+      "type": "registry:ui",
+      "title": "Breadcrumb Stepper",
+      "description": "Modern breadcrumb and multi-step progression bar with completed checkmarks and active glowing nodes.",
+      "category": "navigation",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/breadcrumb-stepper/breadcrumb-stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumb-stepper.tsx"
+        }
+      ]
+    },
+    {
       "name": "command-palette",
       "type": "registry:ui",
       "title": "Spotlight Command Palette (⌘K)",
@@ -510,6 +833,24 @@
           "path": "registry/navigation/floating-navbar/floating-navbar.tsx",
           "type": "registry:ui",
           "target": "components/ui/floating-navbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fluid-action-panel",
+      "type": "registry:ui",
+      "title": "Fluid Action Panel",
+      "description": "Floating quick-action toolbar that morphs dynamically with spring expansion and sub-action triggers.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/fluid-action-panel/fluid-action-panel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-action-panel.tsx"
         }
       ]
     },
@@ -564,6 +905,77 @@
           "path": "registry/navigation/tabs-morph/tabs-morph.tsx",
           "type": "registry:ui",
           "target": "components/ui/tabs-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-action-menu",
+      "type": "registry:ui",
+      "title": "Context Action Menu",
+      "description": "Desktop-style right-click context menu with keyboard shortcuts, destructive actions, and submenus.",
+      "category": "overlays",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/overlays/context-action-menu/context-action-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/context-action-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-dialog-modal",
+      "type": "registry:ui",
+      "title": "Interactive Dialog Modal",
+      "description": "Accessible modal dialog with spring physics, backdrop blur, keyboard ESC trap, and customizable action slots.",
+      "category": "overlays",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/overlays/interactive-dialog-modal/interactive-dialog-modal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-dialog-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sliding-drawer-sheet",
+      "type": "registry:ui",
+      "title": "Sliding Drawer Sheet",
+      "description": "Right-side sliding drawer panel with grab handle, spring slide physics, and backdrop blur.",
+      "category": "overlays",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/overlays/sliding-drawer-sheet/sliding-drawer-sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sliding-drawer-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-popover",
+      "type": "registry:ui",
+      "title": "Tooltip Popover",
+      "description": "Physics-based hover and click tooltip with collision detection and spring scale popping animation.",
+      "category": "overlays",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/overlays/tooltip-popover/tooltip-popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip-popover.tsx"
         }
       ]
     },
@@ -671,6 +1083,38 @@
           "path": "registry/text/blur-reveal/blur-reveal.tsx",
           "type": "registry:ui",
           "target": "components/ui/blur-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text-3d",
+      "type": "registry:ui",
+      "title": "Rolling Text 3D",
+      "description": "Vertical 3D cylinder rotating headline ticker cycling through phrases with spring physics.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/rolling-text-3d/rolling-text-3d.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/rolling-text-3d.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scramble-text",
+      "type": "registry:ui",
+      "title": "Scramble Text",
+      "description": "Cyberpunk matrix character decryption animation on hover or trigger with glyph cyphers.",
+      "category": "text",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/text/scramble-text/scramble-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scramble-text.tsx"
         }
       ]
     },

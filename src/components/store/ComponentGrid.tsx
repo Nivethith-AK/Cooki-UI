@@ -34,14 +34,14 @@ export const ComponentGrid: React.FC = () => {
   return (
     <div id="component-catalogue" className="flex-1">
       {/* Top Filter & Count Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/5 mb-6">
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-white/5 mb-6">
+        <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400">
           <span>CATALOGUE:</span>
-          <span className="font-bold text-white dark:text-white text-zinc-900">
+          <span className="font-bold text-zinc-900 dark:text-white">
             {filteredComponents.length}
           </span>
           <span>ARTIFACTS</span>
-          <span className="text-zinc-600 dark:text-zinc-600 hidden sm:inline">&bull;</span>
+          <span className="text-zinc-400 dark:text-zinc-600 hidden sm:inline">&bull;</span>
           <span className="text-zinc-500 hidden sm:inline">
             Showing {filteredComponents.length > 0 ? startIndex + 1 : 0}–{endIndex}
           </span>
@@ -50,15 +50,15 @@ export const ComponentGrid: React.FC = () => {
         {/* Sort Controls */}
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono text-zinc-500 uppercase">Sort:</span>
-          <div className="flex gap-1 rounded-xl border border-white/10 dark:border-white/10 border-zinc-200 bg-zinc-950/70 dark:bg-zinc-950/70 bg-white p-1">
+          <div className="flex gap-1 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-950/70 p-1">
             {sortOptions.map((opt) => (
               <button
                 key={opt.id}
                 onClick={() => setSortBy(opt.id)}
                 className={`rounded-lg px-2.5 py-1 text-[11px] font-mono transition-colors cursor-pointer ${
                   sortBy === opt.id
-                    ? 'bg-white/15 text-white dark:text-white text-zinc-900 font-semibold'
-                    : 'text-zinc-400 hover:text-zinc-200'
+                    ? 'bg-zinc-900 text-white dark:bg-white/15 dark:text-white font-semibold shadow-xs'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
                 }`}
               >
                 {opt.label}
@@ -79,8 +79,8 @@ export const ComponentGrid: React.FC = () => {
 
           {/* High-Performance Pagination Bar */}
           {totalPages > 1 && (
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6">
-              <span className="text-xs font-mono text-zinc-400">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-zinc-200 dark:border-white/10 pt-6">
+              <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
                 Page {currentPage} of {totalPages} ({filteredComponents.length} total)
               </span>
 
@@ -88,7 +88,7 @@ export const ComponentGrid: React.FC = () => {
                 <button
                   disabled={currentPage === 1}
                   onClick={() => handlePageChange(currentPage - 1)}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/10 bg-zinc-900 text-xs font-mono text-zinc-300 hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
                 >
                   <CaretLeft size={14} />
                   <span>Prev</span>
@@ -107,8 +107,8 @@ export const ComponentGrid: React.FC = () => {
                         onClick={() => handlePageChange(pageNum)}
                         className={`w-8 h-8 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                           currentPage === pageNum
-                            ? 'bg-indigo-600 text-white font-bold'
-                            : 'bg-zinc-900 border border-white/5 text-zinc-400 hover:bg-zinc-800'
+                            ? 'bg-indigo-600 text-white font-bold shadow-xs'
+                            : 'bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 text-zinc-700 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800'
                         }`}
                       >
                         {pageNum}

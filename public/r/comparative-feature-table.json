@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comparative-feature-table",
+  "type": "registry:ui",
+  "title": "Comparative Feature Table",
+  "description": "Matrix comparison table with collapsible feature groupings and plan tier checkmarks.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/comparative-feature-table/comparative-feature-table.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/comparative-feature-table.tsx",
+      "content": "import React from 'react';\r\nimport { Check, X } from '@phosphor-icons/react';\r\n\r\nexport const ComparativeFeatureTable: React.FC = () => {\r\n  const rows = [\r\n    { name: '70+ Verified UI Components', starter: true, pro: true, enterprise: true },\r\n    { name: 'Framer Motion Spring Physics', starter: true, pro: true, enterprise: true },\r\n    { name: 'Interactive GLSL Shaders', starter: false, pro: true, enterprise: true },\r\n    { name: 'Zero-Lockin Source Ownership', starter: true, pro: true, enterprise: true },\r\n    { name: 'Dedicated SLAs & Audit Log', starter: false, pro: false, enterprise: true },\r\n  ];\r\n\r\n  return (\r\n    <div className=\"w-full max-w-xl mx-auto rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 p-4 shadow-lg overflow-x-auto font-mono text-xs\">\r\n      <table className=\"w-full text-left border-collapse\">\r\n        <thead>\r\n          <tr className=\"border-b border-zinc-200 dark:border-white/10 text-[10px] text-zinc-500 uppercase\">\r\n            <th className=\"py-2.5 px-3\">CAPABILITY</th>\r\n            <th className=\"py-2.5 px-3 text-center\">STARTER</th>\r\n            <th className=\"py-2.5 px-3 text-center text-indigo-500 font-bold\">PRO STUDIO</th>\r\n            <th className=\"py-2.5 px-3 text-center\">ENTERPRISE</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody className=\"divide-y divide-zinc-200/60 dark:divide-white/5\">\r\n          {rows.map((r, i) => (\r\n            <tr key={i} className=\"hover:bg-zinc-50 dark:hover:bg-white/[0.02]\">\r\n              <td className=\"py-2.5 px-3 text-zinc-800 dark:text-zinc-200\">{r.name}</td>\r\n              <td className=\"py-2.5 px-3 text-center\">\r\n                {r.starter ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n              <td className=\"py-2.5 px-3 text-center bg-indigo-500/5\">\r\n                {r.pro ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n              <td className=\"py-2.5 px-3 text-center\">\r\n                {r.enterprise ? <Check size={14} className=\"text-emerald-500 inline\" weight=\"bold\" /> : <X size={14} className=\"text-zinc-400 inline\" />}\r\n              </td>\r\n            </tr>\r\n          ))}\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

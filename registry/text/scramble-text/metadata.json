@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-text",
+  "type": "registry:ui",
+  "title": "Scramble Text",
+  "description": "Cyberpunk matrix character decryption animation on hover or trigger with glyph cyphers.",
+  "category": "text",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/text/scramble-text/scramble-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/scramble-text.tsx"
+    }
+  ]
+}

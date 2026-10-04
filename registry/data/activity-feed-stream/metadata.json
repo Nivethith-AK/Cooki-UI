@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "activity-feed-stream",
+  "type": "registry:ui",
+  "title": "Activity Feed Stream",
+  "description": "Real-time telemetry event stream with status badges, user tokens, and relative timestamp indicators.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/activity-feed-stream/activity-feed-stream.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/activity-feed-stream.tsx"
+    }
+  ]
+}

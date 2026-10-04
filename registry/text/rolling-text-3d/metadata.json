@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rolling-text-3d",
+  "type": "registry:ui",
+  "title": "Rolling Text 3D",
+  "description": "Vertical 3D cylinder rotating headline ticker cycling through phrases with spring physics.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/rolling-text-3d/rolling-text-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/rolling-text-3d.tsx"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cyber-hive-background",
+  "type": "registry:ui",
+  "title": "Cyber Hive Background",
+  "description": "Futuristic glowing hexagonal cyber matrix with animated light pulse propagation.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/backgrounds/cyber-hive-background/cyber-hive-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cyber-hive-background.tsx"
+    }
+  ]
+}

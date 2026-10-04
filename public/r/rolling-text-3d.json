@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rolling-text-3d",
+  "type": "registry:ui",
+  "title": "Rolling Text 3D",
+  "description": "Vertical 3D cylinder rotating headline ticker cycling through phrases with spring physics.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/rolling-text-3d/rolling-text-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/rolling-text-3d.tsx",
+      "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\n\r\nconst WORDS = ['SYNTHESIZING', 'VERIFYING', 'OPTIMIZING', 'EMITTING'];\r\n\r\nexport const RollingText3D: React.FC = () => {\r\n  const [index, setIndex] = useState(0);\r\n\r\n  useEffect(() => {\r\n    const timer = setInterval(() => {\r\n      setIndex((prev) => (prev + 1) % WORDS.length);\r\n    }, 2200);\r\n    return () => clearInterval(timer);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center justify-center p-6 font-mono text-center\">\r\n      <span className=\"text-xs uppercase tracking-widest text-zinc-500 mb-2\">AUTONOMOUS RUNTIME</span>\r\n      <div className=\"h-12 overflow-hidden flex items-center justify-center\">\r\n        <AnimatePresence mode=\"wait\">\r\n          <motion.div\r\n            key={WORDS[index]}\r\n            initial={{ y: 35, opacity: 0, rotateX: -60 }}\r\n            animate={{ y: 0, opacity: 1, rotateX: 0 }}\r\n            exit={{ y: -35, opacity: 0, rotateX: 60 }}\r\n            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}\r\n            className=\"text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-500 via-violet-400 to-cyan-400 bg-clip-text text-transparent\"\r\n          >\r\n            {WORDS[index]}\r\n          </motion.div>\r\n        </AnimatePresence>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport const RollingText3d = RollingText3D;\r\n\r\n"
+    }
+  ]
+}

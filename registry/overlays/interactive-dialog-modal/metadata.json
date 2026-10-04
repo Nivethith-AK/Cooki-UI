@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-dialog-modal",
+  "type": "registry:ui",
+  "title": "Interactive Dialog Modal",
+  "description": "Accessible modal dialog with spring physics, backdrop blur, keyboard ESC trap, and customizable action slots.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/interactive-dialog-modal/interactive-dialog-modal.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-dialog-modal.tsx"
+    }
+  ]
+}

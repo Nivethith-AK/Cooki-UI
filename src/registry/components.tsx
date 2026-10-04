@@ -50,6 +50,34 @@ import { NoiseGrainOverlay } from '../components/library/effects/NoiseGrainOverl
 import { PricingComparisonBlock } from '../components/library/sections/PricingComparisonBlock'
 import { TestimonialMarqueeBlock } from '../components/library/sections/TestimonialMarqueeBlock'
 
+// 26 Diverse Production Components
+import { OtpInput } from '../components/library/forms/OtpInput'
+import { AnimatedFloatingInput } from '../components/library/forms/AnimatedFloatingInput'
+import { DragDropFileUpload } from '../components/library/forms/DragDropFileUpload'
+import { MultiSelectCombobox } from '../components/library/forms/MultiSelectCombobox'
+import { ToastNotificationHub } from '../components/library/feedback/ToastNotificationHub'
+import { ProgressStepLoader } from '../components/library/feedback/ProgressStepLoader'
+import { StatusRadarBadge } from '../components/library/feedback/StatusRadarBadge'
+import { SkeletonShimmerCard } from '../components/library/feedback/SkeletonShimmerCard'
+import { InteractiveDialogModal } from '../components/library/overlays/InteractiveDialogModal'
+import { SlidingDrawerSheet } from '../components/library/overlays/SlidingDrawerSheet'
+import { TooltipPopover } from '../components/library/overlays/TooltipPopover'
+import { ContextActionMenu } from '../components/library/overlays/ContextActionMenu'
+import { ScrollTimeline } from '../components/library/data/ScrollTimeline'
+import { TelemetryMetricCard } from '../components/library/data/TelemetryMetricCard'
+import { ComparativeFeatureTable } from '../components/library/data/ComparativeFeatureTable'
+import { ActivityFeedStream } from '../components/library/data/ActivityFeedStream'
+import { HangingIdCard } from '../components/library/3d/HangingIdCard'
+import { PlasmaGlobe } from '../components/library/3d/PlasmaGlobe'
+import { AudioWaveformVisualizer } from '../components/library/3d/AudioWaveformVisualizer'
+import { CodeHoverCard } from '../components/library/3d/CodeHoverCard'
+import { BreadcrumbStepper } from '../components/library/navigation/BreadcrumbStepper'
+import { FluidActionPanel } from '../components/library/navigation/FluidActionPanel'
+import { CyberHiveBackground } from '../components/library/backgrounds/CyberHiveBackground'
+import { QuantumFieldBackground } from '../components/library/backgrounds/QuantumFieldBackground'
+import { RollingText3d } from '../components/library/text/RollingText3d'
+import { ScrambleText } from '../components/library/text/ScrambleText'
+
 import { 
   House, 
   Terminal, 
@@ -1536,4 +1564,849 @@ export default function ButtonDemo() {
       },
     ],
   },
+
+  // 45. OTP Verification Input
+  {
+    id: 'otp-input',
+    name: 'OTP Security Pin Input',
+    slug: 'otp-input',
+    category: 'components',
+    subcategory: 'Forms & Inputs',
+    description: 'Segmented one-time-password input with auto-advance, keyboard navigation, clipboard paste support, and spring cursor feedback.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'tailwind-merge'],
+    tags: ['otp', 'input', 'auth', 'pin', '2fa', 'verification'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add otp-input',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'length', type: 'number', label: 'Digit Count', min: 4, max: 8, step: 1, defaultValue: 6 }
+    ],
+    renderPreview: (props) => (
+      <div className="flex flex-col items-center justify-center p-6 w-full">
+        <OtpInput length={props.length || 6} />
+      </div>
+    ),
+    usage: `<OtpInput length={6} onComplete={(code) => console.log(code)} />`,
+    files: [
+      {
+        name: 'OtpInput.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['otp-input'] || ''
+      }
+    ]
+  },
+
+  // 46. Animated Floating Input
+  {
+    id: 'animated-floating-input',
+    name: 'Floating Label Kinetic Input',
+    slug: 'animated-floating-input',
+    category: 'components',
+    subcategory: 'Forms & Inputs',
+    description: 'Material-inspired floating label text field with active gradient underline and spring transition states.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['input', 'floating label', 'form', 'text field'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add animated-floating-input',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'label', type: 'text', label: 'Field Label', defaultValue: 'Enterprise Work Email' }
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-6 w-full max-w-sm mx-auto">
+        <AnimatedFloatingInput label={props.label || 'Enterprise Work Email'} />
+      </div>
+    ),
+    usage: `<AnimatedFloatingInput label="Enterprise Work Email" />`,
+    files: [
+      {
+        name: 'AnimatedFloatingInput.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['animated-floating-input'] || ''
+      }
+    ]
+  },
+
+  // 47. Drag & Drop File Upload
+  {
+    id: 'drag-drop-file-upload',
+    name: 'Kinetic Drag & Drop Uploader',
+    slug: 'drag-drop-file-upload',
+    category: 'components',
+    subcategory: 'Forms & Inputs',
+    description: 'Interactive file dropzone with pulse ring indicator, file size calculation, and instant removal tags.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['upload', 'file', 'drag and drop', 'dropzone'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add drag-drop-file-upload',
+    featured: true,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full max-w-md mx-auto p-4">
+        <DragDropFileUpload />
+      </div>
+    ),
+    usage: `<DragDropFileUpload />`,
+    files: [
+      {
+        name: 'DragDropFileUpload.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['drag-drop-file-upload'] || ''
+      }
+    ]
+  },
+
+  // 48. Multi-Select Combobox
+  {
+    id: 'multi-select-combobox',
+    name: 'Multi-Select Tag Combobox',
+    slug: 'multi-select-combobox',
+    category: 'components',
+    subcategory: 'Forms & Inputs',
+    description: 'Searchable multi-select dropdown with animated pill badges and keyboard shortcuts.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['combobox', 'multi select', 'tags', 'dropdown', 'filter'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add multi-select-combobox',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full max-w-sm mx-auto p-4">
+        <MultiSelectCombobox />
+      </div>
+    ),
+    usage: `<MultiSelectCombobox />`,
+    files: [
+      {
+        name: 'MultiSelectCombobox.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['multi-select-combobox'] || ''
+      }
+    ]
+  },
+
+  // 49. Toast Notification Hub
+  {
+    id: 'toast-notification-hub',
+    name: 'Stackable Toast Notification Hub',
+    slug: 'toast-notification-hub',
+    category: 'components',
+    subcategory: 'Feedback & Loaders',
+    description: 'Interactive notification manager with success, alert, and info statuses with auto-dismiss countdown.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['toast', 'notification', 'feedback', 'alert', 'snackbar'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add toast-notification-hub',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full flex items-center justify-center p-6">
+        <ToastNotificationHub />
+      </div>
+    ),
+    usage: `<ToastNotificationHub />`,
+    files: [
+      {
+        name: 'ToastNotificationHub.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['toast-notification-hub'] || ''
+      }
+    ]
+  },
+
+  // 50. Progress Step Loader
+  {
+    id: 'progress-step-loader',
+    name: 'Multi-Step Progress Pipeline',
+    slug: 'progress-step-loader',
+    category: 'components',
+    subcategory: 'Feedback & Loaders',
+    description: 'Horizontal step tracker with animated glowing connecting tracks and checkmarks.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['stepper', 'pipeline', 'progress', 'multi-step', 'loader'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add progress-step-loader',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'currentStep', type: 'number', label: 'Active Step', min: 1, max: 4, step: 1, defaultValue: 2 }
+    ],
+    renderPreview: (props) => (
+      <div className="w-full p-6">
+        <ProgressStepLoader currentStep={props.currentStep || 2} />
+      </div>
+    ),
+    usage: `<ProgressStepLoader currentStep={2} />`,
+    files: [
+      {
+        name: 'ProgressStepLoader.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['progress-step-loader'] || ''
+      }
+    ]
+  },
+
+  // 51. Status Radar Badge
+  {
+    id: 'status-radar-badge',
+    name: 'Live Ping Status Beacon',
+    slug: 'status-radar-badge',
+    category: 'components',
+    subcategory: 'Feedback & Loaders',
+    description: 'Real-time telemetry pulse badge indicating deployment, health, and server heartbeat.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwind-css'],
+    tags: ['status', 'badge', 'radar', 'ping', 'pulse', 'telemetry'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add status-radar-badge',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'status', type: 'select', label: 'Status Variant', options: ['online', 'busy', 'offline'], defaultValue: 'online' },
+      { name: 'label', type: 'text', label: 'Badge Label', defaultValue: 'CLUSTER OPERATIONAL' }
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8">
+        <StatusRadarBadge status={props.status || 'online'} label={props.label || 'CLUSTER OPERATIONAL'} />
+      </div>
+    ),
+    usage: `<StatusRadarBadge status="online" label="CLUSTER OPERATIONAL" />`,
+    files: [
+      {
+        name: 'StatusRadarBadge.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['status-radar-badge'] || ''
+      }
+    ]
+  },
+
+  // 52. Skeleton Shimmer Card
+  {
+    id: 'skeleton-shimmer-card',
+    name: 'Linear Gradient Skeleton Card',
+    slug: 'skeleton-shimmer-card',
+    category: 'components',
+    subcategory: 'Feedback & Loaders',
+    description: 'High-polish content placeholder skeleton with continuous light wave shimmer effect.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['skeleton', 'loader', 'shimmer', 'placeholder'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add skeleton-shimmer-card',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full max-w-sm mx-auto p-4">
+        <SkeletonShimmerCard />
+      </div>
+    ),
+    usage: `<SkeletonShimmerCard />`,
+    files: [
+      {
+        name: 'SkeletonShimmerCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['skeleton-shimmer-card'] || ''
+      }
+    ]
+  },
+
+  // 53. Interactive Dialog Modal
+  {
+    id: 'interactive-dialog-modal',
+    name: 'Backdrop Blur Dialog Modal',
+    slug: 'interactive-dialog-modal',
+    category: 'components',
+    subcategory: 'Modals & Overlays',
+    description: 'Spring-scale modal window with frosted glass backdrop blur and escape key handling.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['modal', 'dialog', 'overlay', 'glass', 'popup'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add interactive-dialog-modal',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <InteractiveDialogModal />
+      </div>
+    ),
+    usage: `<InteractiveDialogModal />`,
+    files: [
+      {
+        name: 'InteractiveDialogModal.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-dialog-modal'] || ''
+      }
+    ]
+  },
+
+  // 54. Sliding Drawer Sheet
+  {
+    id: 'sliding-drawer-sheet',
+    name: 'Right Slide Canvas Drawer',
+    slug: 'sliding-drawer-sheet',
+    category: 'components',
+    subcategory: 'Modals & Overlays',
+    description: 'Smooth sliding drawer panel with gesture release, action footer, and dark backdrop overlay.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['drawer', 'sheet', 'slide-over', 'sidebar', 'panel'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add sliding-drawer-sheet',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <SlidingDrawerSheet />
+      </div>
+    ),
+    usage: `<SlidingDrawerSheet />`,
+    files: [
+      {
+        name: 'SlidingDrawerSheet.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['sliding-drawer-sheet'] || ''
+      }
+    ]
+  },
+
+  // 55. Tooltip Popover
+  {
+    id: 'tooltip-popover',
+    name: 'Micro Spring Tooltip Popover',
+    slug: 'tooltip-popover',
+    category: 'components',
+    subcategory: 'Modals & Overlays',
+    description: 'Precise position-aware floating tooltip with spring bounce and pointer beak.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['tooltip', 'popover', 'hover', 'helper'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add tooltip-popover',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'content', type: 'text', label: 'Tooltip Text', defaultValue: 'Verified SHA-256 Checksum Signature' }
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-12">
+        <TooltipPopover content={props.content || 'Verified SHA-256 Checksum Signature'}>
+          <button className="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-xs font-semibold shadow">
+            Inspect Node
+          </button>
+        </TooltipPopover>
+      </div>
+    ),
+    usage: `<TooltipPopover content="Verified SHA-256 Signature"><button>Inspect Node</button></TooltipPopover>`,
+    files: [
+      {
+        name: 'TooltipPopover.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['tooltip-popover'] || ''
+      }
+    ]
+  },
+
+  // 56. Context Action Menu
+  {
+    id: 'context-action-menu',
+    name: 'Right-Click Context Action Menu',
+    slug: 'context-action-menu',
+    category: 'components',
+    subcategory: 'Modals & Overlays',
+    description: 'Native-feel custom context menu triggered on right click or button press with shortcut badges.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['context menu', 'right click', 'actions', 'dropdown'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add context-action-menu',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <ContextActionMenu />
+      </div>
+    ),
+    usage: `<ContextActionMenu />`,
+    files: [
+      {
+        name: 'ContextActionMenu.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['context-action-menu'] || ''
+      }
+    ]
+  },
+
+  // 57. Scroll Timeline
+  {
+    id: 'scroll-timeline',
+    name: 'Chrono Milestone Timeline',
+    slug: 'scroll-timeline',
+    category: 'components',
+    subcategory: 'Data Display',
+    description: 'Vertical interactive chronological roadmap with connected glowing node lines and milestone dates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['timeline', 'roadmap', 'milestones', 'history'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add scroll-timeline',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full max-w-md mx-auto p-4">
+        <ScrollTimeline />
+      </div>
+    ),
+    usage: `<ScrollTimeline />`,
+    files: [
+      {
+        name: 'ScrollTimeline.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['scroll-timeline'] || ''
+      }
+    ]
+  },
+
+  // 58. Telemetry Metric Card
+  {
+    id: 'telemetry-metric-card',
+    name: 'Sparkline Telemetry Card',
+    slug: 'telemetry-metric-card',
+    category: 'components',
+    subcategory: 'Data Display',
+    description: 'KPI metric dashboard card with mini SVG sparkline trend curve, delta percentage, and status indicators.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['svg', 'tailwind-css'],
+    tags: ['metric', 'kpi', 'sparkline', 'dashboard', 'analytics', 'telemetry'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add telemetry-metric-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'title', type: 'text', label: 'Metric Name', defaultValue: 'Global Edge Invocations' },
+      { name: 'value', type: 'text', label: 'Primary Value', defaultValue: '14,892,104' },
+      { name: 'change', type: 'text', label: 'Growth Delta', defaultValue: '+28.4%' }
+    ],
+    renderPreview: (props) => (
+      <div className="w-full max-w-sm mx-auto p-4">
+        <TelemetryMetricCard
+          title={props.title || 'Global Edge Invocations'}
+          value={props.value || '14,892,104'}
+          change={props.change || '+28.4%'}
+        />
+      </div>
+    ),
+    usage: `<TelemetryMetricCard title="Global Edge Invocations" value="14,892,104" change="+28.4%" />`,
+    files: [
+      {
+        name: 'TelemetryMetricCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['telemetry-metric-card'] || ''
+      }
+    ]
+  },
+
+  // 59. Comparative Feature Table
+  {
+    id: 'comparative-feature-table',
+    name: 'Architectural Comparison Grid',
+    slug: 'comparative-feature-table',
+    category: 'components',
+    subcategory: 'Data Display',
+    description: 'Side-by-side feature comparison table matrix comparing Cooki UI architecture against generic UI libraries.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwind-css', '@phosphor-icons/react'],
+    tags: ['table', 'comparison', 'features', 'matrix', 'pricing'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add comparative-feature-table',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 overflow-x-auto">
+        <ComparativeFeatureTable />
+      </div>
+    ),
+    usage: `<ComparativeFeatureTable />`,
+    files: [
+      {
+        name: 'ComparativeFeatureTable.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['comparative-feature-table'] || ''
+      }
+    ]
+  },
+
+  // 60. Activity Feed Stream
+  {
+    id: 'activity-feed-stream',
+    name: 'Real-Time Git Activity Stream',
+    slug: 'activity-feed-stream',
+    category: 'components',
+    subcategory: 'Data Display',
+    description: 'DevOps commit stream and event ledger with author avatars, commit hashes, and relative timestamps.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['activity', 'feed', 'stream', 'devops', 'git', 'audit-log'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add activity-feed-stream',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full max-w-md mx-auto p-4">
+        <ActivityFeedStream />
+      </div>
+    ),
+    usage: `<ActivityFeedStream />`,
+    files: [
+      {
+        name: 'ActivityFeedStream.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['activity-feed-stream'] || ''
+      }
+    ]
+  },
+
+  // 61. Hanging ID Card
+  {
+    id: 'hanging-id-card',
+    name: 'Interactive 3D Hanging Badge',
+    slug: 'hanging-id-card',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'Physics-based conference lanyard and holographic badge with simulated gravity swing.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['3d', 'badge', 'card', 'lanyard', 'physics', 'interactive'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add hanging-id-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <HangingIdCard />
+      </div>
+    ),
+    usage: `<HangingIdCard />`,
+    files: [
+      {
+        name: 'HangingIdCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['hanging-id-card'] || ''
+      }
+    ]
+  },
+
+  // 62. Plasma Globe
+  {
+    id: 'plasma-globe',
+    name: 'Kinetic Plasma Sphere',
+    slug: 'plasma-globe',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'Interactive glowing plasma sphere with swirling chromatic arcs responding to cursor coordinates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'mathematical-physics'],
+    tags: ['3d', 'plasma', 'sphere', 'canvas', 'effects', 'particles'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add plasma-globe',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <PlasmaGlobe />
+      </div>
+    ),
+    usage: `<PlasmaGlobe />`,
+    files: [
+      {
+        name: 'PlasmaGlobe.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['plasma-globe'] || ''
+      }
+    ]
+  },
+
+  // 63. Audio Waveform Visualizer
+  {
+    id: 'audio-waveform-visualizer',
+    name: 'Bespoke Audio Spectrum Visualizer',
+    slug: 'audio-waveform-visualizer',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'Live procedural equalizer waveform with neon glowing bar heights and spring responsiveness.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['audio', 'waveform', 'spectrum', 'music', 'sound', 'bars'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add audio-waveform-visualizer',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <AudioWaveformVisualizer />
+      </div>
+    ),
+    usage: `<AudioWaveformVisualizer />`,
+    files: [
+      {
+        name: 'AudioWaveformVisualizer.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['audio-waveform-visualizer'] || ''
+      }
+    ]
+  },
+
+  // 64. Code Hover Card
+  {
+    id: 'code-hover-card',
+    name: '3D Isometric Code Snippet Card',
+    slug: 'code-hover-card',
+    category: 'animations',
+    subcategory: '3D Elements',
+    description: 'Perspective 3D terminal container with glass shine and highlighted TypeScript syntax tokens.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['3d', 'code', 'snippet', 'perspective', 'terminal'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add code-hover-card',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <CodeHoverCard />
+      </div>
+    ),
+    usage: `<CodeHoverCard />`,
+    files: [
+      {
+        name: 'CodeHoverCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['code-hover-card'] || ''
+      }
+    ]
+  },
+
+  // 65. Breadcrumb Stepper
+  {
+    id: 'breadcrumb-stepper',
+    name: 'Progressive Path Breadcrumb',
+    slug: 'breadcrumb-stepper',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Interactive hierarchy breadcrumb navigation with slash separators and expandable path segments.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwind-css', '@phosphor-icons/react'],
+    tags: ['breadcrumb', 'navigation', 'path', 'hierarchy', 'steps'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add breadcrumb-stepper',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <BreadcrumbStepper />
+      </div>
+    ),
+    usage: `<BreadcrumbStepper />`,
+    files: [
+      {
+        name: 'BreadcrumbStepper.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['breadcrumb-stepper'] || ''
+      }
+    ]
+  },
+
+  // 66. Fluid Action Panel
+  {
+    id: 'fluid-action-panel',
+    name: 'Fluid Floating Quick-Actions Panel',
+    slug: 'fluid-action-panel',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Expandable floating tool belt with smooth layout springs, keyboard hotkeys, and tooltips.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['dock', 'toolbar', 'actions', 'floating', 'navigation'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add fluid-action-panel',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <FluidActionPanel />
+      </div>
+    ),
+    usage: `<FluidActionPanel />`,
+    files: [
+      {
+        name: 'FluidActionPanel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['fluid-action-panel'] || ''
+      }
+    ]
+  },
+
+  // 67. Cyber Hive Background
+  {
+    id: 'cyber-hive-background',
+    name: 'Procedural Cyber Hive Grid',
+    slug: 'cyber-hive-background',
+    category: 'backgrounds',
+    subcategory: 'Abstract Backgrounds',
+    description: 'Futuristic animated hexagonal grid pattern with breathing neon pulses and edge vignettes.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['svg-pattern', 'framer-motion'],
+    tags: ['background', 'hexagon', 'cyber', 'grid', 'pattern'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add cyber-hive-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="relative w-full h-48 rounded-xl overflow-hidden flex items-center justify-center border border-zinc-200 dark:border-white/10">
+        <CyberHiveBackground />
+        <span className="relative z-10 text-xs font-mono px-3 py-1.5 rounded-full bg-zinc-900/80 text-white backdrop-blur border border-white/10">
+          HEXAGONAL MESH
+        </span>
+      </div>
+    ),
+    usage: `<CyberHiveBackground />`,
+    files: [
+      {
+        name: 'CyberHiveBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['cyber-hive-background'] || ''
+      }
+    ]
+  },
+
+  // 68. Quantum Field Background
+  {
+    id: 'quantum-field-background',
+    name: 'Quantum Particle Field Canvas',
+    slug: 'quantum-field-background',
+    category: 'backgrounds',
+    subcategory: 'Abstract Backgrounds',
+    description: 'Interactive HTML5 canvas particle web with dynamic node connections responding to pointer coordinates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['html5-canvas', 'particles'],
+    tags: ['background', 'particles', 'canvas', 'constellation', 'quantum'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add quantum-field-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="relative w-full h-48 rounded-xl overflow-hidden flex items-center justify-center border border-zinc-200 dark:border-white/10">
+        <QuantumFieldBackground />
+        <span className="relative z-10 text-xs font-mono px-3 py-1.5 rounded-full bg-zinc-900/80 text-white backdrop-blur border border-white/10">
+          PARTICLE CONSTELLATION
+        </span>
+      </div>
+    ),
+    usage: `<QuantumFieldBackground />`,
+    files: [
+      {
+        name: 'QuantumFieldBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['quantum-field-background'] || ''
+      }
+    ]
+  },
+
+  // 69. Rolling 3D Text
+  {
+    id: 'rolling-text-3d',
+    name: 'Rolling 3D Perspective Word Ticker',
+    slug: 'rolling-text-3d',
+    category: 'animations',
+    subcategory: 'Text Animations',
+    description: 'Cylindrical 3D word roller rotating dynamically through phrase lists with spring kinematics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['text', 'typography', '3d', 'ticker', 'rotation', 'words'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add rolling-text-3d',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <RollingText3d />
+      </div>
+    ),
+    usage: `<RollingText3d />`,
+    files: [
+      {
+        name: 'RollingText3d.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['rolling-text-3d'] || ''
+      }
+    ]
+  },
+
+  // 70. Scramble Text
+  {
+    id: 'scramble-text',
+    name: 'Cipher Character Scramble Text',
+    slug: 'scramble-text',
+    category: 'animations',
+    subcategory: 'Text Animations',
+    description: 'Hacker/cyberpunk cryptographic text decoder that cycles random glyphs before settling on final characters.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['cyberpunk-scramble', 'timer'],
+    tags: ['text', 'scramble', 'hacker', 'cipher', 'cyberpunk', 'decrypt'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add scramble-text',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'text', type: 'text', label: 'Target Text', defaultValue: 'ZERO_TRUST_VERIFIED' }
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <ScrambleText text={props.text || 'ZERO_TRUST_VERIFIED'} />
+      </div>
+    ),
+    usage: `<ScrambleText text="ZERO_TRUST_VERIFIED" />`,
+    files: [
+      {
+        name: 'ScrambleText.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['scramble-text'] || ''
+      }
+    ]
+  },
+
 ]

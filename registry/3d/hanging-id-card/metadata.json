@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hanging-id-card",
+  "type": "registry:ui",
+  "title": "Hanging ID Card",
+  "description": "Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.",
+  "category": "3d",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/3d/hanging-id-card/hanging-id-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hanging-id-card.tsx"
+    }
+  ]
+}

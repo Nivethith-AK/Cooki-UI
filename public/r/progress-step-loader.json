@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-step-loader",
+  "type": "registry:ui",
+  "title": "Progress Step Loader",
+  "description": "Multi-stage pipeline compilation loader with real-time status telemetry and spring animations.",
+  "category": "feedback",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/feedback/progress-step-loader/progress-step-loader.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/progress-step-loader.tsx",
+      "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\nimport { Check, CircleNotch } from '@phosphor-icons/react';\r\n\r\nconst STEPS = [\r\n  'Resolving AST Dependencies',\r\n  'Synthesizing Deterministic Code',\r\n  'Executing SMT Proof Verification',\r\n  'Publishing Artifact to Registry',\r\n];\r\n\r\nexport const ProgressStepLoader: React.FC = () => {\r\n  const [currentStep, setCurrentStep] = useState(2);\r\n\r\n  useEffect(() => {\r\n    const timer = setInterval(() => {\r\n      setCurrentStep((prev) => (prev < STEPS.length ? prev + 1 : 0));\r\n    }, 2500);\r\n    return () => clearInterval(timer);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-md mx-auto p-5 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900/60 backdrop-blur-xl shadow-lg\">\r\n      <div className=\"flex items-center justify-between mb-4 pb-2 border-b border-zinc-200/60 dark:border-white/5\">\r\n        <span className=\"text-[10px] font-mono uppercase tracking-widest text-zinc-500\">SYNTHESIS PIPELINE</span>\r\n        <span className=\"text-[10px] font-mono text-emerald-500 font-bold\">\r\n          {Math.min(100, Math.round((currentStep / (STEPS.length - 1)) * 100))}% COMPLETE\r\n        </span>\r\n      </div>\r\n\r\n      <div className=\"space-y-3\">\r\n        {STEPS.map((step, idx) => {\r\n          const isDone = idx < currentStep;\r\n          const isCurrent = idx === currentStep;\r\n\r\n          return (\r\n            <div key={step} className=\"flex items-center gap-3\">\r\n              <div\r\n                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs transition-colors ${\r\n                  isDone\r\n                    ? 'bg-emerald-500 text-white font-bold'\r\n                    : isCurrent\r\n                    ? 'bg-indigo-600 text-white animate-pulse'\r\n                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-400'\r\n                }`}\r\n              >\r\n                {isDone ? (\r\n                  <Check size={12} weight=\"bold\" />\r\n                ) : isCurrent ? (\r\n                  <CircleNotch size={13} className=\"animate-spin\" />\r\n                ) : (\r\n                  <span className=\"text-[10px] font-mono\">{idx + 1}</span>\r\n                )}\r\n              </div>\r\n              <span\r\n                className={`text-xs font-mono transition-colors ${\r\n                  isDone\r\n                    ? 'text-zinc-400 line-through'\r\n                    : isCurrent\r\n                    ? 'text-zinc-900 dark:text-white font-semibold'\r\n                    : 'text-zinc-500'\r\n                }`}\r\n              >\r\n                {step}\r\n              </span>\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

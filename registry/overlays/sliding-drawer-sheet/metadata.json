@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-drawer-sheet",
+  "type": "registry:ui",
+  "title": "Sliding Drawer Sheet",
+  "description": "Right-side sliding drawer panel with grab handle, spring slide physics, and backdrop blur.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/sliding-drawer-sheet/sliding-drawer-sheet.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/sliding-drawer-sheet.tsx"
+    }
+  ]
+}
