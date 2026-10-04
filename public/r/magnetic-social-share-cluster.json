@@ -1,5 +1,5 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
   "name": "magnetic-social-share-cluster",
   "type": "registry:ui",
   "title": "Magnetic Social Share Cluster",

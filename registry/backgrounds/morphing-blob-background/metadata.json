@@ -1,5 +1,5 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
   "name": "morphing-blob-background",
   "type": "registry:ui",
   "title": "Morphing Blob Background",

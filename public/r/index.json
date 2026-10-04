@@ -1,6 +1,6 @@
 [
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "audio-waveform-visualizer",
     "type": "registry:ui",
     "title": "Audio Waveform Visualizer",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "code-hover-card",
     "type": "registry:ui",
     "title": "Code Hover Card",
@@ -39,7 +39,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "cube-perspective-3d",
     "type": "registry:ui",
     "title": "Interactive Isometric 3D Cube",
@@ -58,7 +58,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "hanging-id-card",
     "type": "registry:ui",
     "title": "Hanging ID Card",
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "particle-vortex-tunnel",
     "type": "registry:ui",
     "title": "Hypnotic Particle Vortex Tunnel",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "plasma-globe",
     "type": "registry:ui",
     "title": "Plasma Globe",
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ai-code-diff-viewer",
     "type": "registry:ui",
     "title": "AI Code Diff Inspector",
@@ -131,7 +131,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ai-prompt-input",
     "type": "registry:ui",
     "title": "AI Prompt Studio Input",
@@ -151,7 +151,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ai-streaming-bubble",
     "type": "registry:ui",
     "title": "AI Streaming Message Bubble",
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ai-token-cost-meter",
     "type": "registry:ui",
     "title": "AI Token Cost & Context Meter",
@@ -190,7 +190,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "wave-frequency-bars",
     "type": "registry:ui",
     "title": "Audio Frequency Spectrum Equalizer",
@@ -209,7 +209,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "animated-mesh-background",
     "type": "registry:ui",
     "title": "Generative Animated Mesh Gradient",
@@ -242,7 +242,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "aurora-background",
     "type": "registry:ui",
     "title": "Fluid Aurora Lighting",
@@ -277,7 +277,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "beam-grid-background",
     "type": "registry:ui",
     "title": "Coordinate Beam Grid Matrix",
@@ -312,7 +312,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "cosmic-dust-background",
     "type": "registry:ui",
     "title": "Cosmic Dust Gravity Canvas",
@@ -345,7 +345,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "cyber-hive-background",
     "type": "registry:ui",
     "title": "Cyber Hive Background",
@@ -362,7 +362,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "dot-background",
     "type": "registry:ui",
     "title": "Matrix Dot Grid Pattern",
@@ -395,7 +395,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "flowing-lines-wave-background",
     "type": "registry:ui",
     "title": "Mathematical Flowing Lines Wave",
@@ -412,7 +412,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "grid-background",
     "type": "registry:ui",
     "title": "Precision Cartesian Grid",
@@ -445,7 +445,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "morphing-blob-background",
     "type": "registry:ui",
     "title": "Morphing Blob Background",
@@ -464,7 +464,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "particle-constellation-background",
     "type": "registry:ui",
     "title": "Particle Constellation Background",
@@ -483,7 +483,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "quantum-field-background",
     "type": "registry:ui",
     "title": "Quantum Field Background",
@@ -500,7 +500,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "starfield-hyperdrive-background",
     "type": "registry:ui",
     "title": "Starfield Hyperdrive Canvas",
@@ -517,7 +517,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "confetti-button",
     "type": "registry:ui",
     "title": "Celebration Confetti Burst Button",
@@ -553,7 +553,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "floating-action-button",
     "type": "registry:ui",
     "title": "Floating Action Button Cluster",
@@ -589,7 +589,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "fluid-liquid-button",
     "type": "registry:ui",
     "title": "Fluid Liquid Button",
@@ -608,7 +608,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "glow-action-button",
     "type": "registry:ui",
     "title": "Glow Action Button",
@@ -644,7 +644,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "gradient-shimmer-button",
     "type": "registry:ui",
     "title": "Gradient Shimmer Button",
@@ -679,7 +679,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "hold-to-confirm-button",
     "type": "registry:ui",
     "title": "Hold to Confirm Action Button",
@@ -699,7 +699,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "liquid-glass-button",
     "type": "registry:ui",
     "title": "Refractive Liquid Glass Button",
@@ -734,7 +734,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "magnetic-button",
     "type": "registry:ui",
     "title": "Magnetic Button",
@@ -769,7 +769,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ripple-button",
     "type": "registry:ui",
     "title": "Radial Ripple Button",
@@ -802,7 +802,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "slide-to-confirm",
     "type": "registry:ui",
     "title": "Slide to Confirm Slider",
@@ -839,7 +839,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "expandable-card",
     "type": "registry:ui",
     "title": "Spring Expandable Modal Card",
@@ -875,7 +875,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "glare-hologram-card",
     "type": "registry:ui",
     "title": "Chromatic Glare Hologram Card",
@@ -894,7 +894,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "glass-card",
     "type": "registry:ui",
     "title": "Frosted Acrylic Glass Card",
@@ -929,7 +929,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "interactive-tilt-card",
     "type": "registry:ui",
     "title": "Interactive 3D Tilt Card",
@@ -965,7 +965,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "orbit-card",
     "type": "registry:ui",
     "title": "Concentric Planetary Orbit Card",
@@ -1001,7 +1001,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "perspective-card-3d",
     "type": "registry:ui",
     "title": "3D Parallax Perspective Card",
@@ -1037,7 +1037,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "scratch-to-reveal-card",
     "type": "registry:ui",
     "title": "Scratch to Reveal Card",
@@ -1056,7 +1056,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "spotlight-border-card",
     "type": "registry:ui",
     "title": "Spotlight Border Card",
@@ -1076,7 +1076,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "spotlight-card",
     "type": "registry:ui",
     "title": "Radial Cursor Spotlight Card",
@@ -1111,7 +1111,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "stack-card-deck",
     "type": "registry:ui",
     "title": "Swipeable Layered Card Deck",
@@ -1131,7 +1131,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "terminal-card",
     "type": "registry:ui",
     "title": "Interactive Developer Terminal Card",
@@ -1166,7 +1166,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "fluid-particle-cursor",
     "type": "registry:ui",
     "title": "Fluid Particle Stardust Cursor",
@@ -1183,7 +1183,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "magnetic-cursor-follower",
     "type": "registry:ui",
     "title": "Magnetic Cursor Follower",
@@ -1202,7 +1202,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "spotlight-reveal-cursor",
     "type": "registry:ui",
     "title": "Spotlight Mask Reveal Cursor",
@@ -1219,7 +1219,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "activity-feed-stream",
     "type": "registry:ui",
     "title": "Activity Feed Stream",
@@ -1239,7 +1239,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "circular-gauge-speedometer",
     "type": "registry:ui",
     "title": "Precision Speedometer Radial Gauge",
@@ -1258,7 +1258,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "comparative-feature-table",
     "type": "registry:ui",
     "title": "Comparative Feature Table",
@@ -1277,7 +1277,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "git-contribution-heatmap",
     "type": "registry:ui",
     "title": "Git Activity Contribution Heatmap",
@@ -1294,7 +1294,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "live-telemetry-status-grid",
     "type": "registry:ui",
     "title": "Global Edge Telemetry Node Grid",
@@ -1313,7 +1313,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "radial-progress-gauge",
     "type": "registry:ui",
     "title": "Radial Progress Gauge",
@@ -1332,7 +1332,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "scroll-timeline",
     "type": "registry:ui",
     "title": "Scroll Timeline",
@@ -1351,7 +1351,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "telemetry-metric-card",
     "type": "registry:ui",
     "title": "Telemetry Metric Card",
@@ -1370,7 +1370,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "ascii-wave",
     "type": "registry:ui",
     "title": "Generative ASCII Wave",
@@ -1403,7 +1403,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "border-beam",
     "type": "registry:ui",
     "title": "Luminous Border Beam",
@@ -1439,7 +1439,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "light-pillar-beacon",
     "type": "registry:ui",
     "title": "Volumetric Light Pillar Beacon",
@@ -1458,7 +1458,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "matrix-rain-terminal",
     "type": "registry:ui",
     "title": "Matrix Rain Terminal",
@@ -1478,7 +1478,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "metaball-gooey-effect",
     "type": "registry:ui",
     "title": "Metaball Gooey Fluid Drops",
@@ -1497,7 +1497,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "noise-grain-overlay",
     "type": "registry:ui",
     "title": "Procedural Film Grain Synthesizer",
@@ -1530,7 +1530,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "spectrum-loader",
     "type": "registry:ui",
     "title": "Harmonic Spectrum Equalizer",
@@ -1567,7 +1567,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "animated-counter-pill",
     "type": "registry:ui",
     "title": "Animated Counter Pill",
@@ -1587,7 +1587,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "progress-step-loader",
     "type": "registry:ui",
     "title": "Progress Step Loader",
@@ -1607,7 +1607,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "skeleton-shimmer-card",
     "type": "registry:ui",
     "title": "Skeleton Shimmer Card",
@@ -1624,7 +1624,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "status-radar-badge",
     "type": "registry:ui",
     "title": "Status Radar Badge",
@@ -1643,7 +1643,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "toast-notification-hub",
     "type": "registry:ui",
     "title": "Toast Notification Hub",
@@ -1663,7 +1663,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "animated-floating-input",
     "type": "registry:ui",
     "title": "Animated Floating Input",
@@ -1683,7 +1683,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "color-palette-picker",
     "type": "registry:ui",
     "title": "Luminescent Color Palette Swatch",
@@ -1702,7 +1702,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "color-theme-switcher-pill",
     "type": "registry:ui",
     "title": "Color Theme Switcher Pill",
@@ -1722,7 +1722,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "drag-drop-file-upload",
     "type": "registry:ui",
     "title": "Drag & Drop File Upload",
@@ -1742,7 +1742,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "dual-range-slider",
     "type": "registry:ui",
     "title": "Precision Dual Range Slider",
@@ -1759,7 +1759,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "expandable-search-bar",
     "type": "registry:ui",
     "title": "Expandable Command Search Bar",
@@ -1795,7 +1795,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "multi-select-combobox",
     "type": "registry:ui",
     "title": "Multi-Select Combobox",
@@ -1815,7 +1815,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "otp-input",
     "type": "registry:ui",
     "title": "OTP Pin Input",
@@ -1834,7 +1834,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "password-strength-indicator",
     "type": "registry:ui",
     "title": "Interactive Entropy Password Input",
@@ -1870,7 +1870,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "pin-code-vault-input",
     "type": "registry:ui",
     "title": "Tactile Vault Keypad Input",
@@ -1889,7 +1889,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "toggle-pill-switch",
     "type": "registry:ui",
     "title": "Kinetic Toggle Pill Switch",
@@ -1908,7 +1908,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "accordion-faq-group",
     "type": "registry:ui",
     "title": "Kinetic Spring Accordion",
@@ -1928,7 +1928,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "image-comparison-slider",
     "type": "registry:ui",
     "title": "Split Image Comparison Slider",
@@ -1947,7 +1947,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "infinite-card-carousel",
     "type": "registry:ui",
     "title": "3D Perspective Card Carousel",
@@ -1967,7 +1967,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "interactive-image-compare-lens",
     "type": "registry:ui",
     "title": "Image Compare Lens",
@@ -1986,7 +1986,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "resizable-split-panel",
     "type": "registry:ui",
     "title": "Draggable Split Viewport Pane",
@@ -2005,7 +2005,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "segmented-control-switch",
     "type": "registry:ui",
     "title": "Apple-Style Segmented Control",
@@ -2024,7 +2024,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "animated-notification-stack",
     "type": "registry:ui",
     "title": "Spring Notification Toast Stack",
@@ -2060,7 +2060,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "breadcrumb-stepper",
     "type": "registry:ui",
     "title": "Breadcrumb Stepper",
@@ -2079,7 +2079,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "command-palette",
     "type": "registry:ui",
     "title": "Spotlight Command Palette (⌘K)",
@@ -2115,7 +2115,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "cyber-command-menu",
     "type": "registry:ui",
     "title": "Cyber Command Menu",
@@ -2135,7 +2135,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "floating-navbar",
     "type": "registry:ui",
     "title": "Dynamic Floating Capsule Navbar",
@@ -2171,7 +2171,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "fluid-action-panel",
     "type": "registry:ui",
     "title": "Fluid Action Panel",
@@ -2191,7 +2191,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "magnetic-dock",
     "type": "registry:ui",
     "title": "Componentry Magnetic Dock",
@@ -2228,7 +2228,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "magnetic-social-dock",
     "type": "registry:ui",
     "title": "Magnetic Social Dock",
@@ -2248,7 +2248,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "magnetic-social-share-cluster",
     "type": "registry:ui",
     "title": "Magnetic Social Share Cluster",
@@ -2267,7 +2267,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "minimal-radial-menu",
     "type": "registry:ui",
     "title": "Kinetic Radial Action Menu",
@@ -2287,7 +2287,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "sliding-logo-marquee",
     "type": "registry:ui",
     "title": "Infinite Brand Logo Marquee",
@@ -2322,7 +2322,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "tabs-morph",
     "type": "registry:ui",
     "title": "Morphing Spring Pill Tabs",
@@ -2358,7 +2358,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "context-action-menu",
     "type": "registry:ui",
     "title": "Context Action Menu",
@@ -2378,7 +2378,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "interactive-dialog-modal",
     "type": "registry:ui",
     "title": "Interactive Dialog Modal",
@@ -2398,7 +2398,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "sliding-drawer-sheet",
     "type": "registry:ui",
     "title": "Sliding Drawer Sheet",
@@ -2418,7 +2418,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "tooltip-popover",
     "type": "registry:ui",
     "title": "Tooltip Popover",
@@ -2437,7 +2437,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "animated-cta-block",
     "type": "registry:ui",
     "title": "High-Conversion Terminal CTA",
@@ -2474,7 +2474,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "faq-accordion-section",
     "type": "registry:ui",
     "title": "Full-Width Production FAQ Section",
@@ -2493,7 +2493,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "feature-bento-block",
     "type": "registry:ui",
     "title": "Technical Feature Bento Block",
@@ -2530,7 +2530,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "hero-geometry-glow-section",
     "type": "registry:ui",
     "title": "Prism Geometry Hero Marketing Block",
@@ -2549,7 +2549,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "holographic-pricing-table",
     "type": "registry:ui",
     "title": "Holographic Pricing Table",
@@ -2569,7 +2569,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "interactive-terminal-block",
     "type": "registry:ui",
     "title": "Installation Terminal Block",
@@ -2604,7 +2604,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "interactive-workflow-pipeline",
     "type": "registry:ui",
     "title": "Workflow Pipeline Diagram",
@@ -2624,7 +2624,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "pricing-comparison-block",
     "type": "registry:ui",
     "title": "Tiered SaaS Pricing Matrix",
@@ -2660,7 +2660,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "stats-counter-strip-block",
     "type": "registry:ui",
     "title": "Enterprise Telemetry Stats Strip",
@@ -2679,7 +2679,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "testimonial-marquee-block",
     "type": "registry:ui",
     "title": "Endless Social Proof Testimonials",
@@ -2714,7 +2714,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "blur-reveal",
     "type": "registry:ui",
     "title": "Atmospheric Gaussian Blur Reveal",
@@ -2749,7 +2749,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "glitch-cyber-text",
     "type": "registry:ui",
     "title": "Glitch Cyberpunk Text",
@@ -2768,7 +2768,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "kinetic-text-marquee",
     "type": "registry:ui",
     "title": "Kinetic Text Marquee",
@@ -2787,7 +2787,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "rolling-text-3d",
     "type": "registry:ui",
     "title": "Rolling Text 3D",
@@ -2806,7 +2806,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "scramble-text",
     "type": "registry:ui",
     "title": "Scramble Text",
@@ -2823,7 +2823,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "shiny-text",
     "type": "registry:ui",
     "title": "Specular Shiny Text",
@@ -2856,7 +2856,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "sliding-number",
     "type": "registry:ui",
     "title": "Sliding Number Counter",
@@ -2892,7 +2892,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "split-text",
     "type": "registry:ui",
     "title": "Kinetic Split Character Spring",
@@ -2927,7 +2927,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "text-reveal",
     "type": "registry:ui",
     "title": "Masked Text Reveal",
@@ -2962,7 +2962,7 @@
     ]
   },
   {
-    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
     "name": "typing-text",
     "type": "registry:ui",
     "title": "Dynamic Typewriter Loop",

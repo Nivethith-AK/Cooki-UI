@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cooki UI Master Registry Manifest",
+  "type": "object",
+  "required": ["name", "homepage", "items"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string" },
+    "homepage": { "type": "string" },
+    "items": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cooki UI Project Configuration",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "style": { "type": "string" },
+    "rsc": { "type": "boolean" },
+    "tsx": { "type": "boolean" },
+    "tailwind": { "type": "object" },
+    "aliases": { "type": "object" },
+    "registries": { "type": "object" }
+  }
+}

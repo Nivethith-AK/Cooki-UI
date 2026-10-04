@@ -1,16 +1,16 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
+  "$schema": "https://cooki-ui.vercel.app/schema.json",
   "style": "new-york",
   "rsc": true,
   "tsx": true,
   "tailwind": {
     "config": "tailwind.config.js",
-    "css": "app/globals.css",
+    "css": "src/index.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
-  "iconLibrary": "lucide",
+  "iconLibrary": "phosphor",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -19,7 +19,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@componentry": "https://componentry.fun/r/{name}.json",
-    "@animate-ui": "https://animate-ui.com/r/{name}.json"
+    "@cooki-ui": "https://cooki-ui.vercel.app/r/{name}.json"
   }
 }

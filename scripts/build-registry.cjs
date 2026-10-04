@@ -32,6 +32,7 @@ categories.forEach(cat => {
     // Attach raw source content into files array
     const registryItem = {
       ...metadata,
+      $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
       files: metadata.files.map(f => ({
         ...f,
         content: sourceCode
@@ -49,9 +50,9 @@ categories.forEach(cat => {
 // Write master registry index to public/r/index.json
 fs.writeFileSync(path.join(publicRDir, 'index.json'), JSON.stringify(registryItems, null, 2))
 
-// Write root registry.json for shadcn & CLI consumption
+// Write root registry.json for CLI consumption
 const rootRegistry = {
-  $schema: 'https://ui.shadcn.com/schema/registry.json',
+  $schema: 'https://cooki-ui.vercel.app/schema/registry.json',
   name: 'cooki-ui',
   homepage: 'https://cooki-ui.vercel.app',
   items: registryItems.map(item => ({

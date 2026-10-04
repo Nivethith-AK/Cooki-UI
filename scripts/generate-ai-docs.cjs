@@ -118,7 +118,7 @@ GET https://cooki-ui.vercel.app/r/{component-name}.json
 Example JSON payload for \`magnetic-button\`:
 \`\`\`json
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
   "name": "magnetic-button",
   "type": "registry:ui",
   "title": "Magnetic Button",

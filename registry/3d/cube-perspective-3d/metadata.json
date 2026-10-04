@@ -1,5 +1,5 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
   "name": "cube-perspective-3d",
   "type": "registry:ui",
   "title": "Interactive Isometric 3D Cube",

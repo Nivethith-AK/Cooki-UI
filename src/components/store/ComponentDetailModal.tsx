@@ -450,7 +450,7 @@ export const ComponentDetailModal: React.FC = () => {
                     </button>
                   </div>
                   <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
-                    Served statically via Vercel CDN. Conforms to shadcn registry item schema specification.
+                    Served statically via Vercel CDN. Owned natively by Cooki UI repository.
                   </p>
                 </div>
 
@@ -460,7 +460,7 @@ export const ComponentDetailModal: React.FC = () => {
                     <pre className="text-zinc-300 dark:text-zinc-400">
 {JSON.stringify(
   {
-    $schema: 'https://ui.shadcn.com/schema/registry-item.json',
+    $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
     name: selectedComponent.slug,
     type: 'registry:ui',
     title: selectedComponent.name,
