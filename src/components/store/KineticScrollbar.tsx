@@ -46,7 +46,11 @@ export const KineticScrollbar: React.FC = () => {
   }, [progressSpring, thumbSpring])
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (typeof (window as any).__lenis?.scrollTo === 'function') {
+      ;(window as any).__lenis.scrollTo(0, { duration: 0.9 })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   const handleRailClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -55,7 +59,12 @@ export const KineticScrollbar: React.FC = () => {
     const clickY = e.clientY - rect.top
     const ratio = Math.max(0, Math.min(1, clickY / rect.height))
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-    window.scrollTo({ top: ratio * totalHeight, behavior: 'smooth' })
+    const targetY = ratio * totalHeight
+    if (typeof (window as any).__lenis?.scrollTo === 'function') {
+      ;(window as any).__lenis.scrollTo(targetY, { duration: 0.8 })
+    } else {
+      window.scrollTo({ top: targetY, behavior: 'smooth' })
+    }
   }
 
   const percent = Math.round(scrollProgress * 100)

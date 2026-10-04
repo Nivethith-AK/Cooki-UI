@@ -101,6 +101,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setSelectedFramework('all')
     setSearchQuery('')
     setShowFavoritesOnly(false)
+    setSortBy('featured')
   }
 
   const filteredComponents = useMemo(() => {

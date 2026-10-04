@@ -160,7 +160,10 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-dots" />
 
         {/* Live Component Render Canvas with unconstrained child sizing */}
-        <div className="relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100">
+        <div 
+          data-lenis-prevent="true"
+          className="relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100 modal-scroll"
+        >
           <CardErrorBoundary key={item.id}>
             {item.renderPreview({}, isDark)}
           </CardErrorBoundary>

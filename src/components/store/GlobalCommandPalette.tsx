@@ -23,6 +23,7 @@ import {
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 import { RegistryItem, ComponentCategory } from '../../types/component'
+import { scrollToCatalogue } from '../../utils/scroll'
 
 export const GlobalCommandPalette: React.FC = () => {
   const {
@@ -145,7 +146,7 @@ export const GlobalCommandPalette: React.FC = () => {
     setSelectedCategory(cat)
     setShowFavoritesOnly(false)
     setCommandPaletteOpen(false)
-    document.getElementById('component-catalogue')?.scrollIntoView({ behavior: 'smooth' })
+    scrollToCatalogue(-90)
   }
 
   const handleCopyCli = () => {

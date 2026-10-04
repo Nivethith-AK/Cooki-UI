@@ -17,6 +17,7 @@ import {
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 import { ComponentCategory } from '../../types/component'
+import { scrollToCatalogue } from '../../utils/scroll'
 
 export const StoreDock: React.FC = () => {
   const { 
@@ -30,14 +31,10 @@ export const StoreDock: React.FC = () => {
   } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
-  const scrollToCatalogue = () => {
-    document.getElementById('component-catalogue')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const handleCategoryClick = (cat: ComponentCategory | 'all') => {
     setShowFavoritesOnly(false)
     setSelectedCategory(cat)
-    scrollToCatalogue()
+    scrollToCatalogue(-90)
   }
 
   const dockItems: DockItemData[] = [

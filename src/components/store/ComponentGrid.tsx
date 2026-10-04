@@ -2,27 +2,38 @@ import React, { useState, useEffect } from 'react'
 import { MagnifyingGlass, ArrowClockwise, CaretLeft, CaretRight, SquaresFour, Rows, ArrowsOut } from '@phosphor-icons/react'
 import { useStore, SortOption } from '../../context/StoreContext'
 import { ComponentCard } from './ComponentCard'
+import { scrollToCatalogue } from '../../utils/scroll'
 
 const ITEMS_PER_PAGE = 18
 
 export const ComponentGrid: React.FC = () => {
-  const { filteredComponents, sortBy, setSortBy, searchQuery, resetFilters, selectedCategory, selectedFramework } = useStore()
+  const { filteredComponents, sortBy, setSortBy, searchQuery, resetFilters, selectedCategory, selectedFramework, showFavoritesOnly } = useStore()
   const [currentPage, setCurrentPage] = useState(1)
   const [isExpansiveView, setIsExpansiveView] = useState(false)
 
-  // Reset page whenever filter changes
+  // Reset page whenever any filter or search query changes
   useEffect(() => {
     setCurrentPage(1)
-  }, [searchQuery, selectedCategory, selectedFramework, sortBy])
+  }, [searchQuery, selectedCategory, selectedFramework, sortBy, showFavoritesOnly])
 
   const totalPages = Math.ceil(filteredComponents.length / ITEMS_PER_PAGE) || 1
+
+  // Auto-clamp page if items list shrinks
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(Math.max(1, totalPages))
+    }
+  }, [currentPage, totalPages])
+
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
   const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredComponents.length)
   const currentItems = filteredComponents.slice(startIndex, endIndex)
 
   const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > totalPages || newPage === currentPage) return
     setCurrentPage(newPage)
-    document.getElementById('component-catalogue')?.scrollIntoView({ behavior: 'smooth' })
+    // Smoothly scroll to the top of the catalogue with sticky header clearance
+    scrollToCatalogue(-90)
   }
 
   const sortOptions: { id: SortOption; label: string }[] = [
@@ -39,7 +50,7 @@ export const ComponentGrid: React.FC = () => {
   }
 
   return (
-    <div id="component-catalogue" className="flex-1 w-full min-w-0">
+    <div id="component-catalogue" className="flex-1 w-full min-w-0 scroll-mt-28">
       
       {/* Top Filter, Count & Viewport Mode Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/5 mb-6">
@@ -134,12 +145,17 @@ export const ComponentGrid: React.FC = () => {
 
                 {/* Page Jump Numbers */}
                 <div className="flex items-center gap-1">
-                  {Array.from({ length: Math.min(5, totalPages) }).map((_, i) => {
-                    let pageNum = i + 1
-                    if (currentPage > 3 && totalPages > 5) {
-                      pageNum = Math.min(totalPages, currentPage - 2 + i)
+                  {(() => {
+                    let startPage = Math.max(1, currentPage - 2)
+                    let endPage = Math.min(totalPages, startPage + 4)
+                    if (endPage - startPage < 4) {
+                      startPage = Math.max(1, endPage - 4)
                     }
-                    return (
+                    const pages: number[] = []
+                    for (let p = startPage; p <= endPage; p++) {
+                      pages.push(p)
+                    }
+                    return pages.map((pageNum) => (
                       <button
                         key={pageNum}
                         onClick={() => handlePageChange(pageNum)}
@@ -151,8 +167,8 @@ export const ComponentGrid: React.FC = () => {
                       >
                         {pageNum}
                       </button>
-                    )
-                  })}
+                    ))
+                  })()}
                 </div>
 
                 <button

@@ -33,6 +33,7 @@ import {
   ComboboxItem,
   ComboboxEmpty,
 } from '@/components/ui/combobox'
+import { scrollToCatalogue } from '../../utils/scroll'
 
 export const StoreHero: React.FC = () => {
   const { 
@@ -69,8 +70,8 @@ export const StoreHero: React.FC = () => {
     }
   }
 
-  const scrollToCatalogue = () => {
-    document.getElementById('component-catalogue')?.scrollIntoView({ behavior: 'smooth' })
+  const handleScrollToCatalogue = () => {
+    scrollToCatalogue(-90)
   }
 
   const categories: { id: ComponentCategory | 'all'; label: string; count: number; icon: React.ReactNode }[] = [
@@ -194,7 +195,7 @@ export const StoreHero: React.FC = () => {
                 <MagneticButton
                   variant="default"
                   size="sm"
-                  onClick={scrollToCatalogue}
+                  onClick={handleScrollToCatalogue}
                 >
                   Explore 121 Components &darr;
                 </MagneticButton>
@@ -270,6 +271,7 @@ export const StoreHero: React.FC = () => {
                 onClick={() => {
                   setShowFavoritesOnly(false)
                   setSelectedCategory(cat.id)
+                  scrollToCatalogue(-90)
                 }}
                 className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-mono transition-all cursor-pointer ${
                   isActive

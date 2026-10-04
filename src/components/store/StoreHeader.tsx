@@ -14,7 +14,13 @@ export const StoreHeader: React.FC = () => {
         {/* Brand */}
         <div className="flex items-center gap-3">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => {
+              if (typeof (window as any).__lenis?.scrollTo === 'function') {
+                ;(window as any).__lenis.scrollTo(0, { duration: 0.9 })
+              } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
             className="flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-indigo-600 to-violet-600 shadow-inner">
