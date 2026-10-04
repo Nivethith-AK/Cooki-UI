@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Sparkle, Lightning } from '@phosphor-icons/react';
+import { Check, Lightning } from '@phosphor-icons/react';
 
 export const PricingComparisonBlock: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -89,7 +89,7 @@ export const PricingComparisonBlock: React.FC = () => {
           >
             {p.popular && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-indigo-500 text-white shadow-md">
-                <Sparkle size={12} weight="fill" /> MOST POPULAR
+                <Lightning size={12} weight="fill" /> MOST POPULAR
               </div>
             )}
 

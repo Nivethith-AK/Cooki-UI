@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   SquaresFour, 
-  Sparkle, 
+  Waveform, 
   PaintBrush, 
   Browsers, 
   Heart, 
@@ -31,7 +31,7 @@ export const SidebarFilters: React.FC = () => {
   const categories: { id: ComponentCategory | 'all'; label: string; icon: React.ReactNode }[] = [
     { id: 'all', label: 'All Artifacts', icon: <SquaresFour size={16} /> },
     { id: 'components', label: 'Components', icon: <Browsers size={16} /> },
-    { id: 'animations', label: 'Animations', icon: <Sparkle size={16} /> },
+    { id: 'animations', label: 'Animations', icon: <Waveform size={16} /> },
     { id: 'backgrounds', label: 'Backgrounds', icon: <PaintBrush size={16} /> },
     { id: 'sections', label: 'UI Sections', icon: <SquaresFour size={16} /> },
   ]

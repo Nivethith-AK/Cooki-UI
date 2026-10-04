@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Sparkle, ShieldCheck, Cpu } from '@phosphor-icons/react';
+import { Cube, ShieldCheck, Cpu } from '@phosphor-icons/react';
 
 interface PerspectiveCard3DProps {
   className?: string;
@@ -86,7 +86,7 @@ export const PerspectiveCard3D: React.FC<PerspectiveCard3DProps> = ({
             {tag}
           </span>
           <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400">
-            <Sparkle size={16} weight="fill" className="text-amber-400" />
+            <Cube size={16} weight="duotone" className="text-cyan-400" />
           </div>
         </div>
 

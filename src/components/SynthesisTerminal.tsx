@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Terminal, CheckCircle, Play, ArrowClockwise, Copy, Check, ShieldCheck, Sparkle, GitCommit } from '@phosphor-icons/react'
+import { Terminal, CheckCircle, Play, ArrowClockwise, Copy, Check, ShieldCheck, GitCommit } from '@phosphor-icons/react'
 import { SpecPreset } from '../types'
 
 const PRESETS: SpecPreset[] = [

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Heart, ArrowUpRight, Copy, Check, Sparkle } from '@phosphor-icons/react'
+import { Heart, ArrowUpRight } from '@phosphor-icons/react'
 import { RegistryItem } from '../../types/component'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'

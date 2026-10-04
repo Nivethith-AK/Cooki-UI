@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkle } from '@phosphor-icons/react';
+import { Lightning } from '@phosphor-icons/react';
 
 interface ConfettiPiece {
   id: number;
@@ -66,7 +66,7 @@ export const ConfettiButton: React.FC<ConfettiButtonProps> = ({
         onClick={triggerConfetti}
         className={`relative z-10 inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 border border-white/20 transition-all select-none cursor-pointer ${className}`}
       >
-        <Sparkle size={18} weight="fill" className="text-yellow-300 animate-pulse" />
+        <Lightning size={18} weight="fill" className="text-yellow-300" />
         <span>{children}</span>
       </motion.button>
 

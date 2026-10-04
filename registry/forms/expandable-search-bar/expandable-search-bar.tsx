@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MagnifyingGlass, X, Sparkle, ArrowRight } from '@phosphor-icons/react';
+import { MagnifyingGlass, X, Lightning, ArrowRight } from '@phosphor-icons/react';
 
 interface ExpandableSearchBarProps {
   className?: string;
@@ -96,7 +96,7 @@ export const ExpandableSearchBar: React.FC<ExpandableSearchBarProps> = ({
               <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1">
                 <span>TRENDING QUERIES</span>
                 <span className="flex items-center gap-1 text-indigo-400">
-                  <Sparkle size={12} weight="fill" /> POPULAR
+                  <Lightning size={12} weight="fill" /> POPULAR
                 </span>
               </div>
               <div className="flex flex-wrap gap-1.5 pt-1">

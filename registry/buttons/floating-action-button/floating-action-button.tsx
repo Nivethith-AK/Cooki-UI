@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, X, Sparkle, ShareNetwork, Terminal, Heart } from '@phosphor-icons/react'
+import { Plus, X, ShareNetwork, Terminal, Heart } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 export interface FloatingActionButtonProps {

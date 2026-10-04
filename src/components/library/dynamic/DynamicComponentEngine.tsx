@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  Sparkle,
   Lightning,
   ShieldCheck,
   Cpu,
@@ -66,7 +65,7 @@ export const DynamicComponentEngine: React.FC<{
               className="absolute inset-0 rounded-xl pointer-events-none opacity-20"
               style={{ backgroundColor: primary }}
             />
-            <Sparkle size={14} weight="fill" style={{ color: primary }} />
+            <Lightning size={14} weight="fill" style={{ color: primary }} />
             <span>{spec.label}</span>
             <ArrowRight size={12} className="opacity-70" />
           </motion.button>

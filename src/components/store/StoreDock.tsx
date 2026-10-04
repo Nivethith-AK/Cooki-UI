@@ -6,7 +6,7 @@ import {
 import { 
   SquaresFour, 
   Browsers, 
-  Sparkle, 
+  Waveform, 
   PaintBrush, 
   Code, 
   Heart, 
@@ -57,7 +57,7 @@ export const StoreDock: React.FC = () => {
     {
       id: 'animations',
       label: 'Animations',
-      icon: <Sparkle size={20} weight={selectedCategory === 'animations' ? 'fill' : 'regular'} />,
+      icon: <Waveform size={20} weight={selectedCategory === 'animations' ? 'bold' : 'regular'} />,
       onClick: () => handleCategoryClick('animations'),
       isActive: selectedCategory === 'animations' && !showFavoritesOnly,
     },

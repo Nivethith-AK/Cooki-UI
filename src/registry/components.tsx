@@ -55,7 +55,6 @@ import {
   Terminal, 
   Cpu, 
   ShieldCheck, 
-  Sparkle, 
   GitBranch, 
   Lightning, 
   Database,

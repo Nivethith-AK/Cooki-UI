@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Eye, Sparkle, Gear } from '@phosphor-icons/react';
+import { Code, Eye, Waveform, Gear } from '@phosphor-icons/react';
 
 interface TabItem {
   id: string;
@@ -18,7 +18,7 @@ interface TabsMorphProps {
 const DEFAULT_TABS: TabItem[] = [
   { id: 'preview', label: 'Preview', icon: <Eye size={15} /> },
   { id: 'code', label: 'Source Code', icon: <Code size={15} /> },
-  { id: 'effects', label: 'Shader FX', icon: <Sparkle size={15} />, badge: 'NEW' },
+  { id: 'effects', label: 'Shader FX', icon: <Waveform size={15} />, badge: 'NEW' },
   { id: 'settings', label: 'Inspector', icon: <Gear size={15} /> },
 ];
 

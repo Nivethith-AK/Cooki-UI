@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Code, Sparkle, PaintBrush, Browsers, Terminal, Cpu } from '@phosphor-icons/react'
+import { ArrowDown, Code, Waveform, PaintBrush, Browsers, Terminal, Cpu } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { ComponentCategory } from '../../types/component'
 
@@ -12,7 +12,7 @@ export const StoreHero: React.FC = () => {
   const shortcuts: { cat: ComponentCategory; label: string; icon: React.ReactNode }[] = [
     { cat: 'components', label: 'Components (520+)', icon: <Browsers size={15} /> },
     { cat: 'backgrounds', label: 'Backgrounds (500+)', icon: <PaintBrush size={15} /> },
-    { cat: 'animations', label: 'Animations', icon: <Sparkle size={15} /> },
+    { cat: 'animations', label: 'Animations', icon: <Waveform size={15} /> },
     { cat: 'sections', label: 'UI Sections', icon: <Code size={15} /> },
   ]
 

@@ -9,8 +9,7 @@ import {
   Cpu, 
   ShieldCheck, 
   Terminal, 
-  TreeStructure, 
-  Sparkle 
+  TreeStructure 
 } from '@phosphor-icons/react'
 
 export const DockNavigator: React.FC = () => {

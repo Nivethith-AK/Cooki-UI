@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Cpu, House, FileCode, Gear, Sparkle } from '@phosphor-icons/react'
+import { Cpu, House, FileCode, Gear } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 export interface FloatingNavbarProps {

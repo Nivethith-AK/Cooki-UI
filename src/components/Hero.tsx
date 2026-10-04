@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Code, ShieldCheck, Sparkle, Terminal } from '@phosphor-icons/react'
+import { ArrowUpRight, Code, ShieldCheck, Terminal } from '@phosphor-icons/react'
 import { SynthesisTerminal } from './SynthesisTerminal'
 
 export const Hero: React.FC = () => {
