@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-04T18:42:51.986Z
-Components in Registry: 120
+Generated: 2026-10-04T18:51:46.659Z
+Components in Registry: 121
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -1335,6 +1335,25 @@ import { ColorThemeSwitcherPill } from "@/components/ui/color-theme-switcher-pil
 
 export default function Example() {
   return <ColorThemeSwitcherPill />
+}
+```
+
+---
+
+### Combobox Basic (`combobox`)
+- **Category**: forms
+- **Description**: Autocomplete combobox with real-time fuzzy filtering, keyboard navigation, popover animations, and compound render prop item slots.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/combobox.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/combobox.json`
+
+#### Installation & Usage
+```tsx
+import { Combobox } from "@/components/ui/combobox"
+
+export default function Example() {
+  return <Combobox />
 }
 ```
 

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "combobox",
+  "type": "registry:ui",
+  "title": "Combobox Basic",
+  "description": "Autocomplete combobox with real-time fuzzy filtering, keyboard navigation, popover animations, and compound render prop item slots.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "forms",
+    "autocomplete",
+    "select",
+    "combobox",
+    "input",
+    "dropdown"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/combobox/combobox.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/combobox.tsx"
+    }
+  ]
+}

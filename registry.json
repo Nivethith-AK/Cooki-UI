@@ -1184,6 +1184,26 @@
       ]
     },
     {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox Basic",
+      "description": "Autocomplete combobox with real-time fuzzy filtering, keyboard navigation, popover animations, and compound render prop item slots.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/combobox/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        }
+      ]
+    },
+    {
       "name": "drag-drop-file-upload",
       "type": "registry:ui",
       "title": "Drag & Drop File Upload",

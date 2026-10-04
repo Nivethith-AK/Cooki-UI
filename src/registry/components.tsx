@@ -143,6 +143,7 @@ import { MorphingBlobBackground } from '../components/library/backgrounds/Morphi
 import { ScratchToRevealCard } from '../components/library/cards/ScratchToRevealCard'
 import { InteractiveImageCompareLens } from '../components/library/layout/InteractiveImageCompareLens'
 import { ColorThemeSwitcherPill } from '../components/library/forms/ColorThemeSwitcherPill'
+import { ComboboxBasic } from '../components/library/forms/ComboboxBasic'
 import { KineticTextMarquee } from '../components/library/text/KineticTextMarquee'
 import { HolographicPricingTable } from '../components/library/sections/HolographicPricingTable'
 import { InteractiveWorkflowPipeline } from '../components/library/sections/InteractiveWorkflowPipeline'
@@ -4013,6 +4014,70 @@ export default function ButtonDemo() {
         name: 'FluidLiquidButton.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['fluid-liquid-button'] || ''
+      }
+    ]
+  },
+
+  // 121. Combobox Basic
+  {
+    id: 'combobox',
+    name: 'Combobox Basic',
+    slug: 'combobox',
+    category: 'components',
+    subcategory: 'Forms & Inputs',
+    description: 'Autocomplete combobox with real-time fuzzy filtering, keyboard navigation, popover animations, and compound render prop item slots.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'clsx', 'tailwind-merge'],
+    tags: ['combobox', 'autocomplete', 'select', 'filter', 'dropdown', 'input'],
+    dependencies: ['framer-motion', '@phosphor-icons/react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cook-ui add combobox',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <ComboboxBasic />
+      </div>
+    ),
+    usage: `import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox"
+
+const frameworks = [
+  "Next.js",
+  "SvelteKit",
+  "Nuxt.js",
+  "Remix",
+  "Astro",
+] as const
+
+export function ComboboxBasic() {
+  return (
+    <Combobox items={frameworks}>
+      <ComboboxInput placeholder="Select a framework" />
+      <ComboboxContent>
+        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxList>
+          {(item) => (
+            <ComboboxItem key={item} value={item}>
+              {item}
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  )
+}`,
+    files: [
+      {
+        name: 'combobox.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['combobox'] || ''
       }
     ]
   },
