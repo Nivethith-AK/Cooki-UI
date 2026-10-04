@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stack-card-deck",
+  "type": "registry:ui",
+  "title": "Swipeable Layered Card Deck",
+  "description": "3D stacked card deck with rotational tilt offsets; clicking top card glides it into the back with spring physics.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/stack-card-deck/stack-card-deck.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/stack-card-deck.tsx"
+    }
+  ]
+}

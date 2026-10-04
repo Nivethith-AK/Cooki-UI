@@ -55,7 +55,7 @@ export const TestimonialMarqueeBlock: React.FC = () => {
                   <Star key={i} size={14} weight="fill" />
                 ))}
               </div>
-              <p className="text-xs text-zinc-300 leading-relaxed italic">
+              <p className="text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed italic">
                 "{item.quote}"
               </p>
             </div>
@@ -67,7 +67,7 @@ export const TestimonialMarqueeBlock: React.FC = () => {
                 className="w-9 h-9 rounded-full object-cover border border-white/10"
               />
               <div>
-                <h5 className="text-xs font-semibold text-white">{item.name}</h5>
+                <h5 className="text-xs font-semibold text-zinc-900 dark:text-white">{item.name}</h5>
                 <p className="text-[10px] text-zinc-400">{item.role}</p>
               </div>
             </div>

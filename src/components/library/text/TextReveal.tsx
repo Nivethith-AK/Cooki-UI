@@ -47,7 +47,7 @@ export const TextReveal: React.FC<TextRevealProps> = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false }}
-      className={cn('flex flex-wrap gap-x-2 gap-y-1 font-bold text-white', className)}
+      className={cn('flex flex-wrap gap-x-2 gap-y-1 font-bold text-zinc-900 dark:text-white', className)}
     >
       {words.map((word, index) => (
         <motion.span

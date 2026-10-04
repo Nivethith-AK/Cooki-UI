@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wave-frequency-bars",
+  "type": "registry:ui",
+  "title": "Audio Frequency Spectrum Equalizer",
+  "description": "Multi-band audio frequency analyzer bars with spring kinematic height oscillations and gradient chromatic peaks.",
+  "category": "animations",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/animations/wave-frequency-bars/wave-frequency-bars.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/wave-frequency-bars.tsx",
+      "content": "import React, { useEffect, useState } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const WaveFrequencyBars: React.FC = () => {\r\n  const [isPlaying, setIsPlaying] = useState(true);\r\n  const barCount = 18;\r\n\r\n  return (\r\n    <div className=\"flex flex-col items-center gap-4 p-6 rounded-2xl bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/10 w-full max-w-sm mx-auto shadow-md\">\r\n      <div className=\"w-full flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400\">\r\n        <span>MASTER AUDIO BUS</span>\r\n        <button\r\n          onClick={() => setIsPlaying(!isPlaying)}\r\n          className=\"px-2 py-0.5 rounded bg-zinc-200 dark:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer\"\r\n        >\r\n          {isPlaying ? 'PAUSE' : 'PLAY'}\r\n        </button>\r\n      </div>\r\n\r\n      <div className=\"flex items-end justify-center gap-1.5 h-24 w-full\">\r\n        {Array.from({ length: barCount }).map((_, i) => (\r\n          <motion.div\r\n            key={i}\r\n            animate={\r\n              isPlaying\r\n                ? {\r\n                    height: ['15%', `${Math.min(95, Math.max(25, ((i * 17) % 75) + 20))}%`, '30%'],\r\n                  }\r\n                : { height: '15%' }\r\n            }\r\n            transition={{\r\n              repeat: Infinity,\r\n              repeatType: 'reverse',\r\n              duration: 0.4 + (i % 5) * 0.12,\r\n              ease: 'easeInOut',\r\n            }}\r\n            className=\"w-2.5 rounded-full bg-gradient-to-t from-indigo-500 via-cyan-400 to-emerald-400 shadow-[0_0_8px_rgba(99,102,241,0.4)]\"\r\n          />\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glare-hologram-card",
+  "type": "registry:ui",
+  "title": "Chromatic Glare Hologram Card",
+  "description": "Foil collector card with dynamic rainbow holographic reflection and specular light gleam following cursor movement.",
+  "category": "cards",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/glare-hologram-card/glare-hologram-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glare-hologram-card.tsx"
+    }
+  ]
+}

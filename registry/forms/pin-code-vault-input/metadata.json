@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-code-vault-input",
+  "type": "registry:ui",
+  "title": "Tactile Vault Keypad Input",
+  "description": "Security tumbler combination lock keypad with tactile key states, masked pin indicators, and lockout status.",
+  "category": "forms",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/pin-code-vault-input/pin-code-vault-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/pin-code-vault-input.tsx"
+    }
+  ]
+}

@@ -85,7 +85,7 @@ export const PerspectiveCard3D: React.FC<PerspectiveCard3DProps> = ({
             <Cpu size={14} weight="bold" />
             {tag}
           </span>
-          <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400">
+          <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-600 dark:text-zinc-400">
             <Cube size={16} weight="duotone" className="text-cyan-400" />
           </div>
         </div>
@@ -103,8 +103,8 @@ export const PerspectiveCard3D: React.FC<PerspectiveCard3DProps> = ({
 
         {/* Layer 3: Typography & Description (Z: 30px) */}
         <div style={{ transform: 'translateZ(30px)' }} className="relative z-10 space-y-2">
-          <h4 className="text-lg font-semibold text-white tracking-tight">{title}</h4>
-          <p className="text-xs text-zinc-400 leading-relaxed">{subtitle}</p>
+          <h4 className="text-lg font-semibold text-zinc-900 dark:text-white tracking-tight">{title}</h4>
+          <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">{subtitle}</p>
         </div>
 
         {/* Layer 4: Footer specs (Z: 20px) */}

@@ -43,7 +43,7 @@ export const TypingText: React.FC<TypingTextProps> = ({
   }, [currentText, isDeleting, wordIndex, words, speed, delay])
 
   return (
-    <div className={cn('inline-flex items-center font-mono text-white', className)}>
+    <div className={cn('inline-flex items-center font-mono text-zinc-900 dark:text-white', className)}>
       <span>{currentText}</span>
       <span className="ml-1 inline-block h-4 w-2 bg-emerald-400 animate-[pulse_0.8s_ease-in-out_infinite]" />
     </div>

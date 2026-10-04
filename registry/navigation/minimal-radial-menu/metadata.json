@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "minimal-radial-menu",
+  "type": "registry:ui",
+  "title": "Kinetic Radial Action Menu",
+  "description": "Expanding 360-degree radial pie action launcher with spring physics angles, tooltips, and center trigger toggling.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/minimal-radial-menu/minimal-radial-menu.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/minimal-radial-menu.tsx"
+    }
+  ]
+}

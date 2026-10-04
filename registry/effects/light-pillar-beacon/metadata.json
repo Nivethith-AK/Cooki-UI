@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "light-pillar-beacon",
+  "type": "registry:ui",
+  "title": "Volumetric Light Pillar Beacon",
+  "description": "Cinematic vertical atmospheric light column with ascending stardust motes and soft radial ground emitter.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/light-pillar-beacon/light-pillar-beacon.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/light-pillar-beacon.tsx"
+    }
+  ]
+}

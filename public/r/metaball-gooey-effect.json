@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metaball-gooey-effect",
+  "type": "registry:ui",
+  "title": "Metaball Gooey Fluid Drops",
+  "description": "Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/metaball-gooey-effect/metaball-gooey-effect.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/metaball-gooey-effect.tsx",
+      "content": "import React from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const MetaballGooeyEffect: React.FC = () => {\r\n  return (\r\n    <div className=\"relative w-full h-56 rounded-2xl bg-zinc-950 border border-white/10 flex items-center justify-center overflow-hidden\">\r\n      {/* SVG Gooey Matrix Filter */}\r\n      <svg className=\"hidden\">\r\n        <defs>\r\n          <filter id=\"gooey-filter\">\r\n            <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"10\" result=\"blur\" />\r\n            <feColorMatrix\r\n              in=\"blur\"\r\n              mode=\"matrix\"\r\n              values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7\"\r\n              result=\"gooey\"\r\n            />\r\n          </filter>\r\n        </defs>\r\n      </svg>\r\n\r\n      <div style={{ filter: 'url(#gooey-filter)' }} className=\"relative flex items-center justify-center\">\r\n        <div className=\"w-16 h-16 rounded-full bg-indigo-500 shadow-lg\" />\r\n        <motion.div\r\n          animate={{ x: [-45, 45, -45], y: [-15, 15, -15] }}\r\n          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}\r\n          className=\"w-14 h-14 rounded-full bg-cyan-400\"\r\n        />\r\n        <motion.div\r\n          animate={{ x: [35, -35, 35], y: [20, -20, 20] }}\r\n          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}\r\n          className=\"w-12 h-12 rounded-full bg-violet-500\"\r\n        />\r\n      </div>\r\n\r\n      <span className=\"absolute bottom-3 text-[10px] font-mono text-zinc-500 uppercase tracking-widest\">\r\n        ORGANIC LIQUID COHESION\r\n      </span>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

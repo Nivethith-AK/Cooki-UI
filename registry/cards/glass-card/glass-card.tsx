@@ -24,14 +24,14 @@ export const GlassCard: React.FC<GlassCardProps> = ({
     >
       <div className="relative rounded-[calc(2rem-0.375rem)] border border-white/5 bg-zinc-950/70 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
         <div className="flex items-center justify-between border-b border-white/5 pb-3">
-          <span className="font-mono text-[10px] tracking-wider text-zinc-400">{subtitle}</span>
+          <span className="font-mono text-[10px] tracking-wider text-zinc-600 dark:text-zinc-400">{subtitle}</span>
           <div className="flex gap-1">
             <span className="h-2 w-2 rounded-full bg-white/20" />
             <span className="h-2 w-2 rounded-full bg-white/20" />
           </div>
         </div>
 
-        <h4 className="mt-3 text-lg font-bold text-white tracking-tight">{title}</h4>
+        <h4 className="mt-3 text-lg font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h4>
         
         <div className="mt-2 text-xs text-zinc-300">
           {children || 'Air-gapped execution blocks outbound socket leaks while monitoring CPU allocation quotas.'}

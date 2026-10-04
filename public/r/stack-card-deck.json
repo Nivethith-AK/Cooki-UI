@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stack-card-deck",
+  "type": "registry:ui",
+  "title": "Swipeable Layered Card Deck",
+  "description": "3D stacked card deck with rotational tilt offsets; clicking top card glides it into the back with spring physics.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/stack-card-deck/stack-card-deck.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/stack-card-deck.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { motion, AnimatePresence } from 'framer-motion';\r\nimport { ArrowsClockwise } from '@phosphor-icons/react';\r\n\r\nconst DECK = [\r\n  { id: 1, title: 'WASM Compiler', desc: 'Hermetic binary build pipeline with zero network overhead.', badge: 'RUST 1.84', color: 'bg-indigo-600' },\r\n  { id: 2, title: 'Edge Routing', desc: 'Anycast DNS with sub-5ms round-trip to 310 global PoPs.', badge: 'GLOBAL CDN', color: 'bg-cyan-600' },\r\n  { id: 3, title: 'Zero Backend', desc: 'Pure statically hosted shadcn-compatible component registry.', badge: 'VERCEL EDGE', color: 'bg-emerald-600' },\r\n];\r\n\r\nexport const StackCardDeck: React.FC = () => {\r\n  const [cards, setCards] = useState(DECK);\r\n\r\n  const popCard = () => {\r\n    setCards((prev) => {\r\n      const copy = [...prev];\r\n      const top = copy.shift()!;\r\n      copy.push(top);\r\n      return copy;\r\n    });\r\n  };\r\n\r\n  return (\r\n    <div className=\"relative w-64 h-52 flex flex-col items-center justify-center select-none cursor-pointer\" onClick={popCard}>\r\n      {cards.map((c, i) => {\r\n        const isTop = i === 0;\r\n        return (\r\n          <motion.div\r\n            key={c.id}\r\n            layout\r\n            initial={{ scale: 0.9, y: 15 }}\r\n            animate={{\r\n              scale: 1 - i * 0.05,\r\n              y: i * 8,\r\n              zIndex: 10 - i,\r\n              rotate: i === 1 ? -3 : i === 2 ? 3 : 0,\r\n            }}\r\n            transition={{ type: 'spring', damping: 20, stiffness: 280 }}\r\n            className={`absolute inset-0 rounded-2xl p-5 text-white shadow-xl flex flex-col justify-between ${c.color} border border-white/20`}\r\n          >\r\n            <div className=\"flex justify-between items-center\">\r\n              <span className=\"text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/20 uppercase tracking-widest\">{c.badge}</span>\r\n              {isTop && <span className=\"text-[10px] font-mono opacity-70\">Click to flip</span>}\r\n            </div>\r\n            <div>\r\n              <h4 className=\"font-bold text-base\">{c.title}</h4>\r\n              <p className=\"text-xs text-white/80 mt-1\">{c.desc}</p>\r\n            </div>\r\n          </motion.div>\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

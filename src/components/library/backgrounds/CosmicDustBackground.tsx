@@ -145,10 +145,10 @@ export const CosmicDustBackground: React.FC<CosmicDustBackgroundProps> = ({
             <span className="inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-violet-400 bg-violet-500/10 rounded-full border border-violet-500/20">
               DEEP COSMOS PARTICLES
             </span>
-            <h3 className="text-xl font-semibold text-white tracking-tight">
+            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
               Cosmic Dust Stardust
             </h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Hover and move your mouse to disturb the particulate gravitational field.
             </p>
           </div>

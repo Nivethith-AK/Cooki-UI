@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-code-vault-input",
+  "type": "registry:ui",
+  "title": "Tactile Vault Keypad Input",
+  "description": "Security tumbler combination lock keypad with tactile key states, masked pin indicators, and lockout status.",
+  "category": "forms",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/pin-code-vault-input/pin-code-vault-input.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/pin-code-vault-input.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { LockKey, LockSimpleOpen } from '@phosphor-icons/react';\r\n\r\nexport const PinCodeVaultInput: React.FC = () => {\r\n  const [pin, setPin] = useState('');\r\n  const targetPin = '7429';\r\n\r\n  const pressDigit = (digit: string) => {\r\n    if (pin.length < 4) {\r\n      setPin((prev) => prev + digit);\r\n    }\r\n  };\r\n\r\n  const clear = () => setPin('');\r\n  const isUnlocked = pin === targetPin;\r\n\r\n  return (\r\n    <div className=\"w-56 p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 shadow-xl font-mono text-xs flex flex-col items-center\">\r\n      <div className=\"flex items-center gap-1.5 mb-3 text-[11px] font-bold text-zinc-600 dark:text-zinc-300\">\r\n        {isUnlocked ? <LockSimpleOpen size={14} className=\"text-emerald-500\" /> : <LockKey size={14} className=\"text-zinc-400\" />}\r\n        <span>{isUnlocked ? 'VAULT UNLOCKED' : 'ENTER 4-DIGIT PIN'}</span>\r\n      </div>\r\n\r\n      {/* Pin Dots */}\r\n      <div className=\"flex gap-2.5 mb-4\">\r\n        {[0, 1, 2, 3].map((i) => (\r\n          <div\r\n            key={i}\r\n            className={`w-3.5 h-3.5 rounded-full border transition-all ${\r\n              pin.length > i\r\n                ? isUnlocked\r\n                  ? 'bg-emerald-500 border-emerald-400'\r\n                  : 'bg-indigo-600 border-indigo-500'\r\n                : 'border-zinc-300 dark:border-white/20'\r\n            }`}\r\n          />\r\n        ))}\r\n      </div>\r\n\r\n      {/* Keypad */}\r\n      <div className=\"grid grid-cols-3 gap-2 w-full\">\r\n        {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((n) => (\r\n          <button\r\n            key={n}\r\n            onClick={() => pressDigit(n)}\r\n            className=\"h-9 rounded-xl bg-zinc-100 dark:bg-white/5 text-zinc-900 dark:text-white font-bold hover:bg-zinc-200 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer\"\r\n          >\r\n            {n}\r\n          </button>\r\n        ))}\r\n        <button\r\n          onClick={clear}\r\n          className=\"h-9 rounded-xl text-[10px] text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer\"\r\n        >\r\n          CLR\r\n        </button>\r\n        <button\r\n          onClick={() => pressDigit('0')}\r\n          className=\"h-9 rounded-xl bg-zinc-100 dark:bg-white/5 text-zinc-900 dark:text-white font-bold hover:bg-zinc-200 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer\"\r\n        >\r\n          0\r\n        </button>\r\n        <div className=\"h-9\" />\r\n      </div>\r\n\r\n      <span className=\"text-[9px] text-zinc-400 mt-3\">(Demo PIN: 7429)</span>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

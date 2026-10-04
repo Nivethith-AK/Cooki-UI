@@ -43,8 +43,8 @@ export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
         {children || (
           <div className="my-auto text-center font-mono">
             <span className="text-xs uppercase tracking-widest text-emerald-400">ATMOSPHERIC RUNTIME</span>
-            <h3 className="mt-2 text-xl font-bold text-white">Aurora Fluid Plasma</h3>
-            <p className="mt-1 text-xs text-zinc-400">Slow-moving ambient background gradient with GPU transform isolation.</p>
+            <h3 className="mt-2 text-xl font-bold text-zinc-900 dark:text-white">Aurora Fluid Plasma</h3>
+            <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">Slow-moving ambient background gradient with GPU transform isolation.</p>
           </div>
         )}
       </div>

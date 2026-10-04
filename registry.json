@@ -174,6 +174,23 @@
       ]
     },
     {
+      "name": "wave-frequency-bars",
+      "type": "registry:ui",
+      "title": "Audio Frequency Spectrum Equalizer",
+      "description": "Multi-band audio frequency analyzer bars with spring kinematic height oscillations and gradient chromatic peaks.",
+      "category": "animations",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/animations/wave-frequency-bars/wave-frequency-bars.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/wave-frequency-bars.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-mesh-background",
       "type": "registry:ui",
       "title": "Generative Animated Mesh Gradient",
@@ -268,6 +285,21 @@
       ]
     },
     {
+      "name": "flowing-lines-wave-background",
+      "type": "registry:ui",
+      "title": "Mathematical Flowing Lines Wave",
+      "description": "Continuous algorithmic bezier ribbon canvas drawing undulating sine wave threads across deep space.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/flowing-lines-wave-background/flowing-lines-wave-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/flowing-lines-wave-background.tsx"
+        }
+      ]
+    },
+    {
       "name": "grid-background",
       "type": "registry:ui",
       "title": "Precision Cartesian Grid",
@@ -294,6 +326,21 @@
           "path": "registry/backgrounds/quantum-field-background/quantum-field-background.tsx",
           "type": "registry:ui",
           "target": "components/ui/quantum-field-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "starfield-hyperdrive-background",
+      "type": "registry:ui",
+      "title": "Starfield Hyperdrive Canvas",
+      "description": "Hyperdrive warp speed starfield projection with interactive mouse steering trajectory and luminous star streaks.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/starfield-hyperdrive-background/starfield-hyperdrive-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/starfield-hyperdrive-background.tsx"
         }
       ]
     },
@@ -365,6 +412,24 @@
           "path": "registry/buttons/gradient-shimmer-button/gradient-shimmer-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/gradient-shimmer-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hold-to-confirm-button",
+      "type": "registry:ui",
+      "title": "Hold to Confirm Action Button",
+      "description": "Critical action button requiring sustained mouse hold with radial charging SVG progress ring before dispatching confirmation event.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/hold-to-confirm-button/hold-to-confirm-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hold-to-confirm-button.tsx"
         }
       ]
     },
@@ -454,6 +519,23 @@
       ]
     },
     {
+      "name": "glare-hologram-card",
+      "type": "registry:ui",
+      "title": "Chromatic Glare Hologram Card",
+      "description": "Foil collector card with dynamic rainbow holographic reflection and specular light gleam following cursor movement.",
+      "category": "cards",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/glare-hologram-card/glare-hologram-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glare-hologram-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "glass-card",
       "type": "registry:ui",
       "title": "Frosted Acrylic Glass Card",
@@ -538,6 +620,24 @@
           "path": "registry/cards/spotlight-card/spotlight-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/spotlight-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stack-card-deck",
+      "type": "registry:ui",
+      "title": "Swipeable Layered Card Deck",
+      "description": "3D stacked card deck with rotational tilt offsets; clicking top card glides it into the back with spring physics.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/stack-card-deck/stack-card-deck.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stack-card-deck.tsx"
         }
       ]
     },
@@ -753,6 +853,40 @@
           "path": "registry/effects/border-beam/border-beam.tsx",
           "type": "registry:ui",
           "target": "components/ui/border-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "light-pillar-beacon",
+      "type": "registry:ui",
+      "title": "Volumetric Light Pillar Beacon",
+      "description": "Cinematic vertical atmospheric light column with ascending stardust motes and soft radial ground emitter.",
+      "category": "effects",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/light-pillar-beacon/light-pillar-beacon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/light-pillar-beacon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "metaball-gooey-effect",
+      "type": "registry:ui",
+      "title": "Metaball Gooey Fluid Drops",
+      "description": "Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.",
+      "category": "effects",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/metaball-gooey-effect/metaball-gooey-effect.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/metaball-gooey-effect.tsx"
         }
       ]
     },
@@ -996,6 +1130,23 @@
       ]
     },
     {
+      "name": "pin-code-vault-input",
+      "type": "registry:ui",
+      "title": "Tactile Vault Keypad Input",
+      "description": "Security tumbler combination lock keypad with tactile key states, masked pin indicators, and lockout status.",
+      "category": "forms",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/pin-code-vault-input/pin-code-vault-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pin-code-vault-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "toggle-pill-switch",
       "type": "registry:ui",
       "title": "Kinetic Toggle Pill Switch",
@@ -1208,6 +1359,41 @@
       ]
     },
     {
+      "name": "magnetic-social-share-cluster",
+      "type": "registry:ui",
+      "title": "Magnetic Social Share Cluster",
+      "description": "Interconnected floating social network sharing pills with magnetic spring pulling physics and glow borders.",
+      "category": "navigation",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/magnetic-social-share-cluster/magnetic-social-share-cluster.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic-social-share-cluster.tsx"
+        }
+      ]
+    },
+    {
+      "name": "minimal-radial-menu",
+      "type": "registry:ui",
+      "title": "Kinetic Radial Action Menu",
+      "description": "Expanding 360-degree radial pie action launcher with spring physics angles, tooltips, and center trigger toggling.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/minimal-radial-menu/minimal-radial-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/minimal-radial-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "sliding-logo-marquee",
       "type": "registry:ui",
       "title": "Infinite Brand Logo Marquee",
@@ -1333,6 +1519,23 @@
       ]
     },
     {
+      "name": "faq-accordion-section",
+      "type": "registry:ui",
+      "title": "Full-Width Production FAQ Section",
+      "description": "Full-page FAQ knowledge base section with category selector tabs, search bar, and animated accordion drawers.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/faq-accordion-section/faq-accordion-section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/faq-accordion-section.tsx"
+        }
+      ]
+    },
+    {
       "name": "feature-bento-block",
       "type": "registry:ui",
       "title": "Technical Feature Bento Block",
@@ -1348,6 +1551,23 @@
           "path": "registry/sections/feature-bento-block/feature-bento-block.tsx",
           "type": "registry:ui",
           "target": "components/ui/feature-bento-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-geometry-glow-section",
+      "type": "registry:ui",
+      "title": "Prism Geometry Hero Marketing Block",
+      "description": "Conversion-focused landing page hero block featuring central glowing geometric wireframe, dual CTAs, and verified user avatars.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/hero-geometry-glow-section/hero-geometry-glow-section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hero-geometry-glow-section.tsx"
         }
       ]
     },
@@ -1387,6 +1607,23 @@
       ]
     },
     {
+      "name": "stats-counter-strip-block",
+      "type": "registry:ui",
+      "title": "Enterprise Telemetry Stats Strip",
+      "description": "Production 4-column metric showcase strip with animated numeric tickers, positive delta badges, and status labels.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/stats-counter-strip-block/stats-counter-strip-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stats-counter-strip-block.tsx"
+        }
+      ]
+    },
+    {
       "name": "testimonial-marquee-block",
       "type": "registry:ui",
       "title": "Endless Social Proof Testimonials",
@@ -1417,6 +1654,23 @@
           "path": "registry/text/blur-reveal/blur-reveal.tsx",
           "type": "registry:ui",
           "target": "components/ui/blur-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glitch-cyber-text",
+      "type": "registry:ui",
+      "title": "Glitch Cyberpunk Text",
+      "description": "Cinematic cyberpunk RGB chromatic aberration text effect with slice displacement and random glitch pulses.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/glitch-cyber-text/glitch-cyber-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glitch-cyber-text.tsx"
         }
       ]
     },

@@ -59,15 +59,15 @@ export const InteractiveTiltCard: React.FC<InteractiveTiltCardProps> = ({
         className="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6 text-white shadow-2xl transition-shadow hover:shadow-cyan-500/10"
       >
         <div style={{ transform: 'translateZ(30px)' }} className="flex items-center justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">{subtitle}</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-600 dark:text-zinc-400">{subtitle}</span>
           <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono text-[10px] text-emerald-400 border border-emerald-500/30">
             {badge}
           </span>
         </div>
 
         <div style={{ transform: 'translateZ(40px)' }} className="mt-4">
-          <h4 className="text-lg font-bold text-white tracking-tight">{title}</h4>
-          <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{description}</p>
+          <h4 className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h4>
+          <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">{description}</p>
         </div>
 
         <div style={{ transform: 'translateZ(25px)' }} className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[11px] text-zinc-500">

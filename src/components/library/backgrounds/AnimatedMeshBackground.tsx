@@ -30,8 +30,8 @@ export const AnimatedMeshBackground: React.FC<AnimatedMeshBackgroundProps> = ({
         {children || (
           <div className="my-auto text-center font-mono">
             <span className="text-xs uppercase tracking-widest text-purple-400">ORGANIC SHADERS</span>
-            <h3 className="mt-2 text-xl font-bold text-white">Animated Mesh Canvas</h3>
-            <p className="mt-1 text-xs text-zinc-400">Layered radial diffusion mesh with organic frequency modulation.</p>
+            <h3 className="mt-2 text-xl font-bold text-zinc-900 dark:text-white">Animated Mesh Canvas</h3>
+            <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">Layered radial diffusion mesh with organic frequency modulation.</p>
           </div>
         )}
       </div>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metaball-gooey-effect",
+  "type": "registry:ui",
+  "title": "Metaball Gooey Fluid Drops",
+  "description": "Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/metaball-gooey-effect/metaball-gooey-effect.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/metaball-gooey-effect.tsx"
+    }
+  ]
+}

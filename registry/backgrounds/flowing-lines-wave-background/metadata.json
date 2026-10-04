@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flowing-lines-wave-background",
+  "type": "registry:ui",
+  "title": "Mathematical Flowing Lines Wave",
+  "description": "Continuous algorithmic bezier ribbon canvas drawing undulating sine wave threads across deep space.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/backgrounds/flowing-lines-wave-background/flowing-lines-wave-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/flowing-lines-wave-background.tsx"
+    }
+  ]
+}

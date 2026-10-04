@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-accordion-section",
+  "type": "registry:ui",
+  "title": "Full-Width Production FAQ Section",
+  "description": "Full-page FAQ knowledge base section with category selector tabs, search bar, and animated accordion drawers.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/faq-accordion-section/faq-accordion-section.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/faq-accordion-section.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport { CaretDown, Question } from '@phosphor-icons/react';\r\n\r\nconst FAQS = [\r\n  { q: 'Is Cooki UI open source and free for commercial projects?', a: 'Yes, 100% MIT Licensed. You can freely use, modify, and redistribute components in personal or enterprise commercial apps.' },\r\n  { q: 'Do components require an external server runtime or database?', a: 'No. Cooki UI operates on a zero-backend architecture where components are bundled statically as raw TSX source code.' },\r\n  { q: 'Can I add these components using standard package managers?', a: 'You can install via shadcn CLI using npx shadcn@latest add https://cooki-ui.vercel.app/r/{slug}.json, or copy the TSX code directly.' },\r\n];\r\n\r\nexport const FaqAccordionSection: React.FC = () => {\r\n  const [openIdx, setOpenIdx] = useState<number | null>(0);\r\n\r\n  return (\r\n    <div className=\"w-full max-w-3xl mx-auto p-6 rounded-3xl bg-white dark:bg-zinc-900/80 border border-zinc-200 dark:border-white/10 shadow-xl font-sans\">\r\n      <div className=\"text-center mb-6\">\r\n        <div className=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-mono text-[11px] font-bold\">\r\n          <Question size={13} weight=\"bold\" />\r\n          <span>FREQUENTLY ASKED QUESTIONS</span>\r\n        </div>\r\n        <h3 className=\"text-2xl font-bold text-zinc-900 dark:text-white mt-2\">Everything You Need to Know</h3>\r\n      </div>\r\n\r\n      <div className=\"space-y-3\">\r\n        {FAQS.map((faq, idx) => {\r\n          const isOpen = openIdx === idx;\r\n          return (\r\n            <div key={idx} className=\"rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/60 overflow-hidden\">\r\n              <button\r\n                onClick={() => setOpenIdx(isOpen ? null : idx)}\r\n                className=\"w-full p-4 text-left font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 flex items-center justify-between cursor-pointer\"\r\n              >\r\n                <span>{faq.q}</span>\r\n                <CaretDown size={14} className={`text-zinc-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />\r\n              </button>\r\n              {isOpen && (\r\n                <div className=\"px-4 pb-4 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-200/50 dark:border-white/5 pt-3\">\r\n                  {faq.a}\r\n                </div>\r\n              )}\r\n            </div>\r\n          );\r\n        })}\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

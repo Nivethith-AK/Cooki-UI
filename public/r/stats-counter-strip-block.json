@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-counter-strip-block",
+  "type": "registry:ui",
+  "title": "Enterprise Telemetry Stats Strip",
+  "description": "Production 4-column metric showcase strip with animated numeric tickers, positive delta badges, and status labels.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/stats-counter-strip-block/stats-counter-strip-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/stats-counter-strip-block.tsx",
+      "content": "import React from 'react';\r\nimport { TrendUp, Lightning, ShieldCheck, Globe } from '@phosphor-icons/react';\r\n\r\nconst STATS = [\r\n  { label: 'EDGE INVOCATIONS', val: '2.4B+', change: '+32.4%', icon: <Lightning size={16} className=\"text-amber-400\" /> },\r\n  { label: 'GLOBAL P99 LATENCY', val: '4.2ms', change: '-18.1%', icon: <TrendUp size={16} className=\"text-emerald-400\" /> },\r\n  { label: 'PROOF INTEGRITY', val: '100%', change: 'ZERO FAILS', icon: <ShieldCheck size={16} className=\"text-indigo-400\" /> },\r\n  { label: 'ACTIVE DEPLOYMENTS', val: '84,192', change: '+14.9%', icon: <Globe size={16} className=\"text-cyan-400\" /> },\r\n];\r\n\r\nexport const StatsCounterStripBlock: React.FC = () => {\r\n  return (\r\n    <div className=\"w-full max-w-4xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-3xl bg-white dark:bg-zinc-900/80 border border-zinc-200 dark:border-white/10 shadow-lg font-mono\">\r\n      {STATS.map((s) => (\r\n        <div key={s.label} className=\"p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-100 dark:border-white/5 flex flex-col justify-between\">\r\n          <div className=\"flex items-center justify-between text-zinc-400 mb-2\">\r\n            <span className=\"text-[10px] font-bold uppercase tracking-wider\">{s.label}</span>\r\n            {s.icon}\r\n          </div>\r\n          <div>\r\n            <div className=\"text-2xl font-black text-zinc-900 dark:text-white tracking-tight\">{s.val}</div>\r\n            <span className=\"text-[10px] font-bold text-emerald-500 mt-1 inline-block\">{s.change} vs LAST MO</span>\r\n          </div>\r\n        </div>\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

@@ -50,7 +50,7 @@ export const AnimatedNotificationStack: React.FC<AnimatedNotificationStackProps>
 
   return (
     <div className={cn('w-full max-w-sm rounded-3xl border border-white/10 bg-zinc-950 p-4 font-sans text-xs text-white shadow-2xl space-y-3', className)}>
-      <div className="flex items-center justify-between pb-2 border-b border-white/5 font-mono text-[10px] text-zinc-400">
+      <div className="flex items-center justify-between pb-2 border-b border-white/5 font-mono text-[10px] text-zinc-600 dark:text-zinc-400">
         <span>RUNTIME NOTIFICATIONS</span>
         <button
           onClick={addOne}
@@ -74,8 +74,8 @@ export const AnimatedNotificationStack: React.FC<AnimatedNotificationStackProps>
               <div className="flex items-start gap-2.5">
                 <CheckCircle size={16} weight="fill" className="text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white text-xs">{n.title}</h4>
-                  <p className="text-[11px] text-zinc-400 mt-0.5 leading-snug">{n.detail}</p>
+                  <h4 className="font-bold text-zinc-900 dark:text-white text-xs">{n.title}</h4>
+                  <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5 leading-snug">{n.detail}</p>
                   <span className="font-mono text-[9px] text-zinc-500 mt-1 block">{n.time}</span>
                 </div>
               </div>

@@ -50,8 +50,8 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
 
       <div className="relative z-10">
         {icon && <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white">{icon}</div>}
-        <h4 className="text-base font-bold text-white tracking-tight">{title}</h4>
-        <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{description}</p>
+        <h4 className="text-base font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h4>
+        <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">{description}</p>
         <div className="mt-4 flex items-center gap-2 font-mono text-[11px] text-zinc-500">
           <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
           <span>Interactive Cursor Glow</span>

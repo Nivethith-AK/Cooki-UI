@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glitch-cyber-text",
+  "type": "registry:ui",
+  "title": "Glitch Cyberpunk Text",
+  "description": "Cinematic cyberpunk RGB chromatic aberration text effect with slice displacement and random glitch pulses.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/glitch-cyber-text/glitch-cyber-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glitch-cyber-text.tsx",
+      "content": "import React, { useState, useEffect } from 'react';\r\nimport { motion } from 'framer-motion';\r\n\r\nexport const GlitchCyberText: React.FC<{ text?: string }> = ({ text = \"CYBERPUNK_RUNTIME\" }) => {\r\n  const [glitching, setGlitching] = useState(false);\r\n\r\n  useEffect(() => {\r\n    const interval = setInterval(() => {\r\n      setGlitching(true);\r\n      setTimeout(() => setGlitching(false), 240);\r\n    }, 2800);\r\n    return () => clearInterval(interval);\r\n  }, []);\r\n\r\n  return (\r\n    <div className=\"relative inline-block font-mono font-black text-2xl sm:text-4xl tracking-widest uppercase select-none text-zinc-900 dark:text-white\">\r\n      {/* Base Text */}\r\n      <span className=\"relative z-10\">{text}</span>\r\n\r\n      {/* Cyan Slice */}\r\n      {glitching && (\r\n        <motion.span\r\n          initial={{ x: -2, y: 1 }}\r\n          animate={{ x: [2, -3, 1], y: [-1, 2, 0] }}\r\n          transition={{ duration: 0.2 }}\r\n          className=\"absolute inset-0 text-cyan-400 opacity-80 pointer-events-none mix-blend-screen -z-10\"\r\n        >\r\n          {text}\r\n        </motion.span>\r\n      )}\r\n\r\n      {/* Red Slice */}\r\n      {glitching && (\r\n        <motion.span\r\n          initial={{ x: 2, y: -1 }}\r\n          animate={{ x: [-2, 3, -1], y: [1, -2, 0] }}\r\n          transition={{ duration: 0.2 }}\r\n          className=\"absolute inset-0 text-rose-500 opacity-80 pointer-events-none mix-blend-screen -z-10\"\r\n        >\r\n          {text}\r\n        </motion.span>\r\n      )}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

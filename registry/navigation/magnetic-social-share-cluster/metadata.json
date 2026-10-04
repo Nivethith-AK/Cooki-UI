@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-social-share-cluster",
+  "type": "registry:ui",
+  "title": "Magnetic Social Share Cluster",
+  "description": "Interconnected floating social network sharing pills with magnetic spring pulling physics and glow borders.",
+  "category": "navigation",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/magnetic-social-share-cluster/magnetic-social-share-cluster.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-social-share-cluster.tsx"
+    }
+  ]
+}

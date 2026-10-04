@@ -50,6 +50,23 @@ import { NoiseGrainOverlay } from '../components/library/effects/NoiseGrainOverl
 import { PricingComparisonBlock } from '../components/library/sections/PricingComparisonBlock'
 import { TestimonialMarqueeBlock } from '../components/library/sections/TestimonialMarqueeBlock'
 
+// 15 Additional High-Impact Components inspired by Lightswind
+import { HoldToConfirmButton } from '../components/library/buttons/HoldToConfirmButton'
+import { GlitchCyberText } from '../components/library/text/GlitchCyberText'
+import { WaveFrequencyBars } from '../components/library/animations/WaveFrequencyBars'
+import { StackCardDeck } from '../components/library/cards/StackCardDeck'
+import { GlareHologramCard } from '../components/library/cards/GlareHologramCard'
+import { FlowingLinesWaveBackground } from '../components/library/backgrounds/FlowingLinesWaveBackground'
+import { StarfieldHyperdriveBackground } from '../components/library/backgrounds/StarfieldHyperdriveBackground'
+import { MetaballGooeyEffect } from '../components/library/effects/MetaballGooeyEffect'
+import { LightPillarBeacon } from '../components/library/effects/LightPillarBeacon'
+import { MinimalRadialMenu } from '../components/library/navigation/MinimalRadialMenu'
+import { PinCodeVaultInput } from '../components/library/forms/PinCodeVaultInput'
+import { MagneticSocialShareCluster } from '../components/library/navigation/MagneticSocialShareCluster'
+import { StatsCounterStripBlock } from '../components/library/sections/StatsCounterStripBlock'
+import { FaqAccordionSection } from '../components/library/sections/FaqAccordionSection'
+import { HeroGeometryGlowSection } from '../components/library/sections/HeroGeometryGlowSection'
+
 // 20 Diversified Core Additions (AI, Cursors, Layout, Forms, Data, 3D)
 import { MagneticCursorFollower } from '../components/library/cursors/MagneticCursorFollower'
 import { FluidParticleCursor } from '../components/library/cursors/FluidParticleCursor'
@@ -196,7 +213,7 @@ export default function Demo() {
     renderPreview: (props) => (
       <div className="flex flex-col items-center justify-center p-8 font-mono">
         <span className="text-xs uppercase tracking-widest text-zinc-500 mb-2">TELEMETRY COUNTER</span>
-        <div className="text-4xl sm:text-5xl font-bold tracking-tight text-white flex items-center gap-1">
+        <div className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white flex items-center gap-1">
           <span className="text-emerald-400 font-normal">$</span>
           <SlidingNumber
             number={props.number ?? 4892}
@@ -454,7 +471,7 @@ export default function ButtonDemo() {
     dateAdded: '2026-10-01',
     renderPreview: () => (
       <div className="flex items-center justify-center p-8 text-center">
-        <BlurReveal duration={0.9} className="text-lg font-mono font-semibold text-white">
+        <BlurReveal duration={0.9} className="text-lg font-mono font-semibold text-zinc-900 dark:text-white">
           Hermetic Bit-Reproducible Kernel Verification
         </BlurReveal>
       </div>
@@ -904,7 +921,7 @@ export default function ButtonDemo() {
           <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20">
             PERIMETER LASER
           </span>
-          <h4 className="text-sm font-semibold text-white">Active Border Beam</h4>
+          <h4 className="text-sm font-semibold text-zinc-900 dark:text-white">Active Border Beam</h4>
           <p className="text-xs text-zinc-400">Ray travels along the coordinate contour automatically.</p>
         </div>
       </div>
@@ -1039,7 +1056,7 @@ export default function ButtonDemo() {
         <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest">BUILD WITH VELOCITY</span>
         <TypingText
           words={['Full-Stack React Apps', 'Next.js 15 Server Systems', 'High-FPS Motion Shaders', 'Tailwind CSS v4 Systems']}
-          className="text-xl font-bold text-white min-h-[32px]"
+          className="text-xl font-bold text-zinc-900 dark:text-white min-h-[32px]"
         />
       </div>
     ),
@@ -3048,6 +3065,472 @@ export default function ButtonDemo() {
         name: 'ParticleVortexTunnel.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['particle-vortex-tunnel'] || ''
+      }
+    ]
+  },
+
+
+  // 91. Hold to Confirm Action Button
+  {
+    id: 'hold-to-confirm-button',
+    name: 'Hold to Confirm Action Button',
+    slug: 'hold-to-confirm-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Critical action button requiring sustained mouse hold with radial charging SVG progress ring before dispatching confirmation event.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['button', 'hold', 'confirm', 'action', 'charging', 'progress'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add hold-to-confirm-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <HoldToConfirmButton />
+      </div>
+    ),
+    usage: `<HoldToConfirmButton />`,
+    files: [
+      {
+        name: 'HoldToConfirmButton.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['hold-to-confirm-button'] || ''
+      }
+    ]
+  },
+
+  // 92. Glitch Cyberpunk Text
+  {
+    id: 'glitch-cyber-text',
+    name: 'Glitch Cyberpunk Text',
+    slug: 'glitch-cyber-text',
+    category: 'animations',
+    subcategory: 'Text Animations',
+    description: 'Cinematic cyberpunk RGB chromatic aberration text effect with slice displacement and random glitch pulses.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'chromatic-aberration'],
+    tags: ['text', 'glitch', 'cyberpunk', 'rgb', 'chromatic', 'distortion'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add glitch-cyber-text',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6">
+        <GlitchCyberText text="ZERO_LATENCY_FABRIC" />
+      </div>
+    ),
+    usage: `<GlitchCyberText text="ZERO_LATENCY_FABRIC" />`,
+    files: [
+      {
+        name: 'GlitchCyberText.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['glitch-cyber-text'] || ''
+      }
+    ]
+  },
+
+  // 93. Audio Frequency Spectrum Equalizer
+  {
+    id: 'wave-frequency-bars',
+    name: 'Audio Frequency Spectrum Equalizer',
+    slug: 'wave-frequency-bars',
+    category: 'animations',
+    subcategory: 'Kinetic Motion',
+    description: 'Multi-band audio frequency analyzer bars with spring kinematic height oscillations and gradient chromatic peaks.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'equalizer-bars'],
+    tags: ['audio', 'frequency', 'bars', 'equalizer', 'sound', 'spectrum'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add wave-frequency-bars',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 flex items-center justify-center">
+        <WaveFrequencyBars />
+      </div>
+    ),
+    usage: `<WaveFrequencyBars />`,
+    files: [
+      {
+        name: 'WaveFrequencyBars.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['wave-frequency-bars'] || ''
+      }
+    ]
+  },
+
+  // 94. Swipeable Layered Card Deck
+  {
+    id: 'stack-card-deck',
+    name: 'Swipeable Layered Card Deck',
+    slug: 'stack-card-deck',
+    category: 'components',
+    subcategory: 'Cards',
+    description: '3D stacked card deck with rotational tilt offsets; clicking top card glides it into the back with spring physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['cards', 'deck', 'stack', 'swipe', '3d', 'interactive'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add stack-card-deck',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <StackCardDeck />
+      </div>
+    ),
+    usage: `<StackCardDeck />`,
+    files: [
+      {
+        name: 'StackCardDeck.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['stack-card-deck'] || ''
+      }
+    ]
+  },
+
+  // 95. Chromatic Glare Hologram Card
+  {
+    id: 'glare-hologram-card',
+    name: 'Chromatic Glare Hologram Card',
+    slug: 'glare-hologram-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Foil collector card with dynamic rainbow holographic reflection and specular light gleam following cursor movement.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['specular-glare', '@phosphor-icons/react'],
+    tags: ['cards', 'hologram', 'glare', 'foil', 'collector', 'specular'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add glare-hologram-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <GlareHologramCard />
+      </div>
+    ),
+    usage: `<GlareHologramCard />`,
+    files: [
+      {
+        name: 'GlareHologramCard.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['glare-hologram-card'] || ''
+      }
+    ]
+  },
+
+  // 96. Mathematical Flowing Lines Wave
+  {
+    id: 'flowing-lines-wave-background',
+    name: 'Mathematical Flowing Lines Wave',
+    slug: 'flowing-lines-wave-background',
+    category: 'backgrounds',
+    subcategory: 'Abstract Backgrounds',
+    description: 'Continuous algorithmic bezier ribbon canvas drawing undulating sine wave threads across deep space.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['html5-canvas', 'bezier-math'],
+    tags: ['background', 'canvas', 'waves', 'lines', 'generative', 'math'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add flowing-lines-wave-background',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <FlowingLinesWaveBackground />
+      </div>
+    ),
+    usage: `<FlowingLinesWaveBackground />`,
+    files: [
+      {
+        name: 'FlowingLinesWaveBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['flowing-lines-wave-background'] || ''
+      }
+    ]
+  },
+
+  // 97. Starfield Hyperdrive Canvas
+  {
+    id: 'starfield-hyperdrive-background',
+    name: 'Starfield Hyperdrive Canvas',
+    slug: 'starfield-hyperdrive-background',
+    category: 'backgrounds',
+    subcategory: 'Abstract Backgrounds',
+    description: 'Hyperdrive warp speed starfield projection with interactive mouse steering trajectory and luminous star streaks.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['html5-canvas', 'starfield-warp'],
+    tags: ['background', 'canvas', 'starfield', 'hyperdrive', 'warp', 'stars'],
+    dependencies: [],
+    installCommand: 'npx cook-ui add starfield-hyperdrive-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <StarfieldHyperdriveBackground />
+      </div>
+    ),
+    usage: `<StarfieldHyperdriveBackground />`,
+    files: [
+      {
+        name: 'StarfieldHyperdriveBackground.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['starfield-hyperdrive-background'] || ''
+      }
+    ]
+  },
+
+  // 98. Metaball Gooey Fluid Drops
+  {
+    id: 'metaball-gooey-effect',
+    name: 'Metaball Gooey Fluid Drops',
+    slug: 'metaball-gooey-effect',
+    category: 'animations',
+    subcategory: 'Shaders & Visual FX',
+    description: 'Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'svg-filter-matrix'],
+    tags: ['metaball', 'gooey', 'liquid', 'svg filter', 'fluid', 'effects'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add metaball-gooey-effect',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <MetaballGooeyEffect />
+      </div>
+    ),
+    usage: `<MetaballGooeyEffect />`,
+    files: [
+      {
+        name: 'MetaballGooeyEffect.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['metaball-gooey-effect'] || ''
+      }
+    ]
+  },
+
+  // 99. Volumetric Light Pillar Beacon
+  {
+    id: 'light-pillar-beacon',
+    name: 'Volumetric Light Pillar Beacon',
+    slug: 'light-pillar-beacon',
+    category: 'animations',
+    subcategory: 'Shaders & Visual FX',
+    description: 'Cinematic vertical atmospheric light column with ascending stardust motes and soft radial ground emitter.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'light-beam'],
+    tags: ['light', 'pillar', 'beacon', 'volumetric', 'effects', 'atmospheric'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add light-pillar-beacon',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <LightPillarBeacon />
+      </div>
+    ),
+    usage: `<LightPillarBeacon />`,
+    files: [
+      {
+        name: 'LightPillarBeacon.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['light-pillar-beacon'] || ''
+      }
+    ]
+  },
+
+  // 100. Kinetic Radial Action Menu
+  {
+    id: 'minimal-radial-menu',
+    name: 'Kinetic Radial Action Menu',
+    slug: 'minimal-radial-menu',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Expanding 360-degree radial pie action launcher with spring physics angles, tooltips, and center trigger toggling.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react'],
+    tags: ['radial', 'menu', 'circular', 'actions', 'navigation', 'fab'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add minimal-radial-menu',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <MinimalRadialMenu />
+      </div>
+    ),
+    usage: `<MinimalRadialMenu />`,
+    files: [
+      {
+        name: 'MinimalRadialMenu.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['minimal-radial-menu'] || ''
+      }
+    ]
+  },
+
+  // 101. Tactile Vault Keypad Input
+  {
+    id: 'pin-code-vault-input',
+    name: 'Tactile Vault Keypad Input',
+    slug: 'pin-code-vault-input',
+    category: 'forms',
+    subcategory: 'Forms & Inputs',
+    description: 'Security tumbler combination lock keypad with tactile key states, masked pin indicators, and lockout status.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['vault-keypad', '@phosphor-icons/react'],
+    tags: ['vault', 'keypad', 'pin', 'auth', 'security', 'form'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add pin-code-vault-input',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4">
+        <PinCodeVaultInput />
+      </div>
+    ),
+    usage: `<PinCodeVaultInput />`,
+    files: [
+      {
+        name: 'PinCodeVaultInput.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['pin-code-vault-input'] || ''
+      }
+    ]
+  },
+
+  // 102. Magnetic Social Share Cluster
+  {
+    id: 'magnetic-social-share-cluster',
+    name: 'Magnetic Social Share Cluster',
+    slug: 'magnetic-social-share-cluster',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Interconnected floating social network sharing pills with magnetic spring pulling physics and glow borders.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['social-share', '@phosphor-icons/react'],
+    tags: ['social', 'share', 'cluster', 'magnetic', 'navigation'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add magnetic-social-share-cluster',
+    featured: false,
+    popular: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4">
+        <MagneticSocialShareCluster />
+      </div>
+    ),
+    usage: `<MagneticSocialShareCluster />`,
+    files: [
+      {
+        name: 'MagneticSocialShareCluster.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['magnetic-social-share-cluster'] || ''
+      }
+    ]
+  },
+
+  // 103. Enterprise Telemetry Stats Strip
+  {
+    id: 'stats-counter-strip-block',
+    name: 'Enterprise Telemetry Stats Strip',
+    slug: 'stats-counter-strip-block',
+    category: 'sections',
+    subcategory: 'Telemetry',
+    description: 'Production 4-column metric showcase strip with animated numeric tickers, positive delta badges, and status labels.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['stats-grid', '@phosphor-icons/react'],
+    tags: ['stats', 'metrics', 'kpi', 'numbers', 'section', 'marketing'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add stats-counter-strip-block',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <StatsCounterStripBlock />
+      </div>
+    ),
+    usage: `<StatsCounterStripBlock />`,
+    files: [
+      {
+        name: 'StatsCounterStripBlock.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['stats-counter-strip-block'] || ''
+      }
+    ]
+  },
+
+  // 104. Full-Width Production FAQ Section
+  {
+    id: 'faq-accordion-section',
+    name: 'Full-Width Production FAQ Section',
+    slug: 'faq-accordion-section',
+    category: 'sections',
+    subcategory: 'FAQ',
+    description: 'Full-page FAQ knowledge base section with category selector tabs, search bar, and animated accordion drawers.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['faq-accordion', '@phosphor-icons/react'],
+    tags: ['faq', 'accordion', 'section', 'support', 'knowledge-base'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add faq-accordion-section',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <FaqAccordionSection />
+      </div>
+    ),
+    usage: `<FaqAccordionSection />`,
+    files: [
+      {
+        name: 'FaqAccordionSection.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['faq-accordion-section'] || ''
+      }
+    ]
+  },
+
+  // 105. Prism Geometry Hero Marketing Block
+  {
+    id: 'hero-geometry-glow-section',
+    name: 'Prism Geometry Hero Marketing Block',
+    slug: 'hero-geometry-glow-section',
+    category: 'sections',
+    subcategory: 'Marketing',
+    description: 'Conversion-focused landing page hero block featuring central glowing geometric wireframe, dual CTAs, and verified user avatars.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['hero-section', '@phosphor-icons/react'],
+    tags: ['hero', 'marketing', 'section', 'cta', 'conversion', 'geometry'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add hero-geometry-glow-section',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <HeroGeometryGlowSection />
+      </div>
+    ),
+    usage: `<HeroGeometryGlowSection />`,
+    files: [
+      {
+        name: 'HeroGeometryGlowSection.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['hero-geometry-glow-section'] || ''
       }
     ]
   },

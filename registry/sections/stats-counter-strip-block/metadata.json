@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-counter-strip-block",
+  "type": "registry:ui",
+  "title": "Enterprise Telemetry Stats Strip",
+  "description": "Production 4-column metric showcase strip with animated numeric tickers, positive delta badges, and status labels.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/stats-counter-strip-block/stats-counter-strip-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/stats-counter-strip-block.tsx"
+    }
+  ]
+}

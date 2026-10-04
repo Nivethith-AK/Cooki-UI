@@ -36,15 +36,15 @@ export const ExpandableCard: React.FC<ExpandableCardProps> = ({
             <ShieldCheck size={18} weight="bold" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-white">{title}</h4>
-            <p className="mt-1 text-xs text-zinc-400">{summary}</p>
+            <h4 className="text-sm font-bold text-zinc-900 dark:text-white">{title}</h4>
+            <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">{summary}</p>
           </div>
         </div>
 
         <motion.div
           animate={{ rotate: isExpanded ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-zinc-400 p-1"
+          className="text-zinc-600 dark:text-zinc-400 p-1"
         >
           <CaretDown size={16} />
         </motion.div>

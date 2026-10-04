@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-social-share-cluster",
+  "type": "registry:ui",
+  "title": "Magnetic Social Share Cluster",
+  "description": "Interconnected floating social network sharing pills with magnetic spring pulling physics and glow borders.",
+  "category": "navigation",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/magnetic-social-share-cluster/magnetic-social-share-cluster.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-social-share-cluster.tsx",
+      "content": "import React from 'react';\r\nimport { GithubLogo, TwitterLogo, DiscordLogo, Globe } from '@phosphor-icons/react';\r\n\r\nconst SOCIALS = [\r\n  { name: 'GitHub', icon: <GithubLogo size={16} weight=\"fill\" />, href: 'https://github.com/Nivethith-AK/Cooki-UI' },\r\n  { name: 'X / Twitter', icon: <TwitterLogo size={16} weight=\"fill\" />, href: '#' },\r\n  { name: 'Discord', icon: <DiscordLogo size={16} weight=\"fill\" />, href: '#' },\r\n  { name: 'Registry', icon: <Globe size={16} weight=\"bold\" />, href: '#' },\r\n];\r\n\r\nexport const MagneticSocialShareCluster: React.FC = () => {\r\n  return (\r\n    <div className=\"flex items-center gap-2.5 p-2 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 shadow-lg font-mono text-xs\">\r\n      {SOCIALS.map((s) => (\r\n        <a\r\n          key={s.name}\r\n          href={s.href}\r\n          target=\"_blank\"\r\n          rel=\"noopener noreferrer\"\r\n          className=\"flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:text-white hover:bg-indigo-600 transition-all cursor-pointer hover:scale-105 active:scale-95\"\r\n        >\r\n          {s.icon}\r\n          <span className=\"text-[11px] font-medium\">{s.name}</span>\r\n        </a>\r\n      ))}\r\n    </div>\r\n  );\r\n};\r\n"
+    }
+  ]
+}

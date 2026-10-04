@@ -48,8 +48,8 @@ export const DotBackground: React.FC<DotBackgroundProps> = ({
         {children || (
           <div className="my-auto text-center font-mono">
             <span className="text-xs uppercase tracking-widest text-emerald-400">PARTICLE MATRIX</span>
-            <h3 className="mt-2 text-xl font-bold text-white">Interactive Dot Grid</h3>
-            <p className="mt-1 text-xs text-zinc-400">Move cursor to illuminate local coordinate field.</p>
+            <h3 className="mt-2 text-xl font-bold text-zinc-900 dark:text-white">Interactive Dot Grid</h3>
+            <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">Move cursor to illuminate local coordinate field.</p>
           </div>
         )}
       </div>

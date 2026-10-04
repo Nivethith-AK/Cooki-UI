@@ -17,15 +17,31 @@
     color-scheme: dark;
   }
 
-  html {
+  html, body {
     font-family: var(--font-sans);
     background-color: var(--background);
+    color: var(--foreground);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    transition: background-color 0.2s ease, color 0.2s ease;
+  /* Universal silky theme transition across containers, cards, and borders */
+  header,
+  main,
+  footer,
+  nav,
+  div,
+  section,
+  article,
+  aside,
+  span,
+  h1, h2, h3, h4, h5, h6,
+  p,
+  button,
+  input,
+  textarea {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 

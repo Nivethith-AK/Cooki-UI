@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-geometry-glow-section",
+  "type": "registry:ui",
+  "title": "Prism Geometry Hero Marketing Block",
+  "description": "Conversion-focused landing page hero block featuring central glowing geometric wireframe, dual CTAs, and verified user avatars.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/hero-geometry-glow-section/hero-geometry-glow-section.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hero-geometry-glow-section.tsx"
+    }
+  ]
+}

@@ -94,12 +94,12 @@ export const PricingComparisonBlock: React.FC = () => {
             )}
 
             <div>
-              <h4 className="text-lg font-semibold text-white">{p.name}</h4>
-              <p className="text-xs text-zinc-400 mt-1 min-h-[36px]">{p.desc}</p>
+              <h4 className="text-lg font-semibold text-zinc-900 dark:text-white">{p.name}</h4>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 min-h-[36px]">{p.desc}</p>
 
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-white font-mono">${p.price}</span>
-                <span className="text-xs text-zinc-400">/month</span>
+                <span className="text-4xl font-extrabold text-zinc-900 dark:text-white font-mono">${p.price}</span>
+                <span className="text-xs text-zinc-600 dark:text-zinc-400">/month</span>
               </div>
 
               <div className="mt-6 pt-6 border-t border-white/10 space-y-3">

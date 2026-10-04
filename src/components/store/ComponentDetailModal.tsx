@@ -164,7 +164,7 @@ export const ComponentDetailModal: React.FC = () => {
                 {/* Live Sandbox Area */}
                 <div className="relative min-h-[340px] flex items-center justify-center rounded-3xl border border-zinc-200 dark:border-white/10 bg-zinc-100/60 dark:bg-[#060608] p-8 overflow-hidden shadow-inner transition-colors">
                   <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
-                  <div className="relative z-10 w-full flex items-center justify-center">
+                  <div className="relative z-10 w-full flex items-center justify-center text-zinc-900 dark:text-zinc-100">
                     {selectedComponent.renderPreview(controlValues, isDark)}
                   </div>
                 </div>

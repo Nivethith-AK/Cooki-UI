@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glitch-cyber-text",
+  "type": "registry:ui",
+  "title": "Glitch Cyberpunk Text",
+  "description": "Cinematic cyberpunk RGB chromatic aberration text effect with slice displacement and random glitch pulses.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/glitch-cyber-text/glitch-cyber-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glitch-cyber-text.tsx"
+    }
+  ]
+}

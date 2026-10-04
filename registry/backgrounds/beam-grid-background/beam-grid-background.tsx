@@ -116,10 +116,10 @@ export const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({
             <span className="inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20">
               LIGHTSWIND MATRIX
             </span>
-            <h3 className="text-xl font-semibold text-white tracking-tight">
+            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
               Coordinate Beam Grid
             </h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Synthesized vector lasers tracing Cartesian coordinate planes in real-time.
             </p>
           </div>

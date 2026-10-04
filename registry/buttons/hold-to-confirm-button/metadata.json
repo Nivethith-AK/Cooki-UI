@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hold-to-confirm-button",
+  "type": "registry:ui",
+  "title": "Hold to Confirm Action Button",
+  "description": "Critical action button requiring sustained mouse hold with radial charging SVG progress ring before dispatching confirmation event.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/hold-to-confirm-button/hold-to-confirm-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hold-to-confirm-button.tsx"
+    }
+  ]
+}

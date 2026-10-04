@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-04T11:37:06.560Z
-Components in Registry: 90
+Generated: 2026-10-04T11:50:44.797Z
+Components in Registry: 105
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -200,6 +200,25 @@ export default function Example() {
 
 ---
 
+### Audio Frequency Spectrum Equalizer (`wave-frequency-bars`)
+- **Category**: animations
+- **Description**: Multi-band audio frequency analyzer bars with spring kinematic height oscillations and gradient chromatic peaks.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/wave-frequency-bars.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/wave-frequency-bars.json`
+
+#### Installation & Usage
+```tsx
+import { WaveFrequencyBars } from "@/components/ui/wave-frequency-bars"
+
+export default function Example() {
+  return <WaveFrequencyBars />
+}
+```
+
+---
+
 ### Generative Animated Mesh Gradient (`animated-mesh-background`)
 - **Category**: backgrounds
 - **Description**: Deep spatial canvas mesh gradient with animated organic noise displacement.
@@ -314,6 +333,25 @@ export default function Example() {
 
 ---
 
+### Mathematical Flowing Lines Wave (`flowing-lines-wave-background`)
+- **Category**: backgrounds
+- **Description**: Continuous algorithmic bezier ribbon canvas drawing undulating sine wave threads across deep space.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/flowing-lines-wave-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/flowing-lines-wave-background.json`
+
+#### Installation & Usage
+```tsx
+import { FlowingLinesWaveBackground } from "@/components/ui/flowing-lines-wave-background"
+
+export default function Example() {
+  return <FlowingLinesWaveBackground />
+}
+```
+
+---
+
 ### Precision Cartesian Grid (`grid-background`)
 - **Category**: backgrounds
 - **Description**: Infinite architectural coordinate grid with radial spotlight vignette.
@@ -347,6 +385,25 @@ import { QuantumFieldBackground } from "@/components/ui/quantum-field-background
 
 export default function Example() {
   return <QuantumFieldBackground />
+}
+```
+
+---
+
+### Starfield Hyperdrive Canvas (`starfield-hyperdrive-background`)
+- **Category**: backgrounds
+- **Description**: Hyperdrive warp speed starfield projection with interactive mouse steering trajectory and luminous star streaks.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json`
+
+#### Installation & Usage
+```tsx
+import { StarfieldHyperdriveBackground } from "@/components/ui/starfield-hyperdrive-background"
+
+export default function Example() {
+  return <StarfieldHyperdriveBackground />
 }
 ```
 
@@ -423,6 +480,25 @@ import { GradientShimmerButton } from "@/components/ui/gradient-shimmer-button"
 
 export default function Example() {
   return <GradientShimmerButton />
+}
+```
+
+---
+
+### Hold to Confirm Action Button (`hold-to-confirm-button`)
+- **Category**: buttons
+- **Description**: Critical action button requiring sustained mouse hold with radial charging SVG progress ring before dispatching confirmation event.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hold-to-confirm-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hold-to-confirm-button.json`
+
+#### Installation & Usage
+```tsx
+import { HoldToConfirmButton } from "@/components/ui/hold-to-confirm-button"
+
+export default function Example() {
+  return <HoldToConfirmButton />
 }
 ```
 
@@ -523,6 +599,25 @@ export default function Example() {
 
 ---
 
+### Chromatic Glare Hologram Card (`glare-hologram-card`)
+- **Category**: cards
+- **Description**: Foil collector card with dynamic rainbow holographic reflection and specular light gleam following cursor movement.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glare-hologram-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glare-hologram-card.json`
+
+#### Installation & Usage
+```tsx
+import { GlareHologramCard } from "@/components/ui/glare-hologram-card"
+
+export default function Example() {
+  return <GlareHologramCard />
+}
+```
+
+---
+
 ### Frosted Acrylic Glass Card (`glass-card`)
 - **Category**: cards
 - **Description**: Multi-layer frosted glass card with noise texture and rim lighting.
@@ -613,6 +708,25 @@ import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 export default function Example() {
   return <SpotlightCard />
+}
+```
+
+---
+
+### Swipeable Layered Card Deck (`stack-card-deck`)
+- **Category**: cards
+- **Description**: 3D stacked card deck with rotational tilt offsets; clicking top card glides it into the back with spring physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/stack-card-deck.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/stack-card-deck.json`
+
+#### Installation & Usage
+```tsx
+import { StackCardDeck } from "@/components/ui/stack-card-deck"
+
+export default function Example() {
+  return <StackCardDeck />
 }
 ```
 
@@ -860,6 +974,44 @@ import { BorderBeam } from "@/components/ui/border-beam"
 
 export default function Example() {
   return <BorderBeam />
+}
+```
+
+---
+
+### Volumetric Light Pillar Beacon (`light-pillar-beacon`)
+- **Category**: effects
+- **Description**: Cinematic vertical atmospheric light column with ascending stardust motes and soft radial ground emitter.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/light-pillar-beacon.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/light-pillar-beacon.json`
+
+#### Installation & Usage
+```tsx
+import { LightPillarBeacon } from "@/components/ui/light-pillar-beacon"
+
+export default function Example() {
+  return <LightPillarBeacon />
+}
+```
+
+---
+
+### Metaball Gooey Fluid Drops (`metaball-gooey-effect`)
+- **Category**: effects
+- **Description**: Organic liquid gooey metaballs with SVG matrix blur filtration demonstrating fluid droplet merging physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/metaball-gooey-effect.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/metaball-gooey-effect.json`
+
+#### Installation & Usage
+```tsx
+import { MetaballGooeyEffect } from "@/components/ui/metaball-gooey-effect"
+
+export default function Example() {
+  return <MetaballGooeyEffect />
 }
 ```
 
@@ -1131,6 +1283,25 @@ export default function Example() {
 
 ---
 
+### Tactile Vault Keypad Input (`pin-code-vault-input`)
+- **Category**: forms
+- **Description**: Security tumbler combination lock keypad with tactile key states, masked pin indicators, and lockout status.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/pin-code-vault-input.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/pin-code-vault-input.json`
+
+#### Installation & Usage
+```tsx
+import { PinCodeVaultInput } from "@/components/ui/pin-code-vault-input"
+
+export default function Example() {
+  return <PinCodeVaultInput />
+}
+```
+
+---
+
 ### Kinetic Toggle Pill Switch (`toggle-pill-switch`)
 - **Category**: forms
 - **Description**: Smooth physics toggle switch with animated status icon, micro-indicator glow, and accessible state roles.
@@ -1359,6 +1530,44 @@ export default function Example() {
 
 ---
 
+### Magnetic Social Share Cluster (`magnetic-social-share-cluster`)
+- **Category**: navigation
+- **Description**: Interconnected floating social network sharing pills with magnetic spring pulling physics and glow borders.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-social-share-cluster.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-share-cluster.json`
+
+#### Installation & Usage
+```tsx
+import { MagneticSocialShareCluster } from "@/components/ui/magnetic-social-share-cluster"
+
+export default function Example() {
+  return <MagneticSocialShareCluster />
+}
+```
+
+---
+
+### Kinetic Radial Action Menu (`minimal-radial-menu`)
+- **Category**: navigation
+- **Description**: Expanding 360-degree radial pie action launcher with spring physics angles, tooltips, and center trigger toggling.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/minimal-radial-menu.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/minimal-radial-menu.json`
+
+#### Installation & Usage
+```tsx
+import { MinimalRadialMenu } from "@/components/ui/minimal-radial-menu"
+
+export default function Example() {
+  return <MinimalRadialMenu />
+}
+```
+
+---
+
 ### Infinite Brand Logo Marquee (`sliding-logo-marquee`)
 - **Category**: navigation
 - **Description**: Seamless hardware-accelerated horizontal brand partner marquee with hover pause.
@@ -1492,6 +1701,25 @@ export default function Example() {
 
 ---
 
+### Full-Width Production FAQ Section (`faq-accordion-section`)
+- **Category**: sections
+- **Description**: Full-page FAQ knowledge base section with category selector tabs, search bar, and animated accordion drawers.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/faq-accordion-section.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/faq-accordion-section.json`
+
+#### Installation & Usage
+```tsx
+import { FaqAccordionSection } from "@/components/ui/faq-accordion-section"
+
+export default function Example() {
+  return <FaqAccordionSection />
+}
+```
+
+---
+
 ### Technical Feature Bento Block (`feature-bento-block`)
 - **Category**: sections
 - **Description**: Asymmetric technical bento grid section with hardware isolation badges and metrics.
@@ -1506,6 +1734,25 @@ import { FeatureBentoBlock } from "@/components/ui/feature-bento-block"
 
 export default function Example() {
   return <FeatureBentoBlock />
+}
+```
+
+---
+
+### Prism Geometry Hero Marketing Block (`hero-geometry-glow-section`)
+- **Category**: sections
+- **Description**: Conversion-focused landing page hero block featuring central glowing geometric wireframe, dual CTAs, and verified user avatars.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hero-geometry-glow-section.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hero-geometry-glow-section.json`
+
+#### Installation & Usage
+```tsx
+import { HeroGeometryGlowSection } from "@/components/ui/hero-geometry-glow-section"
+
+export default function Example() {
+  return <HeroGeometryGlowSection />
 }
 ```
 
@@ -1549,6 +1796,25 @@ export default function Example() {
 
 ---
 
+### Enterprise Telemetry Stats Strip (`stats-counter-strip-block`)
+- **Category**: sections
+- **Description**: Production 4-column metric showcase strip with animated numeric tickers, positive delta badges, and status labels.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/stats-counter-strip-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/stats-counter-strip-block.json`
+
+#### Installation & Usage
+```tsx
+import { StatsCounterStripBlock } from "@/components/ui/stats-counter-strip-block"
+
+export default function Example() {
+  return <StatsCounterStripBlock />
+}
+```
+
+---
+
 ### Endless Social Proof Testimonials (`testimonial-marquee-block`)
 - **Category**: sections
 - **Description**: Continuous dual-directional testimonial marquee with verified engineer reviews and star ratings.
@@ -1582,6 +1848,25 @@ import { BlurReveal } from "@/components/ui/blur-reveal"
 
 export default function Example() {
   return <BlurReveal />
+}
+```
+
+---
+
+### Glitch Cyberpunk Text (`glitch-cyber-text`)
+- **Category**: text
+- **Description**: Cinematic cyberpunk RGB chromatic aberration text effect with slice displacement and random glitch pulses.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glitch-cyber-text.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glitch-cyber-text.json`
+
+#### Installation & Usage
+```tsx
+import { GlitchCyberText } from "@/components/ui/glitch-cyber-text"
+
+export default function Example() {
+  return <GlitchCyberText />
 }
 ```
 

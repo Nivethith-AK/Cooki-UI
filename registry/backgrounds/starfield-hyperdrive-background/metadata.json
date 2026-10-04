@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "starfield-hyperdrive-background",
+  "type": "registry:ui",
+  "title": "Starfield Hyperdrive Canvas",
+  "description": "Hyperdrive warp speed starfield projection with interactive mouse steering trajectory and luminous star streaks.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/backgrounds/starfield-hyperdrive-background/starfield-hyperdrive-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/starfield-hyperdrive-background.tsx"
+    }
+  ]
+}
