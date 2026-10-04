@@ -1,0 +1,1543 @@
+import React from 'react'
+import { RegistryItem } from '../types/component'
+
+// Real Component Imports
+import { MagneticDock } from '@/components/ui/magnetic-dock'
+import { SlidingNumber } from '@/components/animate-ui/primitives/texts/sliding-number'
+import { MagneticButton } from '../components/library/buttons/MagneticButton'
+import { GradientShimmerButton } from '../components/library/buttons/GradientShimmerButton'
+import { GlowActionButton } from '../components/library/buttons/GlowActionButton'
+import { FloatingActionButton } from '../components/library/buttons/FloatingActionButton'
+import { TextReveal } from '../components/library/text/TextReveal'
+import { SplitText } from '../components/library/text/SplitText'
+import { BlurReveal } from '../components/library/text/BlurReveal'
+import { InteractiveTiltCard } from '../components/library/cards/InteractiveTiltCard'
+import { SpotlightCard } from '../components/library/cards/SpotlightCard'
+import { GlassCard } from '../components/library/cards/GlassCard'
+import { ExpandableCard } from '../components/library/cards/ExpandableCard'
+import { AuroraBackground } from '../components/library/backgrounds/AuroraBackground'
+import { GridBackground } from '../components/library/backgrounds/GridBackground'
+import { DotBackground } from '../components/library/backgrounds/DotBackground'
+import { AnimatedMeshBackground } from '../components/library/backgrounds/AnimatedMeshBackground'
+import { FloatingNavbar } from '../components/library/navigation/FloatingNavbar'
+import { CommandPalette } from '../components/library/navigation/CommandPalette'
+import { InteractiveTerminalBlock } from '../components/library/sections/InteractiveTerminalBlock'
+import { FeatureBentoBlock } from '../components/library/sections/FeatureBentoBlock'
+import { AnimatedCtaBlock } from '../components/library/sections/AnimatedCtaBlock'
+
+// Newly Added Lightswind & Modern Components
+import { BorderBeam } from '../components/library/effects/BorderBeam'
+import { AsciiWave } from '../components/library/effects/AsciiWave'
+import { SlideToConfirm } from '../components/library/buttons/SlideToConfirm'
+import { ShinyText } from '../components/library/text/ShinyText'
+import { TypingText } from '../components/library/text/TypingText'
+import { PasswordStrengthIndicator } from '../components/library/forms/PasswordStrengthIndicator'
+import { RippleButton } from '../components/library/buttons/RippleButton'
+import { OrbitCard } from '../components/library/cards/OrbitCard'
+import { SlidingLogoMarquee } from '../components/library/navigation/SlidingLogoMarquee'
+import { AnimatedNotificationStack } from '../components/library/navigation/AnimatedNotificationStack'
+import { ConfettiButton } from '../components/library/buttons/ConfettiButton'
+import { LiquidGlassButton } from '../components/library/buttons/LiquidGlassButton'
+import { BeamGridBackground } from '../components/library/backgrounds/BeamGridBackground'
+import { CosmicDustBackground } from '../components/library/backgrounds/CosmicDustBackground'
+import { SpectrumLoader } from '../components/library/effects/SpectrumLoader'
+import { PerspectiveCard3D } from '../components/library/cards/PerspectiveCard3D'
+import { ExpandableSearchBar } from '../components/library/forms/ExpandableSearchBar'
+import { TerminalCard } from '../components/library/cards/TerminalCard'
+import { TabsMorph } from '../components/library/navigation/TabsMorph'
+import { NoiseGrainOverlay } from '../components/library/effects/NoiseGrainOverlay'
+import { PricingComparisonBlock } from '../components/library/sections/PricingComparisonBlock'
+import { TestimonialMarqueeBlock } from '../components/library/sections/TestimonialMarqueeBlock'
+
+import { 
+  House, 
+  Terminal, 
+  Cpu, 
+  ShieldCheck, 
+  Sparkle, 
+  GitBranch, 
+  Lightning, 
+  Database,
+  ArrowRight,
+  Waveform,
+  Globe,
+  CircleNotch
+} from '@phosphor-icons/react'
+
+export const COMPONENT_REGISTRY: RegistryItem[] = [
+  // 1. Magnetic Dock (Componentry)
+  {
+    id: 'magnetic-dock',
+    name: 'Componentry Magnetic Dock',
+    slug: 'magnetic-dock',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'macOS-style navigation dock with spring-physics cursor magnification, tooltips, and active indicator badges.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Motion', 'shadcn/ui'],
+    technologies: ['framer-motion', 'tailwind-merge', 'clsx'],
+    tags: ['dock', 'navigation', 'magnetic', 'spring physics', 'macos'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx shadcn@latest add @componentry/magnetic-dock',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-01',
+    controls: [
+      { name: 'iconSize', type: 'number', label: 'Icon Size', min: 36, max: 64, step: 4, defaultValue: 48 },
+      { name: 'maxScale', type: 'number', label: 'Max Scale', min: 1.1, max: 1.8, step: 0.1, defaultValue: 1.4 },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <MagneticDock
+          items={[
+            { id: '1', label: 'Dashboard', icon: <House size={20} /> },
+            { id: '2', label: 'Compiler', icon: <Cpu size={20} /> },
+            { id: '3', label: 'Terminal', icon: <Terminal size={20} />, badge: 2 },
+            { id: '4', label: 'Security', icon: <ShieldCheck size={20} /> },
+          ]}
+          iconSize={props.iconSize || 48}
+          maxScale={props.maxScale || 1.4}
+        />
+      </div>
+    ),
+    usage: `import { MagneticDock } from '@/components/ui/magnetic-dock'
+import { House, Terminal, Cpu } from '@phosphor-icons/react'
+
+export default function Demo() {
+  return (
+    <MagneticDock
+      items={[
+        { id: '1', label: 'Home', icon: <House size={20} /> },
+        { id: '2', label: 'Terminal', icon: <Terminal size={20} /> },
+      ]}
+      iconSize={48}
+      maxScale={1.4}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'magnetic-dock.tsx',
+        language: 'tsx',
+        code: `// Installed via @componentry/magnetic-dock
+export { MagneticDock, type MagneticDockProps, type DockItemData } from '@/components/ui/magnetic-dock'`,
+      },
+    ],
+  },
+
+  // 2. Sliding Number (Animate UI)
+  {
+    id: 'sliding-number',
+    name: 'Animate UI Sliding Number',
+    slug: 'sliding-number',
+    category: 'animations',
+    subcategory: 'Numbers',
+    description: 'Smooth mechanical counter and odometer number animation powered by spring transforms.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'shadcn/ui'],
+    technologies: ['motion/react', 'react-use-measure'],
+    tags: ['counter', 'numbers', 'odometer', 'ticker', 'stats'],
+    dependencies: ['motion', 'react-use-measure'],
+    installCommand: 'npx shadcn@latest add @animate-ui/primitives-texts-sliding-number',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-02',
+    controls: [
+      { name: 'number', type: 'number', label: 'Target Value', min: 100, max: 99999, step: 100, defaultValue: 4892 },
+      { name: 'decimalPlaces', type: 'number', label: 'Decimals', min: 0, max: 2, step: 1, defaultValue: 0 },
+    ],
+    renderPreview: (props) => (
+      <div className="flex flex-col items-center justify-center p-8 font-mono">
+        <span className="text-xs uppercase tracking-widest text-zinc-500 mb-2">TELEMETRY COUNTER</span>
+        <div className="text-4xl sm:text-5xl font-bold tracking-tight text-white flex items-center gap-1">
+          <span className="text-emerald-400 font-normal">$</span>
+          <SlidingNumber
+            number={props.number ?? 4892}
+            decimalPlaces={props.decimalPlaces ?? 0}
+          />
+        </div>
+        <span className="text-xs text-zinc-400 mt-2">Active AST Node Invariants</span>
+      </div>
+    ),
+    usage: `import { SlidingNumber } from '@/components/animate-ui/primitives/texts/sliding-number'
+
+export default function CounterDemo() {
+  return <SlidingNumber number={4892} decimalPlaces={0} />
+}`,
+    files: [
+      {
+        name: 'sliding-number.tsx',
+        language: 'tsx',
+        code: `export { SlidingNumber } from '@/components/animate-ui/primitives/texts/sliding-number'`,
+      },
+    ],
+  },
+
+  // 3. Magnetic Button
+  {
+    id: 'magnetic-button',
+    name: 'Magnetic Cursor Button',
+    slug: 'magnetic-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'True cursor-following button with physics spring attraction and smooth damping return.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Motion'],
+    technologies: ['framer-motion', 'tailwind-merge'],
+    tags: ['button', 'magnetic', 'cursor', 'interactive', 'micro-interaction'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npm install framer-motion clsx tailwind-merge',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-03',
+    controls: [
+      { name: 'variant', type: 'select', label: 'Variant', options: ['default', 'glow', 'minimal'], defaultValue: 'default' },
+      { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8">
+        <MagneticButton variant={props.variant || 'default'} size={props.size || 'md'}>
+          <span>Deploy Kernel</span>
+          <ArrowRight size={14} weight="bold" />
+        </MagneticButton>
+      </div>
+    ),
+    usage: `import { MagneticButton } from '@/components/library/buttons/MagneticButton'
+
+export default function ButtonDemo() {
+  return (
+    <MagneticButton variant="default" size="md">
+      Hover Magnetic Action
+    </MagneticButton>
+  )
+}`,
+    files: [
+      {
+        name: 'MagneticButton.tsx',
+        language: 'tsx',
+        code: `// Real physics-driven magnetic attraction button
+import React, { useRef } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
+...`,
+      },
+    ],
+  },
+
+  // 4. Gradient Shimmer Button
+  {
+    id: 'gradient-shimmer-button',
+    name: 'Gradient Shimmer Button',
+    slug: 'gradient-shimmer-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Rotating conic gradient border button with high-contrast inner mask and click feedback.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['button', 'shimmer', 'gradient', 'conic', 'border'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-03',
+    controls: [
+      { name: 'speed', type: 'select', label: 'Speed', options: ['slow', 'normal', 'fast'], defaultValue: 'normal' },
+      { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8">
+        <GradientShimmerButton speed={props.speed || 'normal'} size={props.size || 'md'}>
+          <span>Compile Monorepo</span>
+          <Lightning size={16} weight="fill" className="text-amber-400" />
+        </GradientShimmerButton>
+      </div>
+    ),
+    usage: `<GradientShimmerButton speed="normal" size="md">Compile Monorepo</GradientShimmerButton>`,
+    files: [
+      {
+        name: 'GradientShimmerButton.tsx',
+        language: 'tsx',
+        code: `export { GradientShimmerButton } from '@/components/library/buttons/GradientShimmerButton'`,
+      },
+    ],
+  },
+
+  // 5. Glow Action Button
+  {
+    id: 'glow-action-button',
+    name: 'Ambient Glow Action Button',
+    slug: 'glow-action-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Tactile action button with ambient colored glow halo and interactive elevation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['button', 'glow', 'ambient', 'neon', 'action'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-02',
+    controls: [
+      { name: 'glowColor', type: 'select', label: 'Glow Color', options: ['cyan', 'amber', 'emerald', 'purple'], defaultValue: 'cyan' },
+      { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8">
+        <GlowActionButton glowColor={props.glowColor || 'cyan'} size={props.size || 'md'}>
+          <ShieldCheck size={16} />
+          <span>Verify AST Invariants</span>
+        </GlowActionButton>
+      </div>
+    ),
+    usage: `<GlowActionButton glowColor="cyan">Verify AST Invariants</GlowActionButton>`,
+    files: [
+      {
+        name: 'GlowActionButton.tsx',
+        language: 'tsx',
+        code: `export { GlowActionButton } from '@/components/library/buttons/GlowActionButton'`,
+      },
+    ],
+  },
+
+  // 6. Floating Action Button
+  {
+    id: 'floating-action-button',
+    name: 'Expandable Action Dial (FAB)',
+    slug: 'floating-action-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Spring-animated expandable floating action button for quick contextual shortcuts.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['button', 'fab', 'floating', 'menu', 'actions'],
+    dependencies: ['framer-motion', 'clsx'],
+    installCommand: 'npm install framer-motion clsx',
+    featured: false,
+    dateAdded: '2026-10-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-12 min-h-[180px]">
+        <FloatingActionButton />
+      </div>
+    ),
+    usage: `<FloatingActionButton />`,
+    files: [
+      {
+        name: 'FloatingActionButton.tsx',
+        language: 'tsx',
+        code: `export { FloatingActionButton } from '@/components/library/buttons/FloatingActionButton'`,
+      },
+    ],
+  },
+
+  // 7. Text Reveal
+  {
+    id: 'text-reveal',
+    name: 'Masked Text Reveal',
+    slug: 'text-reveal',
+    category: 'animations',
+    subcategory: 'Typography',
+    description: 'Cinematic word-by-word reveal with staggered spring translation and Gaussian blur resolution.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['text', 'reveal', 'typography', 'kinetic', 'stagger'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npm install framer-motion',
+    featured: true,
+    dateAdded: '2026-10-03',
+    controls: [
+      { name: 'text', type: 'text', label: 'Custom Text', defaultValue: 'Autonomous Software Synthesis Engine' },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8 max-w-md mx-auto text-center">
+        <TextReveal text={props.text || 'Autonomous Software Synthesis Engine'} className="text-xl sm:text-2xl" />
+      </div>
+    ),
+    usage: `<TextReveal text="Autonomous Software Synthesis Engine" />`,
+    files: [
+      {
+        name: 'TextReveal.tsx',
+        language: 'tsx',
+        code: `export { TextReveal } from '@/components/library/text/TextReveal'`,
+      },
+    ],
+  },
+
+  // 8. Split Text
+  {
+    id: 'split-text',
+    name: 'Kinetic Split Text',
+    slug: 'split-text',
+    category: 'animations',
+    subcategory: 'Typography',
+    description: 'Interactive character-by-character kinetic spring hover reaction with color transform.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion'],
+    technologies: ['framer-motion'],
+    tags: ['text', 'split text', 'interactive', 'hover', 'letters'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npm install framer-motion',
+    featured: false,
+    dateAdded: '2026-10-02',
+    controls: [
+      { name: 'text', type: 'text', label: 'Text', defaultValue: 'KINETIC INTENT COMPILER' },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-8">
+        <SplitText text={props.text || 'KINETIC INTENT COMPILER'} className="text-lg sm:text-2xl font-bold" />
+      </div>
+    ),
+    usage: `<SplitText text="KINETIC INTENT COMPILER" />`,
+    files: [
+      {
+        name: 'SplitText.tsx',
+        language: 'tsx',
+        code: `export { SplitText } from '@/components/library/text/SplitText'`,
+      },
+    ],
+  },
+
+  // 9. Blur Reveal
+  {
+    id: 'blur-reveal',
+    name: 'Gaussian Blur Reveal',
+    slug: 'blur-reveal',
+    category: 'animations',
+    subcategory: 'Typography',
+    description: 'Sophisticated blur-to-focus entrance animation ideal for high-end product headlines.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion'],
+    technologies: ['framer-motion'],
+    tags: ['blur', 'reveal', 'focus', 'fade', 'editorial'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npm install framer-motion',
+    featured: false,
+    dateAdded: '2026-10-01',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8 text-center">
+        <BlurReveal duration={0.9} className="text-lg font-mono font-semibold text-white">
+          Hermetic Bit-Reproducible Kernel Verification
+        </BlurReveal>
+      </div>
+    ),
+    usage: `<BlurReveal duration={0.9}>Hermetic Bit-Reproducible Kernel Verification</BlurReveal>`,
+    files: [
+      {
+        name: 'BlurReveal.tsx',
+        language: 'tsx',
+        code: `export { BlurReveal } from '@/components/library/text/BlurReveal'`,
+      },
+    ],
+  },
+
+  // 10. Interactive Tilt Card
+  {
+    id: 'interactive-tilt-card',
+    name: '3D Parallax Tilt Card',
+    slug: 'interactive-tilt-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: '3D mouse-tracking perspective tilt card with depth layers and specular glare reaction.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'tailwind-merge'],
+    tags: ['card', 'tilt', '3d', 'parallax', 'perspective'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npm install framer-motion clsx tailwind-merge',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <InteractiveTiltCard />
+      </div>
+    ),
+    usage: `<InteractiveTiltCard title="Autonomous Synthesis Pod" subtitle="ISOLATE MEMORY #44" />`,
+    files: [
+      {
+        name: 'InteractiveTiltCard.tsx',
+        language: 'tsx',
+        code: `export { InteractiveTiltCard } from '@/components/library/cards/InteractiveTiltCard'`,
+      },
+    ],
+  },
+
+  // 11. Spotlight Card
+  {
+    id: 'spotlight-card',
+    name: 'Cursor Spotlight Card',
+    slug: 'spotlight-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Cursor-following radial illumination card that dynamically reveals borders and specular highlights.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['card', 'spotlight', 'radial', 'cursor', 'glow'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: true,
+    dateAdded: '2026-10-02',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <SpotlightCard icon={<Cpu size={20} />} />
+      </div>
+    ),
+    usage: `<SpotlightCard title="SMT Formal Invariant Engine" icon={<Cpu size={20} />} />`,
+    files: [
+      {
+        name: 'SpotlightCard.tsx',
+        language: 'tsx',
+        code: `export { SpotlightCard } from '@/components/library/cards/SpotlightCard'`,
+      },
+    ],
+  },
+
+  // 12. Glass Card
+  {
+    id: 'glass-card',
+    name: 'Double-Bezel Glass Card',
+    slug: 'glass-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'High-end double-bezel concentric enclosure with frosted backdrop blur and specular rim lighting.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['card', 'glassmorphism', 'double-bezel', 'frosted', 'premium'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-01',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <GlassCard />
+      </div>
+    ),
+    usage: `<GlassCard title="Hermetic WASM Isolate" subtitle="MEMORY PROTECTION RING-0" />`,
+    files: [
+      {
+        name: 'GlassCard.tsx',
+        language: 'tsx',
+        code: `export { GlassCard } from '@/components/library/cards/GlassCard'`,
+      },
+    ],
+  },
+
+  // 13. Expandable Card
+  {
+    id: 'expandable-card',
+    name: 'Spring Expandable Card',
+    slug: 'expandable-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Smooth layout-spring card that smoothly expands to reveal nested telemetry and proof details.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion'],
+    technologies: ['framer-motion'],
+    tags: ['card', 'expandable', 'accordion', 'layout animation'],
+    dependencies: ['framer-motion', 'clsx'],
+    installCommand: 'npm install framer-motion clsx',
+    featured: false,
+    dateAdded: '2026-10-02',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <ExpandableCard />
+      </div>
+    ),
+    usage: `<ExpandableCard title="Raft Consensus Protocol Verification" />`,
+    files: [
+      {
+        name: 'ExpandableCard.tsx',
+        language: 'tsx',
+        code: `export { ExpandableCard } from '@/components/library/cards/ExpandableCard'`,
+      },
+    ],
+  },
+
+  // 14. Aurora Background
+  {
+    id: 'aurora-background',
+    name: 'Aurora Atmospheric Background',
+    slug: 'aurora-background',
+    category: 'backgrounds',
+    subcategory: 'Shaders',
+    description: 'Slow-moving atmospheric fluid plasma waves with configurable speed and opacity intensity.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['background', 'aurora', 'gradient', 'mesh', 'atmospheric'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-03',
+    controls: [
+      { name: 'speed', type: 'select', label: 'Speed', options: ['slow', 'normal', 'fast'], defaultValue: 'normal' },
+      { name: 'intensity', type: 'select', label: 'Intensity', options: ['subtle', 'medium', 'high'], defaultValue: 'medium' },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full">
+        <AuroraBackground speed={props.speed || 'normal'} intensity={props.intensity || 'medium'} />
+      </div>
+    ),
+    usage: `<AuroraBackground speed="normal" intensity="medium" />`,
+    files: [
+      {
+        name: 'AuroraBackground.tsx',
+        language: 'tsx',
+        code: `export { AuroraBackground } from '@/components/library/backgrounds/AuroraBackground'`,
+      },
+    ],
+  },
+
+  // 15. Grid Background
+  {
+    id: 'grid-background',
+    name: 'Technical Coordinate Grid',
+    slug: 'grid-background',
+    category: 'backgrounds',
+    subcategory: 'Patterns',
+    description: 'Developer blueprint grid pattern with coordinate subdivisions and scanning telemetry beam.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['background', 'grid', 'technical', 'blueprint', 'scan'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-02',
+    controls: [
+      { name: 'size', type: 'select', label: 'Cell Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+      { name: 'withBeam', type: 'boolean', label: 'Scanning Beam', defaultValue: true },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full">
+        <GridBackground size={props.size || 'md'} withBeam={props.withBeam ?? true} />
+      </div>
+    ),
+    usage: `<GridBackground size="md" withBeam={true} />`,
+    files: [
+      {
+        name: 'GridBackground.tsx',
+        language: 'tsx',
+        code: `export { GridBackground } from '@/components/library/backgrounds/GridBackground'`,
+      },
+    ],
+  },
+
+  // 16. Dot Background
+  {
+    id: 'dot-background',
+    name: 'Interactive Dot Matrix Grid',
+    slug: 'dot-background',
+    category: 'backgrounds',
+    subcategory: 'Patterns',
+    description: 'Dense particle dot coordinate field that illuminates dynamically around mouse coordinates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['background', 'dot matrix', 'interactive', 'particle', 'dots'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-03',
+    controls: [
+      { name: 'spacing', type: 'number', label: 'Spacing (px)', min: 16, max: 48, step: 4, defaultValue: 24 },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full">
+        <DotBackground spacing={props.spacing || 24} />
+      </div>
+    ),
+    usage: `<DotBackground spacing={24} />`,
+    files: [
+      {
+        name: 'DotBackground.tsx',
+        language: 'tsx',
+        code: `export { DotBackground } from '@/components/library/backgrounds/DotBackground'`,
+      },
+    ],
+  },
+
+  // 17. Animated Mesh Background
+  {
+    id: 'animated-mesh-background',
+    name: 'Multi-Point Mesh Canvas',
+    slug: 'animated-mesh-background',
+    category: 'backgrounds',
+    subcategory: 'Shaders',
+    description: 'Layered organic gradient mesh with multi-frequency diffusion and harmonic motion.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['background', 'mesh', 'gradient', 'organic', 'ambient'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-01',
+    controls: [
+      { name: 'variant', type: 'select', label: 'Palette', options: ['deep', 'cyber', 'sunset'], defaultValue: 'deep' },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full">
+        <AnimatedMeshBackground variant={props.variant || 'deep'} />
+      </div>
+    ),
+    usage: `<AnimatedMeshBackground variant="deep" />`,
+    files: [
+      {
+        name: 'AnimatedMeshBackground.tsx',
+        language: 'tsx',
+        code: `export { AnimatedMeshBackground } from '@/components/library/backgrounds/AnimatedMeshBackground'`,
+      },
+    ],
+  },
+
+  // 18. Floating Navbar
+  {
+    id: 'floating-navbar',
+    name: 'Floating Glass Island Navbar',
+    slug: 'floating-navbar',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Detached floating navigation bar with spring-animated active tab indicator pill.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'tailwind-merge'],
+    tags: ['navigation', 'navbar', 'island', 'floating', 'glass'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npm install framer-motion clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-02',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8">
+        <FloatingNavbar />
+      </div>
+    ),
+    usage: `<FloatingNavbar />`,
+    files: [
+      {
+        name: 'FloatingNavbar.tsx',
+        language: 'tsx',
+        code: `export { FloatingNavbar } from '@/components/library/navigation/FloatingNavbar'`,
+      },
+    ],
+  },
+
+  // 19. Command Palette
+  {
+    id: 'command-palette',
+    name: 'Interactive Command Palette',
+    slug: 'command-palette',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Keyboard-driven command menu interface with instant search and category taxonomy.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['command', 'palette', 'search', 'cmdk', 'shortcuts'],
+    dependencies: ['framer-motion', 'clsx'],
+    installCommand: 'npm install framer-motion clsx',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <CommandPalette />
+      </div>
+    ),
+    usage: `<CommandPalette />`,
+    files: [
+      {
+        name: 'CommandPalette.tsx',
+        language: 'tsx',
+        code: `export { CommandPalette } from '@/components/library/navigation/CommandPalette'`,
+      },
+    ],
+  },
+
+  // 20. Interactive Terminal Block
+  {
+    id: 'interactive-terminal-block',
+    name: 'Interactive Runnable Terminal Block',
+    slug: 'interactive-terminal-block',
+    category: 'sections',
+    subcategory: 'Code & Terminal',
+    description: 'Complete live terminal block with runnable command execution, copy button, and output streaming.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['section', 'terminal', 'cli', 'code runner', 'interactive'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: true,
+    dateAdded: '2026-10-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <InteractiveTerminalBlock />
+      </div>
+    ),
+    usage: `<InteractiveTerminalBlock />`,
+    files: [
+      {
+        name: 'InteractiveTerminalBlock.tsx',
+        language: 'tsx',
+        code: `export { InteractiveTerminalBlock } from '@/components/library/sections/InteractiveTerminalBlock'`,
+      },
+    ],
+  },
+
+  // 21. Feature Bento Block
+  {
+    id: 'feature-bento-block',
+    name: 'Technical Feature Bento Block',
+    slug: 'feature-bento-block',
+    category: 'sections',
+    subcategory: 'Features',
+    description: 'Asymmetric technical bento grid section with hardware isolation badges and metrics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['section', 'bento', 'features', 'grid', 'architecture'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-02',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <FeatureBentoBlock />
+      </div>
+    ),
+    usage: `<FeatureBentoBlock />`,
+    files: [
+      {
+        name: 'FeatureBentoBlock.tsx',
+        language: 'tsx',
+        code: `export { FeatureBentoBlock } from '@/components/library/sections/FeatureBentoBlock'`,
+      },
+    ],
+  },
+
+  // 22. Animated CTA Block
+  {
+    id: 'animated-cta-block',
+    name: 'High-Conversion Terminal CTA',
+    slug: 'animated-cta-block',
+    category: 'sections',
+    subcategory: 'Call to Action',
+    description: 'Conversion-optimized terminal deployment CTA with instant command copy and status pulse.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['tailwindcss'],
+    tags: ['section', 'cta', 'conversion', 'terminal', 'install'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npm install clsx tailwind-merge',
+    featured: false,
+    dateAdded: '2026-10-01',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <AnimatedCtaBlock />
+      </div>
+    ),
+    usage: `<AnimatedCtaBlock />`,
+    files: [
+      {
+        name: 'AnimatedCtaBlock.tsx',
+        language: 'tsx',
+        code: `export { AnimatedCtaBlock } from '@/components/library/sections/AnimatedCtaBlock'`,
+      },
+    ],
+  },
+
+  // 23. Border Beam (Lightswind)
+  {
+    id: 'border-beam',
+    name: 'Luminous Border Beam',
+    slug: 'border-beam',
+    category: 'animations',
+    subcategory: 'Hover & Borders',
+    description: 'Animated glowing laser beam traveling along card perimeter with soft specular light trail.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['css-keyframes', 'tailwind-merge'],
+    tags: ['border', 'beam', 'glow', 'lightswind', 'shimmer', 'card'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cook-ui add border-beam',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'duration', type: 'number', label: 'Speed Duration (s)', min: 4, max: 20, step: 2, defaultValue: 8 },
+      { name: 'borderWidth', type: 'number', label: 'Border Width (px)', min: 1, max: 4, step: 1, defaultValue: 1.5 },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <div className="relative w-72 p-6 rounded-2xl bg-zinc-900 border border-white/10 shadow-2xl overflow-hidden text-center space-y-2">
+          <BorderBeam duration={props.duration || 8} borderWidth={props.borderWidth || 1.5} />
+          <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20">
+            PERIMETER LASER
+          </span>
+          <h4 className="text-sm font-semibold text-white">Active Border Beam</h4>
+          <p className="text-xs text-zinc-400">Ray travels along the coordinate contour automatically.</p>
+        </div>
+      </div>
+    ),
+    usage: `<div className="relative rounded-2xl overflow-hidden p-6 bg-zinc-900 border border-white/10">
+  <BorderBeam duration={8} />
+  <h3>Card with luminous border beam</h3>
+</div>`,
+    files: [
+      {
+        name: 'BorderBeam.tsx',
+        language: 'tsx',
+        code: `export { BorderBeam } from '@/components/library/effects/BorderBeam'`,
+      },
+    ],
+  },
+
+  // 24. Generative ASCII Wave (Lightswind)
+  {
+    id: 'ascii-wave',
+    name: 'Generative ASCII Wave',
+    slug: 'ascii-wave',
+    category: 'animations',
+    subcategory: 'Canvas & Shaders',
+    description: 'Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript'],
+    technologies: ['math-sin', 'ascii-matrix'],
+    tags: ['ascii', 'wave', 'generative', 'lightswind', 'matrix', 'typography'],
+    dependencies: ['react'],
+    installCommand: 'npx cook-ui add ascii-wave',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full">
+        <AsciiWave />
+      </div>
+    ),
+    usage: `<AsciiWave rows={16} cols={38} />`,
+    files: [
+      {
+        name: 'AsciiWave.tsx',
+        language: 'tsx',
+        code: `export { AsciiWave } from '@/components/library/effects/AsciiWave'`,
+      },
+    ],
+  },
+
+  // 25. Slide to Confirm (Lightswind)
+  {
+    id: 'slide-to-confirm',
+    name: 'Slide to Confirm Slider',
+    slug: 'slide-to-confirm',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Draggable tactical slide-to-confirm button with spring physics, progress fill, and unlock callback.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion'],
+    tags: ['slide', 'confirm', 'drag', 'security', 'tactical', 'button'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add slide-to-confirm',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <SlideToConfirm label="Slide to deploy" confirmedLabel="Deployment triggered!" />
+      </div>
+    ),
+    usage: `<SlideToConfirm onConfirm={() => alert('Confirmed!')} />`,
+    files: [
+      {
+        name: 'SlideToConfirm.tsx',
+        language: 'tsx',
+        code: `export { SlideToConfirm } from '@/components/library/buttons/SlideToConfirm'`,
+      },
+    ],
+  },
+
+  // 26. Specular Shiny Text (Lightswind)
+  {
+    id: 'shiny-text',
+    name: 'Specular Shiny Text',
+    slug: 'shiny-text',
+    category: 'animations',
+    subcategory: 'Typography',
+    description: 'Reflective specular light ray sweeping continuously across metallic typographic titles.',
+    frameworks: ['React', 'Next.js', 'Vite', 'Tailwind CSS'],
+    technologies: ['css-gradients', 'background-clip'],
+    tags: ['shiny', 'text', 'shimmer', 'lightswind', 'typography', 'gleam'],
+    dependencies: ['clsx'],
+    installCommand: 'npx cook-ui add shiny-text',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'speed', type: 'number', label: 'Speed (s)', min: 2, max: 10, step: 1, defaultValue: 4 },
+    ],
+    renderPreview: (props) => (
+      <div className="flex flex-col items-center justify-center p-8 w-full gap-3">
+        <ShinyText text="LIGHTSWIND REFLECTION" speed={props.speed || 4} className="text-2xl font-bold tracking-tight" />
+        <p className="text-xs text-zinc-500 font-mono">Continuous metallic ray displacement</p>
+      </div>
+    ),
+    usage: `<ShinyText text="Specular Typography" speed={4} />`,
+    files: [
+      {
+        name: 'ShinyText.tsx',
+        language: 'tsx',
+        code: `export { ShinyText } from '@/components/library/text/ShinyText'`,
+      },
+    ],
+  },
+
+  // 27. Dynamic Typewriter Loop
+  {
+    id: 'typing-text',
+    name: 'Dynamic Typewriter Loop',
+    slug: 'typing-text',
+    category: 'animations',
+    subcategory: 'Typography',
+    description: 'Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript'],
+    technologies: ['react-hooks', 'timing-loops'],
+    tags: ['typewriter', 'typing', 'text', 'terminal', 'ticker'],
+    dependencies: ['react'],
+    installCommand: 'npx cook-ui add typing-text',
+    featured: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex flex-col items-center justify-center p-8 w-full gap-2 text-center">
+        <span className="text-xs font-mono text-indigo-400 uppercase tracking-widest">BUILD WITH VELOCITY</span>
+        <TypingText
+          words={['Full-Stack React Apps', 'Next.js 15 Server Systems', 'High-FPS Motion Shaders', 'Tailwind CSS v4 Systems']}
+          className="text-xl font-bold text-white min-h-[32px]"
+        />
+      </div>
+    ),
+    usage: `<TypingText words={['Developers', 'Designers', 'Engineers']} />`,
+    files: [
+      {
+        name: 'TypingText.tsx',
+        language: 'tsx',
+        code: `export { TypingText } from '@/components/library/text/TypingText'`,
+      },
+    ],
+  },
+
+  // 28. Interactive Entropy Password Input
+  {
+    id: 'password-strength-indicator',
+    name: 'Interactive Entropy Password Input',
+    slug: 'password-strength-indicator',
+    category: 'components',
+    subcategory: 'Forms',
+    description: 'Real-time security entropy calculation with multi-tier colored meter and requirement checklist.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['entropy-algorithm', 'form-controls'],
+    tags: ['password', 'input', 'entropy', 'security', 'forms', 'auth'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add password-strength-indicator',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <PasswordStrengthIndicator />
+      </div>
+    ),
+    usage: `<PasswordStrengthIndicator onChange={(pwd, valid) => console.log(valid)} />`,
+    files: [
+      {
+        name: 'PasswordStrengthIndicator.tsx',
+        language: 'tsx',
+        code: `export { PasswordStrengthIndicator } from '@/components/library/forms/PasswordStrengthIndicator'`,
+      },
+    ],
+  },
+
+  // 29. Radial Ripple Button
+  {
+    id: 'ripple-button',
+    name: 'Radial Ripple Button',
+    slug: 'ripple-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Material-inspired coordinate-origin expanding liquid wave ripple with crisp decay.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['pointer-coordinates', 'css-animations'],
+    tags: ['ripple', 'button', 'interactive', 'coordinates', 'waves'],
+    dependencies: ['react'],
+    installCommand: 'npx cook-ui add ripple-button',
+    featured: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8 w-full gap-4">
+        <RippleButton>Click For Ripple</RippleButton>
+      </div>
+    ),
+    usage: `<RippleButton onClick={() => console.log('clicked')}>Ripple Button</RippleButton>`,
+    files: [
+      {
+        name: 'RippleButton.tsx',
+        language: 'tsx',
+        code: `export { RippleButton } from '@/components/library/buttons/RippleButton'`,
+      },
+    ],
+  },
+
+  // 30. Concentric Planetary Orbit Card
+  {
+    id: 'orbit-card',
+    name: 'Concentric Planetary Orbit Card',
+    slug: 'orbit-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Dual circular orbit rings with counter-rotating planetary tech nodes and core reactor.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'concentric-rings'],
+    tags: ['orbit', 'planetary', 'satellite', 'card', 'lightswind', '3d'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add orbit-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full">
+        <OrbitCard />
+      </div>
+    ),
+    usage: `<OrbitCard />`,
+    files: [
+      {
+        name: 'OrbitCard.tsx',
+        language: 'tsx',
+        code: `export { OrbitCard } from '@/components/library/cards/OrbitCard'`,
+      },
+    ],
+  },
+
+  // 31. Infinite Brand Logo Marquee
+  {
+    id: 'sliding-logo-marquee',
+    name: 'Infinite Brand Logo Marquee',
+    slug: 'sliding-logo-marquee',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Seamless hardware-accelerated horizontal brand partner marquee with hover pause and gradient fades.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['css-marquee', 'transform3d'],
+    tags: ['marquee', 'logos', 'partners', 'social proof', 'ticker'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add sliding-logo-marquee',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 overflow-hidden">
+        <SlidingLogoMarquee />
+      </div>
+    ),
+    usage: `<SlidingLogoMarquee speed={25} />`,
+    files: [
+      {
+        name: 'SlidingLogoMarquee.tsx',
+        language: 'tsx',
+        code: `export { SlidingLogoMarquee } from '@/components/library/navigation/SlidingLogoMarquee'`,
+      },
+    ],
+  },
+
+  // 32. Spring Notification Toast Stack
+  {
+    id: 'animated-notification-stack',
+    name: 'Spring Notification Toast Stack',
+    slug: 'animated-notification-stack',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Tactile stacked notification cards with interactive expandable deck and live push dispatch.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'layout-animations'],
+    tags: ['toast', 'notification', 'stack', 'alert', 'sonner', 'feed'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add animated-notification-stack',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <AnimatedNotificationStack />
+      </div>
+    ),
+    usage: `<AnimatedNotificationStack />`,
+    files: [
+      {
+        name: 'AnimatedNotificationStack.tsx',
+        language: 'tsx',
+        code: `export { AnimatedNotificationStack } from '@/components/library/navigation/AnimatedNotificationStack'`,
+      },
+    ],
+  },
+
+  // 33. Celebration Confetti Burst Button
+  {
+    id: 'confetti-button',
+    name: 'Celebration Confetti Burst Button',
+    slug: 'confetti-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Multi-color physics confetti explosion upon click with spring recoil and velocity vectors.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'particle-physics'],
+    tags: ['confetti', 'celebrate', 'particles', 'button', 'reward', 'gamification'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add confetti-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <ConfettiButton>Deploy to Production</ConfettiButton>
+      </div>
+    ),
+    usage: `<ConfettiButton particleCount={36} onClick={() => console.log('celebrated')}>Deploy</ConfettiButton>`,
+    files: [
+      {
+        name: 'ConfettiButton.tsx',
+        language: 'tsx',
+        code: `export { ConfettiButton } from '@/components/library/buttons/ConfettiButton'`,
+      },
+    ],
+  },
+
+  // 34. Refractive Liquid Glass Button
+  {
+    id: 'liquid-glass-button',
+    name: 'Refractive Liquid Glass Button',
+    slug: 'liquid-glass-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Frosted Apple-style refractive glass with dynamic cursor-tracking specular highlight sweep.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['backdrop-filter', 'radial-specular', 'framer-motion'],
+    tags: ['glassmorphism', 'liquid', 'refraction', 'apple', 'button', 'luxury'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add liquid-glass-button',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <LiquidGlassButton>Refractive Interface</LiquidGlassButton>
+      </div>
+    ),
+    usage: `<LiquidGlassButton variant="primary">Launch System</LiquidGlassButton>`,
+    files: [
+      {
+        name: 'LiquidGlassButton.tsx',
+        language: 'tsx',
+        code: `export { LiquidGlassButton } from '@/components/library/buttons/LiquidGlassButton'`,
+      },
+    ],
+  },
+
+  // 35. Coordinate Beam Grid Matrix (Lightswind)
+  {
+    id: 'beam-grid-background',
+    name: 'Coordinate Beam Grid Matrix',
+    slug: 'beam-grid-background',
+    category: 'backgrounds',
+    subcategory: 'Interactive Grids',
+    description: 'SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['svg-patterns', 'framer-motion', 'laser-beams'],
+    tags: ['beam', 'grid', 'laser', 'matrix', 'lightswind', 'background'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cook-ui add beam-grid-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'gridSize', type: 'number', label: 'Grid Size (px)', min: 32, max: 72, step: 8, defaultValue: 48 },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full h-80 rounded-2xl overflow-hidden">
+        <BeamGridBackground gridSize={props.gridSize || 48} />
+      </div>
+    ),
+    usage: `<BeamGridBackground gridSize={48}>
+  <h1>Content over matrix</h1>
+</BeamGridBackground>`,
+    files: [
+      {
+        name: 'BeamGridBackground.tsx',
+        language: 'tsx',
+        code: `export { BeamGridBackground } from '@/components/library/backgrounds/BeamGridBackground'`,
+      },
+    ],
+  },
+
+  // 36. Cosmic Dust Gravity Canvas
+  {
+    id: 'cosmic-dust-background',
+    name: 'Cosmic Dust Gravity Canvas',
+    slug: 'cosmic-dust-background',
+    category: 'backgrounds',
+    subcategory: 'Particles',
+    description: 'Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript'],
+    technologies: ['html5-canvas', 'gravitational-physics'],
+    tags: ['cosmic', 'dust', 'particles', 'canvas', 'space', 'background'],
+    dependencies: ['react'],
+    installCommand: 'npx cook-ui add cosmic-dust-background',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'particleCount', type: 'number', label: 'Particle Count', min: 60, max: 240, step: 20, defaultValue: 120 },
+    ],
+    renderPreview: (props) => (
+      <div className="w-full h-80 rounded-2xl overflow-hidden">
+        <CosmicDustBackground particleCount={props.particleCount || 120} />
+      </div>
+    ),
+    usage: `<CosmicDustBackground particleCount={120} />`,
+    files: [
+      {
+        name: 'CosmicDustBackground.tsx',
+        language: 'tsx',
+        code: `export { CosmicDustBackground } from '@/components/library/backgrounds/CosmicDustBackground'`,
+      },
+    ],
+  },
+
+  // 37. Harmonic Spectrum Equalizer
+  {
+    id: 'spectrum-loader',
+    name: 'Harmonic Spectrum Equalizer',
+    slug: 'spectrum-loader',
+    category: 'animations',
+    subcategory: 'Visualizers',
+    description: 'Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'frequency-synthesis'],
+    tags: ['spectrum', 'equalizer', 'audio', 'loader', 'frequency', 'lightswind'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add spectrum-loader',
+    featured: false,
+    dateAdded: '2026-10-04',
+    controls: [
+      { name: 'barCount', type: 'number', label: 'Bar Count', min: 8, max: 24, step: 2, defaultValue: 16 },
+    ],
+    renderPreview: (props) => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <SpectrumLoader barCount={props.barCount || 16} />
+      </div>
+    ),
+    usage: `<SpectrumLoader barCount={16} variant="rainbow" />`,
+    files: [
+      {
+        name: 'SpectrumLoader.tsx',
+        language: 'tsx',
+        code: `export { SpectrumLoader } from '@/components/library/effects/SpectrumLoader'`,
+      },
+    ],
+  },
+
+  // 38. 3D Parallax Perspective Card (Lightswind)
+  {
+    id: 'perspective-card-3d',
+    name: '3D Parallax Perspective Card',
+    slug: 'perspective-card-3d',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Multilayer spatial depth card where internal elements float along the Z-axis with mouse tracking.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['css-preserve-3d', 'framer-motion', 'useSpring'],
+    tags: ['3d', 'parallax', 'perspective', 'card', 'lightswind', 'spatial'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add perspective-card-3d',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <PerspectiveCard3D />
+      </div>
+    ),
+    usage: `<PerspectiveCard3D title="Neural Core" subtitle="Sub-millisecond tensor dispatch" />`,
+    files: [
+      {
+        name: 'PerspectiveCard3D.tsx',
+        language: 'tsx',
+        code: `export { PerspectiveCard3D } from '@/components/library/cards/PerspectiveCard3D'`,
+      },
+    ],
+  },
+
+  // 39. Expandable Command Search Bar (Lightswind)
+  {
+    id: 'expandable-search-bar',
+    name: 'Expandable Command Search Bar',
+    slug: 'expandable-search-bar',
+    category: 'components',
+    subcategory: 'Forms',
+    description: 'Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'focus-springs'],
+    tags: ['search', 'cmd-k', 'filter', 'input', 'spotlight', 'lightswind'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add expandable-search-bar',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full min-h-[140px]">
+        <ExpandableSearchBar />
+      </div>
+    ),
+    usage: `<ExpandableSearchBar onSearch={(q) => console.log(q)} />`,
+    files: [
+      {
+        name: 'ExpandableSearchBar.tsx',
+        language: 'tsx',
+        code: `export { ExpandableSearchBar } from '@/components/library/forms/ExpandableSearchBar'`,
+      },
+    ],
+  },
+
+  // 40. Interactive Developer Terminal Card (Lightswind)
+  {
+    id: 'terminal-card',
+    name: 'Interactive Developer Terminal Card',
+    slug: 'terminal-card',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Simulated developer CLI shell executing interactive commands (help, build, stats, clear) with status logs.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['cli-engine', 'monospaced-ui'],
+    tags: ['terminal', 'cli', 'bash', 'card', 'developer', 'lightswind'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add terminal-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <TerminalCard />
+      </div>
+    ),
+    usage: `<TerminalCard />`,
+    files: [
+      {
+        name: 'TerminalCard.tsx',
+        language: 'tsx',
+        code: `export { TerminalCard } from '@/components/library/cards/TerminalCard'`,
+      },
+    ],
+  },
+
+  // 41. Morphing Spring Pill Tabs
+  {
+    id: 'tabs-morph',
+    name: 'Morphing Spring Pill Tabs',
+    slug: 'tabs-morph',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Fluid layoutId morphing background indicator tabs with tactile spring motion and status badges.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'layoutId'],
+    tags: ['tabs', 'segmented', 'morph', 'navigation', 'layoutId', 'springs'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add tabs-morph',
+    featured: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <TabsMorph />
+      </div>
+    ),
+    usage: `<TabsMorph defaultTab="preview" onChange={(id) => console.log(id)} />`,
+    files: [
+      {
+        name: 'TabsMorph.tsx',
+        language: 'tsx',
+        code: `export { TabsMorph } from '@/components/library/navigation/TabsMorph'`,
+      },
+    ],
+  },
+
+  // 42. Procedural Film Grain Synthesizer
+  {
+    id: 'noise-grain-overlay',
+    name: 'Procedural Film Grain Synthesizer',
+    slug: 'noise-grain-overlay',
+    category: 'animations',
+    subcategory: 'Textures & Overlays',
+    description: 'Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.',
+    frameworks: ['React', 'Next.js', 'Vite', 'Tailwind CSS'],
+    technologies: ['svg-filters', 'feTurbulence'],
+    tags: ['noise', 'grain', 'texture', 'analog', 'editorial', 'shader'],
+    dependencies: ['react'],
+    installCommand: 'npx cook-ui add noise-grain-overlay',
+    featured: false,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <NoiseGrainOverlay initialOpacity={0.08} />
+      </div>
+    ),
+    usage: `<NoiseGrainOverlay initialOpacity={0.06} />`,
+    files: [
+      {
+        name: 'NoiseGrainOverlay.tsx',
+        language: 'tsx',
+        code: `export { NoiseGrainOverlay } from '@/components/library/effects/NoiseGrainOverlay'`,
+      },
+    ],
+  },
+
+  // 43. Tiered SaaS Pricing Matrix
+  {
+    id: 'pricing-comparison-block',
+    name: 'Tiered SaaS Pricing Matrix',
+    slug: 'pricing-comparison-block',
+    category: 'sections',
+    subcategory: 'Pricing',
+    description: 'Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'tailwind-merge'],
+    tags: ['pricing', 'saas', 'tiers', 'section', 'billing', 'conversion'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add pricing-comparison-block',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 overflow-hidden">
+        <PricingComparisonBlock />
+      </div>
+    ),
+    usage: `<PricingComparisonBlock />`,
+    files: [
+      {
+        name: 'PricingComparisonBlock.tsx',
+        language: 'tsx',
+        code: `export { PricingComparisonBlock } from '@/components/library/sections/PricingComparisonBlock'`,
+      },
+    ],
+  },
+
+  // 44. Endless Social Proof Testimonials
+  {
+    id: 'testimonial-marquee-block',
+    name: 'Endless Social Proof Testimonials',
+    slug: 'testimonial-marquee-block',
+    category: 'sections',
+    subcategory: 'Testimonials',
+    description: 'Continuous dual-directional testimonial marquee with verified engineer reviews and star ratings.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['css-marquee', 'social-proof'],
+    tags: ['testimonials', 'marquee', 'reviews', 'social proof', 'section'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add testimonial-marquee-block',
+    featured: false,
+    popular: true,
+    dateAdded: '2026-10-04',
+    renderPreview: () => (
+      <div className="w-full p-4 overflow-hidden">
+        <TestimonialMarqueeBlock />
+      </div>
+    ),
+    usage: `<TestimonialMarqueeBlock />`,
+    files: [
+      {
+        name: 'TestimonialMarqueeBlock.tsx',
+        language: 'tsx',
+        code: `export { TestimonialMarqueeBlock } from '@/components/library/sections/TestimonialMarqueeBlock'`,
+      },
+    ],
+  },
+]
