@@ -30,9 +30,11 @@ export const MatrixRainTerminal: React.FC<MatrixRainTerminalProps> = ({
 
     let animationId: number;
     let lastTime = 0;
+    let isVisible = true;
 
     const render = (time: number) => {
-      if (isPlaying && time - lastTime > speed) {
+      if (!isVisible || !isPlaying) return;
+      if (time - lastTime > speed) {
         lastTime = time;
         ctx.fillStyle = 'rgba(5, 5, 10, 0.15)';
         ctx.fillRect(0, 0, width, height);
@@ -59,7 +61,18 @@ export const MatrixRainTerminal: React.FC<MatrixRainTerminalProps> = ({
       animationId = requestAnimationFrame(render);
     };
 
-    animationId = requestAnimationFrame(render);
+    if (isPlaying) {
+      animationId = requestAnimationFrame(render);
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible && isPlaying) {
+        animationId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
 
     const handleResize = () => {
       if (!canvas.parentElement) return;
@@ -70,6 +83,7 @@ export const MatrixRainTerminal: React.FC<MatrixRainTerminalProps> = ({
     window.addEventListener('resize', handleResize);
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
     };
   }, [isPlaying, fontSize, speed]);

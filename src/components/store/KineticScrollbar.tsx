@@ -14,6 +14,11 @@ export const KineticScrollbar: React.FC = () => {
     mass: 0.8,
   })
 
+  const thumbSpring = useSpring(0, {
+    stiffness: 60,
+    damping: 18,
+  })
+
   useEffect(() => {
     let ticking = false
 
@@ -25,6 +30,7 @@ export const KineticScrollbar: React.FC = () => {
             const current = Math.min(1, Math.max(0, window.scrollY / totalHeight))
             setScrollProgress(current)
             progressSpring.set(current)
+            thumbSpring.set(current * (176 - 24))
             setIsVisible(window.scrollY > 80)
           }
           ticking = false
@@ -37,7 +43,7 @@ export const KineticScrollbar: React.FC = () => {
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [progressSpring])
+  }, [progressSpring, thumbSpring])
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -92,7 +98,7 @@ export const KineticScrollbar: React.FC = () => {
             className="w-full rounded-full bg-gradient-to-b from-indigo-500 via-cyan-400 to-emerald-400 shadow-[0_0_12px_rgba(99,102,241,0.8)]"
             style={{
               height: '24px',
-              y: useSpring(scrollProgress * (176 - 24), { stiffness: 60, damping: 18 }),
+              y: thumbSpring,
             }}
           />
         </div>

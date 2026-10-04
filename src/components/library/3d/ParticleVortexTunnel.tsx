@@ -10,6 +10,7 @@ export const ParticleVortexTunnel: React.FC = () => {
     if (!ctx) return;
 
     let animId: number;
+    let isVisible = true;
     const stars: { x: number; y: number; z: number }[] = [];
     const count = 120;
 
@@ -22,6 +23,7 @@ export const ParticleVortexTunnel: React.FC = () => {
     }
 
     const render = () => {
+      if (!isVisible) return;
       ctx.fillStyle = 'rgba(5, 5, 8, 0.25)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -50,9 +52,21 @@ export const ParticleVortexTunnel: React.FC = () => {
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    animId = requestAnimationFrame(render);
 
-    return () => cancelAnimationFrame(animId);
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+    };
   }, []);
 
   return (

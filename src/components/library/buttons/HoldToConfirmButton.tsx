@@ -8,6 +8,12 @@ export const HoldToConfirmButton: React.FC = () => {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const timerRef = useRef<number | null>(null);
 
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) cancelAnimationFrame(timerRef.current);
+    };
+  }, []);
+
   const startHold = () => {
     if (isConfirmed) return;
     setIsHolding(true);

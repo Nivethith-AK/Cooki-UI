@@ -40,7 +40,9 @@ export const ParticleConstellationBackground: React.FC<ParticleConstellationBack
     };
 
     let animId: number;
+    let isVisible = true;
     const render = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, width, height);
 
       // Draw connections
@@ -93,6 +95,16 @@ export const ParticleConstellationBackground: React.FC<ParticleConstellationBack
     };
 
     animId = requestAnimationFrame(render);
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
     canvas.addEventListener('mousemove', handleMouseMove);
 
     const handleResize = () => {
@@ -104,6 +116,7 @@ export const ParticleConstellationBackground: React.FC<ParticleConstellationBack
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
       canvas.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };

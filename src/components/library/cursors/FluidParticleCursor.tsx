@@ -13,18 +13,26 @@ interface Particle {
 export const FluidParticleCursor: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const lastPosRef = useRef<{ x: number; y: number } | null>(null);
+  const animIdRef = useRef<number | null>(null);
+  const isRunningRef = useRef(false);
 
-  useEffect(() => {
+  const startLoop = () => {
+    if (isRunningRef.current) return;
+    isRunningRef.current = true;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animId: number;
-    const colors = ['#6366f1', '#38bdf8', '#a855f7', '#34d399', '#f43f5e'];
-
     const render = () => {
+      if (particlesRef.current.length === 0) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        isRunningRef.current = false;
+        animIdRef.current = null;
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = particlesRef.current.length - 1; i >= 0; i--) {
@@ -50,12 +58,18 @@ export const FluidParticleCursor: React.FC = () => {
         ctx.restore();
       }
 
-      animId = requestAnimationFrame(render);
+      animIdRef.current = requestAnimationFrame(render);
     };
 
-    render();
+    animIdRef.current = requestAnimationFrame(render);
+  };
 
-    return () => cancelAnimationFrame(animId);
+  useEffect(() => {
+    return () => {
+      if (animIdRef.current) {
+        cancelAnimationFrame(animIdRef.current);
+      }
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -78,6 +92,8 @@ export const FluidParticleCursor: React.FC = () => {
         color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
+
+    startLoop();
   };
 
   return (

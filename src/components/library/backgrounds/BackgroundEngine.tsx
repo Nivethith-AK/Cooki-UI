@@ -33,6 +33,7 @@ export const BackgroundEngine: React.FC<{
     if (!ctx) return
 
     let animId: number
+    let isVisible = true
     const w = (canvas.width = canvas.parentElement?.clientWidth || 320)
     const h = (canvas.height = canvas.parentElement?.clientHeight || 220)
 
@@ -47,6 +48,7 @@ export const BackgroundEngine: React.FC<{
     }))
 
     const render = () => {
+      if (!isVisible) return
       ctx.clearRect(0, 0, w, h)
       ctx.fillStyle = spec.palette.bg
       ctx.fillRect(0, 0, w, h)
@@ -82,8 +84,21 @@ export const BackgroundEngine: React.FC<{
       animId = requestAnimationFrame(render)
     }
 
-    render()
-    return () => cancelAnimationFrame(animId)
+    animId = requestAnimationFrame(render)
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible
+      isVisible = entry.isIntersecting
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render)
+      }
+    }, { threshold: 0.05 })
+    observer.observe(canvas)
+
+    return () => {
+      cancelAnimationFrame(animId)
+      observer.disconnect()
+    }
   }, [spec])
 
   const renderContent = () => {

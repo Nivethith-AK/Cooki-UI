@@ -10,6 +10,7 @@ export const QuantumFieldBackground: React.FC = () => {
     if (!ctx) return;
 
     let animId: number;
+    let isVisible = true;
     const count = 28;
     const particles = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
@@ -19,6 +20,7 @@ export const QuantumFieldBackground: React.FC = () => {
     }));
 
     const render = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p, idx) => {
@@ -49,8 +51,21 @@ export const QuantumFieldBackground: React.FC = () => {
       animId = requestAnimationFrame(render);
     };
 
-    render();
-    return () => cancelAnimationFrame(animId);
+    animId = requestAnimationFrame(render);
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+    };
   }, []);
 
   return (

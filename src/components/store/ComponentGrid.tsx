@@ -3,7 +3,7 @@ import { MagnifyingGlass, ArrowClockwise, CaretLeft, CaretRight, SquaresFour, Ro
 import { useStore, SortOption } from '../../context/StoreContext'
 import { ComponentCard } from './ComponentCard'
 
-const ITEMS_PER_PAGE = 24
+const ITEMS_PER_PAGE = 18
 
 export const ComponentGrid: React.FC = () => {
   const { filteredComponents, sortBy, setSortBy, searchQuery, resetFilters, selectedCategory, selectedFramework } = useStore()

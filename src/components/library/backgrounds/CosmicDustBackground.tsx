@@ -61,7 +61,10 @@ export const CosmicDustBackground: React.FC<CosmicDustBackgroundProps> = ({
 
     window.addEventListener('resize', handleResize);
 
+    let isVisible = true;
+
     const render = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {
@@ -105,10 +108,20 @@ export const CosmicDustBackground: React.FC<CosmicDustBackgroundProps> = ({
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    animationFrameId = requestAnimationFrame(render);
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
     };
   }, [particleCount, dustColor, interactive]);

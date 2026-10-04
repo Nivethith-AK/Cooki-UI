@@ -11,8 +11,10 @@ export const PlasmaGlobe: React.FC = () => {
 
     let animId: number;
     let t = 0;
+    let isVisible = true;
 
     const render = () => {
+      if (!isVisible) return;
       t += 0.03;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const cx = canvas.width / 2;
@@ -51,8 +53,21 @@ export const PlasmaGlobe: React.FC = () => {
       animId = requestAnimationFrame(render);
     };
 
-    render();
-    return () => cancelAnimationFrame(animId);
+    animId = requestAnimationFrame(render);
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+    };
   }, []);
 
   return (

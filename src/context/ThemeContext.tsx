@@ -40,7 +40,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [isDark])
 
-  const toggleTheme = () => setIsDark((prev) => !prev)
+  const toggleTheme = () => {
+    const root = document.documentElement
+    root.classList.add('theme-transitioning')
+    setIsDark((prev) => !prev)
+    setTimeout(() => {
+      root.classList.remove('theme-transitioning')
+    }, 300)
+  }
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>

@@ -24,24 +24,14 @@
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Universal silky theme transition across containers, cards, and borders */
-  header,
-  main,
-  footer,
-  nav,
-  div,
-  section,
-  article,
-  aside,
-  span,
-  h1, h2, h3, h4, h5, h6,
-  p,
-  button,
-  input,
-  textarea {
-    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Silky smooth theme transitions applied only when actively switching themes */
+  .theme-transitioning,
+  .theme-transitioning *,
+  .theme-transitioning *::before,
+  .theme-transitioning *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow !important;
+    transition-duration: 250ms !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
 

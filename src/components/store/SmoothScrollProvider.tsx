@@ -5,12 +5,12 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ 
   useEffect(() => {
     // Initialize Lenis for luxurious, silky smooth kinetic scrolling
     const lenis = new Lenis({
-      duration: 1.25,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.85,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -8 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 1.8,
+      touchMultiplier: 1.2,
       infinite: false,
     })
 

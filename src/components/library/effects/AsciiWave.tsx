@@ -12,7 +12,8 @@ export const AsciiWave: React.FC<AsciiWaveProps> = ({
   rows = 14,
   cols = 38,
 }) => {
-  const [output, setOutput] = useState<string[]>([])
+  const containerRef = useRef<HTMLDivElement>(null)
+  const preRef = useRef<HTMLPreElement>(null)
   const frameRef = useRef(0)
   const mousePos = useRef({ x: 19, y: 7 })
 
@@ -20,8 +21,10 @@ export const AsciiWave: React.FC<AsciiWaveProps> = ({
 
   useEffect(() => {
     let animId: number
+    let isVisible = true
 
     const render = () => {
+      if (!isVisible) return
       frameRef.current += 0.05
       const lines: string[] = []
 
@@ -44,12 +47,30 @@ export const AsciiWave: React.FC<AsciiWaveProps> = ({
         lines.push(line)
       }
 
-      setOutput(lines)
+      if (preRef.current) {
+        preRef.current.textContent = lines.join('\n')
+      }
       animId = requestAnimationFrame(render)
     }
 
-    render()
-    return () => cancelAnimationFrame(animId)
+    animId = requestAnimationFrame(render)
+
+    const observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisible
+      isVisible = entry.isIntersecting
+      if (isVisible && !wasVisible) {
+        animId = requestAnimationFrame(render)
+      }
+    }, { threshold: 0.05 })
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => {
+      cancelAnimationFrame(animId)
+      observer.disconnect()
+    }
   }, [rows, cols])
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -61,6 +82,7 @@ export const AsciiWave: React.FC<AsciiWaveProps> = ({
 
   return (
     <div
+      ref={containerRef}
       onMouseMove={handleMouseMove}
       className={cn(
         'relative overflow-hidden rounded-3xl border border-white/10 bg-[#060608] p-6 font-mono text-[10px] leading-[11px] text-emerald-400 select-none shadow-2xl flex flex-col items-center justify-center',
@@ -72,9 +94,7 @@ export const AsciiWave: React.FC<AsciiWaveProps> = ({
         <span>ASCII WAVE GENERATOR</span>
       </div>
 
-      <pre className="tracking-widest whitespace-pre overflow-hidden text-emerald-400/90 font-mono">
-        {output.join('\n')}
-      </pre>
+      <pre ref={preRef} className="tracking-widest whitespace-pre overflow-hidden text-emerald-400/90 font-mono" />
 
       <div className="mt-3 text-[10px] text-zinc-500 font-mono">
         Interactive fluid simulation &bull; Hover to disturb
