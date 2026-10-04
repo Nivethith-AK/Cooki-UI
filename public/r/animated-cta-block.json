@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-cta-block",
+  "type": "registry:ui",
+  "title": "High-Conversion Terminal CTA",
+  "description": "Conversion-optimized terminal deployment CTA with instant command copy and status pulse.",
+  "category": "sections",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "cta",
+    "conversion",
+    "terminal"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/animated-cta-block/animated-cta-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-cta-block.tsx",
+      "content": "import React, { useState } from 'react'\nimport { ArrowUpRight, Copy, Check, Terminal } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface AnimatedCtaBlockProps {\n  className?: string\n}\n\nexport const AnimatedCtaBlock: React.FC<AnimatedCtaBlockProps> = ({ className }) => {\n  const [copied, setCopied] = useState(false)\n  const cmd = 'npx cook init --runtime=enterprise'\n\n  const copy = () => {\n    navigator.clipboard.writeText(cmd)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div className={cn('w-full max-w-2xl rounded-[2.5rem] border border-white/15 bg-gradient-to-b from-zinc-900 to-zinc-950 p-8 text-center text-white shadow-2xl', className)}>\n      <div className=\"inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-emerald-400\">\n        <span>RUNTIME v2.4 DEPLOYMENT</span>\n      </div>\n\n      <h3 className=\"mt-4 text-2xl font-bold tracking-tight\">Deploy Deterministic Engineering</h3>\n      <p className=\"mt-2 text-xs text-zinc-400 max-w-md mx-auto\">\n        Integrate the COOK compiler into your existing GitHub Actions pipeline and automate verified pull requests.\n      </p>\n\n      <div className=\"mt-6 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/80 px-4 py-2.5 font-mono text-xs max-w-md mx-auto\">\n        <div className=\"flex items-center gap-2 text-zinc-300 truncate\">\n          <span className=\"text-emerald-400 font-bold\">$</span>\n          <span className=\"truncate\">{cmd}</span>\n        </div>\n        <button\n          onClick={copy}\n          className=\"flex items-center gap-1.5 rounded-lg bg-zinc-800 px-2.5 py-1 text-xs text-zinc-200 hover:bg-zinc-700 transition-colors shrink-0\"\n        >\n          {copied ? <Check size={13} className=\"text-emerald-400\" /> : <Copy size={13} />}\n          <span>{copied ? 'Copied' : 'Copy'}</span>\n        </button>\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

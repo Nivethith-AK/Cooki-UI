@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "terminal-card",
+  "type": "registry:ui",
+  "title": "Interactive Developer Terminal Card",
+  "description": "Simulated developer CLI shell executing interactive commands with status logs.",
+  "category": "cards",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "terminal",
+    "cli",
+    "bash"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/terminal-card/terminal-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/terminal-card.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

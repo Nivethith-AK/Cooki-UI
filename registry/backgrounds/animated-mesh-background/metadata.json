@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-mesh-background",
+  "type": "registry:ui",
+  "title": "Generative Animated Mesh Gradient",
+  "description": "Deep spatial canvas mesh gradient with animated organic noise displacement.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "mesh",
+    "gradient",
+    "animated"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/animated-mesh-background/animated-mesh-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-mesh-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

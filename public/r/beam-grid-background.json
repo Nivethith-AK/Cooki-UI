@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beam-grid-background",
+  "type": "registry:ui",
+  "title": "Coordinate Beam Grid Matrix",
+  "description": "SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.",
+  "category": "backgrounds",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "beam",
+    "grid",
+    "laser"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/beam-grid-background/beam-grid-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/beam-grid-background.tsx",
+      "content": "import React, { useId } from 'react';\nimport { motion } from 'framer-motion';\n\ninterface BeamGridBackgroundProps {\n  className?: string;\n  gridSize?: number;\n  beamColor?: string;\n  gridColor?: string;\n  children?: React.ReactNode;\n}\n\nexport const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({\n  className = '',\n  gridSize = 48,\n  beamColor = '#6366f1',\n  gridColor = 'rgba(255, 255, 255, 0.08)',\n  children,\n}) => {\n  const patternId = useId();\n\n  return (\n    <div className={`relative w-full h-full min-h-[360px] overflow-hidden rounded-2xl bg-zinc-950 flex items-center justify-center ${className}`}>\n      {/* SVG Grid Pattern */}\n      <svg className=\"absolute inset-0 w-full h-full pointer-events-none stroke-zinc-800/40\">\n        <defs>\n          <pattern\n            id={patternId}\n            width={gridSize}\n            height={gridSize}\n            patternUnits=\"userSpaceOnUse\"\n          >\n            <path\n              d={`M ${gridSize} 0 L 0 0 0 ${gridSize}`}\n              fill=\"none\"\n              stroke={gridColor}\n              strokeWidth=\"1\"\n            />\n          </pattern>\n        </defs>\n        <rect width=\"100%\" height=\"100%\" fill={`url(#${patternId})`} />\n      </svg>\n\n      {/* Radial vignette fade out at edges */}\n      <div className=\"absolute inset-0 bg-radial-gradient from-transparent via-zinc-950/40 to-zinc-950 pointer-events-none\" />\n\n      {/* Animated Beams traversing along grid lines */}\n      <div className=\"absolute inset-0 pointer-events-none overflow-hidden\">\n        {/* Horizontal Laser 1 */}\n        <motion.div\n          animate={{\n            x: ['-20%', '120%'],\n          }}\n          transition={{\n            duration: 4.5,\n            repeat: Infinity,\n            ease: 'linear',\n            repeatDelay: 1.5,\n          }}\n          style={{ top: gridSize * 2 }}\n          className=\"absolute h-[2px] w-48 bg-gradient-to-r from-transparent via-cyan-400 to-transparent blur-[1px] shadow-[0_0_12px_#38bdf8]\"\n        />\n\n        {/* Horizontal Laser 2 */}\n        <motion.div\n          animate={{\n            x: ['120%', '-20%'],\n          }}\n          transition={{\n            duration: 6,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 1,\n            repeatDelay: 2,\n          }}\n          style={{ top: gridSize * 5 }}\n          className=\"absolute h-[2px] w-64 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-[1px] shadow-[0_0_16px_#6366f1]\"\n        />\n\n        {/* Vertical Laser 1 */}\n        <motion.div\n          animate={{\n            y: ['-20%', '120%'],\n          }}\n          transition={{\n            duration: 5,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 0.5,\n            repeatDelay: 1,\n          }}\n          style={{ left: gridSize * 3 }}\n          className=\"absolute w-[2px] h-48 bg-gradient-to-b from-transparent via-fuchsia-500 to-transparent blur-[1px] shadow-[0_0_14px_#d946ef]\"\n        />\n\n        {/* Vertical Laser 2 */}\n        <motion.div\n          animate={{\n            y: ['120%', '-20%'],\n          }}\n          transition={{\n            duration: 7,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 2.2,\n            repeatDelay: 1.8,\n          }}\n          style={{ left: gridSize * 8 }}\n          className=\"absolute w-[2px] h-56 bg-gradient-to-b from-transparent via-emerald-400 to-transparent blur-[1px] shadow-[0_0_14px_#34d399]\"\n        />\n      </div>\n\n      {/* Content wrapper */}\n      <div className=\"relative z-10 w-full max-w-lg p-8 text-center\">\n        {children || (\n          <div className=\"space-y-3 bg-zinc-900/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl\">\n            <span className=\"inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20\">\n              LIGHTSWIND MATRIX\n            </span>\n            <h3 className=\"text-xl font-semibold text-white tracking-tight\">\n              Coordinate Beam Grid\n            </h3>\n            <p className=\"text-xs text-zinc-400 leading-relaxed\">\n              Synthesized vector lasers tracing Cartesian coordinate planes in real-time.\n            </p>\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

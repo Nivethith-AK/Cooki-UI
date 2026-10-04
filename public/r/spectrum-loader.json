@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spectrum-loader",
+  "type": "registry:ui",
+  "title": "Harmonic Spectrum Equalizer",
+  "description": "Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "spectrum",
+    "equalizer",
+    "audio",
+    "loader"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/spectrum-loader/spectrum-loader.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spectrum-loader.tsx",
+      "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Play, Pause } from '@phosphor-icons/react';\n\ninterface SpectrumLoaderProps {\n  className?: string;\n  barCount?: number;\n  color?: string;\n  variant?: 'rainbow' | 'emerald' | 'violet';\n}\n\nexport const SpectrumLoader: React.FC<SpectrumLoaderProps> = ({\n  className = '',\n  barCount = 16,\n  variant = 'rainbow',\n}) => {\n  const [isPlaying, setIsPlaying] = useState(true);\n\n  const getBarColor = (index: number) => {\n    if (variant === 'rainbow') {\n      const hue = 180 + (index / barCount) * 120;\n      return `hsl(${hue}, 85%, 60%)`;\n    }\n    if (variant === 'emerald') {\n      return '#10b981';\n    }\n    return '#8b5cf6';\n  };\n\n  return (\n    <div className={`flex flex-col items-center justify-center p-6 gap-6 rounded-2xl bg-zinc-900/60 border border-white/10 backdrop-blur-md ${className}`}>\n      {/* Equalizer Frequency Bars */}\n      <div className=\"flex items-end justify-center gap-1.5 h-20 w-full max-w-[280px] px-4 py-2\">\n        {Array.from({ length: barCount }).map((_, i) => {\n          // generate pseudo harmonic curve\n          const baseHeight = 20 + Math.sin((i / barCount) * Math.PI) * 45;\n          const minHeight = 12 + (i % 3) * 6;\n          const duration = 0.5 + ((i * 7) % 5) * 0.12;\n\n          return (\n            <motion.div\n              key={i}\n              animate={\n                isPlaying\n                  ? {\n                      height: [\n                        `${minHeight}%`,\n                        `${baseHeight}%`,\n                        `${Math.min(100, baseHeight + 25)}%`,\n                        `${minHeight + 10}%`,\n                        `${baseHeight * 0.7}%`,\n                      ],\n                    }\n                  : { height: '14%' }\n              }\n              transition={{\n                duration,\n                repeat: Infinity,\n                repeatType: 'reverse',\n                ease: 'easeInOut',\n                delay: (i * 0.06) % 0.4,\n              }}\n              style={{\n                backgroundColor: getBarColor(i),\n                boxShadow: isPlaying ? `0 0 10px ${getBarColor(i)}` : 'none',\n              }}\n              className=\"w-2 rounded-full transition-all duration-300\"\n            />\n          );\n        })}\n      </div>\n\n      {/* Control pill */}\n      <div className=\"flex items-center gap-3\">\n        <button\n          onClick={() => setIsPlaying(!isPlaying)}\n          className=\"inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-medium text-zinc-300 bg-zinc-800 hover:bg-zinc-700 border border-white/10 transition-colors cursor-pointer\"\n        >\n          {isPlaying ? (\n            <>\n              <Pause size={14} weight=\"fill\" className=\"text-amber-400\" />\n              <span>PAUSE WAVE</span>\n            </>\n          ) : (\n            <>\n              <Play size={14} weight=\"fill\" className=\"text-emerald-400\" />\n              <span>RESUME WAVE</span>\n            </>\n          )}\n        </button>\n        <span className=\"text-[11px] font-mono text-zinc-500 uppercase tracking-widest\">\n          {isPlaying ? '48.1 kHz Audio' : 'Muted'}\n        </span>\n      </div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

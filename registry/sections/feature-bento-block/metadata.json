@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-bento-block",
+  "type": "registry:ui",
+  "title": "Technical Feature Bento Block",
+  "description": "Asymmetric technical bento grid section with hardware isolation badges and metrics.",
+  "category": "sections",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "bento",
+    "features",
+    "grid"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/feature-bento-block/feature-bento-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/feature-bento-block.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

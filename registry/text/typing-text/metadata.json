@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-text",
+  "type": "registry:ui",
+  "title": "Dynamic Typewriter Loop",
+  "description": "Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.",
+  "category": "text",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "typewriter",
+    "typing",
+    "terminal"
+  ],
+  "files": [
+    {
+      "path": "registry/text/typing-text/typing-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/typing-text.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "noise-grain-overlay",
+  "type": "registry:ui",
+  "title": "Procedural Film Grain Synthesizer",
+  "description": "Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.",
+  "category": "effects",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "noise",
+    "grain",
+    "texture"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/noise-grain-overlay/noise-grain-overlay.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/noise-grain-overlay.tsx",
+      "content": "import React, { useState } from 'react';\n\ninterface NoiseGrainOverlayProps {\n  className?: string;\n  initialOpacity?: number;\n  children?: React.ReactNode;\n}\n\nexport const NoiseGrainOverlay: React.FC<NoiseGrainOverlayProps> = ({\n  className = '',\n  initialOpacity = 0.07,\n  children,\n}) => {\n  const [opacity, setOpacity] = useState(initialOpacity);\n\n  return (\n    <div className={`relative w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 p-8 ${className}`}>\n      {/* SVG Procedural FeTurbulence Noise */}\n      <div\n        className=\"absolute inset-0 pointer-events-none mix-blend-overlay transition-opacity duration-300\"\n        style={{\n          opacity,\n          backgroundImage: `url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")`,\n        }}\n      />\n\n      {/* Internal Content */}\n      <div className=\"relative z-10 flex flex-col md:flex-row items-center justify-between gap-6\">\n        <div className=\"space-y-2 text-left\">\n          <span className=\"inline-block px-3 py-1 rounded-full text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20\">\n            TEXTURE SYNTHESIZER\n          </span>\n          <h4 className=\"text-xl font-semibold text-white tracking-tight\">\n            Analog Film Grain & Noise Overlay\n          </h4>\n          <p className=\"text-xs text-zinc-400 max-w-sm\">\n            High-fidelity mathematical Perlin noise layer providing tactile physical texture to digital displays.\n          </p>\n        </div>\n\n        {/* Live Controller */}\n        <div className=\"flex flex-col gap-2 p-4 rounded-xl bg-zinc-900/90 border border-white/10 w-full max-w-[220px]\">\n          <div className=\"flex items-center justify-between text-xs text-zinc-300 font-mono\">\n            <span>Grain Density</span>\n            <span className=\"text-emerald-400 font-bold\">{Math.round(opacity * 100)}%</span>\n          </div>\n          <input\n            type=\"range\"\n            min=\"0\"\n            max=\"0.25\"\n            step=\"0.01\"\n            value={opacity}\n            onChange={(e) => setOpacity(parseFloat(e.target.value))}\n            className=\"w-full accent-emerald-500 cursor-pointer\"\n          />\n        </div>\n      </div>\n\n      {children}\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

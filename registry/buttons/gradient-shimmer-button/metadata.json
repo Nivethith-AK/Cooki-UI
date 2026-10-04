@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-shimmer-button",
+  "type": "registry:ui",
+  "title": "Gradient Shimmer Button",
+  "description": "High-speed dual-phase border shimmer button with glowing radial backdrop.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "shimmer",
+    "gradient",
+    "glow"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/gradient-shimmer-button/gradient-shimmer-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/gradient-shimmer-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

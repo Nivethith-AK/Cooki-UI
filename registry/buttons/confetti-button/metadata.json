@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confetti-button",
+  "type": "registry:ui",
+  "title": "Celebration Confetti Burst Button",
+  "description": "Multi-color physics confetti explosion upon click with spring recoil.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "confetti",
+    "celebrate",
+    "particles"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/confetti-button/confetti-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/confetti-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

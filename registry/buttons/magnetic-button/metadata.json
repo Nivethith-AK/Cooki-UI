@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-button",
+  "type": "registry:ui",
+  "title": "Magnetic Button",
+  "description": "Interactive magnetic button with spring pull physics and cursor tracking.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "magnetic",
+    "spring physics",
+    "cursor"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/magnetic-button/magnetic-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

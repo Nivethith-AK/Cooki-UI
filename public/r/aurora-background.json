@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aurora-background",
+  "type": "registry:ui",
+  "title": "Fluid Aurora Lighting",
+  "description": "Chromatic atmospheric aurora simulation with smooth organic color blending.",
+  "category": "backgrounds",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "aurora",
+    "fluid",
+    "gradient"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/aurora-background/aurora-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/aurora-background.tsx",
+      "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AuroraBackgroundProps {\n  children?: React.ReactNode\n  speed?: 'slow' | 'normal' | 'fast'\n  intensity?: 'subtle' | 'medium' | 'high'\n  className?: string\n}\n\nexport const AuroraBackground: React.FC<AuroraBackgroundProps> = ({\n  children,\n  speed = 'normal',\n  intensity = 'medium',\n  className,\n}) => {\n  const speedDurations = {\n    slow: '20s',\n    normal: '12s',\n    fast: '6s',\n  }\n\n  const opacityMap = {\n    subtle: 'opacity-20',\n    medium: 'opacity-40',\n    high: 'opacity-70',\n  }\n\n  return (\n    <div className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl bg-[#050505] p-6', className)}>\n      {/* Aurora Atmospheric Waves */}\n      <div\n        style={{ animationDuration: speedDurations[speed] }}\n        className={cn(\n          'pointer-events-none absolute -inset-[100%] animate-[spin_16s_linear_infinite] blur-3xl',\n          opacityMap[intensity]\n        )}\n      >\n        <div className=\"absolute inset-0 bg-gradient-to-r from-emerald-500/30 via-cyan-500/30 to-blue-600/30\" />\n      </div>\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-emerald-400\">ATMOSPHERIC RUNTIME</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Aurora Fluid Plasma</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Slow-moving ambient background gradient with GPU transform isolation.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

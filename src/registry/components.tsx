@@ -1,3 +1,4 @@
+import { COMPONENT_SOURCES } from './componentSources'
 import React from 'react'
 import { RegistryItem } from '../types/component'
 
@@ -118,8 +119,7 @@ export default function Demo() {
       {
         name: 'magnetic-dock.tsx',
         language: 'tsx',
-        code: `// Installed via @componentry/magnetic-dock
-export { MagneticDock, type MagneticDockProps, type DockItemData } from '@/components/ui/magnetic-dock'`,
+        code: COMPONENT_SOURCES['magnetic-dock'] || `// Source code for magnetic-dock`
       },
     ],
   },
@@ -166,7 +166,7 @@ export default function CounterDemo() {
       {
         name: 'sliding-number.tsx',
         language: 'tsx',
-        code: `export { SlidingNumber } from '@/components/animate-ui/primitives/texts/sliding-number'`,
+        code: COMPONENT_SOURCES['sliding-number'] || `// Source code for sliding-number`
       },
     ],
   },
@@ -212,10 +212,7 @@ export default function ButtonDemo() {
       {
         name: 'MagneticButton.tsx',
         language: 'tsx',
-        code: `// Real physics-driven magnetic attraction button
-import React, { useRef } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
-...`,
+        code: COMPONENT_SOURCES['magnetic-button'] || `// Source code for magnetic-button`
       },
     ],
   },
@@ -253,7 +250,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'GradientShimmerButton.tsx',
         language: 'tsx',
-        code: `export { GradientShimmerButton } from '@/components/library/buttons/GradientShimmerButton'`,
+        code: COMPONENT_SOURCES['gradient-shimmer-button'] || `// Source code for gradient-shimmer-button`
       },
     ],
   },
@@ -290,7 +287,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'GlowActionButton.tsx',
         language: 'tsx',
-        code: `export { GlowActionButton } from '@/components/library/buttons/GlowActionButton'`,
+        code: COMPONENT_SOURCES['glow-action-button'] || `// Source code for glow-action-button`
       },
     ],
   },
@@ -320,7 +317,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'FloatingActionButton.tsx',
         language: 'tsx',
-        code: `export { FloatingActionButton } from '@/components/library/buttons/FloatingActionButton'`,
+        code: COMPONENT_SOURCES['floating-action-button'] || `// Source code for floating-action-button`
       },
     ],
   },
@@ -353,7 +350,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'TextReveal.tsx',
         language: 'tsx',
-        code: `export { TextReveal } from '@/components/library/text/TextReveal'`,
+        code: COMPONENT_SOURCES['text-reveal'] || `// Source code for text-reveal`
       },
     ],
   },
@@ -386,7 +383,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'SplitText.tsx',
         language: 'tsx',
-        code: `export { SplitText } from '@/components/library/text/SplitText'`,
+        code: COMPONENT_SOURCES['split-text'] || `// Source code for split-text`
       },
     ],
   },
@@ -418,7 +415,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'BlurReveal.tsx',
         language: 'tsx',
-        code: `export { BlurReveal } from '@/components/library/text/BlurReveal'`,
+        code: COMPONENT_SOURCES['blur-reveal'] || `// Source code for blur-reveal`
       },
     ],
   },
@@ -449,7 +446,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'InteractiveTiltCard.tsx',
         language: 'tsx',
-        code: `export { InteractiveTiltCard } from '@/components/library/cards/InteractiveTiltCard'`,
+        code: COMPONENT_SOURCES['interactive-tilt-card'] || `// Source code for interactive-tilt-card`
       },
     ],
   },
@@ -479,7 +476,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'SpotlightCard.tsx',
         language: 'tsx',
-        code: `export { SpotlightCard } from '@/components/library/cards/SpotlightCard'`,
+        code: COMPONENT_SOURCES['spotlight-card'] || `// Source code for spotlight-card`
       },
     ],
   },
@@ -509,7 +506,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'GlassCard.tsx',
         language: 'tsx',
-        code: `export { GlassCard } from '@/components/library/cards/GlassCard'`,
+        code: COMPONENT_SOURCES['glass-card'] || `// Source code for glass-card`
       },
     ],
   },
@@ -539,7 +536,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'ExpandableCard.tsx',
         language: 'tsx',
-        code: `export { ExpandableCard } from '@/components/library/cards/ExpandableCard'`,
+        code: COMPONENT_SOURCES['expandable-card'] || `// Source code for expandable-card`
       },
     ],
   },
@@ -574,7 +571,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'AuroraBackground.tsx',
         language: 'tsx',
-        code: `export { AuroraBackground } from '@/components/library/backgrounds/AuroraBackground'`,
+        code: COMPONENT_SOURCES['aurora-background'] || `// Source code for aurora-background`
       },
     ],
   },
@@ -608,7 +605,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'GridBackground.tsx',
         language: 'tsx',
-        code: `export { GridBackground } from '@/components/library/backgrounds/GridBackground'`,
+        code: COMPONENT_SOURCES['grid-background'] || `// Source code for grid-background`
       },
     ],
   },
@@ -642,7 +639,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'DotBackground.tsx',
         language: 'tsx',
-        code: `export { DotBackground } from '@/components/library/backgrounds/DotBackground'`,
+        code: COMPONENT_SOURCES['dot-background'] || `// Source code for dot-background`
       },
     ],
   },
@@ -675,7 +672,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'AnimatedMeshBackground.tsx',
         language: 'tsx',
-        code: `export { AnimatedMeshBackground } from '@/components/library/backgrounds/AnimatedMeshBackground'`,
+        code: COMPONENT_SOURCES['animated-mesh-background'] || `// Source code for animated-mesh-background`
       },
     ],
   },
@@ -705,7 +702,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'FloatingNavbar.tsx',
         language: 'tsx',
-        code: `export { FloatingNavbar } from '@/components/library/navigation/FloatingNavbar'`,
+        code: COMPONENT_SOURCES['floating-navbar'] || `// Source code for floating-navbar`
       },
     ],
   },
@@ -736,7 +733,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'CommandPalette.tsx',
         language: 'tsx',
-        code: `export { CommandPalette } from '@/components/library/navigation/CommandPalette'`,
+        code: COMPONENT_SOURCES['command-palette'] || `// Source code for command-palette`
       },
     ],
   },
@@ -766,7 +763,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'InteractiveTerminalBlock.tsx',
         language: 'tsx',
-        code: `export { InteractiveTerminalBlock } from '@/components/library/sections/InteractiveTerminalBlock'`,
+        code: COMPONENT_SOURCES['interactive-terminal-block'] || `// Source code for interactive-terminal-block`
       },
     ],
   },
@@ -796,7 +793,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'FeatureBentoBlock.tsx',
         language: 'tsx',
-        code: `export { FeatureBentoBlock } from '@/components/library/sections/FeatureBentoBlock'`,
+        code: COMPONENT_SOURCES['feature-bento-block'] || `// Source code for feature-bento-block`
       },
     ],
   },
@@ -826,7 +823,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'AnimatedCtaBlock.tsx',
         language: 'tsx',
-        code: `export { AnimatedCtaBlock } from '@/components/library/sections/AnimatedCtaBlock'`,
+        code: COMPONENT_SOURCES['animated-cta-block'] || `// Source code for animated-cta-block`
       },
     ],
   },
@@ -871,7 +868,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'BorderBeam.tsx',
         language: 'tsx',
-        code: `export { BorderBeam } from '@/components/library/effects/BorderBeam'`,
+        code: COMPONENT_SOURCES['border-beam'] || `// Source code for border-beam`
       },
     ],
   },
@@ -902,7 +899,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'AsciiWave.tsx',
         language: 'tsx',
-        code: `export { AsciiWave } from '@/components/library/effects/AsciiWave'`,
+        code: COMPONENT_SOURCES['ascii-wave'] || `// Source code for ascii-wave`
       },
     ],
   },
@@ -933,7 +930,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'SlideToConfirm.tsx',
         language: 'tsx',
-        code: `export { SlideToConfirm } from '@/components/library/buttons/SlideToConfirm'`,
+        code: COMPONENT_SOURCES['slide-to-confirm'] || `// Source code for slide-to-confirm`
       },
     ],
   },
@@ -968,7 +965,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'ShinyText.tsx',
         language: 'tsx',
-        code: `export { ShinyText } from '@/components/library/text/ShinyText'`,
+        code: COMPONENT_SOURCES['shiny-text'] || `// Source code for shiny-text`
       },
     ],
   },
@@ -1002,7 +999,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'TypingText.tsx',
         language: 'tsx',
-        code: `export { TypingText } from '@/components/library/text/TypingText'`,
+        code: COMPONENT_SOURCES['typing-text'] || `// Source code for typing-text`
       },
     ],
   },
@@ -1033,7 +1030,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'PasswordStrengthIndicator.tsx',
         language: 'tsx',
-        code: `export { PasswordStrengthIndicator } from '@/components/library/forms/PasswordStrengthIndicator'`,
+        code: COMPONENT_SOURCES['password-strength-indicator'] || `// Source code for password-strength-indicator`
       },
     ],
   },
@@ -1063,7 +1060,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'RippleButton.tsx',
         language: 'tsx',
-        code: `export { RippleButton } from '@/components/library/buttons/RippleButton'`,
+        code: COMPONENT_SOURCES['ripple-button'] || `// Source code for ripple-button`
       },
     ],
   },
@@ -1094,7 +1091,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'OrbitCard.tsx',
         language: 'tsx',
-        code: `export { OrbitCard } from '@/components/library/cards/OrbitCard'`,
+        code: COMPONENT_SOURCES['orbit-card'] || `// Source code for orbit-card`
       },
     ],
   },
@@ -1125,7 +1122,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'SlidingLogoMarquee.tsx',
         language: 'tsx',
-        code: `export { SlidingLogoMarquee } from '@/components/library/navigation/SlidingLogoMarquee'`,
+        code: COMPONENT_SOURCES['sliding-logo-marquee'] || `// Source code for sliding-logo-marquee`
       },
     ],
   },
@@ -1156,7 +1153,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'AnimatedNotificationStack.tsx',
         language: 'tsx',
-        code: `export { AnimatedNotificationStack } from '@/components/library/navigation/AnimatedNotificationStack'`,
+        code: COMPONENT_SOURCES['animated-notification-stack'] || `// Source code for animated-notification-stack`
       },
     ],
   },
@@ -1187,7 +1184,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'ConfettiButton.tsx',
         language: 'tsx',
-        code: `export { ConfettiButton } from '@/components/library/buttons/ConfettiButton'`,
+        code: COMPONENT_SOURCES['confetti-button'] || `// Source code for confetti-button`
       },
     ],
   },
@@ -1218,7 +1215,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'LiquidGlassButton.tsx',
         language: 'tsx',
-        code: `export { LiquidGlassButton } from '@/components/library/buttons/LiquidGlassButton'`,
+        code: COMPONENT_SOURCES['liquid-glass-button'] || `// Source code for liquid-glass-button`
       },
     ],
   },
@@ -1254,7 +1251,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'BeamGridBackground.tsx',
         language: 'tsx',
-        code: `export { BeamGridBackground } from '@/components/library/backgrounds/BeamGridBackground'`,
+        code: COMPONENT_SOURCES['beam-grid-background'] || `// Source code for beam-grid-background`
       },
     ],
   },
@@ -1288,7 +1285,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'CosmicDustBackground.tsx',
         language: 'tsx',
-        code: `export { CosmicDustBackground } from '@/components/library/backgrounds/CosmicDustBackground'`,
+        code: COMPONENT_SOURCES['cosmic-dust-background'] || `// Source code for cosmic-dust-background`
       },
     ],
   },
@@ -1321,7 +1318,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'SpectrumLoader.tsx',
         language: 'tsx',
-        code: `export { SpectrumLoader } from '@/components/library/effects/SpectrumLoader'`,
+        code: COMPONENT_SOURCES['spectrum-loader'] || `// Source code for spectrum-loader`
       },
     ],
   },
@@ -1352,7 +1349,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'PerspectiveCard3D.tsx',
         language: 'tsx',
-        code: `export { PerspectiveCard3D } from '@/components/library/cards/PerspectiveCard3D'`,
+        code: COMPONENT_SOURCES['perspective-card-3d'] || `// Source code for perspective-card-3d`
       },
     ],
   },
@@ -1383,7 +1380,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'ExpandableSearchBar.tsx',
         language: 'tsx',
-        code: `export { ExpandableSearchBar } from '@/components/library/forms/ExpandableSearchBar'`,
+        code: COMPONENT_SOURCES['expandable-search-bar'] || `// Source code for expandable-search-bar`
       },
     ],
   },
@@ -1414,7 +1411,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'TerminalCard.tsx',
         language: 'tsx',
-        code: `export { TerminalCard } from '@/components/library/cards/TerminalCard'`,
+        code: COMPONENT_SOURCES['terminal-card'] || `// Source code for terminal-card`
       },
     ],
   },
@@ -1444,7 +1441,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'TabsMorph.tsx',
         language: 'tsx',
-        code: `export { TabsMorph } from '@/components/library/navigation/TabsMorph'`,
+        code: COMPONENT_SOURCES['tabs-morph'] || `// Source code for tabs-morph`
       },
     ],
   },
@@ -1474,7 +1471,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'NoiseGrainOverlay.tsx',
         language: 'tsx',
-        code: `export { NoiseGrainOverlay } from '@/components/library/effects/NoiseGrainOverlay'`,
+        code: COMPONENT_SOURCES['noise-grain-overlay'] || `// Source code for noise-grain-overlay`
       },
     ],
   },
@@ -1505,7 +1502,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'PricingComparisonBlock.tsx',
         language: 'tsx',
-        code: `export { PricingComparisonBlock } from '@/components/library/sections/PricingComparisonBlock'`,
+        code: COMPONENT_SOURCES['pricing-comparison-block'] || `// Source code for pricing-comparison-block`
       },
     ],
   },
@@ -1536,7 +1533,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
       {
         name: 'TestimonialMarqueeBlock.tsx',
         language: 'tsx',
-        code: `export { TestimonialMarqueeBlock } from '@/components/library/sections/TestimonialMarqueeBlock'`,
+        code: COMPONENT_SOURCES['testimonial-marquee-block'] || `// Source code for testimonial-marquee-block`
       },
     ],
   },

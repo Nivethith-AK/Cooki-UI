@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "perspective-card-3d",
+  "type": "registry:ui",
+  "title": "3D Parallax Perspective Card",
+  "description": "Multilayer spatial depth card where internal elements float along the Z-axis.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "3d",
+    "parallax",
+    "perspective"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/perspective-card-3d/perspective-card-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/perspective-card-3d.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-background",
+  "type": "registry:ui",
+  "title": "Precision Cartesian Grid",
+  "description": "Infinite architectural coordinate grid with radial spotlight vignette.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "grid",
+    "cartesian",
+    "blueprint"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/grid-background/grid-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/grid-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

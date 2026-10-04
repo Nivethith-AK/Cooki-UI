@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-text",
+  "type": "registry:ui",
+  "title": "Dynamic Typewriter Loop",
+  "description": "Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.",
+  "category": "text",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "typewriter",
+    "typing",
+    "terminal"
+  ],
+  "files": [
+    {
+      "path": "registry/text/typing-text/typing-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/typing-text.tsx",
+      "content": "import React, { useState, useEffect } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface TypingTextProps {\n  words?: string[]\n  speed?: number\n  delay?: number\n  className?: string\n}\n\nexport const TypingText: React.FC<TypingTextProps> = ({\n  words = ['Synthesizing Raft Cluster...', 'Proving Invariant Logic...', 'Emitting WASM Bytecode...', 'Zero Hallucinations.'],\n  speed = 80,\n  delay = 1500,\n  className,\n}) => {\n  const [wordIndex, setWordIndex] = useState(0)\n  const [currentText, setCurrentText] = useState('')\n  const [isDeleting, setIsDeleting] = useState(false)\n\n  useEffect(() => {\n    const fullWord = words[wordIndex % words.length]\n\n    const timeout = setTimeout(\n      () => {\n        if (!isDeleting) {\n          setCurrentText(fullWord.substring(0, currentText.length + 1))\n          if (currentText === fullWord) {\n            setTimeout(() => setIsDeleting(true), delay)\n          }\n        } else {\n          setCurrentText(fullWord.substring(0, currentText.length - 1))\n          if (currentText === '') {\n            setIsDeleting(false)\n            setWordIndex((prev) => prev + 1)\n          }\n        }\n      },\n      isDeleting ? speed / 2 : speed\n    )\n\n    return () => clearTimeout(timeout)\n  }, [currentText, isDeleting, wordIndex, words, speed, delay])\n\n  return (\n    <div className={cn('inline-flex items-center font-mono text-white', className)}>\n      <span>{currentText}</span>\n      <span className=\"ml-1 inline-block h-4 w-2 bg-emerald-400 animate-[pulse_0.8s_ease-in-out_infinite]\" />\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

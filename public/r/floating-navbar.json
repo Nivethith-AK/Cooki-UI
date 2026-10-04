@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-navbar",
+  "type": "registry:ui",
+  "title": "Dynamic Floating Capsule Navbar",
+  "description": "Adaptive capsule navigation bar with backdrop blur and pill indicators.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "navbar",
+    "capsule",
+    "floating"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/floating-navbar/floating-navbar.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/floating-navbar.tsx",
+      "content": "import React, { useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { Cpu, House, FileCode, Gear, Sparkle } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface FloatingNavbarProps {\n  className?: string\n}\n\nexport const FloatingNavbar: React.FC<FloatingNavbarProps> = ({ className }) => {\n  const [activeTab, setActiveTab] = useState('Overview')\n\n  const items = [\n    { label: 'Overview', icon: <House size={16} /> },\n    { label: 'Components', icon: <FileCode size={16} /> },\n    { label: 'Settings', icon: <Gear size={16} /> },\n  ]\n\n  return (\n    <nav className={cn('relative inline-flex items-center gap-1 rounded-full border border-white/15 bg-zinc-950/80 p-1.5 backdrop-blur-2xl shadow-2xl', className)}>\n      <div className=\"flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white mr-1\">\n        <Cpu size={16} weight=\"bold\" />\n      </div>\n\n      {items.map((tab) => {\n        const isActive = activeTab === tab.label\n        return (\n          <button\n            key={tab.label}\n            onClick={() => setActiveTab(tab.label)}\n            className={`relative flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${\n              isActive ? 'text-zinc-950' : 'text-zinc-400 hover:text-white'\n            }`}\n          >\n            {isActive && (\n              <motion.div\n                layoutId=\"floating-nav-pill\"\n                transition={{ type: 'spring', damping: 20, stiffness: 220 }}\n                className=\"absolute inset-0 rounded-full bg-white shadow-sm\"\n              />\n            )}\n            <span className=\"relative z-10\">{tab.icon}</span>\n            <span className=\"relative z-10\">{tab.label}</span>\n          </button>\n        )\n      })}\n    </nav>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

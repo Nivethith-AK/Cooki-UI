@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-dock",
+  "type": "registry:ui",
+  "title": "Componentry Magnetic Dock",
+  "description": "macOS-style navigation dock with spring-physics cursor magnification, tooltips, and badges.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "dock",
+    "magnetic",
+    "macos"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/magnetic-dock/magnetic-dock.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-dock.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

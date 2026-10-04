@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-logo-marquee",
+  "type": "registry:ui",
+  "title": "Infinite Brand Logo Marquee",
+  "description": "Seamless hardware-accelerated horizontal brand partner marquee with hover pause.",
+  "category": "navigation",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "marquee",
+    "logos",
+    "partners"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/sliding-logo-marquee/sliding-logo-marquee.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/sliding-logo-marquee.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

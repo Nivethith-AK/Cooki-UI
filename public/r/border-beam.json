@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "border-beam",
+  "type": "registry:ui",
+  "title": "Luminous Border Beam",
+  "description": "Animated glowing laser beam traveling along card perimeter with soft specular light trail.",
+  "category": "effects",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "border",
+    "beam",
+    "glow"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/border-beam/border-beam.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/border-beam.tsx",
+      "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface BorderBeamProps {\n  size?: number\n  duration?: number\n  delay?: number\n  borderWidth?: number\n  colorFrom?: string\n  colorTo?: string\n  className?: string\n}\n\nexport const BorderBeam: React.FC<BorderBeamProps> = ({\n  size = 200,\n  duration = 10,\n  delay = 0,\n  borderWidth = 1.5,\n  colorFrom = '#06b6d4',\n  colorTo = '#3b82f6',\n  className,\n}) => {\n  return (\n    <div\n      style={\n        {\n          '--size': `${size}px`,\n          '--duration': `${duration}s`,\n          '--anchor': '90deg',\n          '--border-width': `${borderWidth}px`,\n          '--color-from': colorFrom,\n          '--color-to': colorTo,\n          '--delay': `-${delay}s`,\n        } as React.CSSProperties\n      }\n      className={cn(\n        'pointer-events-none absolute inset-0 rounded-[inherit] [border:calc(var(--border-width)*1px)_solid_transparent]',\n        '![mask-clip:padding-box,border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]',\n        'after:absolute after:aspect-square after:w-[calc(var(--size)*1px)] after:animate-[borderBeam_var(--duration)_linear_infinite] after:[animation-delay:var(--delay)]',\n        'after:bg-[radial-gradient(ellipse_at_center,var(--color-from),var(--color-to),transparent)] after:[offset-anchor:calc(var(--anchor))_50%] after:[offset-path:rect(0_auto_auto_0_round_calc(var(--size)*1px))]',\n        className\n      )}\n    />\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dot-background",
+  "type": "registry:ui",
+  "title": "Matrix Dot Grid Pattern",
+  "description": "High-density micro-dot matrix pattern with subtle center bloom illumination.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "dot",
+    "matrix",
+    "pattern"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/dot-background/dot-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/dot-background.tsx",
+      "content": "import React, { useRef, useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface DotBackgroundProps {\n  children?: React.ReactNode\n  spacing?: number\n  className?: string\n}\n\nexport const DotBackground: React.FC<DotBackgroundProps> = ({\n  children,\n  spacing = 24,\n  className,\n}) => {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const [mousePos, setMousePos] = useState({ x: -100, y: -100 })\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!containerRef.current) return\n    const rect = containerRef.current.getBoundingClientRect()\n    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top })\n  }\n\n  return (\n    <div\n      ref={containerRef}\n      onMouseMove={handleMouseMove}\n      className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#060608] p-6', className)}\n    >\n      {/* Base Dot Grid */}\n      <div\n        style={{\n          backgroundSize: `${spacing}px ${spacing}px`,\n          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)',\n        }}\n        className=\"pointer-events-none absolute inset-0\"\n      />\n\n      {/* Interactive Cursor Proximity Highlight */}\n      <div\n        className=\"pointer-events-none absolute -inset-px transition-opacity duration-150\"\n        style={{\n          background: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, rgba(16, 185, 129, 0.2), transparent 70%)`,\n        }}\n      />\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-emerald-400\">PARTICLE MATRIX</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Interactive Dot Grid</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Move cursor to illuminate local coordinate field.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

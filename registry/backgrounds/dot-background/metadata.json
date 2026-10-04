@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dot-background",
+  "type": "registry:ui",
+  "title": "Matrix Dot Grid Pattern",
+  "description": "High-density micro-dot matrix pattern with subtle center bloom illumination.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "dot",
+    "matrix",
+    "pattern"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/dot-background/dot-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/dot-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

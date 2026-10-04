@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "border-beam",
+  "type": "registry:ui",
+  "title": "Luminous Border Beam",
+  "description": "Animated glowing laser beam traveling along card perimeter with soft specular light trail.",
+  "category": "effects",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "border",
+    "beam",
+    "glow"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/border-beam/border-beam.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/border-beam.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

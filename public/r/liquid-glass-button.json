@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-glass-button",
+  "type": "registry:ui",
+  "title": "Refractive Liquid Glass Button",
+  "description": "Frosted Apple-style refractive glass with dynamic cursor specular reflection sweep.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "glassmorphism",
+    "liquid",
+    "refraction"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/liquid-glass-button/liquid-glass-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/liquid-glass-button.tsx",
+      "content": "import React, { useRef, useState } from 'react';\nimport { motion } from 'framer-motion';\n\ninterface LiquidGlassButtonProps {\n  children?: React.ReactNode;\n  className?: string;\n  onClick?: () => void;\n  variant?: 'primary' | 'subtle' | 'emerald';\n}\n\nexport const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({\n  children = 'Experience Refraction',\n  className = '',\n  onClick,\n  variant = 'primary',\n}) => {\n  const ref = useRef<HTMLButtonElement>(null);\n  const [coords, setCoords] = useState({ x: 50, y: 50 });\n  const [isHovered, setIsHovered] = useState(false);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!ref.current) return;\n    const rect = ref.current.getBoundingClientRect();\n    const x = ((e.clientX - rect.left) / rect.width) * 100;\n    const y = ((e.clientY - rect.top) / rect.height) * 100;\n    setCoords({ x, y });\n  };\n\n  const variantStyles = {\n    primary: 'text-white border-white/20 bg-white/[0.07] dark:bg-white/[0.05] shadow-black/20',\n    subtle: 'text-zinc-900 dark:text-zinc-100 border-zinc-900/10 dark:border-white/10 bg-zinc-900/[0.04] dark:bg-white/[0.03]',\n    emerald: 'text-emerald-100 border-emerald-400/30 bg-emerald-500/[0.12] shadow-emerald-900/20',\n  };\n\n  return (\n    <motion.button\n      ref={ref}\n      onMouseMove={handleMouseMove}\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      whileHover={{ scale: 1.03, y: -1 }}\n      whileTap={{ scale: 0.97 }}\n      onClick={onClick}\n      className={`relative group overflow-hidden px-7 py-3.5 rounded-2xl backdrop-blur-xl border transition-all duration-300 font-medium text-sm tracking-wide shadow-xl cursor-pointer ${variantStyles[variant]} ${className}`}\n      style={{\n        backdropFilter: 'blur(20px) saturate(180%)',\n        WebkitBackdropFilter: 'blur(20px) saturate(180%)',\n      }}\n    >\n      {/* Dynamic specular light reflection tracking cursor */}\n      <div\n        className=\"absolute inset-0 pointer-events-none transition-opacity duration-500\"\n        style={{\n          opacity: isHovered ? 1 : 0,\n          background: `radial-gradient(circle 120px at ${coords.x}% ${coords.y}%, rgba(255,255,255,0.35), transparent 70%)`,\n        }}\n      />\n\n      {/* Internal ambient glossy lens flare */}\n      <div className=\"absolute -top-1/2 left-0 right-0 h-full bg-gradient-to-b from-white/25 to-transparent pointer-events-none rounded-t-2xl\" />\n\n      {/* Rim highlight border effect */}\n      <div className=\"absolute inset-[1px] rounded-[15px] border border-white/10 pointer-events-none\" />\n\n      {/* Button content */}\n      <span className=\"relative z-10 flex items-center gap-2 drop-shadow-sm\">\n        {children}\n      </span>\n    </motion.button>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shiny-text",
+  "type": "registry:ui",
+  "title": "Specular Shiny Text",
+  "description": "Reflective specular light ray sweeping continuously across metallic typographic titles.",
+  "category": "text",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "shiny",
+    "typography",
+    "shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/text/shiny-text/shiny-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/shiny-text.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

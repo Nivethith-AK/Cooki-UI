@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shiny-text",
+  "type": "registry:ui",
+  "title": "Specular Shiny Text",
+  "description": "Reflective specular light ray sweeping continuously across metallic typographic titles.",
+  "category": "text",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "shiny",
+    "typography",
+    "shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/text/shiny-text/shiny-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/shiny-text.tsx",
+      "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface ShinyTextProps {\n  text?: string\n  speed?: number\n  className?: string\n}\n\nexport const ShinyText: React.FC<ShinyTextProps> = ({\n  text = 'AUTONOMOUS REPRODUCIBILITY VERIFIED',\n  speed = 3,\n  className,\n}) => {\n  return (\n    <span\n      style={{\n        backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 100%)',\n        backgroundSize: '200% 100%',\n        animation: `shinyShimmer ${speed}s linear infinite`,\n        WebkitBackgroundClip: 'text',\n        WebkitTextFillColor: 'transparent',\n      }}\n      className={cn('inline-block font-mono font-bold tracking-wider', className)}\n    >\n      {text}\n    </span>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "perspective-card-3d",
+  "type": "registry:ui",
+  "title": "3D Parallax Perspective Card",
+  "description": "Multilayer spatial depth card where internal elements float along the Z-axis.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "3d",
+    "parallax",
+    "perspective"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/perspective-card-3d/perspective-card-3d.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/perspective-card-3d.tsx",
+      "content": "import React, { useRef, useState } from 'react';\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';\nimport { Sparkle, ShieldCheck, Cpu } from '@phosphor-icons/react';\n\ninterface PerspectiveCard3DProps {\n  className?: string;\n  title?: string;\n  subtitle?: string;\n  tag?: string;\n}\n\nexport const PerspectiveCard3D: React.FC<PerspectiveCard3DProps> = ({\n  className = '',\n  title = 'Autonomous Neural Core',\n  subtitle = 'High-frequency model execution with sub-millisecond tensor dispatch.',\n  tag = 'SYSTEM ARCHITECTURE',\n}) => {\n  const cardRef = useRef<HTMLDivElement>(null);\n  const [isHovered, setIsHovered] = useState(false);\n\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const mouseXSpring = useSpring(x, { stiffness: 220, damping: 20 });\n  const mouseYSpring = useSpring(y, { stiffness: 220, damping: 20 });\n\n  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['18deg', '-18deg']);\n  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-18deg', '18deg']);\n  const gleamX = useTransform(mouseXSpring, [-0.5, 0.5], ['0%', '100%']);\n  const gleamY = useTransform(mouseYSpring, [-0.5, 0.5], ['0%', '100%']);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!cardRef.current) return;\n    const rect = cardRef.current.getBoundingClientRect();\n    const mouseX = (e.clientX - rect.left) / rect.width - 0.5;\n    const mouseY = (e.clientY - rect.top) / rect.height - 0.5;\n    x.set(mouseX);\n    y.set(mouseY);\n  };\n\n  const handleMouseLeave = () => {\n    setIsHovered(false);\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <div\n      style={{ perspective: 1200 }}\n      className={`relative inline-block w-full max-w-[360px] p-2 ${className}`}\n    >\n      <motion.div\n        ref={cardRef}\n        onMouseMove={handleMouseMove}\n        onMouseEnter={() => setIsHovered(true)}\n        onMouseLeave={handleMouseLeave}\n        style={{\n          rotateX,\n          rotateY,\n          transformStyle: 'preserve-3d',\n        }}\n        className=\"relative w-full rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border border-white/10 p-6 shadow-2xl transition-shadow duration-300 hover:shadow-cyan-500/10 cursor-pointer overflow-hidden\"\n      >\n        {/* Holographic specular gleam */}\n        <motion.div\n          className=\"absolute inset-0 pointer-events-none rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300\"\n          style={{\n            opacity: isHovered ? 0.35 : 0,\n            background: `radial-gradient(circle 240px at 50% 50%, rgba(56, 189, 248, 0.4), transparent 70%)`,\n            left: gleamX,\n            top: gleamY,\n            transform: 'translate(-50%, -50%)',\n          }}\n        />\n\n        {/* Ambient Grid Background */}\n        <div className=\"absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none\" />\n\n        {/* Layer 1: Floating Header Badge (Z: 40px) */}\n        <div\n          style={{ transform: 'translateZ(40px)' }}\n          className=\"relative z-10 flex items-center justify-between mb-6\"\n        >\n          <span className=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/20\">\n            <Cpu size={14} weight=\"bold\" />\n            {tag}\n          </span>\n          <div className=\"w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400\">\n            <Sparkle size={16} weight=\"fill\" className=\"text-amber-400\" />\n          </div>\n        </div>\n\n        {/* Layer 2: Graphic Core (Z: 60px) */}\n        <div\n          style={{ transform: 'translateZ(60px)' }}\n          className=\"relative z-10 my-6 h-28 rounded-xl bg-gradient-to-br from-cyan-950/40 via-indigo-950/30 to-violet-950/40 border border-cyan-500/20 flex items-center justify-center overflow-hidden\"\n        >\n          <div className=\"w-20 h-20 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 blur-xl opacity-40 animate-pulse\" />\n          <div className=\"absolute font-mono text-3xl font-bold tracking-widest text-cyan-200 drop-shadow-[0_0_12px_rgba(56,189,248,0.6)]\">\n            0101\n          </div>\n        </div>\n\n        {/* Layer 3: Typography & Description (Z: 30px) */}\n        <div style={{ transform: 'translateZ(30px)' }} className=\"relative z-10 space-y-2\">\n          <h4 className=\"text-lg font-semibold text-white tracking-tight\">{title}</h4>\n          <p className=\"text-xs text-zinc-400 leading-relaxed\">{subtitle}</p>\n        </div>\n\n        {/* Layer 4: Footer specs (Z: 20px) */}\n        <div\n          style={{ transform: 'translateZ(20px)' }}\n          className=\"relative z-10 mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-zinc-500\"\n        >\n          <span className=\"flex items-center gap-1 text-emerald-400\">\n            <ShieldCheck size={14} weight=\"bold\" />\n            VERIFIED SECURE\n          </span>\n          <span>LATENCY: 0.4ms</span>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

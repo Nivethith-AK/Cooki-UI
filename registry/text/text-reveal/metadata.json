@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-reveal",
+  "type": "registry:ui",
+  "title": "Masked Text Reveal",
+  "description": "Cinematic word-by-word mask displacement reveal with customizable stagger delays.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "reveal",
+    "mask",
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "registry/text/text-reveal/text-reveal.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/text-reveal.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

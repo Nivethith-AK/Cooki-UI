@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-terminal-block",
+  "type": "registry:ui",
+  "title": "Installation Terminal Block",
+  "description": "Interactive CLI command runner terminal with execution simulation and tab controls.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "terminal",
+    "cli",
+    "installation"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/interactive-terminal-block/interactive-terminal-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-terminal-block.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

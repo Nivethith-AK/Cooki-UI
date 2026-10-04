@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "Radial Ripple Button",
+  "description": "Material-inspired coordinate-origin expanding liquid wave ripple.",
+  "category": "buttons",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "ripple",
+    "interactive",
+    "wave"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/ripple-button/ripple-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ripple-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

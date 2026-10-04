@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-comparison-block",
+  "type": "registry:ui",
+  "title": "Tiered SaaS Pricing Matrix",
+  "description": "Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react",
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "pricing",
+    "saas",
+    "tiers"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/pricing-comparison-block/pricing-comparison-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/pricing-comparison-block.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

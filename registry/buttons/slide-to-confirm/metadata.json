@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slide-to-confirm",
+  "type": "registry:ui",
+  "title": "Slide to Confirm Slider",
+  "description": "Draggable tactical slide-to-confirm button with spring physics and unlock callback.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "slider",
+    "confirm",
+    "drag",
+    "security"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/slide-to-confirm/slide-to-confirm.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/slide-to-confirm.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-comparison-block",
+  "type": "registry:ui",
+  "title": "Tiered SaaS Pricing Matrix",
+  "description": "Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react",
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "pricing",
+    "saas",
+    "tiers"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/pricing-comparison-block/pricing-comparison-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/pricing-comparison-block.tsx",
+      "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Check, Sparkle, Lightning } from '@phosphor-icons/react';\n\nexport const PricingComparisonBlock: React.FC = () => {\n  const [isAnnual, setIsAnnual] = useState(true);\n\n  const plans = [\n    {\n      name: 'Developer',\n      desc: 'Everything you need to ship high-impact personal projects and side apps.',\n      price: isAnnual ? 19 : 24,\n      popular: false,\n      features: [\n        'Full access to all 40+ components',\n        'Direct copy & paste TSX code',\n        'Tailwind CSS v4 & Framer Motion',\n        'Community Discord access',\n        'Free lifetime patches',\n      ],\n      cta: 'Get Started',\n    },\n    {\n      name: 'Pro Studio',\n      desc: 'For ambitious engineers and agencies building client apps and startups.',\n      price: isAnnual ? 49 : 59,\n      popular: true,\n      features: [\n        'Everything in Developer',\n        'Full commercial unlimited license',\n        'Figma UI kit design files',\n        'Exclusive premium shader cards',\n        'Private GitHub repo access',\n        'Priority 1-on-1 support',\n      ],\n      cta: 'Claim Pro Studio',\n    },\n    {\n      name: 'Enterprise',\n      desc: 'Custom design system engineering and dedicated technical SLA support.',\n      price: isAnnual ? 149 : 179,\n      popular: false,\n      features: [\n        'Everything in Pro Studio',\n        'Custom component requests',\n        'Design tokens sync CLI',\n        'Private Slack channel',\n        'Dedicated SLA & custom invoicing',\n      ],\n      cta: 'Contact Sales',\n    },\n  ];\n\n  return (\n    <div className=\"w-full max-w-5xl mx-auto py-8 px-4 text-center\">\n      {/* Billing Switch */}\n      <div className=\"inline-flex items-center gap-3 p-1 rounded-full bg-zinc-900 border border-white/10 mb-10 shadow-lg\">\n        <button\n          onClick={() => setIsAnnual(false)}\n          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${\n            !isAnnual ? 'bg-indigo-600 text-white shadow' : 'text-zinc-400 hover:text-white'\n          }`}\n        >\n          Monthly billing\n        </button>\n        <button\n          onClick={() => setIsAnnual(true)}\n          className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${\n            isAnnual ? 'bg-indigo-600 text-white shadow' : 'text-zinc-400 hover:text-white'\n          }`}\n        >\n          <span>Annual billing</span>\n          <span className=\"px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-400/20 text-emerald-300\">\n            SAVE 20%\n          </span>\n        </button>\n      </div>\n\n      {/* Pricing Cards Grid */}\n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6 text-left\">\n        {plans.map((p) => (\n          <div\n            key={p.name}\n            className={`relative rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between ${\n              p.popular\n                ? 'bg-gradient-to-b from-indigo-950/60 to-zinc-950 border-2 border-indigo-500 shadow-2xl shadow-indigo-500/10 -translate-y-2'\n                : 'bg-zinc-950/70 border border-white/10 hover:border-white/20'\n            }`}\n          >\n            {p.popular && (\n              <div className=\"absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-indigo-500 text-white shadow-md\">\n                <Sparkle size={12} weight=\"fill\" /> MOST POPULAR\n              </div>\n            )}\n\n            <div>\n              <h4 className=\"text-lg font-semibold text-white\">{p.name}</h4>\n              <p className=\"text-xs text-zinc-400 mt-1 min-h-[36px]\">{p.desc}</p>\n\n              <div className=\"mt-6 flex items-baseline gap-1\">\n                <span className=\"text-4xl font-extrabold text-white font-mono\">${p.price}</span>\n                <span className=\"text-xs text-zinc-400\">/month</span>\n              </div>\n\n              <div className=\"mt-6 pt-6 border-t border-white/10 space-y-3\">\n                {p.features.map((feat) => (\n                  <div key={feat} className=\"flex items-start gap-2.5 text-xs text-zinc-300\">\n                    <Check size={16} weight=\"bold\" className=\"text-emerald-400 shrink-0 mt-0.5\" />\n                    <span>{feat}</span>\n                  </div>\n                ))}\n              </div>\n            </div>\n\n            <button\n              className={`mt-8 w-full py-2.5 rounded-xl font-medium text-xs tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${\n                p.popular\n                  ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30'\n                  : 'bg-white/10 hover:bg-white/15 text-white'\n              }`}\n            >\n              {p.popular && <Lightning size={14} weight=\"fill\" />}\n              {p.cta}\n            </button>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

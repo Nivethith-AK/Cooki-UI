@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-mesh-background",
+  "type": "registry:ui",
+  "title": "Generative Animated Mesh Gradient",
+  "description": "Deep spatial canvas mesh gradient with animated organic noise displacement.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "mesh",
+    "gradient",
+    "animated"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/animated-mesh-background/animated-mesh-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-mesh-background.tsx",
+      "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AnimatedMeshBackgroundProps {\n  children?: React.ReactNode\n  variant?: 'cyber' | 'sunset' | 'deep'\n  className?: string\n}\n\nexport const AnimatedMeshBackground: React.FC<AnimatedMeshBackgroundProps> = ({\n  children,\n  variant = 'deep',\n  className,\n}) => {\n  const gradientPresets = {\n    cyber: 'from-cyan-900/40 via-purple-900/30 to-blue-900/40',\n    sunset: 'from-amber-900/40 via-rose-900/30 to-purple-900/40',\n    deep: 'from-emerald-950/40 via-zinc-900/50 to-blue-950/40',\n  }\n\n  return (\n    <div className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#050505] p-6', className)}>\n      {/* Multilayer Mesh Orbs */}\n      <div className={cn('pointer-events-none absolute inset-0 bg-gradient-to-tr blur-3xl opacity-60', gradientPresets[variant])} />\n      \n      <div className=\"pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl animate-[pulse_6s_ease-in-out_infinite]\" />\n      <div className=\"pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl animate-[pulse_8s_ease-in-out_infinite]\" />\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-purple-400\">ORGANIC SHADERS</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Animated Mesh Canvas</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Layered radial diffusion mesh with organic frequency modulation.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

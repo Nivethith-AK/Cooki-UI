@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "orbit-card",
+  "type": "registry:ui",
+  "title": "Concentric Planetary Orbit Card",
+  "description": "Dual circular orbit rings with counter-rotating planetary tech nodes and central core.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "orbit",
+    "planetary",
+    "satellite"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/orbit-card/orbit-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/orbit-card.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

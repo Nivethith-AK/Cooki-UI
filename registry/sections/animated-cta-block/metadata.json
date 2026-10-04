@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-cta-block",
+  "type": "registry:ui",
+  "title": "High-Conversion Terminal CTA",
+  "description": "Conversion-optimized terminal deployment CTA with instant command copy and status pulse.",
+  "category": "sections",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "cta",
+    "conversion",
+    "terminal"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/animated-cta-block/animated-cta-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-cta-block.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

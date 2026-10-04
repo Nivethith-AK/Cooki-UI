@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-terminal-block",
+  "type": "registry:ui",
+  "title": "Installation Terminal Block",
+  "description": "Interactive CLI command runner terminal with execution simulation and tab controls.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "terminal",
+    "cli",
+    "installation"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/interactive-terminal-block/interactive-terminal-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-terminal-block.tsx",
+      "content": "import React, { useState } from 'react'\nimport { Terminal, Copy, Check, Play, CheckCircle } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface InteractiveTerminalBlockProps {\n  className?: string\n}\n\nexport const InteractiveTerminalBlock: React.FC<InteractiveTerminalBlockProps> = ({ className }) => {\n  const [copied, setCopied] = useState(false)\n  const [isRunning, setIsRunning] = useState(false)\n  const [outputLines, setOutputLines] = useState<string[]>([\n    'Initializing COOK Runtime v2.4...',\n    'Verified memory bounds in isolate #0',\n    'Compilation successful in 42ms.',\n  ])\n\n  const runCode = () => {\n    setIsRunning(true)\n    setTimeout(() => {\n      setOutputLines((prev) => [\n        ...prev,\n        `[${new Date().toLocaleTimeString()}] Emitted 14 verified WASM blocks.`,\n      ])\n      setIsRunning(false)\n    }, 600)\n  }\n\n  const copy = () => {\n    navigator.clipboard.writeText('cook synthesize --spec=cluster.spec')\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div className={cn('w-full max-w-xl rounded-3xl border border-white/15 bg-black/90 p-5 font-mono text-xs text-white shadow-2xl', className)}>\n      <div className=\"flex items-center justify-between border-b border-white/10 pb-3\">\n        <div className=\"flex items-center gap-2\">\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"ml-2 text-zinc-400\">cook-terminal</span>\n        </div>\n        <div className=\"flex items-center gap-3\">\n          <button onClick={copy} className=\"text-zinc-400 hover:text-white transition-colors\">\n            {copied ? <Check size={14} className=\"text-emerald-400\" /> : <Copy size={14} />}\n          </button>\n          <button\n            onClick={runCode}\n            disabled={isRunning}\n            className=\"flex items-center gap-1 rounded bg-emerald-500/20 px-2 py-0.5 text-emerald-400 hover:bg-emerald-500/30 transition-colors\"\n          >\n            <Play size={11} weight=\"fill\" />\n            <span>{isRunning ? 'Running...' : 'Run'}</span>\n          </button>\n        </div>\n      </div>\n\n      <div className=\"mt-4 space-y-1.5 text-zinc-300\">\n        <div className=\"flex gap-2 text-emerald-400\">\n          <span>$</span>\n          <span className=\"text-white\">cook synthesize --spec=cluster.spec</span>\n        </div>\n        {outputLines.map((line, idx) => (\n          <div key={idx} className=\"text-zinc-400 pl-4 border-l border-white/10\">\n            {line}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

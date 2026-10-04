@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-reveal",
+  "type": "registry:ui",
+  "title": "Masked Text Reveal",
+  "description": "Cinematic word-by-word mask displacement reveal with customizable stagger delays.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "reveal",
+    "mask",
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "registry/text/text-reveal/text-reveal.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/text-reveal.tsx",
+      "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface TextRevealProps {\n  text?: string\n  delay?: number\n  className?: string\n}\n\nexport const TextReveal: React.FC<TextRevealProps> = ({\n  text = 'Deterministic Software Synthesis Engine',\n  delay = 0,\n  className,\n}) => {\n  const words = text.split(' ')\n\n  const container = {\n    hidden: { opacity: 0 },\n    visible: (i = 1) => ({\n      opacity: 1,\n      transition: { staggerChildren: 0.08, delayChildren: 0.04 * i + delay },\n    }),\n  }\n\n  const child = {\n    visible: {\n      opacity: 1,\n      y: 0,\n      filter: 'blur(0px)',\n      transition: {\n        type: 'spring' as const,\n        damping: 18,\n        stiffness: 120,\n      },\n    },\n    hidden: {\n      opacity: 0,\n      y: 20,\n      filter: 'blur(4px)',\n    },\n  }\n\n  return (\n    <motion.div\n      variants={container}\n      initial=\"hidden\"\n      whileInView=\"visible\"\n      viewport={{ once: false }}\n      className={cn('flex flex-wrap gap-x-2 gap-y-1 font-bold text-white', className)}\n    >\n      {words.map((word, index) => (\n        <motion.span\n          key={`${word}-${index}`}\n          variants={child}\n          className=\"inline-block\"\n        >\n          {word}\n        </motion.span>\n      ))}\n    </motion.div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "Radial Ripple Button",
+  "description": "Material-inspired coordinate-origin expanding liquid wave ripple.",
+  "category": "buttons",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "ripple",
+    "interactive",
+    "wave"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/ripple-button/ripple-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ripple-button.tsx",
+      "content": "import React, { useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  className?: string\n}\n\ninterface Ripple {\n  x: number\n  y: number\n  size: number\n  id: number\n}\n\nexport const RippleButton: React.FC<RippleButtonProps> = ({\n  children = 'Ripple Feedback',\n  className,\n  onClick,\n  ...props\n}) => {\n  const [ripples, setRipples] = useState<Ripple[]>([])\n\n  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect()\n    const size = Math.max(rect.width, rect.height) * 2\n    const x = e.clientX - rect.left - size / 2\n    const y = e.clientY - rect.top - size / 2\n\n    const newRipple: Ripple = { x, y, size, id: Date.now() }\n    setRipples((prev) => [...prev, newRipple])\n\n    setTimeout(() => {\n      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id))\n    }, 600)\n\n    onClick?.(e)\n  }\n\n  return (\n    <button\n      onClick={handleClick}\n      className={cn(\n        'relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/15 bg-zinc-900 px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg transition-transform active:scale-95 focus:outline-none',\n        className\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10\">{children}</span>\n      {ripples.map((ripple) => (\n        <span\n          key={ripple.id}\n          style={{\n            top: ripple.y,\n            left: ripple.x,\n            width: ripple.size,\n            height: ripple.size,\n          }}\n          className=\"pointer-events-none absolute rounded-full bg-cyan-400/30 animate-[ping_0.6s_ease-out_forwards]\"\n        />\n      ))}\n    </button>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

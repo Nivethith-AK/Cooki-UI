@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "terminal-card",
+  "type": "registry:ui",
+  "title": "Interactive Developer Terminal Card",
+  "description": "Simulated developer CLI shell executing interactive commands with status logs.",
+  "category": "cards",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "terminal",
+    "cli",
+    "bash"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/terminal-card/terminal-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/terminal-card.tsx",
+      "content": "import React, { useState } from 'react';\nimport { Terminal, Copy, Check, Play } from '@phosphor-icons/react';\n\ninterface TerminalLine {\n  type: 'input' | 'output' | 'success' | 'error';\n  text: string;\n}\n\nexport const TerminalCard: React.FC = () => {\n  const [copied, setCopied] = useState(false);\n  const [inputVal, setInputVal] = useState('');\n  const [history, setHistory] = useState<TerminalLine[]>([\n    { type: 'input', text: 'npx cook-ui add magnetic-dock' },\n    { type: 'output', text: '✔ Resolving components and dependencies...' },\n    { type: 'output', text: '✔ Generated components/ui/magnetic-dock.tsx' },\n    { type: 'success', text: '✨ Ready in 342ms. Happy building!' },\n  ]);\n\n  const handleCopy = () => {\n    navigator.clipboard.writeText('npx cook-ui add magnetic-dock');\n    setCopied(true);\n    setTimeout(() => setCopied(false), 2000);\n  };\n\n  const handleCommand = (e: React.FormEvent) => {\n    e.preventDefault();\n    const cmd = inputVal.trim();\n    if (!cmd) return;\n\n    const newLines: TerminalLine[] = [...history, { type: 'input', text: cmd }];\n\n    if (cmd === 'clear') {\n      setHistory([]);\n      setInputVal('');\n      return;\n    } else if (cmd === 'help') {\n      newLines.push(\n        { type: 'output', text: 'Available commands:' },\n        { type: 'output', text: '  build     - trigger simulated project build' },\n        { type: 'output', text: '  stats     - display component library metrics' },\n        { type: 'output', text: '  clear     - wipe terminal buffer' }\n      );\n    } else if (cmd === 'build') {\n      newLines.push(\n        { type: 'output', text: 'vite v6.2.0 building for production...' },\n        { type: 'output', text: '✓ 42 modules transformed.' },\n        { type: 'success', text: 'dist/index.html   1.42 kB │ gzip: 0.65 kB' }\n      );\n    } else if (cmd === 'stats') {\n      newLines.push(\n        { type: 'output', text: 'Components: 42 active' },\n        { type: 'output', text: 'FPS: 60 locked' },\n        { type: 'success', text: 'Performance score: 100/100' }\n      );\n    } else {\n      newLines.push({ type: 'error', text: `Command not found: ${cmd}. Type 'help' for commands.` });\n    }\n\n    setHistory(newLines);\n    setInputVal('');\n  };\n\n  return (\n    <div className=\"w-full max-w-lg rounded-2xl bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden font-mono text-xs\">\n      {/* Terminal Titlebar */}\n      <div className=\"flex items-center justify-between px-4 py-3 bg-zinc-900/90 border-b border-zinc-800\">\n        <div className=\"flex items-center gap-2\">\n          <div className=\"w-3 h-3 rounded-full bg-rose-500/80\" />\n          <div className=\"w-3 h-3 rounded-full bg-amber-500/80\" />\n          <div className=\"w-3 h-3 rounded-full bg-emerald-500/80\" />\n          <span className=\"ml-2 text-zinc-400 text-[11px] font-sans font-medium flex items-center gap-1.5\">\n            <Terminal size={14} className=\"text-zinc-500\" />\n            bash — 80x24\n          </span>\n        </div>\n\n        <button\n          onClick={handleCopy}\n          className=\"flex items-center gap-1 text-[11px] font-sans text-zinc-400 hover:text-white transition-colors cursor-pointer\"\n        >\n          {copied ? (\n            <>\n              <Check size={12} className=\"text-emerald-400\" />\n              <span className=\"text-emerald-400\">Copied</span>\n            </>\n          ) : (\n            <>\n              <Copy size={12} />\n              <span>Copy</span>\n            </>\n          )}\n        </button>\n      </div>\n\n      {/* Terminal Body */}\n      <div className=\"p-4 space-y-2 max-h-[220px] overflow-y-auto\">\n        {history.map((line, idx) => (\n          <div key={idx} className=\"leading-relaxed\">\n            {line.type === 'input' && (\n              <div className=\"flex items-center gap-2 text-zinc-200\">\n                <span className=\"text-cyan-400 font-bold\">~</span>\n                <span className=\"text-indigo-400\">$</span>\n                <span>{line.text}</span>\n              </div>\n            )}\n            {line.type === 'output' && <div className=\"text-zinc-400 pl-4\">{line.text}</div>}\n            {line.type === 'success' && <div className=\"text-emerald-400 pl-4 font-medium\">{line.text}</div>}\n            {line.type === 'error' && <div className=\"text-rose-400 pl-4\">{line.text}</div>}\n          </div>\n        ))}\n\n        {/* Input prompt line */}\n        <form onSubmit={handleCommand} className=\"flex items-center gap-2 text-zinc-200 pt-1\">\n          <span className=\"text-cyan-400 font-bold\">~</span>\n          <span className=\"text-indigo-400\">$</span>\n          <input\n            type=\"text\"\n            value={inputVal}\n            onChange={(e) => setInputVal(e.target.value)}\n            placeholder=\"Type 'help', 'build', 'stats', 'clear'...\"\n            className=\"flex-1 bg-transparent text-zinc-100 placeholder-zinc-600 outline-none text-xs\"\n          />\n          <button type=\"submit\" className=\"text-zinc-500 hover:text-zinc-300\">\n            <Play size={10} weight=\"fill\" />\n          </button>\n        </form>\n      </div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

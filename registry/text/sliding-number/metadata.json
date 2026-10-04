@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-number",
+  "type": "registry:ui",
+  "title": "Sliding Number Counter",
+  "description": "Smooth mechanical counter and odometer number animation powered by spring transforms.",
+  "category": "text",
+  "dependencies": [
+    "motion",
+    "react-use-measure"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "counter",
+    "odometer",
+    "numbers"
+  ],
+  "files": [
+    {
+      "path": "registry/text/sliding-number/sliding-number.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/sliding-number.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

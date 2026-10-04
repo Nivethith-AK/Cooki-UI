@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-shimmer-button",
+  "type": "registry:ui",
+  "title": "Gradient Shimmer Button",
+  "description": "High-speed dual-phase border shimmer button with glowing radial backdrop.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "shimmer",
+    "gradient",
+    "glow"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/gradient-shimmer-button/gradient-shimmer-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/gradient-shimmer-button.tsx",
+      "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface GradientShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  size?: 'sm' | 'md' | 'lg'\n  speed?: 'slow' | 'normal' | 'fast'\n  className?: string\n}\n\nexport const GradientShimmerButton: React.FC<GradientShimmerButtonProps> = ({\n  children = 'Shimmer Action',\n  size = 'md',\n  speed = 'normal',\n  className,\n  ...props\n}) => {\n  const sizeClasses = {\n    sm: 'h-9 px-4 text-xs',\n    md: 'h-11 px-6 text-sm',\n    lg: 'h-14 px-8 text-base font-semibold',\n  }\n\n  const duration = speed === 'slow' ? 6 : speed === 'fast' ? 2 : 4\n\n  return (\n    <button\n      className={cn(\n        'group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] font-medium transition-all active:scale-95 focus:outline-none',\n        sizeClasses[size],\n        className\n      )}\n      {...props}\n    >\n      {/* Animated Rotating Gradient Border */}\n      <span\n        style={{ animationDuration: `${duration}s` }}\n        className=\"absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#3b82f6_0%,#a855f7_50%,#3b82f6_100%)] opacity-70 group-hover:opacity-100 transition-opacity\"\n      />\n\n      {/* Button Interior */}\n      <span className=\"relative inline-flex h-full w-full items-center justify-center rounded-full bg-zinc-950 px-6 py-2 text-white backdrop-blur-3xl transition-colors group-hover:bg-zinc-900/90 gap-2\">\n        {children}\n      </span>\n    </button>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

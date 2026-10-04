@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-navbar",
+  "type": "registry:ui",
+  "title": "Dynamic Floating Capsule Navbar",
+  "description": "Adaptive capsule navigation bar with backdrop blur and pill indicators.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "navbar",
+    "capsule",
+    "floating"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/floating-navbar/floating-navbar.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/floating-navbar.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

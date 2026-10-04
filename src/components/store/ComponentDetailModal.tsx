@@ -11,7 +11,7 @@ export const ComponentDetailModal: React.FC = () => {
 
   const [controlValues, setControlValues] = useState<Record<string, any>>({})
   const [copiedInstall, setCopiedInstall] = useState(false)
-  const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install'>('preview')
+  const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install' | 'registry'>('preview')
 
   useEffect(() => {
     if (selectedComponent?.controls) {
@@ -127,7 +127,17 @@ export const ComponentDetailModal: React.FC = () => {
                     : 'text-zinc-400 hover:text-white hover:bg-white/5'
                 }`}
               >
-                Installation & Docs
+                Installation & CLI
+              </button>
+              <button
+                onClick={() => setActiveTab('registry' as any)}
+                className={`rounded-xl px-3 py-1.5 text-xs font-medium transition-all ${
+                  activeTab === ('registry' as any)
+                    ? 'bg-white text-zinc-950 font-semibold shadow'
+                    : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                Registry API
               </button>
             </div>
 
@@ -244,32 +254,66 @@ export const ComponentDetailModal: React.FC = () => {
             {activeTab === 'install' && (
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-2 font-mono">1. INSTALL COMMAND</h4>
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-sm font-bold text-white font-mono">1. SHADCN REGISTRY INSTALLATION</h4>
+                    <span className="text-[10px] font-mono uppercase text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">RECOMMENDED</span>
+                  </div>
                   <div className="flex items-center justify-between rounded-xl border border-white/10 bg-black/80 p-3 font-mono text-xs text-zinc-300">
-                    <span className="text-emerald-400">$ {selectedComponent.installCommand}</span>
+                    <span className="text-emerald-400 truncate mr-2">
+                      $ npx shadcn@latest add https://cooki-ui.vercel.app/r/{selectedComponent.slug}.json
+                    </span>
                     <button
-                      onClick={copyInstall}
-                      className="flex items-center gap-1 rounded bg-zinc-800 px-2 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700"
+                      onClick={() => {
+                        navigator.clipboard.writeText(`npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                        setCopiedInstall(true)
+                        setTimeout(() => setCopiedInstall(false), 2000)
+                      }}
+                      className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
                     >
                       {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
                       <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
                     </button>
                   </div>
+                  <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
+                    Directly downloads and installs the component into your project's <code className="text-zinc-300">components/ui/</code> directory.
+                  </p>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-2 font-mono">2. DEPENDENCIES</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedComponent.dependencies.map((dep) => (
-                      <span key={dep} className="rounded-lg border border-white/10 bg-zinc-900 px-3 py-1 text-xs font-mono text-zinc-300">
-                        {dep}
-                      </span>
-                    ))}
+                  <h4 className="text-sm font-bold text-white mb-2 font-mono">2. COOKI UI CLI (PREVIEW)</h4>
+                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-black/80 p-3 font-mono text-xs text-zinc-300">
+                    <span className="text-indigo-400">$ npx cooki-ui add {selectedComponent.slug}</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(`npx cooki-ui add ${selectedComponent.slug}`)
+                        setCopiedInstall(true)
+                        setTimeout(() => setCopiedInstall(false), 2000)
+                      }}
+                      className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
+                    >
+                      <Copy size={12} />
+                      <span>Copy</span>
+                    </button>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-bold text-white mb-2 font-mono">3. COMPONENT METADATA</h4>
+                  <h4 className="text-sm font-bold text-white mb-2 font-mono">3. DEPENDENCIES</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedComponent.dependencies.length > 0 ? (
+                      selectedComponent.dependencies.map((dep) => (
+                        <span key={dep} className="rounded-lg border border-white/10 bg-zinc-900 px-3 py-1 text-xs font-mono text-zinc-300">
+                          npm i {dep}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="text-xs font-mono text-zinc-500">Zero additional dependencies required. Pure React.</span>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold text-white mb-2 font-mono">4. COMPONENT METADATA</h4>
                   <div className="rounded-2xl border border-white/10 bg-zinc-900/40 p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
                     <div>
                       <span className="text-zinc-500">Frameworks:</span>
@@ -280,13 +324,77 @@ export const ComponentDetailModal: React.FC = () => {
                       <div className="mt-1 text-zinc-200">{selectedComponent.subcategory}</div>
                     </div>
                     <div>
-                      <span className="text-zinc-500">Added:</span>
-                      <div className="mt-1 text-zinc-200">{selectedComponent.dateAdded}</div>
+                      <span className="text-zinc-500">Target Path:</span>
+                      <div className="mt-1 text-zinc-300">components/ui/{selectedComponent.slug}.tsx</div>
                     </div>
                     <div>
                       <span className="text-zinc-500">Status:</span>
-                      <div className="mt-1 text-emerald-400">Production Ready</div>
+                      <div className="mt-1 text-emerald-400 font-semibold">Production Ready</div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 4: REGISTRY API ENDPOINT */}
+            {activeTab === 'registry' && (
+              <div className="space-y-6">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-sm font-bold text-white font-mono">REGISTRY ENDPOINT</h4>
+                    <a
+                      href={`/r/${selectedComponent.slug}.json`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 hover:text-cyan-300"
+                    >
+                      <span>Open Endpoint</span>
+                      <ArrowSquareOut size={13} />
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-black/80 p-3 font-mono text-xs text-zinc-300">
+                    <span className="text-cyan-400">GET /r/{selectedComponent.slug}.json</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(`https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                        setCopiedInstall(true)
+                        setTimeout(() => setCopiedInstall(false), 2000)
+                      }}
+                      className="flex items-center gap-1 rounded bg-zinc-800 px-2 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 cursor-pointer"
+                    >
+                      <Copy size={12} />
+                      <span>Copy URL</span>
+                    </button>
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
+                    Served statically via Vercel CDN. Conforms to shadcn registry item schema specification.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold text-white mb-2 font-mono">REGISTRY SCHEMA PAYLOAD</h4>
+                  <div className="rounded-2xl border border-white/10 bg-black/90 p-4 font-mono text-xs text-zinc-300 max-h-[260px] overflow-auto">
+                    <pre className="text-zinc-400">
+{JSON.stringify(
+  {
+    $schema: 'https://ui.shadcn.com/schema/registry-item.json',
+    name: selectedComponent.slug,
+    type: 'registry:ui',
+    title: selectedComponent.name,
+    description: selectedComponent.description,
+    dependencies: selectedComponent.dependencies,
+    files: [
+      {
+        path: `registry/${selectedComponent.category}/${selectedComponent.slug}/${selectedComponent.slug}.tsx`,
+        type: 'registry:ui',
+        target: `components/ui/${selectedComponent.slug}.tsx`
+      }
+    ]
+  },
+  null,
+  2
+)}
+                    </pre>
                   </div>
                 </div>
               </div>

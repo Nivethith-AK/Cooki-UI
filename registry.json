@@ -1,0 +1,760 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cooki-ui",
+  "homepage": "https://cooki-ui.vercel.app",
+  "items": [
+    {
+      "name": "animated-mesh-background",
+      "type": "registry:ui",
+      "title": "Generative Animated Mesh Gradient",
+      "description": "Deep spatial canvas mesh gradient with animated organic noise displacement.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/animated-mesh-background/animated-mesh-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-mesh-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "aurora-background",
+      "type": "registry:ui",
+      "title": "Fluid Aurora Lighting",
+      "description": "Chromatic atmospheric aurora simulation with smooth organic color blending.",
+      "category": "backgrounds",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/aurora-background/aurora-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/aurora-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "beam-grid-background",
+      "type": "registry:ui",
+      "title": "Coordinate Beam Grid Matrix",
+      "description": "SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.",
+      "category": "backgrounds",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/beam-grid-background/beam-grid-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/beam-grid-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cosmic-dust-background",
+      "type": "registry:ui",
+      "title": "Cosmic Dust Gravity Canvas",
+      "description": "Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/cosmic-dust-background/cosmic-dust-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cosmic-dust-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dot-background",
+      "type": "registry:ui",
+      "title": "Matrix Dot Grid Pattern",
+      "description": "High-density micro-dot matrix pattern with subtle center bloom illumination.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/dot-background/dot-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dot-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid-background",
+      "type": "registry:ui",
+      "title": "Precision Cartesian Grid",
+      "description": "Infinite architectural coordinate grid with radial spotlight vignette.",
+      "category": "backgrounds",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/backgrounds/grid-background/grid-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/grid-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confetti-button",
+      "type": "registry:ui",
+      "title": "Celebration Confetti Burst Button",
+      "description": "Multi-color physics confetti explosion upon click with spring recoil.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/confetti-button/confetti-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/confetti-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-action-button",
+      "type": "registry:ui",
+      "title": "Floating Action Button Cluster",
+      "description": "Expandable speed-dial floating action cluster with staggered spring reveals.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/floating-action-button/floating-action-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/floating-action-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glow-action-button",
+      "type": "registry:ui",
+      "title": "Glow Action Button",
+      "description": "Tactile action button with dynamic ambient radial bloom backdrop.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/glow-action-button/glow-action-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glow-action-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gradient-shimmer-button",
+      "type": "registry:ui",
+      "title": "Gradient Shimmer Button",
+      "description": "High-speed dual-phase border shimmer button with glowing radial backdrop.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/gradient-shimmer-button/gradient-shimmer-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/gradient-shimmer-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-button",
+      "type": "registry:ui",
+      "title": "Refractive Liquid Glass Button",
+      "description": "Frosted Apple-style refractive glass with dynamic cursor specular reflection sweep.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/liquid-glass-button/liquid-glass-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/liquid-glass-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:ui",
+      "title": "Magnetic Button",
+      "description": "Interactive magnetic button with spring pull physics and cursor tracking.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/magnetic-button/magnetic-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Radial Ripple Button",
+      "description": "Material-inspired coordinate-origin expanding liquid wave ripple.",
+      "category": "buttons",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/buttons/ripple-button/ripple-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ripple-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slide-to-confirm",
+      "type": "registry:ui",
+      "title": "Slide to Confirm Slider",
+      "description": "Draggable tactical slide-to-confirm button with spring physics and unlock callback.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/slide-to-confirm/slide-to-confirm.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/slide-to-confirm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-card",
+      "type": "registry:ui",
+      "title": "Spring Expandable Modal Card",
+      "description": "Card that smoothly expands into an overlay detail view via shared layout springs.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/expandable-card/expandable-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-card",
+      "type": "registry:ui",
+      "title": "Frosted Acrylic Glass Card",
+      "description": "Multi-layer frosted glass card with noise texture and rim lighting.",
+      "category": "cards",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/glass-card/glass-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glass-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-tilt-card",
+      "type": "registry:ui",
+      "title": "Interactive 3D Tilt Card",
+      "description": "Subtle physics tilt card with specular gradient sheen responding to mouse position.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/interactive-tilt-card/interactive-tilt-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-tilt-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "orbit-card",
+      "type": "registry:ui",
+      "title": "Concentric Planetary Orbit Card",
+      "description": "Dual circular orbit rings with counter-rotating planetary tech nodes and central core.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/orbit-card/orbit-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/orbit-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "perspective-card-3d",
+      "type": "registry:ui",
+      "title": "3D Parallax Perspective Card",
+      "description": "Multilayer spatial depth card where internal elements float along the Z-axis.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/perspective-card-3d/perspective-card-3d.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/perspective-card-3d.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Radial Cursor Spotlight Card",
+      "description": "Card with a dynamic radial cursor spotlight illuminating borders and background on hover.",
+      "category": "cards",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/spotlight-card/spotlight-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spotlight-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "terminal-card",
+      "type": "registry:ui",
+      "title": "Interactive Developer Terminal Card",
+      "description": "Simulated developer CLI shell executing interactive commands with status logs.",
+      "category": "cards",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/terminal-card/terminal-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/terminal-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ascii-wave",
+      "type": "registry:ui",
+      "title": "Generative ASCII Wave",
+      "description": "Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.",
+      "category": "effects",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/effects/ascii-wave/ascii-wave.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ascii-wave.tsx"
+        }
+      ]
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Luminous Border Beam",
+      "description": "Animated glowing laser beam traveling along card perimeter with soft specular light trail.",
+      "category": "effects",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/border-beam/border-beam.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/border-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "noise-grain-overlay",
+      "type": "registry:ui",
+      "title": "Procedural Film Grain Synthesizer",
+      "description": "Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.",
+      "category": "effects",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/effects/noise-grain-overlay/noise-grain-overlay.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/noise-grain-overlay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spectrum-loader",
+      "type": "registry:ui",
+      "title": "Harmonic Spectrum Equalizer",
+      "description": "Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.",
+      "category": "effects",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/spectrum-loader/spectrum-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spectrum-loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-search-bar",
+      "type": "registry:ui",
+      "title": "Expandable Command Search Bar",
+      "description": "Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.",
+      "category": "forms",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/expandable-search-bar/expandable-search-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-search-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "password-strength-indicator",
+      "type": "registry:ui",
+      "title": "Interactive Entropy Password Input",
+      "description": "Real-time security entropy calculation with multi-tier colored meter and requirement checklist.",
+      "category": "forms",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/password-strength-indicator/password-strength-indicator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/password-strength-indicator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-notification-stack",
+      "type": "registry:ui",
+      "title": "Spring Notification Toast Stack",
+      "description": "Tactile stacked notification cards with interactive expandable deck and live push dispatch.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/animated-notification-stack/animated-notification-stack.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-notification-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:ui",
+      "title": "Spotlight Command Palette (⌘K)",
+      "description": "Keyboard-first modal command center with fuzzy query matching and shortcuts.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/command-palette/command-palette.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/command-palette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-navbar",
+      "type": "registry:ui",
+      "title": "Dynamic Floating Capsule Navbar",
+      "description": "Adaptive capsule navigation bar with backdrop blur and pill indicators.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/floating-navbar/floating-navbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/floating-navbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-dock",
+      "type": "registry:ui",
+      "title": "Componentry Magnetic Dock",
+      "description": "macOS-style navigation dock with spring-physics cursor magnification, tooltips, and badges.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/magnetic-dock/magnetic-dock.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic-dock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sliding-logo-marquee",
+      "type": "registry:ui",
+      "title": "Infinite Brand Logo Marquee",
+      "description": "Seamless hardware-accelerated horizontal brand partner marquee with hover pause.",
+      "category": "navigation",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/sliding-logo-marquee/sliding-logo-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sliding-logo-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs-morph",
+      "type": "registry:ui",
+      "title": "Morphing Spring Pill Tabs",
+      "description": "Fluid layoutId morphing background indicator tabs with tactile spring motion.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/tabs-morph/tabs-morph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-cta-block",
+      "type": "registry:ui",
+      "title": "High-Conversion Terminal CTA",
+      "description": "Conversion-optimized terminal deployment CTA with instant command copy and status pulse.",
+      "category": "sections",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/animated-cta-block/animated-cta-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-cta-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-bento-block",
+      "type": "registry:ui",
+      "title": "Technical Feature Bento Block",
+      "description": "Asymmetric technical bento grid section with hardware isolation badges and metrics.",
+      "category": "sections",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/feature-bento-block/feature-bento-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feature-bento-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-terminal-block",
+      "type": "registry:ui",
+      "title": "Installation Terminal Block",
+      "description": "Interactive CLI command runner terminal with execution simulation and tab controls.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/interactive-terminal-block/interactive-terminal-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-terminal-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-comparison-block",
+      "type": "registry:ui",
+      "title": "Tiered SaaS Pricing Matrix",
+      "description": "Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/pricing-comparison-block/pricing-comparison-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pricing-comparison-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-marquee-block",
+      "type": "registry:ui",
+      "title": "Endless Social Proof Testimonials",
+      "description": "Continuous dual-directional testimonial marquee with verified engineer reviews and star ratings.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/testimonial-marquee-block/testimonial-marquee-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/testimonial-marquee-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "blur-reveal",
+      "type": "registry:ui",
+      "title": "Atmospheric Gaussian Blur Reveal",
+      "description": "Smooth transition from heavy Gaussian blur to crisp legibility.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/blur-reveal/blur-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/blur-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shiny-text",
+      "type": "registry:ui",
+      "title": "Specular Shiny Text",
+      "description": "Reflective specular light ray sweeping continuously across metallic typographic titles.",
+      "category": "text",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/text/shiny-text/shiny-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/shiny-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:ui",
+      "title": "Sliding Number Counter",
+      "description": "Smooth mechanical counter and odometer number animation powered by spring transforms.",
+      "category": "text",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "files": [
+        {
+          "path": "registry/text/sliding-number/sliding-number.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sliding-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-text",
+      "type": "registry:ui",
+      "title": "Kinetic Split Character Spring",
+      "description": "Character-level split typography animation with spring physics.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/split-text/split-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-reveal",
+      "type": "registry:ui",
+      "title": "Masked Text Reveal",
+      "description": "Cinematic word-by-word mask displacement reveal with customizable stagger delays.",
+      "category": "text",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/text-reveal/text-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/text-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typing-text",
+      "type": "registry:ui",
+      "title": "Dynamic Typewriter Loop",
+      "description": "Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.",
+      "category": "text",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/text/typing-text/typing-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/typing-text.tsx"
+        }
+      ]
+    }
+  ]
+}

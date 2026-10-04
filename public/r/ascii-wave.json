@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ascii-wave",
+  "type": "registry:ui",
+  "title": "Generative ASCII Wave",
+  "description": "Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.",
+  "category": "effects",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "ascii",
+    "wave",
+    "generative"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/ascii-wave/ascii-wave.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ascii-wave.tsx",
+      "content": "import React, { useEffect, useRef, useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AsciiWaveProps {\n  className?: string\n  rows?: number\n  cols?: number\n}\n\nexport const AsciiWave: React.FC<AsciiWaveProps> = ({\n  className,\n  rows = 14,\n  cols = 38,\n}) => {\n  const [output, setOutput] = useState<string[]>([])\n  const frameRef = useRef(0)\n  const mousePos = useRef({ x: 19, y: 7 })\n\n  const chars = ' .:-=+*#%@'\n\n  useEffect(() => {\n    let animId: number\n\n    const render = () => {\n      frameRef.current += 0.05\n      const lines: string[] = []\n\n      for (let y = 0; y < rows; y++) {\n        let line = ''\n        for (let x = 0; x < cols; x++) {\n          const dx = x - mousePos.current.x\n          const dy = y - mousePos.current.y\n          const dist = Math.sqrt(dx * dx + dy * dy)\n          \n          // Wave equation\n          const wave1 = Math.sin(x * 0.2 + frameRef.current)\n          const wave2 = Math.cos(y * 0.3 + frameRef.current * 0.8)\n          const ripple = Math.sin(dist * 0.5 - frameRef.current * 2) * 0.4\n          \n          const val = (wave1 + wave2 + ripple + 2) / 4\n          const charIdx = Math.floor(Math.max(0, Math.min(1, val)) * (chars.length - 1))\n          line += chars[charIdx]\n        }\n        lines.push(line)\n      }\n\n      setOutput(lines)\n      animId = requestAnimationFrame(render)\n    }\n\n    render()\n    return () => cancelAnimationFrame(animId)\n  }, [rows, cols])\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect()\n    const x = Math.floor(((e.clientX - rect.left) / rect.width) * cols)\n    const y = Math.floor(((e.clientY - rect.top) / rect.height) * rows)\n    mousePos.current = { x, y }\n  }\n\n  return (\n    <div\n      onMouseMove={handleMouseMove}\n      className={cn(\n        'relative overflow-hidden rounded-3xl border border-white/10 bg-[#060608] p-6 font-mono text-[10px] leading-[11px] text-emerald-400 select-none shadow-2xl flex flex-col items-center justify-center',\n        className\n      )}\n    >\n      <div className=\"absolute top-3 left-4 flex items-center gap-1.5 text-[9px] text-zinc-500 uppercase tracking-widest\">\n        <span className=\"h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping\" />\n        <span>ASCII WAVE GENERATOR</span>\n      </div>\n\n      <pre className=\"tracking-widest whitespace-pre overflow-hidden text-emerald-400/90 font-mono\">\n        {output.join('\\n')}\n      </pre>\n\n      <div className=\"mt-3 text-[10px] text-zinc-500 font-mono\">\n        Interactive fluid simulation &bull; Hover to disturb\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

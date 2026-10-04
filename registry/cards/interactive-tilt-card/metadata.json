@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-tilt-card",
+  "type": "registry:ui",
+  "title": "Interactive 3D Tilt Card",
+  "description": "Subtle physics tilt card with specular gradient sheen responding to mouse position.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "tilt",
+    "3d",
+    "sheen"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/interactive-tilt-card/interactive-tilt-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-tilt-card.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

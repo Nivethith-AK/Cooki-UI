@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-palette",
+  "type": "registry:ui",
+  "title": "Spotlight Command Palette (⌘K)",
+  "description": "Keyboard-first modal command center with fuzzy query matching and shortcuts.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "command palette",
+    "cmd-k",
+    "spotlight"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/command-palette/command-palette.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/command-palette.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

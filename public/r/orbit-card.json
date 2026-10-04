@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "orbit-card",
+  "type": "registry:ui",
+  "title": "Concentric Planetary Orbit Card",
+  "description": "Dual circular orbit rings with counter-rotating planetary tech nodes and central core.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "orbit",
+    "planetary",
+    "satellite"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/orbit-card/orbit-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/orbit-card.tsx",
+      "content": "import React from 'react'\nimport { Cpu, Lightning, ShieldCheck, Terminal, Database, Code } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface OrbitCardProps {\n  className?: string\n}\n\nexport const OrbitCard: React.FC<OrbitCardProps> = ({ className }) => {\n  return (\n    <div className={cn('relative flex h-72 w-full max-w-sm items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-6 shadow-2xl', className)}>\n      {/* Concentric Orbit Rings */}\n      <div className=\"absolute h-48 w-48 rounded-full border border-dashed border-white/10\" />\n      <div className=\"absolute h-32 w-32 rounded-full border border-white/10\" />\n\n      {/* Center Core Node */}\n      <div className=\"relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-br from-zinc-800 to-zinc-950 text-white shadow-2xl\">\n        <Cpu size={26} weight=\"bold\" className=\"text-emerald-400\" />\n      </div>\n\n      {/* Orbiting Satellites (CSS Animation) */}\n      <div className=\"pointer-events-none absolute h-48 w-48 animate-[spin_12s_linear_infinite]\">\n        <div className=\"absolute top-0 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-cyan-400 shadow-md\">\n          <Lightning size={16} weight=\"fill\" />\n        </div>\n        <div className=\"absolute bottom-0 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-amber-400 shadow-md\">\n          <ShieldCheck size={16} weight=\"fill\" />\n        </div>\n      </div>\n\n      <div className=\"pointer-events-none absolute h-32 w-32 animate-[spin_8s_linear_infinite_reverse]\">\n        <div className=\"absolute top-1/2 -right-4 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-purple-400 shadow-md\">\n          <Terminal size={14} weight=\"bold\" />\n        </div>\n        <div className=\"absolute top-1/2 -left-4 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-blue-400 shadow-md\">\n          <Database size={14} weight=\"fill\" />\n        </div>\n      </div>\n\n      <div className=\"absolute bottom-3 font-mono text-[10px] text-zinc-500 uppercase tracking-widest\">\n        CONCENTRIC ORBIT NETWORK\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

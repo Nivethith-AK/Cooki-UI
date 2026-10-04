@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glow-action-button",
+  "type": "registry:ui",
+  "title": "Glow Action Button",
+  "description": "Tactile action button with dynamic ambient radial bloom backdrop.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "glow",
+    "bloom",
+    "action"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/glow-action-button/glow-action-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glow-action-button.tsx",
+      "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface GlowActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  glowColor?: 'cyan' | 'amber' | 'emerald' | 'purple'\n  size?: 'sm' | 'md' | 'lg'\n  className?: string\n}\n\nexport const GlowActionButton: React.FC<GlowActionButtonProps> = ({\n  children = 'Execute Action',\n  glowColor = 'cyan',\n  size = 'md',\n  className,\n  ...props\n}) => {\n  const glowStyles = {\n    cyan: 'from-cyan-500/20 to-blue-500/20 group-hover:shadow-[0_0_35px_rgba(6,182,212,0.4)] border-cyan-500/30 text-cyan-200',\n    amber: 'from-amber-500/20 to-orange-500/20 group-hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] border-amber-500/30 text-amber-200',\n    emerald: 'from-emerald-500/20 to-teal-500/20 group-hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] border-emerald-500/30 text-emerald-200',\n    purple: 'from-purple-500/20 to-pink-500/20 group-hover:shadow-[0_0_35px_rgba(168,85,247,0.4)] border-purple-500/30 text-purple-200',\n  }\n\n  const sizeStyles = {\n    sm: 'px-4 py-2 text-xs',\n    md: 'px-6 py-2.5 text-sm',\n    lg: 'px-8 py-3.5 text-base',\n  }\n\n  return (\n    <button\n      className={cn(\n        'group relative inline-flex items-center justify-center rounded-2xl border bg-gradient-to-b bg-zinc-950 font-medium transition-all duration-300 active:scale-95 shadow-lg',\n        glowStyles[glowColor],\n        sizeStyles[size],\n        className\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10 flex items-center gap-2 text-white\">\n        {children}\n      </span>\n      <span className=\"absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity\" />\n    </button>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

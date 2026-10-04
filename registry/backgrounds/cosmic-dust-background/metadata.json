@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cosmic-dust-background",
+  "type": "registry:ui",
+  "title": "Cosmic Dust Gravity Canvas",
+  "description": "Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "cosmic",
+    "dust",
+    "canvas"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/cosmic-dust-background/cosmic-dust-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cosmic-dust-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

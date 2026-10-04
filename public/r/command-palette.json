@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-palette",
+  "type": "registry:ui",
+  "title": "Spotlight Command Palette (⌘K)",
+  "description": "Keyboard-first modal command center with fuzzy query matching and shortcuts.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "command palette",
+    "cmd-k",
+    "spotlight"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/command-palette/command-palette.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/command-palette.tsx",
+      "content": "import React, { useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { MagnifyingGlass, Terminal, ArrowRight, Code, ShieldCheck, Lightning } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface CommandPaletteProps {\n  className?: string\n}\n\nexport const CommandPalette: React.FC<CommandPaletteProps> = ({ className }) => {\n  const [query, setQuery] = useState('')\n\n  const commands = [\n    { label: 'Generate Raft State Machine', cat: 'Synthesis', icon: <Terminal size={14} /> },\n    { label: 'Run Z3 Formal Verification', cat: 'Audit', icon: <ShieldCheck size={14} /> },\n    { label: 'Build Hermetic WASM Container', cat: 'Compiler', icon: <Code size={14} /> },\n    { label: 'Profile SIMD Execution Matrix', cat: 'Hardware', icon: <Lightning size={14} /> },\n  ]\n\n  const filtered = commands.filter((c) => c.label.toLowerCase().includes(query.toLowerCase()))\n\n  return (\n    <div className={cn('w-full max-w-md overflow-hidden rounded-3xl border border-white/15 bg-zinc-950 p-3 shadow-2xl text-white font-sans', className)}>\n      <div className=\"flex items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5\">\n        <MagnifyingGlass size={16} className=\"text-zinc-400\" />\n        <input\n          type=\"text\"\n          value={query}\n          onChange={(e) => setQuery(e.target.value)}\n          placeholder=\"Type a command or search AST...\"\n          className=\"w-full bg-transparent text-xs text-white placeholder-zinc-500 focus:outline-none font-mono\"\n        />\n        <span className=\"rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400\">ESC</span>\n      </div>\n\n      <div className=\"mt-2 space-y-1\">\n        {filtered.map((cmd) => (\n          <button\n            key={cmd.label}\n            className=\"flex w-full items-center justify-between rounded-xl px-3 py-2 text-xs text-zinc-300 hover:bg-white/10 hover:text-white transition-colors group text-left\"\n          >\n            <div className=\"flex items-center gap-2\">\n              <span className=\"text-zinc-500 group-hover:text-emerald-400 transition-colors\">{cmd.icon}</span>\n              <span>{cmd.label}</span>\n            </div>\n            <span className=\"font-mono text-[10px] text-zinc-500 group-hover:text-zinc-300\">{cmd.cat}</span>\n          </button>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

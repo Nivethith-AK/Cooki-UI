@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "noise-grain-overlay",
+  "type": "registry:ui",
+  "title": "Procedural Film Grain Synthesizer",
+  "description": "Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.",
+  "category": "effects",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "noise",
+    "grain",
+    "texture"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/noise-grain-overlay/noise-grain-overlay.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/noise-grain-overlay.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

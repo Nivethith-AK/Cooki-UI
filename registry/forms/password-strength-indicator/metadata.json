@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "password-strength-indicator",
+  "type": "registry:ui",
+  "title": "Interactive Entropy Password Input",
+  "description": "Real-time security entropy calculation with multi-tier colored meter and requirement checklist.",
+  "category": "forms",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "forms",
+    "password",
+    "input",
+    "entropy",
+    "security"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/password-strength-indicator/password-strength-indicator.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/password-strength-indicator.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

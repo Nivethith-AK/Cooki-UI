@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-text",
+  "type": "registry:ui",
+  "title": "Kinetic Split Character Spring",
+  "description": "Character-level split typography animation with spring physics.",
+  "category": "text",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "text",
+    "split",
+    "kinetic",
+    "characters"
+  ],
+  "files": [
+    {
+      "path": "registry/text/split-text/split-text.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/split-text.tsx",
+      "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface SplitTextProps {\n  text?: string\n  className?: string\n}\n\nexport const SplitText: React.FC<SplitTextProps> = ({\n  text = 'KINETIC INTENT COMPILER',\n  className,\n}) => {\n  const characters = text.split('')\n\n  return (\n    <div className={cn('inline-flex flex-wrap overflow-hidden font-mono tracking-widest', className)}>\n      {characters.map((char, index) => (\n        <motion.span\n          key={`${char}-${index}`}\n          className=\"inline-block cursor-default select-none text-zinc-100\"\n          whileHover={{\n            y: -6,\n            color: '#38bdf8',\n            scale: 1.15,\n            transition: { type: 'spring', stiffness: 350, damping: 10 },\n          }}\n          transition={{ duration: 0.15 }}\n        >\n          {char === ' ' ? '\\u00A0' : char}\n        </motion.span>\n      ))}\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-notification-stack",
+  "type": "registry:ui",
+  "title": "Spring Notification Toast Stack",
+  "description": "Tactile stacked notification cards with interactive expandable deck and live push dispatch.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "toast",
+    "notification",
+    "stack"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/animated-notification-stack/animated-notification-stack.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-notification-stack.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

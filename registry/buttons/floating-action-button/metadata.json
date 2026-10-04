@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-action-button",
+  "type": "registry:ui",
+  "title": "Floating Action Button Cluster",
+  "description": "Expandable speed-dial floating action cluster with staggered spring reveals.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "fab",
+    "floating",
+    "speed dial"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/floating-action-button/floating-action-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/floating-action-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

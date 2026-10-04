@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spectrum-loader",
+  "type": "registry:ui",
+  "title": "Harmonic Spectrum Equalizer",
+  "description": "Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "spectrum",
+    "equalizer",
+    "audio",
+    "loader"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/spectrum-loader/spectrum-loader.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spectrum-loader.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

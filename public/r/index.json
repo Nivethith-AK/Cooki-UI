@@ -1,0 +1,1550 @@
+[
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "animated-mesh-background",
+    "type": "registry:ui",
+    "title": "Generative Animated Mesh Gradient",
+    "description": "Deep spatial canvas mesh gradient with animated organic noise displacement.",
+    "category": "backgrounds",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "mesh",
+      "gradient",
+      "animated"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/animated-mesh-background/animated-mesh-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-mesh-background.tsx",
+        "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AnimatedMeshBackgroundProps {\n  children?: React.ReactNode\n  variant?: 'cyber' | 'sunset' | 'deep'\n  className?: string\n}\n\nexport const AnimatedMeshBackground: React.FC<AnimatedMeshBackgroundProps> = ({\n  children,\n  variant = 'deep',\n  className,\n}) => {\n  const gradientPresets = {\n    cyber: 'from-cyan-900/40 via-purple-900/30 to-blue-900/40',\n    sunset: 'from-amber-900/40 via-rose-900/30 to-purple-900/40',\n    deep: 'from-emerald-950/40 via-zinc-900/50 to-blue-950/40',\n  }\n\n  return (\n    <div className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#050505] p-6', className)}>\n      {/* Multilayer Mesh Orbs */}\n      <div className={cn('pointer-events-none absolute inset-0 bg-gradient-to-tr blur-3xl opacity-60', gradientPresets[variant])} />\n      \n      <div className=\"pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl animate-[pulse_6s_ease-in-out_infinite]\" />\n      <div className=\"pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl animate-[pulse_8s_ease-in-out_infinite]\" />\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-purple-400\">ORGANIC SHADERS</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Animated Mesh Canvas</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Layered radial diffusion mesh with organic frequency modulation.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "aurora-background",
+    "type": "registry:ui",
+    "title": "Fluid Aurora Lighting",
+    "description": "Chromatic atmospheric aurora simulation with smooth organic color blending.",
+    "category": "backgrounds",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "aurora",
+      "fluid",
+      "gradient"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/aurora-background/aurora-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/aurora-background.tsx",
+        "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AuroraBackgroundProps {\n  children?: React.ReactNode\n  speed?: 'slow' | 'normal' | 'fast'\n  intensity?: 'subtle' | 'medium' | 'high'\n  className?: string\n}\n\nexport const AuroraBackground: React.FC<AuroraBackgroundProps> = ({\n  children,\n  speed = 'normal',\n  intensity = 'medium',\n  className,\n}) => {\n  const speedDurations = {\n    slow: '20s',\n    normal: '12s',\n    fast: '6s',\n  }\n\n  const opacityMap = {\n    subtle: 'opacity-20',\n    medium: 'opacity-40',\n    high: 'opacity-70',\n  }\n\n  return (\n    <div className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl bg-[#050505] p-6', className)}>\n      {/* Aurora Atmospheric Waves */}\n      <div\n        style={{ animationDuration: speedDurations[speed] }}\n        className={cn(\n          'pointer-events-none absolute -inset-[100%] animate-[spin_16s_linear_infinite] blur-3xl',\n          opacityMap[intensity]\n        )}\n      >\n        <div className=\"absolute inset-0 bg-gradient-to-r from-emerald-500/30 via-cyan-500/30 to-blue-600/30\" />\n      </div>\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-emerald-400\">ATMOSPHERIC RUNTIME</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Aurora Fluid Plasma</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Slow-moving ambient background gradient with GPU transform isolation.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "beam-grid-background",
+    "type": "registry:ui",
+    "title": "Coordinate Beam Grid Matrix",
+    "description": "SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.",
+    "category": "backgrounds",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "beam",
+      "grid",
+      "laser"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/beam-grid-background/beam-grid-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/beam-grid-background.tsx",
+        "content": "import React, { useId } from 'react';\nimport { motion } from 'framer-motion';\n\ninterface BeamGridBackgroundProps {\n  className?: string;\n  gridSize?: number;\n  beamColor?: string;\n  gridColor?: string;\n  children?: React.ReactNode;\n}\n\nexport const BeamGridBackground: React.FC<BeamGridBackgroundProps> = ({\n  className = '',\n  gridSize = 48,\n  beamColor = '#6366f1',\n  gridColor = 'rgba(255, 255, 255, 0.08)',\n  children,\n}) => {\n  const patternId = useId();\n\n  return (\n    <div className={`relative w-full h-full min-h-[360px] overflow-hidden rounded-2xl bg-zinc-950 flex items-center justify-center ${className}`}>\n      {/* SVG Grid Pattern */}\n      <svg className=\"absolute inset-0 w-full h-full pointer-events-none stroke-zinc-800/40\">\n        <defs>\n          <pattern\n            id={patternId}\n            width={gridSize}\n            height={gridSize}\n            patternUnits=\"userSpaceOnUse\"\n          >\n            <path\n              d={`M ${gridSize} 0 L 0 0 0 ${gridSize}`}\n              fill=\"none\"\n              stroke={gridColor}\n              strokeWidth=\"1\"\n            />\n          </pattern>\n        </defs>\n        <rect width=\"100%\" height=\"100%\" fill={`url(#${patternId})`} />\n      </svg>\n\n      {/* Radial vignette fade out at edges */}\n      <div className=\"absolute inset-0 bg-radial-gradient from-transparent via-zinc-950/40 to-zinc-950 pointer-events-none\" />\n\n      {/* Animated Beams traversing along grid lines */}\n      <div className=\"absolute inset-0 pointer-events-none overflow-hidden\">\n        {/* Horizontal Laser 1 */}\n        <motion.div\n          animate={{\n            x: ['-20%', '120%'],\n          }}\n          transition={{\n            duration: 4.5,\n            repeat: Infinity,\n            ease: 'linear',\n            repeatDelay: 1.5,\n          }}\n          style={{ top: gridSize * 2 }}\n          className=\"absolute h-[2px] w-48 bg-gradient-to-r from-transparent via-cyan-400 to-transparent blur-[1px] shadow-[0_0_12px_#38bdf8]\"\n        />\n\n        {/* Horizontal Laser 2 */}\n        <motion.div\n          animate={{\n            x: ['120%', '-20%'],\n          }}\n          transition={{\n            duration: 6,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 1,\n            repeatDelay: 2,\n          }}\n          style={{ top: gridSize * 5 }}\n          className=\"absolute h-[2px] w-64 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-[1px] shadow-[0_0_16px_#6366f1]\"\n        />\n\n        {/* Vertical Laser 1 */}\n        <motion.div\n          animate={{\n            y: ['-20%', '120%'],\n          }}\n          transition={{\n            duration: 5,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 0.5,\n            repeatDelay: 1,\n          }}\n          style={{ left: gridSize * 3 }}\n          className=\"absolute w-[2px] h-48 bg-gradient-to-b from-transparent via-fuchsia-500 to-transparent blur-[1px] shadow-[0_0_14px_#d946ef]\"\n        />\n\n        {/* Vertical Laser 2 */}\n        <motion.div\n          animate={{\n            y: ['120%', '-20%'],\n          }}\n          transition={{\n            duration: 7,\n            repeat: Infinity,\n            ease: 'linear',\n            delay: 2.2,\n            repeatDelay: 1.8,\n          }}\n          style={{ left: gridSize * 8 }}\n          className=\"absolute w-[2px] h-56 bg-gradient-to-b from-transparent via-emerald-400 to-transparent blur-[1px] shadow-[0_0_14px_#34d399]\"\n        />\n      </div>\n\n      {/* Content wrapper */}\n      <div className=\"relative z-10 w-full max-w-lg p-8 text-center\">\n        {children || (\n          <div className=\"space-y-3 bg-zinc-900/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl\">\n            <span className=\"inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20\">\n              LIGHTSWIND MATRIX\n            </span>\n            <h3 className=\"text-xl font-semibold text-white tracking-tight\">\n              Coordinate Beam Grid\n            </h3>\n            <p className=\"text-xs text-zinc-400 leading-relaxed\">\n              Synthesized vector lasers tracing Cartesian coordinate planes in real-time.\n            </p>\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "cosmic-dust-background",
+    "type": "registry:ui",
+    "title": "Cosmic Dust Gravity Canvas",
+    "description": "Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.",
+    "category": "backgrounds",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "cosmic",
+      "dust",
+      "canvas"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/cosmic-dust-background/cosmic-dust-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/cosmic-dust-background.tsx",
+        "content": "import React, { useRef, useEffect } from 'react';\n\ninterface CosmicDustBackgroundProps {\n  className?: string;\n  particleCount?: number;\n  dustColor?: string;\n  interactive?: boolean;\n  children?: React.ReactNode;\n}\n\ninterface Particle {\n  x: number;\n  y: number;\n  size: number;\n  vx: number;\n  vy: number;\n  alpha: number;\n  maxAlpha: number;\n  pulseSpeed: number;\n}\n\nexport const CosmicDustBackground: React.FC<CosmicDustBackgroundProps> = ({\n  className = '',\n  particleCount = 120,\n  dustColor = 'rgba(165, 180, 252, ',\n  interactive = true,\n  children,\n}) => {\n  const canvasRef = useRef<HTMLCanvasElement>(null);\n  const mouseRef = useRef<{ x: number; y: number; active: boolean }>({ x: 0, y: 0, active: false });\n\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    let animationFrameId: number;\n    let width = (canvas.width = canvas.parentElement?.clientWidth || 600);\n    let height = (canvas.height = canvas.parentElement?.clientHeight || 400);\n\n    const particles: Particle[] = [];\n    for (let i = 0; i < particleCount; i++) {\n      particles.push({\n        x: Math.random() * width,\n        y: Math.random() * height,\n        size: Math.random() * 2.2 + 0.5,\n        vx: (Math.random() - 0.5) * 0.35,\n        vy: (Math.random() - 0.5) * 0.35,\n        alpha: Math.random() * 0.8,\n        maxAlpha: 0.3 + Math.random() * 0.6,\n        pulseSpeed: 0.01 + Math.random() * 0.02,\n      });\n    }\n\n    const handleResize = () => {\n      if (!canvas.parentElement) return;\n      width = canvas.width = canvas.parentElement.clientWidth;\n      height = canvas.height = canvas.parentElement.clientHeight;\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    const render = () => {\n      ctx.clearRect(0, 0, width, height);\n\n      particles.forEach((p) => {\n        // Pulse alpha\n        p.alpha += p.pulseSpeed;\n        if (p.alpha > p.maxAlpha || p.alpha < 0.1) {\n          p.pulseSpeed = -p.pulseSpeed;\n        }\n\n        // Move particle\n        p.x += p.vx;\n        p.y += p.vy;\n\n        // Interactive mouse gravity deflection\n        if (interactive && mouseRef.current.active) {\n          const dx = mouseRef.current.x - p.x;\n          const dy = mouseRef.current.y - p.y;\n          const dist = Math.sqrt(dx * dx + dy * dy);\n          if (dist < 120) {\n            const force = (120 - dist) / 120;\n            p.x -= (dx / dist) * force * 1.5;\n            p.y -= (dy / dist) * force * 1.5;\n          }\n        }\n\n        // Wrap edges\n        if (p.x < 0) p.x = width;\n        if (p.x > width) p.x = 0;\n        if (p.y < 0) p.y = height;\n        if (p.y > height) p.y = 0;\n\n        // Draw particle with glow\n        ctx.beginPath();\n        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);\n        ctx.fillStyle = `${dustColor}${Math.max(0, p.alpha)})`;\n        ctx.shadowBlur = p.size > 1.5 ? 8 : 0;\n        ctx.shadowColor = '#818cf8';\n        ctx.fill();\n      });\n\n      animationFrameId = requestAnimationFrame(render);\n    };\n\n    render();\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n      window.removeEventListener('resize', handleResize);\n    };\n  }, [particleCount, dustColor, interactive]);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect();\n    mouseRef.current = {\n      x: e.clientX - rect.left,\n      y: e.clientY - rect.top,\n      active: true,\n    };\n  };\n\n  const handleMouseLeave = () => {\n    mouseRef.current.active = false;\n  };\n\n  return (\n    <div\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      className={`relative w-full h-full min-h-[360px] overflow-hidden rounded-2xl bg-zinc-950 flex items-center justify-center ${className}`}\n    >\n      <canvas ref={canvasRef} className=\"absolute inset-0 w-full h-full pointer-events-none\" />\n\n      {/* Atmospheric ambient nebulas */}\n      <div className=\"absolute -top-24 -left-24 w-72 h-72 bg-indigo-600/15 rounded-full blur-[90px] pointer-events-none\" />\n      <div className=\"absolute -bottom-24 -right-24 w-72 h-72 bg-violet-600/15 rounded-full blur-[90px] pointer-events-none\" />\n\n      {/* Content wrapper */}\n      <div className=\"relative z-10 w-full max-w-lg p-8 text-center pointer-events-auto\">\n        {children || (\n          <div className=\"space-y-3 bg-zinc-900/50 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl\">\n            <span className=\"inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-violet-400 bg-violet-500/10 rounded-full border border-violet-500/20\">\n              DEEP COSMOS PARTICLES\n            </span>\n            <h3 className=\"text-xl font-semibold text-white tracking-tight\">\n              Cosmic Dust Stardust\n            </h3>\n            <p className=\"text-xs text-zinc-400 leading-relaxed\">\n              Hover and move your mouse to disturb the particulate gravitational field.\n            </p>\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "dot-background",
+    "type": "registry:ui",
+    "title": "Matrix Dot Grid Pattern",
+    "description": "High-density micro-dot matrix pattern with subtle center bloom illumination.",
+    "category": "backgrounds",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "dot",
+      "matrix",
+      "pattern"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/dot-background/dot-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dot-background.tsx",
+        "content": "import React, { useRef, useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface DotBackgroundProps {\n  children?: React.ReactNode\n  spacing?: number\n  className?: string\n}\n\nexport const DotBackground: React.FC<DotBackgroundProps> = ({\n  children,\n  spacing = 24,\n  className,\n}) => {\n  const containerRef = useRef<HTMLDivElement>(null)\n  const [mousePos, setMousePos] = useState({ x: -100, y: -100 })\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!containerRef.current) return\n    const rect = containerRef.current.getBoundingClientRect()\n    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top })\n  }\n\n  return (\n    <div\n      ref={containerRef}\n      onMouseMove={handleMouseMove}\n      className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#060608] p-6', className)}\n    >\n      {/* Base Dot Grid */}\n      <div\n        style={{\n          backgroundSize: `${spacing}px ${spacing}px`,\n          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)',\n        }}\n        className=\"pointer-events-none absolute inset-0\"\n      />\n\n      {/* Interactive Cursor Proximity Highlight */}\n      <div\n        className=\"pointer-events-none absolute -inset-px transition-opacity duration-150\"\n        style={{\n          background: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, rgba(16, 185, 129, 0.2), transparent 70%)`,\n        }}\n      />\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-emerald-400\">PARTICLE MATRIX</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Interactive Dot Grid</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Move cursor to illuminate local coordinate field.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "grid-background",
+    "type": "registry:ui",
+    "title": "Precision Cartesian Grid",
+    "description": "Infinite architectural coordinate grid with radial spotlight vignette.",
+    "category": "backgrounds",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "background",
+      "grid",
+      "cartesian",
+      "blueprint"
+    ],
+    "files": [
+      {
+        "path": "registry/backgrounds/grid-background/grid-background.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/grid-background.tsx",
+        "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface GridBackgroundProps {\n  children?: React.ReactNode\n  size?: 'sm' | 'md' | 'lg'\n  withBeam?: boolean\n  className?: string\n}\n\nexport const GridBackground: React.FC<GridBackgroundProps> = ({\n  children,\n  size = 'md',\n  withBeam = true,\n  className,\n}) => {\n  const gridSizeMap = {\n    sm: '24px 24px',\n    md: '40px 40px',\n    lg: '64px 64px',\n  }\n\n  return (\n    <div className={cn('relative min-h-[300px] w-full overflow-hidden rounded-3xl border border-white/10 bg-[#070709] p-6', className)}>\n      {/* Grid Pattern */}\n      <div\n        style={{\n          backgroundSize: gridSizeMap[size],\n          backgroundImage: `\n            linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),\n            linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px)\n          `,\n        }}\n        className=\"pointer-events-none absolute inset-0\"\n      />\n\n      {/* Radial fade mask */}\n      <div className=\"pointer-events-none absolute inset-0 bg-radial-gradient from-transparent via-[#070709]/50 to-[#070709]\" />\n\n      {/* Scanning Beam */}\n      {withBeam && (\n        <div className=\"pointer-events-none absolute inset-x-0 h-24 -top-24 animate-[moveDown_8s_linear_infinite] bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent\" />\n      )}\n\n      <div className=\"relative z-10 flex h-full flex-col justify-between\">\n        {children || (\n          <div className=\"my-auto text-center font-mono\">\n            <span className=\"text-xs uppercase tracking-widest text-cyan-400\">ENGINEERING GRAPH</span>\n            <h3 className=\"mt-2 text-xl font-bold text-white\">Technical Coordinate Grid</h3>\n            <p className=\"mt-1 text-xs text-zinc-400\">Fine-lined hardware blueprint grid with scanning telemetry beam.</p>\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "confetti-button",
+    "type": "registry:ui",
+    "title": "Celebration Confetti Burst Button",
+    "description": "Multi-color physics confetti explosion upon click with spring recoil.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "confetti",
+      "celebrate",
+      "particles"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/confetti-button/confetti-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/confetti-button.tsx",
+        "content": "import React, { useState } from 'react';\nimport { motion, AnimatePresence } from 'framer-motion';\nimport { Sparkle } from '@phosphor-icons/react';\n\ninterface ConfettiPiece {\n  id: number;\n  x: number;\n  y: number;\n  rotation: number;\n  scale: number;\n  color: string;\n  shape: 'rect' | 'circle';\n}\n\ninterface ConfettiButtonProps {\n  children?: React.ReactNode;\n  className?: string;\n  particleCount?: number;\n  colors?: string[];\n  onClick?: () => void;\n}\n\nconst DEFAULT_COLORS = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#34d399', '#fbbf24'];\n\nexport const ConfettiButton: React.FC<ConfettiButtonProps> = ({\n  children = 'Celebrate Action',\n  className = '',\n  particleCount = 36,\n  colors = DEFAULT_COLORS,\n  onClick,\n}) => {\n  const [particles, setParticles] = useState<ConfettiPiece[]>([]);\n\n  const triggerConfetti = (e: React.MouseEvent<HTMLButtonElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect();\n    const centerX = rect.width / 2;\n    const centerY = rect.height / 2;\n\n    const newParticles: ConfettiPiece[] = Array.from({ length: particleCount }).map((_, i) => {\n      const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.5;\n      const velocity = 80 + Math.random() * 120;\n      return {\n        id: Date.now() + i,\n        x: centerX + Math.cos(angle) * velocity,\n        y: centerY + Math.sin(angle) * velocity - 30, // upward bias\n        rotation: Math.random() * 720 - 360,\n        scale: 0.5 + Math.random() * 0.8,\n        color: colors[i % colors.length],\n        shape: Math.random() > 0.4 ? 'rect' : 'circle',\n      };\n    });\n\n    setParticles(newParticles);\n    onClick?.();\n\n    setTimeout(() => {\n      setParticles([]);\n    }, 1200);\n  };\n\n  return (\n    <div className=\"relative inline-block overflow-visible\">\n      <motion.button\n        whileHover={{ scale: 1.04 }}\n        whileTap={{ scale: 0.94 }}\n        onClick={triggerConfetti}\n        className={`relative z-10 inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm text-white bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 border border-white/20 transition-all select-none cursor-pointer ${className}`}\n      >\n        <Sparkle size={18} weight=\"fill\" className=\"text-yellow-300 animate-pulse\" />\n        <span>{children}</span>\n      </motion.button>\n\n      <AnimatePresence>\n        {particles.map((p) => (\n          <motion.div\n            key={p.id}\n            initial={{ opacity: 1, x: 0, y: 0, scale: 0, rotate: 0 }}\n            animate={{\n              opacity: [1, 1, 0],\n              x: p.x - 60,\n              y: p.y - 30,\n              scale: [0, p.scale, p.scale * 0.4],\n              rotate: p.rotation,\n            }}\n            exit={{ opacity: 0 }}\n            transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}\n            style={{\n              position: 'absolute',\n              top: '50%',\n              left: '50%',\n              width: p.shape === 'rect' ? 8 : 7,\n              height: p.shape === 'rect' ? 14 : 7,\n              backgroundColor: p.color,\n              borderRadius: p.shape === 'circle' ? '50%' : 2,\n              pointerEvents: 'none',\n              zIndex: 30,\n            }}\n          />\n        ))}\n      </AnimatePresence>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "floating-action-button",
+    "type": "registry:ui",
+    "title": "Floating Action Button Cluster",
+    "description": "Expandable speed-dial floating action cluster with staggered spring reveals.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "fab",
+      "floating",
+      "speed dial"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/floating-action-button/floating-action-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/floating-action-button.tsx",
+        "content": "import React, { useState } from 'react'\nimport { motion, AnimatePresence } from 'framer-motion'\nimport { Plus, X, Sparkle, ShareNetwork, Terminal, Heart } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface FloatingActionButtonProps {\n  label?: string\n  className?: string\n}\n\nexport const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({\n  className,\n}) => {\n  const [isOpen, setIsOpen] = useState(false)\n\n  const actions = [\n    { label: 'Run Compiler', icon: <Terminal size={16} /> },\n    { label: 'Bookmark Symbol', icon: <Heart size={16} /> },\n    { label: 'Share Workspace', icon: <ShareNetwork size={16} /> },\n  ]\n\n  return (\n    <div className={cn('relative inline-flex flex-col items-center', className)}>\n      <AnimatePresence>\n        {isOpen && (\n          <div className=\"absolute bottom-16 flex flex-col gap-2 mb-2 items-center\">\n            {actions.map((act, i) => (\n              <motion.button\n                key={act.label}\n                initial={{ opacity: 0, y: 15, scale: 0.8 }}\n                animate={{ opacity: 1, y: 0, scale: 1 }}\n                exit={{ opacity: 0, y: 15, scale: 0.8 }}\n                transition={{ delay: i * 0.05, duration: 0.2 }}\n                onClick={() => setIsOpen(false)}\n                title={act.label}\n                className=\"flex items-center gap-2 rounded-full border border-white/15 bg-zinc-900/90 px-3.5 py-2 text-xs font-medium text-white shadow-xl backdrop-blur-md hover:bg-zinc-800 transition-colors whitespace-nowrap\"\n              >\n                <span>{act.icon}</span>\n                <span>{act.label}</span>\n              </motion.button>\n            ))}\n          </div>\n        )}\n      </AnimatePresence>\n\n      <motion.button\n        whileTap={{ scale: 0.92 }}\n        onClick={() => setIsOpen(!isOpen)}\n        className=\"flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white text-zinc-950 shadow-2xl transition-transform hover:scale-105 focus:outline-none\"\n        aria-label=\"Toggle actions\"\n      >\n        <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.2 }}>\n          <Plus size={22} weight=\"bold\" />\n        </motion.div>\n      </motion.button>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "glow-action-button",
+    "type": "registry:ui",
+    "title": "Glow Action Button",
+    "description": "Tactile action button with dynamic ambient radial bloom backdrop.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "glow",
+      "bloom",
+      "action"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/glow-action-button/glow-action-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/glow-action-button.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface GlowActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  glowColor?: 'cyan' | 'amber' | 'emerald' | 'purple'\n  size?: 'sm' | 'md' | 'lg'\n  className?: string\n}\n\nexport const GlowActionButton: React.FC<GlowActionButtonProps> = ({\n  children = 'Execute Action',\n  glowColor = 'cyan',\n  size = 'md',\n  className,\n  ...props\n}) => {\n  const glowStyles = {\n    cyan: 'from-cyan-500/20 to-blue-500/20 group-hover:shadow-[0_0_35px_rgba(6,182,212,0.4)] border-cyan-500/30 text-cyan-200',\n    amber: 'from-amber-500/20 to-orange-500/20 group-hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] border-amber-500/30 text-amber-200',\n    emerald: 'from-emerald-500/20 to-teal-500/20 group-hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] border-emerald-500/30 text-emerald-200',\n    purple: 'from-purple-500/20 to-pink-500/20 group-hover:shadow-[0_0_35px_rgba(168,85,247,0.4)] border-purple-500/30 text-purple-200',\n  }\n\n  const sizeStyles = {\n    sm: 'px-4 py-2 text-xs',\n    md: 'px-6 py-2.5 text-sm',\n    lg: 'px-8 py-3.5 text-base',\n  }\n\n  return (\n    <button\n      className={cn(\n        'group relative inline-flex items-center justify-center rounded-2xl border bg-gradient-to-b bg-zinc-950 font-medium transition-all duration-300 active:scale-95 shadow-lg',\n        glowStyles[glowColor],\n        sizeStyles[size],\n        className\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10 flex items-center gap-2 text-white\">\n        {children}\n      </span>\n      <span className=\"absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity\" />\n    </button>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "gradient-shimmer-button",
+    "type": "registry:ui",
+    "title": "Gradient Shimmer Button",
+    "description": "High-speed dual-phase border shimmer button with glowing radial backdrop.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "shimmer",
+      "gradient",
+      "glow"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/gradient-shimmer-button/gradient-shimmer-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/gradient-shimmer-button.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface GradientShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  size?: 'sm' | 'md' | 'lg'\n  speed?: 'slow' | 'normal' | 'fast'\n  className?: string\n}\n\nexport const GradientShimmerButton: React.FC<GradientShimmerButtonProps> = ({\n  children = 'Shimmer Action',\n  size = 'md',\n  speed = 'normal',\n  className,\n  ...props\n}) => {\n  const sizeClasses = {\n    sm: 'h-9 px-4 text-xs',\n    md: 'h-11 px-6 text-sm',\n    lg: 'h-14 px-8 text-base font-semibold',\n  }\n\n  const duration = speed === 'slow' ? 6 : speed === 'fast' ? 2 : 4\n\n  return (\n    <button\n      className={cn(\n        'group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[1px] font-medium transition-all active:scale-95 focus:outline-none',\n        sizeClasses[size],\n        className\n      )}\n      {...props}\n    >\n      {/* Animated Rotating Gradient Border */}\n      <span\n        style={{ animationDuration: `${duration}s` }}\n        className=\"absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#3b82f6_0%,#a855f7_50%,#3b82f6_100%)] opacity-70 group-hover:opacity-100 transition-opacity\"\n      />\n\n      {/* Button Interior */}\n      <span className=\"relative inline-flex h-full w-full items-center justify-center rounded-full bg-zinc-950 px-6 py-2 text-white backdrop-blur-3xl transition-colors group-hover:bg-zinc-900/90 gap-2\">\n        {children}\n      </span>\n    </button>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "liquid-glass-button",
+    "type": "registry:ui",
+    "title": "Refractive Liquid Glass Button",
+    "description": "Frosted Apple-style refractive glass with dynamic cursor specular reflection sweep.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "glassmorphism",
+      "liquid",
+      "refraction"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/liquid-glass-button/liquid-glass-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/liquid-glass-button.tsx",
+        "content": "import React, { useRef, useState } from 'react';\nimport { motion } from 'framer-motion';\n\ninterface LiquidGlassButtonProps {\n  children?: React.ReactNode;\n  className?: string;\n  onClick?: () => void;\n  variant?: 'primary' | 'subtle' | 'emerald';\n}\n\nexport const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({\n  children = 'Experience Refraction',\n  className = '',\n  onClick,\n  variant = 'primary',\n}) => {\n  const ref = useRef<HTMLButtonElement>(null);\n  const [coords, setCoords] = useState({ x: 50, y: 50 });\n  const [isHovered, setIsHovered] = useState(false);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!ref.current) return;\n    const rect = ref.current.getBoundingClientRect();\n    const x = ((e.clientX - rect.left) / rect.width) * 100;\n    const y = ((e.clientY - rect.top) / rect.height) * 100;\n    setCoords({ x, y });\n  };\n\n  const variantStyles = {\n    primary: 'text-white border-white/20 bg-white/[0.07] dark:bg-white/[0.05] shadow-black/20',\n    subtle: 'text-zinc-900 dark:text-zinc-100 border-zinc-900/10 dark:border-white/10 bg-zinc-900/[0.04] dark:bg-white/[0.03]',\n    emerald: 'text-emerald-100 border-emerald-400/30 bg-emerald-500/[0.12] shadow-emerald-900/20',\n  };\n\n  return (\n    <motion.button\n      ref={ref}\n      onMouseMove={handleMouseMove}\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      whileHover={{ scale: 1.03, y: -1 }}\n      whileTap={{ scale: 0.97 }}\n      onClick={onClick}\n      className={`relative group overflow-hidden px-7 py-3.5 rounded-2xl backdrop-blur-xl border transition-all duration-300 font-medium text-sm tracking-wide shadow-xl cursor-pointer ${variantStyles[variant]} ${className}`}\n      style={{\n        backdropFilter: 'blur(20px) saturate(180%)',\n        WebkitBackdropFilter: 'blur(20px) saturate(180%)',\n      }}\n    >\n      {/* Dynamic specular light reflection tracking cursor */}\n      <div\n        className=\"absolute inset-0 pointer-events-none transition-opacity duration-500\"\n        style={{\n          opacity: isHovered ? 1 : 0,\n          background: `radial-gradient(circle 120px at ${coords.x}% ${coords.y}%, rgba(255,255,255,0.35), transparent 70%)`,\n        }}\n      />\n\n      {/* Internal ambient glossy lens flare */}\n      <div className=\"absolute -top-1/2 left-0 right-0 h-full bg-gradient-to-b from-white/25 to-transparent pointer-events-none rounded-t-2xl\" />\n\n      {/* Rim highlight border effect */}\n      <div className=\"absolute inset-[1px] rounded-[15px] border border-white/10 pointer-events-none\" />\n\n      {/* Button content */}\n      <span className=\"relative z-10 flex items-center gap-2 drop-shadow-sm\">\n        {children}\n      </span>\n    </motion.button>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "magnetic-button",
+    "type": "registry:ui",
+    "title": "Magnetic Button",
+    "description": "Interactive magnetic button with spring pull physics and cursor tracking.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "magnetic",
+      "spring physics",
+      "cursor"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/magnetic-button/magnetic-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/magnetic-button.tsx",
+        "content": "import React, { useRef } from 'react'\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  variant?: 'default' | 'glow' | 'minimal' | 'ghost'\n  size?: 'sm' | 'md' | 'lg'\n  distance?: number\n  className?: string\n}\n\nexport const MagneticButton: React.FC<MagneticButtonProps> = ({\n  children = 'Magnetic Action',\n  variant = 'default',\n  size = 'md',\n  distance = 60,\n  className,\n  ...props\n}) => {\n  const ref = useRef<HTMLButtonElement>(null)\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n\n  const springConfig = { damping: 15, stiffness: 150, mass: 0.1 }\n  const springX = useSpring(x, springConfig)\n  const springY = useSpring(y, springConfig)\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!ref.current) return\n    const rect = ref.current.getBoundingClientRect()\n    const centerX = rect.left + rect.width / 2\n    const centerY = rect.top + rect.height / 2\n    const deltaX = (e.clientX - centerX) * 0.4\n    const deltaY = (e.clientY - centerY) * 0.4\n    x.set(deltaX)\n    y.set(deltaY)\n  }\n\n  const handleMouseLeave = () => {\n    x.set(0)\n    y.set(0)\n  }\n\n  const sizeStyles = {\n    sm: 'px-4 py-2 text-xs rounded-full gap-1.5',\n    md: 'px-6 py-3 text-sm rounded-full gap-2',\n    lg: 'px-8 py-4 text-base rounded-full gap-3 font-semibold',\n  }\n\n  const variantStyles = {\n    default: 'bg-zinc-900 text-white border border-white/15 hover:border-white/30 dark:bg-zinc-100 dark:text-zinc-950 shadow-md',\n    glow: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 border-0 hover:shadow-cyan-500/40',\n    minimal: 'bg-white/10 text-zinc-200 border border-white/10 hover:bg-white/15 dark:bg-black/40',\n    ghost: 'bg-transparent text-zinc-300 hover:text-white hover:bg-white/5 border border-transparent',\n  }\n\n  return (\n    <motion.button\n      ref={ref}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      style={{ x: springX, y: springY }}\n      whileTap={{ scale: 0.96 }}\n      className={cn(\n        'relative inline-flex items-center justify-center font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',\n        sizeStyles[size],\n        variantStyles[variant],\n        className\n      )}\n      {...(props as any)}\n    >\n      <motion.span\n        style={{ x: useTransform(springX, (val) => val * 0.3), y: useTransform(springY, (val) => val * 0.3) }}\n        className=\"flex items-center gap-2\"\n      >\n        {children}\n      </motion.span>\n    </motion.button>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ripple-button",
+    "type": "registry:ui",
+    "title": "Radial Ripple Button",
+    "description": "Material-inspired coordinate-origin expanding liquid wave ripple.",
+    "category": "buttons",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "ripple",
+      "interactive",
+      "wave"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/ripple-button/ripple-button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ripple-button.tsx",
+        "content": "import React, { useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  className?: string\n}\n\ninterface Ripple {\n  x: number\n  y: number\n  size: number\n  id: number\n}\n\nexport const RippleButton: React.FC<RippleButtonProps> = ({\n  children = 'Ripple Feedback',\n  className,\n  onClick,\n  ...props\n}) => {\n  const [ripples, setRipples] = useState<Ripple[]>([])\n\n  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect()\n    const size = Math.max(rect.width, rect.height) * 2\n    const x = e.clientX - rect.left - size / 2\n    const y = e.clientY - rect.top - size / 2\n\n    const newRipple: Ripple = { x, y, size, id: Date.now() }\n    setRipples((prev) => [...prev, newRipple])\n\n    setTimeout(() => {\n      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id))\n    }, 600)\n\n    onClick?.(e)\n  }\n\n  return (\n    <button\n      onClick={handleClick}\n      className={cn(\n        'relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/15 bg-zinc-900 px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg transition-transform active:scale-95 focus:outline-none',\n        className\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10\">{children}</span>\n      {ripples.map((ripple) => (\n        <span\n          key={ripple.id}\n          style={{\n            top: ripple.y,\n            left: ripple.x,\n            width: ripple.size,\n            height: ripple.size,\n          }}\n          className=\"pointer-events-none absolute rounded-full bg-cyan-400/30 animate-[ping_0.6s_ease-out_forwards]\"\n        />\n      ))}\n    </button>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "slide-to-confirm",
+    "type": "registry:ui",
+    "title": "Slide to Confirm Slider",
+    "description": "Draggable tactical slide-to-confirm button with spring physics and unlock callback.",
+    "category": "buttons",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "button",
+      "slider",
+      "confirm",
+      "drag",
+      "security"
+    ],
+    "files": [
+      {
+        "path": "registry/buttons/slide-to-confirm/slide-to-confirm.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/slide-to-confirm.tsx",
+        "content": "import React, { useState, useRef } from 'react'\nimport { motion, useMotionValue, useTransform } from 'framer-motion'\nimport { ArrowRight, Check, ShieldCheck } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface SlideToConfirmProps {\n  label?: string\n  confirmedLabel?: string\n  onConfirm?: () => void\n  className?: string\n}\n\nexport const SlideToConfirm: React.FC<SlideToConfirmProps> = ({\n  label = 'Slide to Deploy Kernel',\n  confirmedLabel = 'Kernel Deployed',\n  onConfirm,\n  className,\n}) => {\n  const [isConfirmed, setIsConfirmed] = useState(false)\n  const trackRef = useRef<HTMLDivElement>(null)\n  const x = useMotionValue(0)\n\n  const handleDragEnd = () => {\n    if (!trackRef.current) return\n    const trackWidth = trackRef.current.offsetWidth\n    const maxDrag = trackWidth - 56 // button width\n    if (x.get() >= maxDrag * 0.85) {\n      setIsConfirmed(true)\n      onConfirm?.()\n    } else {\n      x.set(0)\n    }\n  }\n\n  const handleReset = () => {\n    setIsConfirmed(false)\n    x.set(0)\n  }\n\n  return (\n    <div className={cn('w-full max-w-sm', className)}>\n      <div\n        ref={trackRef}\n        className={`relative flex h-14 w-full items-center justify-between rounded-full border p-1.5 transition-colors select-none ${\n          isConfirmed\n            ? 'border-emerald-500/40 bg-emerald-950/40'\n            : 'border-white/15 bg-zinc-950 shadow-inner'\n        }`}\n      >\n        {/* Track Label */}\n        <div className=\"absolute inset-0 flex items-center justify-center font-mono text-xs font-semibold text-zinc-400 pointer-events-none\">\n          {isConfirmed ? (\n            <span className=\"flex items-center gap-1.5 text-emerald-400\">\n              <Check size={16} weight=\"bold\" />\n              <span>{confirmedLabel}</span>\n            </span>\n          ) : (\n            <span className=\"animate-pulse\">{label}</span>\n          )}\n        </div>\n\n        {/* Draggable Thumb */}\n        {!isConfirmed ? (\n          <motion.div\n            drag=\"x\"\n            dragConstraints={{ left: 0, right: 260 }}\n            dragElastic={0.05}\n            onDragEnd={handleDragEnd}\n            style={{ x }}\n            className=\"relative z-10 flex h-11 w-11 cursor-grab active:cursor-grabbing items-center justify-center rounded-full bg-white text-zinc-950 shadow-xl transition-shadow hover:shadow-cyan-500/20\"\n          >\n            <ArrowRight size={18} weight=\"bold\" />\n          </motion.div>\n        ) : (\n          <button\n            onClick={handleReset}\n            className=\"relative z-10 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-zinc-950 shadow-lg hover:scale-105 transition-transform\"\n            title=\"Click to reset\"\n          >\n            <Check size={18} weight=\"bold\" />\n          </button>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "expandable-card",
+    "type": "registry:ui",
+    "title": "Spring Expandable Modal Card",
+    "description": "Card that smoothly expands into an overlay detail view via shared layout springs.",
+    "category": "cards",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "expandable",
+      "modal",
+      "layoutId"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/expandable-card/expandable-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/expandable-card.tsx",
+        "content": "import React, { useState } from 'react'\nimport { motion, AnimatePresence } from 'framer-motion'\nimport { CaretDown, CheckCircle, ShieldCheck } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface ExpandableCardProps {\n  title?: string\n  summary?: string\n  details?: string\n  className?: string\n}\n\nexport const ExpandableCard: React.FC<ExpandableCardProps> = ({\n  title = 'Raft Consensus Protocol Verification',\n  summary = 'Asserts safety, leader completeness, and partition resilience.',\n  details = 'The SMT solver simulates a 5-node cluster partition across 10,000 asynchronous election rounds. Every log sequence is guaranteed linearizable and deterministic.',\n  className,\n}) => {\n  const [isExpanded, setIsExpanded] = useState(false)\n\n  return (\n    <motion.div\n      layout\n      transition={{ layout: { duration: 0.3, type: 'spring', damping: 25, stiffness: 200 } }}\n      className={cn(\n        'w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-5 text-white transition-colors hover:border-white/20',\n        className\n      )}\n    >\n      <div\n        onClick={() => setIsExpanded(!isExpanded)}\n        className=\"flex cursor-pointer items-start justify-between gap-4 select-none\"\n      >\n        <div className=\"flex items-start gap-3\">\n          <div className=\"flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-emerald-400\">\n            <ShieldCheck size={18} weight=\"bold\" />\n          </div>\n          <div>\n            <h4 className=\"text-sm font-bold text-white\">{title}</h4>\n            <p className=\"mt-1 text-xs text-zinc-400\">{summary}</p>\n          </div>\n        </div>\n\n        <motion.div\n          animate={{ rotate: isExpanded ? 180 : 0 }}\n          transition={{ duration: 0.2 }}\n          className=\"text-zinc-400 p-1\"\n        >\n          <CaretDown size={16} />\n        </motion.div>\n      </div>\n\n      <AnimatePresence>\n        {isExpanded && (\n          <motion.div\n            initial={{ opacity: 0, height: 0 }}\n            animate={{ opacity: 1, height: 'auto' }}\n            exit={{ opacity: 0, height: 0 }}\n            transition={{ duration: 0.25 }}\n            className=\"overflow-hidden pt-4 border-t border-white/10 mt-4 text-xs text-zinc-300 leading-relaxed font-mono\"\n          >\n            <p>{details}</p>\n            <div className=\"mt-3 flex items-center gap-2 text-[10px] text-emerald-400\">\n              <CheckCircle size={12} weight=\"fill\" />\n              <span>Z3 Formal Witness: PROOF_ACCEPTED</span>\n            </div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "glass-card",
+    "type": "registry:ui",
+    "title": "Frosted Acrylic Glass Card",
+    "description": "Multi-layer frosted glass card with noise texture and rim lighting.",
+    "category": "cards",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "glass",
+      "frosted",
+      "acrylic"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/glass-card/glass-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/glass-card.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface GlassCardProps {\n  children?: React.ReactNode\n  title?: string\n  subtitle?: string\n  className?: string\n}\n\nexport const GlassCard: React.FC<GlassCardProps> = ({\n  children,\n  title = 'Hermetic WASM Isolate',\n  subtitle = 'MEMORY PROTECTION RING-0',\n  className,\n}) => {\n  return (\n    <div\n      className={cn(\n        'group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-1.5 shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:border-white/20',\n        className\n      )}\n    >\n      <div className=\"relative rounded-[calc(2rem-0.375rem)] border border-white/5 bg-zinc-950/70 p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]\">\n        <div className=\"flex items-center justify-between border-b border-white/5 pb-3\">\n          <span className=\"font-mono text-[10px] tracking-wider text-zinc-400\">{subtitle}</span>\n          <div className=\"flex gap-1\">\n            <span className=\"h-2 w-2 rounded-full bg-white/20\" />\n            <span className=\"h-2 w-2 rounded-full bg-white/20\" />\n          </div>\n        </div>\n\n        <h4 className=\"mt-3 text-lg font-bold text-white tracking-tight\">{title}</h4>\n        \n        <div className=\"mt-2 text-xs text-zinc-300\">\n          {children || 'Air-gapped execution blocks outbound socket leaks while monitoring CPU allocation quotas.'}\n        </div>\n\n        <div className=\"mt-4 flex items-center justify-between pt-3 border-t border-white/5 font-mono text-[10px] text-zinc-500\">\n          <span>Glass Filter: blur(24px)</span>\n          <span className=\"text-emerald-400\">Isolated</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "interactive-tilt-card",
+    "type": "registry:ui",
+    "title": "Interactive 3D Tilt Card",
+    "description": "Subtle physics tilt card with specular gradient sheen responding to mouse position.",
+    "category": "cards",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "tilt",
+      "3d",
+      "sheen"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/interactive-tilt-card/interactive-tilt-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-tilt-card.tsx",
+        "content": "import React, { useRef } from 'react'\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface InteractiveTiltCardProps {\n  title?: string\n  subtitle?: string\n  description?: string\n  badge?: string\n  className?: string\n}\n\nexport const InteractiveTiltCard: React.FC<InteractiveTiltCardProps> = ({\n  title = 'Autonomous Synthesis Pod',\n  subtitle = 'ISOLATE MEMORY #44',\n  description = 'Coordinates AST transformations and sandboxed WASM test suites without side effects.',\n  badge = 'ACTIVE',\n  className,\n}) => {\n  const cardRef = useRef<HTMLDivElement>(null)\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n\n  const mouseXSpring = useSpring(x, { stiffness: 200, damping: 20 })\n  const mouseYSpring = useSpring(y, { stiffness: 200, damping: 20 })\n\n  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['14deg', '-14deg'])\n  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-14deg', '14deg'])\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!cardRef.current) return\n    const rect = cardRef.current.getBoundingClientRect()\n    const width = rect.width\n    const height = rect.height\n    const mouseX = e.clientX - rect.left\n    const mouseY = e.clientY - rect.top\n    const xPct = mouseX / width - 0.5\n    const yPct = mouseY / height - 0.5\n    x.set(xPct)\n    y.set(yPct)\n  }\n\n  const handleMouseLeave = () => {\n    x.set(0)\n    y.set(0)\n  }\n\n  return (\n    <div style={{ perspective: '1000px' }} className={cn('w-full max-w-sm', className)}>\n      <motion.div\n        ref={cardRef}\n        onMouseMove={handleMouseMove}\n        onMouseLeave={handleMouseLeave}\n        style={{\n          rotateX,\n          rotateY,\n          transformStyle: 'preserve-3d',\n        }}\n        className=\"relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6 text-white shadow-2xl transition-shadow hover:shadow-cyan-500/10\"\n      >\n        <div style={{ transform: 'translateZ(30px)' }} className=\"flex items-center justify-between\">\n          <span className=\"font-mono text-[10px] uppercase tracking-widest text-zinc-400\">{subtitle}</span>\n          <span className=\"rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono text-[10px] text-emerald-400 border border-emerald-500/30\">\n            {badge}\n          </span>\n        </div>\n\n        <div style={{ transform: 'translateZ(40px)' }} className=\"mt-4\">\n          <h4 className=\"text-lg font-bold text-white tracking-tight\">{title}</h4>\n          <p className=\"mt-2 text-xs text-zinc-400 leading-relaxed\">{description}</p>\n        </div>\n\n        <div style={{ transform: 'translateZ(25px)' }} className=\"mt-6 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[11px] text-zinc-500\">\n          <span>Latency: 12ms</span>\n          <span>Zero-Copy DAG</span>\n        </div>\n\n        {/* Specular Glare Reflection */}\n        <div className=\"pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 transition-opacity hover:opacity-100\" />\n      </motion.div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "orbit-card",
+    "type": "registry:ui",
+    "title": "Concentric Planetary Orbit Card",
+    "description": "Dual circular orbit rings with counter-rotating planetary tech nodes and central core.",
+    "category": "cards",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "orbit",
+      "planetary",
+      "satellite"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/orbit-card/orbit-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/orbit-card.tsx",
+        "content": "import React from 'react'\nimport { Cpu, Lightning, ShieldCheck, Terminal, Database, Code } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface OrbitCardProps {\n  className?: string\n}\n\nexport const OrbitCard: React.FC<OrbitCardProps> = ({ className }) => {\n  return (\n    <div className={cn('relative flex h-72 w-full max-w-sm items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-6 shadow-2xl', className)}>\n      {/* Concentric Orbit Rings */}\n      <div className=\"absolute h-48 w-48 rounded-full border border-dashed border-white/10\" />\n      <div className=\"absolute h-32 w-32 rounded-full border border-white/10\" />\n\n      {/* Center Core Node */}\n      <div className=\"relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-br from-zinc-800 to-zinc-950 text-white shadow-2xl\">\n        <Cpu size={26} weight=\"bold\" className=\"text-emerald-400\" />\n      </div>\n\n      {/* Orbiting Satellites (CSS Animation) */}\n      <div className=\"pointer-events-none absolute h-48 w-48 animate-[spin_12s_linear_infinite]\">\n        <div className=\"absolute top-0 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-cyan-400 shadow-md\">\n          <Lightning size={16} weight=\"fill\" />\n        </div>\n        <div className=\"absolute bottom-0 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-amber-400 shadow-md\">\n          <ShieldCheck size={16} weight=\"fill\" />\n        </div>\n      </div>\n\n      <div className=\"pointer-events-none absolute h-32 w-32 animate-[spin_8s_linear_infinite_reverse]\">\n        <div className=\"absolute top-1/2 -right-4 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-purple-400 shadow-md\">\n          <Terminal size={14} weight=\"bold\" />\n        </div>\n        <div className=\"absolute top-1/2 -left-4 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-zinc-900 text-blue-400 shadow-md\">\n          <Database size={14} weight=\"fill\" />\n        </div>\n      </div>\n\n      <div className=\"absolute bottom-3 font-mono text-[10px] text-zinc-500 uppercase tracking-widest\">\n        CONCENTRIC ORBIT NETWORK\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "perspective-card-3d",
+    "type": "registry:ui",
+    "title": "3D Parallax Perspective Card",
+    "description": "Multilayer spatial depth card where internal elements float along the Z-axis.",
+    "category": "cards",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "3d",
+      "parallax",
+      "perspective"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/perspective-card-3d/perspective-card-3d.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/perspective-card-3d.tsx",
+        "content": "import React, { useRef, useState } from 'react';\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';\nimport { Sparkle, ShieldCheck, Cpu } from '@phosphor-icons/react';\n\ninterface PerspectiveCard3DProps {\n  className?: string;\n  title?: string;\n  subtitle?: string;\n  tag?: string;\n}\n\nexport const PerspectiveCard3D: React.FC<PerspectiveCard3DProps> = ({\n  className = '',\n  title = 'Autonomous Neural Core',\n  subtitle = 'High-frequency model execution with sub-millisecond tensor dispatch.',\n  tag = 'SYSTEM ARCHITECTURE',\n}) => {\n  const cardRef = useRef<HTMLDivElement>(null);\n  const [isHovered, setIsHovered] = useState(false);\n\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const mouseXSpring = useSpring(x, { stiffness: 220, damping: 20 });\n  const mouseYSpring = useSpring(y, { stiffness: 220, damping: 20 });\n\n  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['18deg', '-18deg']);\n  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-18deg', '18deg']);\n  const gleamX = useTransform(mouseXSpring, [-0.5, 0.5], ['0%', '100%']);\n  const gleamY = useTransform(mouseYSpring, [-0.5, 0.5], ['0%', '100%']);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!cardRef.current) return;\n    const rect = cardRef.current.getBoundingClientRect();\n    const mouseX = (e.clientX - rect.left) / rect.width - 0.5;\n    const mouseY = (e.clientY - rect.top) / rect.height - 0.5;\n    x.set(mouseX);\n    y.set(mouseY);\n  };\n\n  const handleMouseLeave = () => {\n    setIsHovered(false);\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <div\n      style={{ perspective: 1200 }}\n      className={`relative inline-block w-full max-w-[360px] p-2 ${className}`}\n    >\n      <motion.div\n        ref={cardRef}\n        onMouseMove={handleMouseMove}\n        onMouseEnter={() => setIsHovered(true)}\n        onMouseLeave={handleMouseLeave}\n        style={{\n          rotateX,\n          rotateY,\n          transformStyle: 'preserve-3d',\n        }}\n        className=\"relative w-full rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border border-white/10 p-6 shadow-2xl transition-shadow duration-300 hover:shadow-cyan-500/10 cursor-pointer overflow-hidden\"\n      >\n        {/* Holographic specular gleam */}\n        <motion.div\n          className=\"absolute inset-0 pointer-events-none rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300\"\n          style={{\n            opacity: isHovered ? 0.35 : 0,\n            background: `radial-gradient(circle 240px at 50% 50%, rgba(56, 189, 248, 0.4), transparent 70%)`,\n            left: gleamX,\n            top: gleamY,\n            transform: 'translate(-50%, -50%)',\n          }}\n        />\n\n        {/* Ambient Grid Background */}\n        <div className=\"absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none\" />\n\n        {/* Layer 1: Floating Header Badge (Z: 40px) */}\n        <div\n          style={{ transform: 'translateZ(40px)' }}\n          className=\"relative z-10 flex items-center justify-between mb-6\"\n        >\n          <span className=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/20\">\n            <Cpu size={14} weight=\"bold\" />\n            {tag}\n          </span>\n          <div className=\"w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400\">\n            <Sparkle size={16} weight=\"fill\" className=\"text-amber-400\" />\n          </div>\n        </div>\n\n        {/* Layer 2: Graphic Core (Z: 60px) */}\n        <div\n          style={{ transform: 'translateZ(60px)' }}\n          className=\"relative z-10 my-6 h-28 rounded-xl bg-gradient-to-br from-cyan-950/40 via-indigo-950/30 to-violet-950/40 border border-cyan-500/20 flex items-center justify-center overflow-hidden\"\n        >\n          <div className=\"w-20 h-20 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 blur-xl opacity-40 animate-pulse\" />\n          <div className=\"absolute font-mono text-3xl font-bold tracking-widest text-cyan-200 drop-shadow-[0_0_12px_rgba(56,189,248,0.6)]\">\n            0101\n          </div>\n        </div>\n\n        {/* Layer 3: Typography & Description (Z: 30px) */}\n        <div style={{ transform: 'translateZ(30px)' }} className=\"relative z-10 space-y-2\">\n          <h4 className=\"text-lg font-semibold text-white tracking-tight\">{title}</h4>\n          <p className=\"text-xs text-zinc-400 leading-relaxed\">{subtitle}</p>\n        </div>\n\n        {/* Layer 4: Footer specs (Z: 20px) */}\n        <div\n          style={{ transform: 'translateZ(20px)' }}\n          className=\"relative z-10 mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-zinc-500\"\n        >\n          <span className=\"flex items-center gap-1 text-emerald-400\">\n            <ShieldCheck size={14} weight=\"bold\" />\n            VERIFIED SECURE\n          </span>\n          <span>LATENCY: 0.4ms</span>\n        </div>\n      </motion.div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "spotlight-card",
+    "type": "registry:ui",
+    "title": "Radial Cursor Spotlight Card",
+    "description": "Card with a dynamic radial cursor spotlight illuminating borders and background on hover.",
+    "category": "cards",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "spotlight",
+      "radial",
+      "hover"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/spotlight-card/spotlight-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spotlight-card.tsx",
+        "content": "import React, { useRef, useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface SpotlightCardProps {\n  title?: string\n  description?: string\n  icon?: React.ReactNode\n  spotlightColor?: string\n  className?: string\n}\n\nexport const SpotlightCard: React.FC<SpotlightCardProps> = ({\n  title = 'SMT Formal Invariant Engine',\n  description = 'Solves symbolic execution constraints and proves deadlock freedom with mathematical certainty before emission.',\n  icon,\n  spotlightColor = 'rgba(56, 189, 248, 0.15)',\n  className,\n}) => {\n  const divRef = useRef<HTMLDivElement>(null)\n  const [position, setPosition] = useState({ x: 0, y: 0 })\n  const [opacity, setOpacity] = useState(0)\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!divRef.current) return\n    const div = divRef.current\n    const rect = div.getBoundingClientRect()\n    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })\n  }\n\n  return (\n    <div\n      ref={divRef}\n      onMouseMove={handleMouseMove}\n      onMouseEnter={() => setOpacity(1)}\n      onMouseLeave={() => setOpacity(0)}\n      className={cn(\n        'relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 p-6 text-white transition-colors hover:border-white/20',\n        className\n      )}\n    >\n      {/* Radial Spotlight Overlay */}\n      <div\n        className=\"pointer-events-none absolute -inset-px transition-opacity duration-300\"\n        style={{\n          opacity,\n          background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,\n        }}\n      />\n\n      <div className=\"relative z-10\">\n        {icon && <div className=\"mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white\">{icon}</div>}\n        <h4 className=\"text-base font-bold text-white tracking-tight\">{title}</h4>\n        <p className=\"mt-2 text-xs text-zinc-400 leading-relaxed\">{description}</p>\n        <div className=\"mt-4 flex items-center gap-2 font-mono text-[11px] text-zinc-500\">\n          <span className=\"h-1.5 w-1.5 rounded-full bg-cyan-400\" />\n          <span>Interactive Cursor Glow</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "terminal-card",
+    "type": "registry:ui",
+    "title": "Interactive Developer Terminal Card",
+    "description": "Simulated developer CLI shell executing interactive commands with status logs.",
+    "category": "cards",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "card",
+      "terminal",
+      "cli",
+      "bash"
+    ],
+    "files": [
+      {
+        "path": "registry/cards/terminal-card/terminal-card.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/terminal-card.tsx",
+        "content": "import React, { useState } from 'react';\nimport { Terminal, Copy, Check, Play } from '@phosphor-icons/react';\n\ninterface TerminalLine {\n  type: 'input' | 'output' | 'success' | 'error';\n  text: string;\n}\n\nexport const TerminalCard: React.FC = () => {\n  const [copied, setCopied] = useState(false);\n  const [inputVal, setInputVal] = useState('');\n  const [history, setHistory] = useState<TerminalLine[]>([\n    { type: 'input', text: 'npx cook-ui add magnetic-dock' },\n    { type: 'output', text: '✔ Resolving components and dependencies...' },\n    { type: 'output', text: '✔ Generated components/ui/magnetic-dock.tsx' },\n    { type: 'success', text: '✨ Ready in 342ms. Happy building!' },\n  ]);\n\n  const handleCopy = () => {\n    navigator.clipboard.writeText('npx cook-ui add magnetic-dock');\n    setCopied(true);\n    setTimeout(() => setCopied(false), 2000);\n  };\n\n  const handleCommand = (e: React.FormEvent) => {\n    e.preventDefault();\n    const cmd = inputVal.trim();\n    if (!cmd) return;\n\n    const newLines: TerminalLine[] = [...history, { type: 'input', text: cmd }];\n\n    if (cmd === 'clear') {\n      setHistory([]);\n      setInputVal('');\n      return;\n    } else if (cmd === 'help') {\n      newLines.push(\n        { type: 'output', text: 'Available commands:' },\n        { type: 'output', text: '  build     - trigger simulated project build' },\n        { type: 'output', text: '  stats     - display component library metrics' },\n        { type: 'output', text: '  clear     - wipe terminal buffer' }\n      );\n    } else if (cmd === 'build') {\n      newLines.push(\n        { type: 'output', text: 'vite v6.2.0 building for production...' },\n        { type: 'output', text: '✓ 42 modules transformed.' },\n        { type: 'success', text: 'dist/index.html   1.42 kB │ gzip: 0.65 kB' }\n      );\n    } else if (cmd === 'stats') {\n      newLines.push(\n        { type: 'output', text: 'Components: 42 active' },\n        { type: 'output', text: 'FPS: 60 locked' },\n        { type: 'success', text: 'Performance score: 100/100' }\n      );\n    } else {\n      newLines.push({ type: 'error', text: `Command not found: ${cmd}. Type 'help' for commands.` });\n    }\n\n    setHistory(newLines);\n    setInputVal('');\n  };\n\n  return (\n    <div className=\"w-full max-w-lg rounded-2xl bg-zinc-950 border border-zinc-800 shadow-2xl overflow-hidden font-mono text-xs\">\n      {/* Terminal Titlebar */}\n      <div className=\"flex items-center justify-between px-4 py-3 bg-zinc-900/90 border-b border-zinc-800\">\n        <div className=\"flex items-center gap-2\">\n          <div className=\"w-3 h-3 rounded-full bg-rose-500/80\" />\n          <div className=\"w-3 h-3 rounded-full bg-amber-500/80\" />\n          <div className=\"w-3 h-3 rounded-full bg-emerald-500/80\" />\n          <span className=\"ml-2 text-zinc-400 text-[11px] font-sans font-medium flex items-center gap-1.5\">\n            <Terminal size={14} className=\"text-zinc-500\" />\n            bash — 80x24\n          </span>\n        </div>\n\n        <button\n          onClick={handleCopy}\n          className=\"flex items-center gap-1 text-[11px] font-sans text-zinc-400 hover:text-white transition-colors cursor-pointer\"\n        >\n          {copied ? (\n            <>\n              <Check size={12} className=\"text-emerald-400\" />\n              <span className=\"text-emerald-400\">Copied</span>\n            </>\n          ) : (\n            <>\n              <Copy size={12} />\n              <span>Copy</span>\n            </>\n          )}\n        </button>\n      </div>\n\n      {/* Terminal Body */}\n      <div className=\"p-4 space-y-2 max-h-[220px] overflow-y-auto\">\n        {history.map((line, idx) => (\n          <div key={idx} className=\"leading-relaxed\">\n            {line.type === 'input' && (\n              <div className=\"flex items-center gap-2 text-zinc-200\">\n                <span className=\"text-cyan-400 font-bold\">~</span>\n                <span className=\"text-indigo-400\">$</span>\n                <span>{line.text}</span>\n              </div>\n            )}\n            {line.type === 'output' && <div className=\"text-zinc-400 pl-4\">{line.text}</div>}\n            {line.type === 'success' && <div className=\"text-emerald-400 pl-4 font-medium\">{line.text}</div>}\n            {line.type === 'error' && <div className=\"text-rose-400 pl-4\">{line.text}</div>}\n          </div>\n        ))}\n\n        {/* Input prompt line */}\n        <form onSubmit={handleCommand} className=\"flex items-center gap-2 text-zinc-200 pt-1\">\n          <span className=\"text-cyan-400 font-bold\">~</span>\n          <span className=\"text-indigo-400\">$</span>\n          <input\n            type=\"text\"\n            value={inputVal}\n            onChange={(e) => setInputVal(e.target.value)}\n            placeholder=\"Type 'help', 'build', 'stats', 'clear'...\"\n            className=\"flex-1 bg-transparent text-zinc-100 placeholder-zinc-600 outline-none text-xs\"\n          />\n          <button type=\"submit\" className=\"text-zinc-500 hover:text-zinc-300\">\n            <Play size={10} weight=\"fill\" />\n          </button>\n        </form>\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "ascii-wave",
+    "type": "registry:ui",
+    "title": "Generative ASCII Wave",
+    "description": "Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.",
+    "category": "effects",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "effects",
+      "ascii",
+      "wave",
+      "generative"
+    ],
+    "files": [
+      {
+        "path": "registry/effects/ascii-wave/ascii-wave.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ascii-wave.tsx",
+        "content": "import React, { useEffect, useRef, useState } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface AsciiWaveProps {\n  className?: string\n  rows?: number\n  cols?: number\n}\n\nexport const AsciiWave: React.FC<AsciiWaveProps> = ({\n  className,\n  rows = 14,\n  cols = 38,\n}) => {\n  const [output, setOutput] = useState<string[]>([])\n  const frameRef = useRef(0)\n  const mousePos = useRef({ x: 19, y: 7 })\n\n  const chars = ' .:-=+*#%@'\n\n  useEffect(() => {\n    let animId: number\n\n    const render = () => {\n      frameRef.current += 0.05\n      const lines: string[] = []\n\n      for (let y = 0; y < rows; y++) {\n        let line = ''\n        for (let x = 0; x < cols; x++) {\n          const dx = x - mousePos.current.x\n          const dy = y - mousePos.current.y\n          const dist = Math.sqrt(dx * dx + dy * dy)\n          \n          // Wave equation\n          const wave1 = Math.sin(x * 0.2 + frameRef.current)\n          const wave2 = Math.cos(y * 0.3 + frameRef.current * 0.8)\n          const ripple = Math.sin(dist * 0.5 - frameRef.current * 2) * 0.4\n          \n          const val = (wave1 + wave2 + ripple + 2) / 4\n          const charIdx = Math.floor(Math.max(0, Math.min(1, val)) * (chars.length - 1))\n          line += chars[charIdx]\n        }\n        lines.push(line)\n      }\n\n      setOutput(lines)\n      animId = requestAnimationFrame(render)\n    }\n\n    render()\n    return () => cancelAnimationFrame(animId)\n  }, [rows, cols])\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect()\n    const x = Math.floor(((e.clientX - rect.left) / rect.width) * cols)\n    const y = Math.floor(((e.clientY - rect.top) / rect.height) * rows)\n    mousePos.current = { x, y }\n  }\n\n  return (\n    <div\n      onMouseMove={handleMouseMove}\n      className={cn(\n        'relative overflow-hidden rounded-3xl border border-white/10 bg-[#060608] p-6 font-mono text-[10px] leading-[11px] text-emerald-400 select-none shadow-2xl flex flex-col items-center justify-center',\n        className\n      )}\n    >\n      <div className=\"absolute top-3 left-4 flex items-center gap-1.5 text-[9px] text-zinc-500 uppercase tracking-widest\">\n        <span className=\"h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping\" />\n        <span>ASCII WAVE GENERATOR</span>\n      </div>\n\n      <pre className=\"tracking-widest whitespace-pre overflow-hidden text-emerald-400/90 font-mono\">\n        {output.join('\\n')}\n      </pre>\n\n      <div className=\"mt-3 text-[10px] text-zinc-500 font-mono\">\n        Interactive fluid simulation &bull; Hover to disturb\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "border-beam",
+    "type": "registry:ui",
+    "title": "Luminous Border Beam",
+    "description": "Animated glowing laser beam traveling along card perimeter with soft specular light trail.",
+    "category": "effects",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "effects",
+      "border",
+      "beam",
+      "glow"
+    ],
+    "files": [
+      {
+        "path": "registry/effects/border-beam/border-beam.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/border-beam.tsx",
+        "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface BorderBeamProps {\n  size?: number\n  duration?: number\n  delay?: number\n  borderWidth?: number\n  colorFrom?: string\n  colorTo?: string\n  className?: string\n}\n\nexport const BorderBeam: React.FC<BorderBeamProps> = ({\n  size = 200,\n  duration = 10,\n  delay = 0,\n  borderWidth = 1.5,\n  colorFrom = '#06b6d4',\n  colorTo = '#3b82f6',\n  className,\n}) => {\n  return (\n    <div\n      style={\n        {\n          '--size': `${size}px`,\n          '--duration': `${duration}s`,\n          '--anchor': '90deg',\n          '--border-width': `${borderWidth}px`,\n          '--color-from': colorFrom,\n          '--color-to': colorTo,\n          '--delay': `-${delay}s`,\n        } as React.CSSProperties\n      }\n      className={cn(\n        'pointer-events-none absolute inset-0 rounded-[inherit] [border:calc(var(--border-width)*1px)_solid_transparent]',\n        '![mask-clip:padding-box,border-box] ![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(white,white)]',\n        'after:absolute after:aspect-square after:w-[calc(var(--size)*1px)] after:animate-[borderBeam_var(--duration)_linear_infinite] after:[animation-delay:var(--delay)]',\n        'after:bg-[radial-gradient(ellipse_at_center,var(--color-from),var(--color-to),transparent)] after:[offset-anchor:calc(var(--anchor))_50%] after:[offset-path:rect(0_auto_auto_0_round_calc(var(--size)*1px))]',\n        className\n      )}\n    />\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "noise-grain-overlay",
+    "type": "registry:ui",
+    "title": "Procedural Film Grain Synthesizer",
+    "description": "Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.",
+    "category": "effects",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "effects",
+      "noise",
+      "grain",
+      "texture"
+    ],
+    "files": [
+      {
+        "path": "registry/effects/noise-grain-overlay/noise-grain-overlay.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/noise-grain-overlay.tsx",
+        "content": "import React, { useState } from 'react';\n\ninterface NoiseGrainOverlayProps {\n  className?: string;\n  initialOpacity?: number;\n  children?: React.ReactNode;\n}\n\nexport const NoiseGrainOverlay: React.FC<NoiseGrainOverlayProps> = ({\n  className = '',\n  initialOpacity = 0.07,\n  children,\n}) => {\n  const [opacity, setOpacity] = useState(initialOpacity);\n\n  return (\n    <div className={`relative w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 p-8 ${className}`}>\n      {/* SVG Procedural FeTurbulence Noise */}\n      <div\n        className=\"absolute inset-0 pointer-events-none mix-blend-overlay transition-opacity duration-300\"\n        style={{\n          opacity,\n          backgroundImage: `url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")`,\n        }}\n      />\n\n      {/* Internal Content */}\n      <div className=\"relative z-10 flex flex-col md:flex-row items-center justify-between gap-6\">\n        <div className=\"space-y-2 text-left\">\n          <span className=\"inline-block px-3 py-1 rounded-full text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20\">\n            TEXTURE SYNTHESIZER\n          </span>\n          <h4 className=\"text-xl font-semibold text-white tracking-tight\">\n            Analog Film Grain & Noise Overlay\n          </h4>\n          <p className=\"text-xs text-zinc-400 max-w-sm\">\n            High-fidelity mathematical Perlin noise layer providing tactile physical texture to digital displays.\n          </p>\n        </div>\n\n        {/* Live Controller */}\n        <div className=\"flex flex-col gap-2 p-4 rounded-xl bg-zinc-900/90 border border-white/10 w-full max-w-[220px]\">\n          <div className=\"flex items-center justify-between text-xs text-zinc-300 font-mono\">\n            <span>Grain Density</span>\n            <span className=\"text-emerald-400 font-bold\">{Math.round(opacity * 100)}%</span>\n          </div>\n          <input\n            type=\"range\"\n            min=\"0\"\n            max=\"0.25\"\n            step=\"0.01\"\n            value={opacity}\n            onChange={(e) => setOpacity(parseFloat(e.target.value))}\n            className=\"w-full accent-emerald-500 cursor-pointer\"\n          />\n        </div>\n      </div>\n\n      {children}\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "spectrum-loader",
+    "type": "registry:ui",
+    "title": "Harmonic Spectrum Equalizer",
+    "description": "Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.",
+    "category": "effects",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "effects",
+      "spectrum",
+      "equalizer",
+      "audio",
+      "loader"
+    ],
+    "files": [
+      {
+        "path": "registry/effects/spectrum-loader/spectrum-loader.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spectrum-loader.tsx",
+        "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Play, Pause } from '@phosphor-icons/react';\n\ninterface SpectrumLoaderProps {\n  className?: string;\n  barCount?: number;\n  color?: string;\n  variant?: 'rainbow' | 'emerald' | 'violet';\n}\n\nexport const SpectrumLoader: React.FC<SpectrumLoaderProps> = ({\n  className = '',\n  barCount = 16,\n  variant = 'rainbow',\n}) => {\n  const [isPlaying, setIsPlaying] = useState(true);\n\n  const getBarColor = (index: number) => {\n    if (variant === 'rainbow') {\n      const hue = 180 + (index / barCount) * 120;\n      return `hsl(${hue}, 85%, 60%)`;\n    }\n    if (variant === 'emerald') {\n      return '#10b981';\n    }\n    return '#8b5cf6';\n  };\n\n  return (\n    <div className={`flex flex-col items-center justify-center p-6 gap-6 rounded-2xl bg-zinc-900/60 border border-white/10 backdrop-blur-md ${className}`}>\n      {/* Equalizer Frequency Bars */}\n      <div className=\"flex items-end justify-center gap-1.5 h-20 w-full max-w-[280px] px-4 py-2\">\n        {Array.from({ length: barCount }).map((_, i) => {\n          // generate pseudo harmonic curve\n          const baseHeight = 20 + Math.sin((i / barCount) * Math.PI) * 45;\n          const minHeight = 12 + (i % 3) * 6;\n          const duration = 0.5 + ((i * 7) % 5) * 0.12;\n\n          return (\n            <motion.div\n              key={i}\n              animate={\n                isPlaying\n                  ? {\n                      height: [\n                        `${minHeight}%`,\n                        `${baseHeight}%`,\n                        `${Math.min(100, baseHeight + 25)}%`,\n                        `${minHeight + 10}%`,\n                        `${baseHeight * 0.7}%`,\n                      ],\n                    }\n                  : { height: '14%' }\n              }\n              transition={{\n                duration,\n                repeat: Infinity,\n                repeatType: 'reverse',\n                ease: 'easeInOut',\n                delay: (i * 0.06) % 0.4,\n              }}\n              style={{\n                backgroundColor: getBarColor(i),\n                boxShadow: isPlaying ? `0 0 10px ${getBarColor(i)}` : 'none',\n              }}\n              className=\"w-2 rounded-full transition-all duration-300\"\n            />\n          );\n        })}\n      </div>\n\n      {/* Control pill */}\n      <div className=\"flex items-center gap-3\">\n        <button\n          onClick={() => setIsPlaying(!isPlaying)}\n          className=\"inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-medium text-zinc-300 bg-zinc-800 hover:bg-zinc-700 border border-white/10 transition-colors cursor-pointer\"\n        >\n          {isPlaying ? (\n            <>\n              <Pause size={14} weight=\"fill\" className=\"text-amber-400\" />\n              <span>PAUSE WAVE</span>\n            </>\n          ) : (\n            <>\n              <Play size={14} weight=\"fill\" className=\"text-emerald-400\" />\n              <span>RESUME WAVE</span>\n            </>\n          )}\n        </button>\n        <span className=\"text-[11px] font-mono text-zinc-500 uppercase tracking-widest\">\n          {isPlaying ? '48.1 kHz Audio' : 'Muted'}\n        </span>\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "expandable-search-bar",
+    "type": "registry:ui",
+    "title": "Expandable Command Search Bar",
+    "description": "Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.",
+    "category": "forms",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "forms",
+      "search",
+      "cmd-k",
+      "filter"
+    ],
+    "files": [
+      {
+        "path": "registry/forms/expandable-search-bar/expandable-search-bar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/expandable-search-bar.tsx",
+        "content": "import React, { useState, useRef, useEffect } from 'react';\nimport { motion, AnimatePresence } from 'framer-motion';\nimport { MagnifyingGlass, X, Sparkle, ArrowRight } from '@phosphor-icons/react';\n\ninterface ExpandableSearchBarProps {\n  className?: string;\n  placeholder?: string;\n  onSearch?: (query: string) => void;\n  suggestions?: string[];\n}\n\nexport const ExpandableSearchBar: React.FC<ExpandableSearchBarProps> = ({\n  className = '',\n  placeholder = 'Search components, hooks, animations...',\n  onSearch,\n  suggestions = ['Magnetic Dock', 'Border Beam', 'Sliding Number', 'Aurora Glow', 'Bento Block'],\n}) => {\n  const [isExpanded, setIsExpanded] = useState(false);\n  const [query, setQuery] = useState('');\n  const containerRef = useRef<HTMLDivElement>(null);\n  const inputRef = useRef<HTMLInputElement>(null);\n\n  useEffect(() => {\n    const handleClickOutside = (e: MouseEvent) => {\n      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {\n        if (!query) setIsExpanded(false);\n      }\n    };\n    document.addEventListener('mousedown', handleClickOutside);\n    return () => document.removeEventListener('mousedown', handleClickOutside);\n  }, [query]);\n\n  const handleSelectSuggestion = (item: string) => {\n    setQuery(item);\n    onSearch?.(item);\n    setIsExpanded(false);\n  };\n\n  return (\n    <div ref={containerRef} className={`relative z-20 w-full max-w-md ${className}`}>\n      <motion.div\n        animate={{\n          width: isExpanded ? '100%' : '320px',\n        }}\n        transition={{ type: 'spring', stiffness: 350, damping: 28 }}\n        className=\"relative mx-auto rounded-full bg-zinc-900/90 dark:bg-zinc-900/90 border border-white/15 backdrop-blur-xl shadow-xl overflow-hidden\"\n      >\n        <div className=\"flex items-center px-4 py-2.5 gap-2.5\">\n          <MagnifyingGlass\n            size={18}\n            className={`transition-colors duration-200 ${\n              isExpanded ? 'text-indigo-400' : 'text-zinc-400'\n            }`}\n          />\n          <input\n            ref={inputRef}\n            type=\"text\"\n            value={query}\n            onChange={(e) => {\n              setQuery(e.target.value);\n              onSearch?.(e.target.value);\n            }}\n            onFocus={() => setIsExpanded(true)}\n            placeholder={placeholder}\n            className=\"w-full bg-transparent text-sm text-zinc-100 placeholder-zinc-500 outline-none\"\n          />\n\n          {query ? (\n            <button\n              onClick={() => {\n                setQuery('');\n                onSearch?.('');\n                inputRef.current?.focus();\n              }}\n              className=\"text-zinc-400 hover:text-white p-1 rounded-full cursor-pointer\"\n            >\n              <X size={14} />\n            </button>\n          ) : (\n            <span className=\"hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium text-zinc-400 bg-zinc-800 border border-zinc-700/60\">\n              ⌘K\n            </span>\n          )}\n        </div>\n\n        {/* Expanded Suggestions Dropdown */}\n        <AnimatePresence>\n          {isExpanded && (\n            <motion.div\n              initial={{ opacity: 0, height: 0 }}\n              animate={{ opacity: 1, height: 'auto' }}\n              exit={{ opacity: 0, height: 0 }}\n              transition={{ duration: 0.2 }}\n              className=\"px-4 pb-3 pt-1 border-t border-white/5 space-y-2\"\n            >\n              <div className=\"flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1\">\n                <span>TRENDING QUERIES</span>\n                <span className=\"flex items-center gap-1 text-indigo-400\">\n                  <Sparkle size={12} weight=\"fill\" /> POPULAR\n                </span>\n              </div>\n              <div className=\"flex flex-wrap gap-1.5 pt-1\">\n                {suggestions.map((item) => (\n                  <button\n                    key={item}\n                    onClick={() => handleSelectSuggestion(item)}\n                    className=\"inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs text-zinc-300 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 transition-colors cursor-pointer\"\n                  >\n                    <span>{item}</span>\n                    <ArrowRight size={10} className=\"text-zinc-500\" />\n                  </button>\n                ))}\n              </div>\n            </motion.div>\n          )}\n        </AnimatePresence>\n      </motion.div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "password-strength-indicator",
+    "type": "registry:ui",
+    "title": "Interactive Entropy Password Input",
+    "description": "Real-time security entropy calculation with multi-tier colored meter and requirement checklist.",
+    "category": "forms",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "forms",
+      "password",
+      "input",
+      "entropy",
+      "security"
+    ],
+    "files": [
+      {
+        "path": "registry/forms/password-strength-indicator/password-strength-indicator.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/password-strength-indicator.tsx",
+        "content": "import React, { useState } from 'react'\nimport { Check, X, Eye, EyeSlash, LockKey } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface PasswordStrengthIndicatorProps {\n  className?: string\n}\n\nexport const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({ className }) => {\n  const [password, setPassword] = useState('')\n  const [show, setShow] = useState(false)\n\n  const hasLength = password.length >= 8\n  const hasUpper = /[A-Z]/.test(password)\n  const hasNumber = /[0-9]/.test(password)\n  const hasSpecial = /[^A-Za-z0-9]/.test(password)\n\n  const score = [hasLength, hasUpper, hasNumber, hasSpecial].filter(Boolean).length\n\n  const strengthLabels = ['Empty', 'Weak', 'Moderate', 'Strong', 'Cryptographic']\n  const strengthColors = ['bg-zinc-800', 'bg-rose-500', 'bg-amber-500', 'bg-blue-500', 'bg-emerald-500']\n\n  return (\n    <div className={cn('w-full max-w-sm rounded-3xl border border-white/10 bg-zinc-950 p-5 font-mono text-xs text-white shadow-2xl', className)}>\n      <div className=\"flex items-center justify-between text-zinc-400 pb-2 border-b border-white/5 mb-3\">\n        <span className=\"text-[10px] uppercase tracking-widest\">SECURITY TELEMETRY</span>\n        <span className=\"text-zinc-500 text-[10px]\">ENTROPY METER</span>\n      </div>\n\n      <div className=\"relative flex items-center\">\n        <LockKey size={16} className=\"absolute left-3 text-zinc-500\" />\n        <input\n          type={show ? 'text' : 'password'}\n          value={password}\n          onChange={(e) => setPassword(e.target.value)}\n          placeholder=\"Enter secret token...\"\n          className=\"w-full rounded-xl border border-white/10 bg-zinc-900/80 py-2.5 pl-9 pr-10 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white/30\"\n        />\n        <button\n          type=\"button\"\n          onClick={() => setShow(!show)}\n          className=\"absolute right-3 text-zinc-400 hover:text-white\"\n        >\n          {show ? <EyeSlash size={16} /> : <Eye size={16} />}\n        </button>\n      </div>\n\n      {/* Strength Bars */}\n      <div className=\"mt-3 flex gap-1.5 h-1.5 w-full\">\n        {[0, 1, 2, 3].map((idx) => (\n          <div\n            key={idx}\n            className={`h-full flex-1 rounded-full transition-all duration-300 ${\n              score > idx ? strengthColors[score] : 'bg-zinc-800'\n            }`}\n          />\n        ))}\n      </div>\n\n      <div className=\"mt-2 flex items-center justify-between text-[10px]\">\n        <span className=\"text-zinc-500\">Security Strength:</span>\n        <span className={score === 4 ? 'text-emerald-400 font-bold' : 'text-zinc-300'}>\n          {strengthLabels[score]}\n        </span>\n      </div>\n\n      {/* Rules Grid */}\n      <div className=\"mt-4 grid grid-cols-2 gap-2 text-[10px]\">\n        <div className={`flex items-center gap-1.5 ${hasLength ? 'text-emerald-400' : 'text-zinc-500'}`}>\n          {hasLength ? <Check size={12} weight=\"bold\" /> : <X size={12} />}\n          <span>8+ Characters</span>\n        </div>\n        <div className={`flex items-center gap-1.5 ${hasUpper ? 'text-emerald-400' : 'text-zinc-500'}`}>\n          {hasUpper ? <Check size={12} weight=\"bold\" /> : <X size={12} />}\n          <span>Uppercase [A-Z]</span>\n        </div>\n        <div className={`flex items-center gap-1.5 ${hasNumber ? 'text-emerald-400' : 'text-zinc-500'}`}>\n          {hasNumber ? <Check size={12} weight=\"bold\" /> : <X size={12} />}\n          <span>Numeric [0-9]</span>\n        </div>\n        <div className={`flex items-center gap-1.5 ${hasSpecial ? 'text-emerald-400' : 'text-zinc-500'}`}>\n          {hasSpecial ? <Check size={12} weight=\"bold\" /> : <X size={12} />}\n          <span>Symbol [!@#]</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "animated-notification-stack",
+    "type": "registry:ui",
+    "title": "Spring Notification Toast Stack",
+    "description": "Tactile stacked notification cards with interactive expandable deck and live push dispatch.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "toast",
+      "notification",
+      "stack"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/animated-notification-stack/animated-notification-stack.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-notification-stack.tsx",
+        "content": "import React, { useState } from 'react'\nimport { motion, AnimatePresence } from 'framer-motion'\nimport { CheckCircle, WarningCircle, ShieldCheck, X, Plus } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\ninterface NotificationItem {\n  id: string\n  title: string\n  detail: string\n  type: 'success' | 'warning' | 'info'\n  time: string\n}\n\nexport interface AnimatedNotificationStackProps {\n  className?: string\n}\n\nexport const AnimatedNotificationStack: React.FC<AnimatedNotificationStackProps> = ({ className }) => {\n  const [notifications, setNotifications] = useState<NotificationItem[]>([\n    {\n      id: '1',\n      title: 'Formal Invariant Verified',\n      detail: 'Z3 solver confirmed deadlock-freedom across 10k election rounds.',\n      type: 'success',\n      time: 'Just now',\n    },\n    {\n      id: '2',\n      title: 'Hermetic WASM Container Built',\n      detail: 'SHA256 signature verified against compiler seed.',\n      type: 'info',\n      time: '2m ago',\n    },\n  ])\n\n  const dismiss = (id: string) => {\n    setNotifications((prev) => prev.filter((n) => n.id !== id))\n  }\n\n  const addOne = () => {\n    const newItem: NotificationItem = {\n      id: String(Date.now()),\n      title: 'AST Schema Synchronized',\n      detail: 'Emitted zero-copy memory layout buffer.',\n      type: 'success',\n      time: 'Just now',\n    }\n    setNotifications((prev) => [newItem, ...prev.slice(0, 3)])\n  }\n\n  return (\n    <div className={cn('w-full max-w-sm rounded-3xl border border-white/10 bg-zinc-950 p-4 font-sans text-xs text-white shadow-2xl space-y-3', className)}>\n      <div className=\"flex items-center justify-between pb-2 border-b border-white/5 font-mono text-[10px] text-zinc-400\">\n        <span>RUNTIME NOTIFICATIONS</span>\n        <button\n          onClick={addOne}\n          className=\"flex items-center gap-1 rounded bg-white/10 px-2 py-0.5 text-white hover:bg-white/20 transition-colors\"\n        >\n          <Plus size={11} weight=\"bold\" />\n          <span>Simulate Event</span>\n        </button>\n      </div>\n\n      <div className=\"space-y-2\">\n        <AnimatePresence>\n          {notifications.map((n) => (\n            <motion.div\n              key={n.id}\n              initial={{ opacity: 0, y: -10, scale: 0.95 }}\n              animate={{ opacity: 1, y: 0, scale: 1 }}\n              exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}\n              className=\"flex items-start justify-between gap-3 rounded-2xl border border-white/10 bg-zinc-900/80 p-3 shadow-md\"\n            >\n              <div className=\"flex items-start gap-2.5\">\n                <CheckCircle size={16} weight=\"fill\" className=\"text-emerald-400 shrink-0 mt-0.5\" />\n                <div>\n                  <h4 className=\"font-bold text-white text-xs\">{n.title}</h4>\n                  <p className=\"text-[11px] text-zinc-400 mt-0.5 leading-snug\">{n.detail}</p>\n                  <span className=\"font-mono text-[9px] text-zinc-500 mt-1 block\">{n.time}</span>\n                </div>\n              </div>\n\n              <button\n                onClick={() => dismiss(n.id)}\n                className=\"text-zinc-500 hover:text-white transition-colors\"\n              >\n                <X size={12} weight=\"bold\" />\n              </button>\n            </motion.div>\n          ))}\n        </AnimatePresence>\n\n        {notifications.length === 0 && (\n          <div className=\"text-center py-6 text-zinc-600 font-mono text-xs\">\n            No active notifications.\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "command-palette",
+    "type": "registry:ui",
+    "title": "Spotlight Command Palette (⌘K)",
+    "description": "Keyboard-first modal command center with fuzzy query matching and shortcuts.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "command palette",
+      "cmd-k",
+      "spotlight"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/command-palette/command-palette.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/command-palette.tsx",
+        "content": "import React, { useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { MagnifyingGlass, Terminal, ArrowRight, Code, ShieldCheck, Lightning } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface CommandPaletteProps {\n  className?: string\n}\n\nexport const CommandPalette: React.FC<CommandPaletteProps> = ({ className }) => {\n  const [query, setQuery] = useState('')\n\n  const commands = [\n    { label: 'Generate Raft State Machine', cat: 'Synthesis', icon: <Terminal size={14} /> },\n    { label: 'Run Z3 Formal Verification', cat: 'Audit', icon: <ShieldCheck size={14} /> },\n    { label: 'Build Hermetic WASM Container', cat: 'Compiler', icon: <Code size={14} /> },\n    { label: 'Profile SIMD Execution Matrix', cat: 'Hardware', icon: <Lightning size={14} /> },\n  ]\n\n  const filtered = commands.filter((c) => c.label.toLowerCase().includes(query.toLowerCase()))\n\n  return (\n    <div className={cn('w-full max-w-md overflow-hidden rounded-3xl border border-white/15 bg-zinc-950 p-3 shadow-2xl text-white font-sans', className)}>\n      <div className=\"flex items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5\">\n        <MagnifyingGlass size={16} className=\"text-zinc-400\" />\n        <input\n          type=\"text\"\n          value={query}\n          onChange={(e) => setQuery(e.target.value)}\n          placeholder=\"Type a command or search AST...\"\n          className=\"w-full bg-transparent text-xs text-white placeholder-zinc-500 focus:outline-none font-mono\"\n        />\n        <span className=\"rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-mono text-zinc-400\">ESC</span>\n      </div>\n\n      <div className=\"mt-2 space-y-1\">\n        {filtered.map((cmd) => (\n          <button\n            key={cmd.label}\n            className=\"flex w-full items-center justify-between rounded-xl px-3 py-2 text-xs text-zinc-300 hover:bg-white/10 hover:text-white transition-colors group text-left\"\n          >\n            <div className=\"flex items-center gap-2\">\n              <span className=\"text-zinc-500 group-hover:text-emerald-400 transition-colors\">{cmd.icon}</span>\n              <span>{cmd.label}</span>\n            </div>\n            <span className=\"font-mono text-[10px] text-zinc-500 group-hover:text-zinc-300\">{cmd.cat}</span>\n          </button>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "floating-navbar",
+    "type": "registry:ui",
+    "title": "Dynamic Floating Capsule Navbar",
+    "description": "Adaptive capsule navigation bar with backdrop blur and pill indicators.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "navbar",
+      "capsule",
+      "floating"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/floating-navbar/floating-navbar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/floating-navbar.tsx",
+        "content": "import React, { useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { Cpu, House, FileCode, Gear, Sparkle } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface FloatingNavbarProps {\n  className?: string\n}\n\nexport const FloatingNavbar: React.FC<FloatingNavbarProps> = ({ className }) => {\n  const [activeTab, setActiveTab] = useState('Overview')\n\n  const items = [\n    { label: 'Overview', icon: <House size={16} /> },\n    { label: 'Components', icon: <FileCode size={16} /> },\n    { label: 'Settings', icon: <Gear size={16} /> },\n  ]\n\n  return (\n    <nav className={cn('relative inline-flex items-center gap-1 rounded-full border border-white/15 bg-zinc-950/80 p-1.5 backdrop-blur-2xl shadow-2xl', className)}>\n      <div className=\"flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white mr-1\">\n        <Cpu size={16} weight=\"bold\" />\n      </div>\n\n      {items.map((tab) => {\n        const isActive = activeTab === tab.label\n        return (\n          <button\n            key={tab.label}\n            onClick={() => setActiveTab(tab.label)}\n            className={`relative flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${\n              isActive ? 'text-zinc-950' : 'text-zinc-400 hover:text-white'\n            }`}\n          >\n            {isActive && (\n              <motion.div\n                layoutId=\"floating-nav-pill\"\n                transition={{ type: 'spring', damping: 20, stiffness: 220 }}\n                className=\"absolute inset-0 rounded-full bg-white shadow-sm\"\n              />\n            )}\n            <span className=\"relative z-10\">{tab.icon}</span>\n            <span className=\"relative z-10\">{tab.label}</span>\n          </button>\n        )\n      })}\n    </nav>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "magnetic-dock",
+    "type": "registry:ui",
+    "title": "Componentry Magnetic Dock",
+    "description": "macOS-style navigation dock with spring-physics cursor magnification, tooltips, and badges.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "dock",
+      "magnetic",
+      "macos"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/magnetic-dock/magnetic-dock.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/magnetic-dock.tsx",
+        "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { motion, useMotionValue, useSpring, useTransform, AnimatePresence, useReducedMotion, type MotionValue } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\n\ninterface MagneticDockProps {\n    /** Array of dock items */\n    items: DockItemData[]\n    /** Size of icons in pixels */\n    iconSize?: number\n    /** Maximum scale on hover */\n    maxScale?: number\n    /** Distance of magnetic effect in pixels */\n    magneticDistance?: number\n    /** Show labels on hover */\n    showLabels?: boolean\n    /** Dock position */\n    position?: \"bottom\" | \"top\" | \"left\" | \"right\"\n    /** Background style */\n    variant?: \"glass\" | \"solid\" | \"transparent\"\n    /** Custom class name */\n    className?: string\n}\n\ninterface DockItemData {\n    /** Unique identifier */\n    id: string\n    /** Display label */\n    label: string\n    /** Icon component or image URL */\n    icon: React.ReactNode\n    /** Click handler */\n    onClick?: () => void\n    /** Whether item is active */\n    isActive?: boolean\n    /** Badge count */\n    badge?: number\n}\n\ninterface DockItemProps {\n    item: DockItemData\n    mouseX: MotionValue<number>\n    iconSize: number\n    maxScale: number\n    magneticDistance: number\n    showLabels: boolean\n    isVertical: boolean\n    reducedMotion: boolean\n}\n\nfunction DockItem({\n    item,\n    mouseX,\n    iconSize,\n    maxScale,\n    magneticDistance,\n    showLabels,\n    isVertical,\n    reducedMotion,\n}: DockItemProps) {\n    const ref = React.useRef<HTMLButtonElement>(null)\n    const [isHovered, setIsHovered] = React.useState(false)\n    const [isFocused, setIsFocused] = React.useState(false)\n    const showLabel = showLabels && (isHovered || isFocused)\n\n    // Calculate distance from mouse to center of item\n    const distance = useTransform(mouseX, (val: number) => {\n        if (!ref.current) return magneticDistance + 1\n        const rect = ref.current.getBoundingClientRect()\n        const center = isVertical\n            ? rect.top + rect.height / 2\n            : rect.left + rect.width / 2\n        return val - center\n    })\n\n    // Scale based on distance - closer = larger\n    const scale = useTransform(distance, [-magneticDistance, 0, magneticDistance], [1, maxScale, 1])\n\n    // Apply spring physics for smooth animation\n    const springConfig = { damping: 20, stiffness: 300, mass: 0.5 }\n    const smoothScale = useSpring(scale, springConfig)\n\n    // Calculate the size based on scale\n    const size = useTransform(smoothScale, (s) => s * iconSize)\n\n    // Floating effect\n    const y = useTransform(smoothScale, (s) => (s - 1) * -10)\n    const smoothY = useSpring(y, springConfig)\n\n    return (\n        <motion.button\n            ref={ref}\n            type=\"button\"\n            tabIndex={0}\n            aria-label={item.label}\n            aria-current={item.isActive ? \"page\" : undefined}\n            onClick={item.onClick}\n            onFocus={() => setIsFocused(true)}\n            onBlur={() => setIsFocused(false)}\n            onMouseEnter={() => setIsHovered(true)}\n            onMouseLeave={() => setIsHovered(false)}\n            className={cn(\n                \"relative flex items-center justify-center\",\n                \"rounded-2xl transition-colors duration-200\",\n                \"focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 dark:focus-visible:ring-white/50\",\n                item.isActive && \"bg-neutral-200/50 dark:bg-white/10\"\n            )}\n            style={{\n                width: reducedMotion ? iconSize : size,\n                height: reducedMotion ? iconSize : size,\n                y: reducedMotion || isVertical ? 0 : smoothY,\n                x: reducedMotion || !isVertical ? 0 : smoothY,\n            }}\n            whileTap={reducedMotion ? undefined : { scale: 0.9 }}\n        >\n            {/* Icon Container */}\n            <motion.div\n                className={cn(\n                    \"relative w-full h-full rounded-2xl overflow-hidden\",\n                    \"bg-gradient-to-b from-neutral-100 to-neutral-50\",\n                    \"dark:from-neutral-800 dark:to-neutral-900\",\n                    \"backdrop-blur-sm\",\n                    \"border border-neutral-300 dark:border-neutral-700\",\n                    \"shadow-lg shadow-black/10 dark:shadow-black/30\",\n                    \"flex items-center justify-center\",\n                    \"transition-colors duration-200\"\n                )}\n                style={{\n                    boxShadow: isHovered\n                        ? \"0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5)\"\n                        : \"0 4px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.3)\",\n                }}\n            >\n                {/* Icon */}\n                <div aria-hidden=\"true\" className=\"w-[60%] h-[60%] flex items-center justify-center text-neutral-700 dark:text-white\">\n                    {item.icon}\n                </div>\n\n                {/* Shine effect */}\n                <motion.div\n                    className=\"absolute inset-0 pointer-events-none\"\n                    style={{\n                        background:\n                            \"linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 50%, transparent 100%)\",\n                        opacity: isHovered ? 0.9 : 0.5,\n                    }}\n                />\n            </motion.div>\n\n            {/* Badge */}\n            <AnimatePresence initial={false}>\n                {item.badge !== undefined && item.badge > 0 && (\n                    <motion.div\n                        initial={reducedMotion ? false : { scale: 0, opacity: 0 }}\n                        animate={{ scale: 1, opacity: 1 }}\n                        exit={reducedMotion ? { opacity: 0 } : { scale: 0, opacity: 0 }}\n                        className={cn(\n                            \"absolute -top-1 -right-1\",\n                            \"min-w-[20px] h-5 px-1.5\",\n                            \"rounded-full\",\n                            \"bg-red-500\",\n                            \"text-white text-xs font-semibold\",\n                            \"flex items-center justify-center\",\n                            \"border-2 border-white dark:border-neutral-950\",\n                            \"shadow-lg\"\n                        )}\n                    >\n                        {item.badge > 99 ? \"99+\" : item.badge}\n                    </motion.div>\n                )}\n            </AnimatePresence>\n\n            {/* Active Indicator */}\n            <AnimatePresence initial={false}>\n                {item.isActive && (\n                    <motion.div\n                        initial={reducedMotion ? false : { scale: 0, opacity: 0 }}\n                        animate={{ scale: 1, opacity: 1 }}\n                        exit={reducedMotion ? { opacity: 0 } : { scale: 0, opacity: 0 }}\n                        className={cn(\n                            \"absolute -bottom-2\",\n                            \"w-1.5 h-1.5 rounded-full\",\n                            \"bg-neutral-600 dark:bg-white/80\"\n                        )}\n                    />\n                )}\n            </AnimatePresence>\n\n            {/* Tooltip */}\n            <AnimatePresence initial={false}>\n                {showLabel && (\n                    <motion.div\n                        aria-hidden=\"true\"\n                        initial={reducedMotion ? false : { opacity: 0, y: 8, scale: 0.9 }}\n                        animate={{ opacity: 1, y: 0, scale: 1 }}\n                        exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.9 }}\n                        transition={{ duration: 0.15, ease: \"easeOut\" }}\n                        className={cn(\n                            \"absolute -top-10 left-1/2 -translate-x-1/2\",\n                            \"px-3 py-1.5 rounded-lg\",\n                            \"bg-white dark:bg-neutral-900/95\",\n                            \"backdrop-blur-sm\",\n                            \"text-neutral-800 dark:text-white text-sm font-medium whitespace-nowrap\",\n                            \"border border-neutral-200 dark:border-white/10\",\n                            \"shadow-xl shadow-black/10 dark:shadow-black/20\",\n                            \"pointer-events-none z-50\"\n                        )}\n                    >\n                        {item.label}\n                        {/* Tooltip arrow */}\n                        <div\n                            className={cn(\n                                \"absolute left-1/2 -translate-x-1/2 -bottom-1\",\n                                \"w-2 h-2 rotate-45\",\n                                \"bg-white dark:bg-neutral-900/95\",\n                                \"border-r border-b border-neutral-200 dark:border-white/10\"\n                            )}\n                        />\n                    </motion.div>\n                )}\n            </AnimatePresence>\n\n            {/* Hover glow */}\n            <motion.div\n                className=\"absolute inset-0 rounded-2xl pointer-events-none\"\n                animate={{\n                    boxShadow: isHovered\n                        ? \"0 0 30px rgba(255,255,255,0.15)\"\n                        : \"0 0 0px rgba(255,255,255,0)\",\n                }}\n                transition={{ duration: 0.3 }}\n            />\n        </motion.button>\n    )\n}\n\nfunction MagneticDock({\n    items,\n    iconSize = 56,\n    maxScale = 1.5,\n    magneticDistance = 150,\n    showLabels = true,\n    position = \"bottom\",\n    variant = \"glass\",\n    className,\n}: MagneticDockProps) {\n    const mousePosition = useMotionValue(Infinity)\n    const reducedMotion = useReducedMotion() ?? false\n    const isVertical = position === \"left\" || position === \"right\"\n\n    const handleMouseMove = React.useCallback(\n        (e: React.MouseEvent) => {\n            if (isVertical) {\n                mousePosition.set(e.clientY)\n            } else {\n                mousePosition.set(e.clientX)\n            }\n        },\n        [mousePosition, isVertical]\n    )\n\n    const handleMouseLeave = () => {\n        mousePosition.set(Infinity)\n    }\n\n    const variantStyles = {\n        glass: cn(\n            \"bg-white/80 dark:bg-neutral-900/80\",\n            \"backdrop-blur-xl backdrop-saturate-150\",\n            \"border border-neutral-200 dark:border-neutral-700\"\n        ),\n        solid: cn(\n            \"bg-neutral-100 dark:bg-neutral-900\",\n            \"border border-neutral-300 dark:border-neutral-700\"\n        ),\n        transparent: \"bg-transparent border-0\",\n    }\n\n    const positionStyles = {\n        bottom: \"flex-row\",\n        top: \"flex-row\",\n        left: \"flex-col\",\n        right: \"flex-col\",\n    }\n\n    return (\n        <motion.div\n            onMouseMove={reducedMotion ? undefined : handleMouseMove}\n            onMouseLeave={handleMouseLeave}\n            className={cn(\n                \"inline-flex items-end gap-2 p-3 rounded-3xl\",\n                variantStyles[variant],\n                positionStyles[position],\n                \"shadow-xl shadow-black/10 dark:shadow-black/30\",\n                className\n            )}\n            initial={false}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}\n        >\n            {items.map((item) => (\n                <DockItem\n                    key={item.id}\n                    item={item}\n                    mouseX={mousePosition}\n                    iconSize={iconSize}\n                    maxScale={maxScale}\n                    magneticDistance={magneticDistance}\n                    showLabels={showLabels}\n                    isVertical={isVertical}\n                    reducedMotion={reducedMotion}\n                />\n            ))}\n        </motion.div>\n    )\n}\n\n// Preset icons for common use cases\nfunction DockIconHome({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n            <polyline points=\"9 22 9 12 15 12 15 22\" />\n        </svg>\n    )\n}\n\nfunction DockIconSearch({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <circle cx=\"11\" cy=\"11\" r=\"8\" />\n            <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\" />\n        </svg>\n    )\n}\n\nfunction DockIconFolder({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\" />\n        </svg>\n    )\n}\n\nfunction DockIconMail({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\" />\n            <polyline points=\"22,6 12,13 2,6\" />\n        </svg>\n    )\n}\n\nfunction DockIconMusic({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <path d=\"M9 18V5l12-2v13\" />\n            <circle cx=\"6\" cy=\"18\" r=\"3\" />\n            <circle cx=\"18\" cy=\"16\" r=\"3\" />\n        </svg>\n    )\n}\n\nfunction DockIconSettings({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <circle cx=\"12\" cy=\"12\" r=\"3\" />\n            <path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\" />\n        </svg>\n    )\n}\n\nfunction DockIconTrash({ className }: { className?: string }) {\n    return (\n        <svg\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            className={cn(\"w-full h-full\", className)}\n        >\n            <polyline points=\"3 6 5 6 21 6\" />\n            <path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\" />\n        </svg>\n    )\n}\n\nexport {\n    MagneticDock,\n    DockIconHome,\n    DockIconSearch,\n    DockIconFolder,\n    DockIconMail,\n    DockIconMusic,\n    DockIconSettings,\n    DockIconTrash,\n    type MagneticDockProps,\n    type DockItemData,\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "sliding-logo-marquee",
+    "type": "registry:ui",
+    "title": "Infinite Brand Logo Marquee",
+    "description": "Seamless hardware-accelerated horizontal brand partner marquee with hover pause.",
+    "category": "navigation",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "marquee",
+      "logos",
+      "partners"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/sliding-logo-marquee/sliding-logo-marquee.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sliding-logo-marquee.tsx",
+        "content": "import React from 'react'\nimport { Cpu, Terminal, ShieldCheck, Database, GitBranch, Code, Lightning, Globe } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface SlidingLogoMarqueeProps {\n  className?: string\n}\n\nexport const SlidingLogoMarquee: React.FC<SlidingLogoMarqueeProps> = ({ className }) => {\n  const items = [\n    { name: 'WASM Isolate', icon: <Cpu size={16} /> },\n    { name: 'Raft Quorum', icon: <Database size={16} /> },\n    { name: 'Formal Z3', icon: <ShieldCheck size={16} /> },\n    { name: 'Deterministic AST', icon: <Code size={16} /> },\n    { name: 'Zero-IPC Ring', icon: <Lightning size={16} /> },\n    { name: 'Git Trunk Merge', icon: <GitBranch size={16} /> },\n    { name: 'Edge Mesh', icon: <Globe size={16} /> },\n    { name: 'CLI Runtime', icon: <Terminal size={16} /> },\n  ]\n\n  return (\n    <div className={cn('relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 py-3', className)}>\n      {/* Gradient edge masks */}\n      <div className=\"pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-zinc-950 to-transparent z-10\" />\n      <div className=\"pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-zinc-950 to-transparent z-10\" />\n\n      {/* Marquee Track */}\n      <div className=\"flex w-max gap-4 animate-[marquee_20s_linear_infinite] hover:[animation-play-state:paused]\">\n        {[...items, ...items].map((item, idx) => (\n          <div\n            key={idx}\n            className=\"flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-colors cursor-pointer select-none\"\n          >\n            <span className=\"text-emerald-400\">{item.icon}</span>\n            <span>{item.name}</span>\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "tabs-morph",
+    "type": "registry:ui",
+    "title": "Morphing Spring Pill Tabs",
+    "description": "Fluid layoutId morphing background indicator tabs with tactile spring motion.",
+    "category": "navigation",
+    "dependencies": [
+      "framer-motion",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "navigation",
+      "tabs",
+      "segmented",
+      "morph"
+    ],
+    "files": [
+      {
+        "path": "registry/navigation/tabs-morph/tabs-morph.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/tabs-morph.tsx",
+        "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Code, Eye, Sparkle, Gear } from '@phosphor-icons/react';\n\ninterface TabItem {\n  id: string;\n  label: string;\n  icon: React.ReactNode;\n  badge?: string;\n}\n\ninterface TabsMorphProps {\n  className?: string;\n  defaultTab?: string;\n  onChange?: (id: string) => void;\n}\n\nconst DEFAULT_TABS: TabItem[] = [\n  { id: 'preview', label: 'Preview', icon: <Eye size={15} /> },\n  { id: 'code', label: 'Source Code', icon: <Code size={15} /> },\n  { id: 'effects', label: 'Shader FX', icon: <Sparkle size={15} />, badge: 'NEW' },\n  { id: 'settings', label: 'Inspector', icon: <Gear size={15} /> },\n];\n\nexport const TabsMorph: React.FC<TabsMorphProps> = ({\n  className = '',\n  defaultTab = 'preview',\n  onChange,\n}) => {\n  const [activeTab, setActiveTab] = useState(defaultTab);\n\n  const handleSelect = (id: string) => {\n    setActiveTab(id);\n    onChange?.(id);\n  };\n\n  return (\n    <div className={`inline-flex items-center p-1.5 rounded-2xl bg-zinc-900/80 border border-white/10 backdrop-blur-xl shadow-lg ${className}`}>\n      {DEFAULT_TABS.map((tab) => {\n        const isActive = activeTab === tab.id;\n        return (\n          <button\n            key={tab.id}\n            onClick={() => handleSelect(tab.id)}\n            className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-colors duration-200 cursor-pointer select-none ${\n              isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'\n            }`}\n          >\n            {/* Morphing Background Pill */}\n            {isActive && (\n              <motion.div\n                layoutId=\"activeTabMorph\"\n                transition={{ type: 'spring', stiffness: 450, damping: 32 }}\n                className=\"absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-600/80 to-violet-600/80 border border-indigo-400/30 shadow-md shadow-indigo-500/20\"\n              />\n            )}\n\n            <span className=\"relative z-10 flex items-center gap-1.5\">\n              {tab.icon}\n              {tab.label}\n              {tab.badge && (\n                <span className=\"px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-pink-500/20 text-pink-300 border border-pink-500/30\">\n                  {tab.badge}\n                </span>\n              )}\n            </span>\n          </button>\n        );\n      })}\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "animated-cta-block",
+    "type": "registry:ui",
+    "title": "High-Conversion Terminal CTA",
+    "description": "Conversion-optimized terminal deployment CTA with instant command copy and status pulse.",
+    "category": "sections",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "sections",
+      "cta",
+      "conversion",
+      "terminal"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/animated-cta-block/animated-cta-block.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-cta-block.tsx",
+        "content": "import React, { useState } from 'react'\nimport { ArrowUpRight, Copy, Check, Terminal } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface AnimatedCtaBlockProps {\n  className?: string\n}\n\nexport const AnimatedCtaBlock: React.FC<AnimatedCtaBlockProps> = ({ className }) => {\n  const [copied, setCopied] = useState(false)\n  const cmd = 'npx cook init --runtime=enterprise'\n\n  const copy = () => {\n    navigator.clipboard.writeText(cmd)\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div className={cn('w-full max-w-2xl rounded-[2.5rem] border border-white/15 bg-gradient-to-b from-zinc-900 to-zinc-950 p-8 text-center text-white shadow-2xl', className)}>\n      <div className=\"inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-emerald-400\">\n        <span>RUNTIME v2.4 DEPLOYMENT</span>\n      </div>\n\n      <h3 className=\"mt-4 text-2xl font-bold tracking-tight\">Deploy Deterministic Engineering</h3>\n      <p className=\"mt-2 text-xs text-zinc-400 max-w-md mx-auto\">\n        Integrate the COOK compiler into your existing GitHub Actions pipeline and automate verified pull requests.\n      </p>\n\n      <div className=\"mt-6 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/80 px-4 py-2.5 font-mono text-xs max-w-md mx-auto\">\n        <div className=\"flex items-center gap-2 text-zinc-300 truncate\">\n          <span className=\"text-emerald-400 font-bold\">$</span>\n          <span className=\"truncate\">{cmd}</span>\n        </div>\n        <button\n          onClick={copy}\n          className=\"flex items-center gap-1.5 rounded-lg bg-zinc-800 px-2.5 py-1 text-xs text-zinc-200 hover:bg-zinc-700 transition-colors shrink-0\"\n        >\n          {copied ? <Check size={13} className=\"text-emerald-400\" /> : <Copy size={13} />}\n          <span>{copied ? 'Copied' : 'Copy'}</span>\n        </button>\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "feature-bento-block",
+    "type": "registry:ui",
+    "title": "Technical Feature Bento Block",
+    "description": "Asymmetric technical bento grid section with hardware isolation badges and metrics.",
+    "category": "sections",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge",
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "sections",
+      "bento",
+      "features",
+      "grid"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/feature-bento-block/feature-bento-block.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/feature-bento-block.tsx",
+        "content": "import React from 'react'\nimport { ShieldCheck, Cpu, Database, Check } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface FeatureBentoBlockProps {\n  className?: string\n}\n\nexport const FeatureBentoBlock: React.FC<FeatureBentoBlockProps> = ({ className }) => {\n  return (\n    <div className={cn('grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl text-white font-sans', className)}>\n      <div className=\"md:col-span-2 rounded-3xl border border-white/10 bg-zinc-950 p-6 flex flex-col justify-between\">\n        <div className=\"flex items-center gap-3\">\n          <div className=\"flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white\">\n            <Cpu size={20} weight=\"bold\" />\n          </div>\n          <div>\n            <h4 className=\"font-bold text-white\">Hermetic WASM Isolate Sandbox</h4>\n            <span className=\"font-mono text-[10px] text-zinc-500\">RING-0 MEMORY CONFINEMENT</span>\n          </div>\n        </div>\n        <p className=\"mt-4 text-xs text-zinc-400 leading-relaxed\">\n          Executes every generated function in a fresh, bit-reproducible WebAssembly container. Pre-allocates heap limits and blocks network socket leaks.\n        </p>\n        <div className=\"mt-4 flex items-center justify-between pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-500\">\n          <span>Memory: 64MB Fixed</span>\n          <span className=\"text-emerald-400\">Bytecode Verified</span>\n        </div>\n      </div>\n\n      <div className=\"rounded-3xl border border-white/10 bg-zinc-950 p-6 flex flex-col justify-between\">\n        <div className=\"flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-emerald-400\">\n          <ShieldCheck size={20} weight=\"bold\" />\n        </div>\n        <div>\n          <h4 className=\"mt-3 font-bold text-white\">SMT Proofs</h4>\n          <p className=\"mt-1 text-xs text-zinc-400\">Mathematical invariant assertions powered by Z3.</p>\n        </div>\n        <div className=\"mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-emerald-400 flex items-center gap-1.5\">\n          <Check size={14} weight=\"bold\" />\n          <span>Zero Deadlocks</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "interactive-terminal-block",
+    "type": "registry:ui",
+    "title": "Installation Terminal Block",
+    "description": "Interactive CLI command runner terminal with execution simulation and tab controls.",
+    "category": "sections",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "sections",
+      "terminal",
+      "cli",
+      "installation"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/interactive-terminal-block/interactive-terminal-block.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-terminal-block.tsx",
+        "content": "import React, { useState } from 'react'\nimport { Terminal, Copy, Check, Play, CheckCircle } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface InteractiveTerminalBlockProps {\n  className?: string\n}\n\nexport const InteractiveTerminalBlock: React.FC<InteractiveTerminalBlockProps> = ({ className }) => {\n  const [copied, setCopied] = useState(false)\n  const [isRunning, setIsRunning] = useState(false)\n  const [outputLines, setOutputLines] = useState<string[]>([\n    'Initializing COOK Runtime v2.4...',\n    'Verified memory bounds in isolate #0',\n    'Compilation successful in 42ms.',\n  ])\n\n  const runCode = () => {\n    setIsRunning(true)\n    setTimeout(() => {\n      setOutputLines((prev) => [\n        ...prev,\n        `[${new Date().toLocaleTimeString()}] Emitted 14 verified WASM blocks.`,\n      ])\n      setIsRunning(false)\n    }, 600)\n  }\n\n  const copy = () => {\n    navigator.clipboard.writeText('cook synthesize --spec=cluster.spec')\n    setCopied(true)\n    setTimeout(() => setCopied(false), 2000)\n  }\n\n  return (\n    <div className={cn('w-full max-w-xl rounded-3xl border border-white/15 bg-black/90 p-5 font-mono text-xs text-white shadow-2xl', className)}>\n      <div className=\"flex items-center justify-between border-b border-white/10 pb-3\">\n        <div className=\"flex items-center gap-2\">\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"h-3 w-3 rounded-full bg-zinc-700\" />\n          <span className=\"ml-2 text-zinc-400\">cook-terminal</span>\n        </div>\n        <div className=\"flex items-center gap-3\">\n          <button onClick={copy} className=\"text-zinc-400 hover:text-white transition-colors\">\n            {copied ? <Check size={14} className=\"text-emerald-400\" /> : <Copy size={14} />}\n          </button>\n          <button\n            onClick={runCode}\n            disabled={isRunning}\n            className=\"flex items-center gap-1 rounded bg-emerald-500/20 px-2 py-0.5 text-emerald-400 hover:bg-emerald-500/30 transition-colors\"\n          >\n            <Play size={11} weight=\"fill\" />\n            <span>{isRunning ? 'Running...' : 'Run'}</span>\n          </button>\n        </div>\n      </div>\n\n      <div className=\"mt-4 space-y-1.5 text-zinc-300\">\n        <div className=\"flex gap-2 text-emerald-400\">\n          <span>$</span>\n          <span className=\"text-white\">cook synthesize --spec=cluster.spec</span>\n        </div>\n        {outputLines.map((line, idx) => (\n          <div key={idx} className=\"text-zinc-400 pl-4 border-l border-white/10\">\n            {line}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "pricing-comparison-block",
+    "type": "registry:ui",
+    "title": "Tiered SaaS Pricing Matrix",
+    "description": "Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.",
+    "category": "sections",
+    "dependencies": [
+      "@phosphor-icons/react",
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "sections",
+      "pricing",
+      "saas",
+      "tiers"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/pricing-comparison-block/pricing-comparison-block.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/pricing-comparison-block.tsx",
+        "content": "import React, { useState } from 'react';\nimport { motion } from 'framer-motion';\nimport { Check, Sparkle, Lightning } from '@phosphor-icons/react';\n\nexport const PricingComparisonBlock: React.FC = () => {\n  const [isAnnual, setIsAnnual] = useState(true);\n\n  const plans = [\n    {\n      name: 'Developer',\n      desc: 'Everything you need to ship high-impact personal projects and side apps.',\n      price: isAnnual ? 19 : 24,\n      popular: false,\n      features: [\n        'Full access to all 40+ components',\n        'Direct copy & paste TSX code',\n        'Tailwind CSS v4 & Framer Motion',\n        'Community Discord access',\n        'Free lifetime patches',\n      ],\n      cta: 'Get Started',\n    },\n    {\n      name: 'Pro Studio',\n      desc: 'For ambitious engineers and agencies building client apps and startups.',\n      price: isAnnual ? 49 : 59,\n      popular: true,\n      features: [\n        'Everything in Developer',\n        'Full commercial unlimited license',\n        'Figma UI kit design files',\n        'Exclusive premium shader cards',\n        'Private GitHub repo access',\n        'Priority 1-on-1 support',\n      ],\n      cta: 'Claim Pro Studio',\n    },\n    {\n      name: 'Enterprise',\n      desc: 'Custom design system engineering and dedicated technical SLA support.',\n      price: isAnnual ? 149 : 179,\n      popular: false,\n      features: [\n        'Everything in Pro Studio',\n        'Custom component requests',\n        'Design tokens sync CLI',\n        'Private Slack channel',\n        'Dedicated SLA & custom invoicing',\n      ],\n      cta: 'Contact Sales',\n    },\n  ];\n\n  return (\n    <div className=\"w-full max-w-5xl mx-auto py-8 px-4 text-center\">\n      {/* Billing Switch */}\n      <div className=\"inline-flex items-center gap-3 p-1 rounded-full bg-zinc-900 border border-white/10 mb-10 shadow-lg\">\n        <button\n          onClick={() => setIsAnnual(false)}\n          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${\n            !isAnnual ? 'bg-indigo-600 text-white shadow' : 'text-zinc-400 hover:text-white'\n          }`}\n        >\n          Monthly billing\n        </button>\n        <button\n          onClick={() => setIsAnnual(true)}\n          className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${\n            isAnnual ? 'bg-indigo-600 text-white shadow' : 'text-zinc-400 hover:text-white'\n          }`}\n        >\n          <span>Annual billing</span>\n          <span className=\"px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-400/20 text-emerald-300\">\n            SAVE 20%\n          </span>\n        </button>\n      </div>\n\n      {/* Pricing Cards Grid */}\n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6 text-left\">\n        {plans.map((p) => (\n          <div\n            key={p.name}\n            className={`relative rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between ${\n              p.popular\n                ? 'bg-gradient-to-b from-indigo-950/60 to-zinc-950 border-2 border-indigo-500 shadow-2xl shadow-indigo-500/10 -translate-y-2'\n                : 'bg-zinc-950/70 border border-white/10 hover:border-white/20'\n            }`}\n          >\n            {p.popular && (\n              <div className=\"absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 px-3 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-indigo-500 text-white shadow-md\">\n                <Sparkle size={12} weight=\"fill\" /> MOST POPULAR\n              </div>\n            )}\n\n            <div>\n              <h4 className=\"text-lg font-semibold text-white\">{p.name}</h4>\n              <p className=\"text-xs text-zinc-400 mt-1 min-h-[36px]\">{p.desc}</p>\n\n              <div className=\"mt-6 flex items-baseline gap-1\">\n                <span className=\"text-4xl font-extrabold text-white font-mono\">${p.price}</span>\n                <span className=\"text-xs text-zinc-400\">/month</span>\n              </div>\n\n              <div className=\"mt-6 pt-6 border-t border-white/10 space-y-3\">\n                {p.features.map((feat) => (\n                  <div key={feat} className=\"flex items-start gap-2.5 text-xs text-zinc-300\">\n                    <Check size={16} weight=\"bold\" className=\"text-emerald-400 shrink-0 mt-0.5\" />\n                    <span>{feat}</span>\n                  </div>\n                ))}\n              </div>\n            </div>\n\n            <button\n              className={`mt-8 w-full py-2.5 rounded-xl font-medium text-xs tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2 ${\n                p.popular\n                  ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30'\n                  : 'bg-white/10 hover:bg-white/15 text-white'\n              }`}\n            >\n              {p.popular && <Lightning size={14} weight=\"fill\" />}\n              {p.cta}\n            </button>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "testimonial-marquee-block",
+    "type": "registry:ui",
+    "title": "Endless Social Proof Testimonials",
+    "description": "Continuous dual-directional testimonial marquee with verified engineer reviews and star ratings.",
+    "category": "sections",
+    "dependencies": [
+      "@phosphor-icons/react"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "sections",
+      "testimonials",
+      "marquee",
+      "reviews"
+    ],
+    "files": [
+      {
+        "path": "registry/sections/testimonial-marquee-block/testimonial-marquee-block.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/testimonial-marquee-block.tsx",
+        "content": "import React from 'react';\nimport { Star } from '@phosphor-icons/react';\n\ninterface Review {\n  name: string;\n  role: string;\n  avatar: string;\n  quote: string;\n}\n\nconst REVIEWS: Review[] = [\n  {\n    name: 'Sarah Chen',\n    role: 'Staff Engineer @ Vercel',\n    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face',\n    quote: 'The animations feel as fluid as Apple hardware. Saved our engineering team 3 weeks of custom physics tuning.',\n  },\n  {\n    name: 'Alex Rivera',\n    role: 'Design Technologist @ Linear',\n    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',\n    quote: 'Best component library since Tailwind UI. The magnetic dock and shader backgrounds are simply breathtaking.',\n  },\n  {\n    name: 'Elena Rostova',\n    role: 'Founder @ Synapse AI',\n    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',\n    quote: 'Every component is clean, unbloated, and copies directly into Next.js App Router without weird hydration issues.',\n  },\n  {\n    name: 'Marcus Vance',\n    role: 'Principal Architect @ Stripe',\n    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',\n    quote: 'The craftsmanship on micro-interactions and tactile springs sets the gold standard for modern developer tools.',\n  },\n];\n\nexport const TestimonialMarqueeBlock: React.FC = () => {\n  return (\n    <div className=\"relative w-full max-w-5xl mx-auto py-8 overflow-hidden\">\n      {/* Side Vignette Fades */}\n      <div className=\"absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none\" />\n      <div className=\"absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none\" />\n\n      {/* Marquee Row */}\n      <div className=\"flex gap-6 w-max animate-[marquee_30s_linear_infinite] hover:[animation-play-state:paused]\">\n        {[...REVIEWS, ...REVIEWS].map((item, idx) => (\n          <div\n            key={idx}\n            className=\"w-[320px] shrink-0 p-5 rounded-2xl bg-zinc-900/70 border border-white/10 backdrop-blur-md flex flex-col justify-between space-y-4 hover:border-indigo-500/40 transition-colors\"\n          >\n            <div className=\"space-y-2\">\n              <div className=\"flex gap-1 text-amber-400\">\n                {Array.from({ length: 5 }).map((_, i) => (\n                  <Star key={i} size={14} weight=\"fill\" />\n                ))}\n              </div>\n              <p className=\"text-xs text-zinc-300 leading-relaxed italic\">\n                \"{item.quote}\"\n              </p>\n            </div>\n\n            <div className=\"flex items-center gap-3 pt-3 border-t border-white/5\">\n              <img\n                src={item.avatar}\n                alt={item.name}\n                className=\"w-9 h-9 rounded-full object-cover border border-white/10\"\n              />\n              <div>\n                <h5 className=\"text-xs font-semibold text-white\">{item.name}</h5>\n                <p className=\"text-[10px] text-zinc-400\">{item.role}</p>\n              </div>\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "blur-reveal",
+    "type": "registry:ui",
+    "title": "Atmospheric Gaussian Blur Reveal",
+    "description": "Smooth transition from heavy Gaussian blur to crisp legibility.",
+    "category": "text",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "blur",
+      "reveal",
+      "fade"
+    ],
+    "files": [
+      {
+        "path": "registry/text/blur-reveal/blur-reveal.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/blur-reveal.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface BlurRevealProps {\n  children?: React.ReactNode\n  delay?: number\n  duration?: number\n  className?: string\n}\n\nexport const BlurReveal: React.FC<BlurRevealProps> = ({\n  children = 'Hermetic Bit-Reproducible Kernel Verification',\n  delay = 0,\n  duration = 0.8,\n  className,\n}) => {\n  return (\n    <motion.div\n      initial={{ opacity: 0, filter: 'blur(12px)', y: 15 }}\n      whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}\n      viewport={{ once: false }}\n      transition={{\n        duration,\n        delay,\n        ease: [0.25, 0.46, 0.45, 0.94],\n      }}\n      className={cn('text-zinc-200', className)}\n    >\n      {children}\n    </motion.div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "shiny-text",
+    "type": "registry:ui",
+    "title": "Specular Shiny Text",
+    "description": "Reflective specular light ray sweeping continuously across metallic typographic titles.",
+    "category": "text",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "shiny",
+      "typography",
+      "shimmer"
+    ],
+    "files": [
+      {
+        "path": "registry/text/shiny-text/shiny-text.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/shiny-text.tsx",
+        "content": "import React from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface ShinyTextProps {\n  text?: string\n  speed?: number\n  className?: string\n}\n\nexport const ShinyText: React.FC<ShinyTextProps> = ({\n  text = 'AUTONOMOUS REPRODUCIBILITY VERIFIED',\n  speed = 3,\n  className,\n}) => {\n  return (\n    <span\n      style={{\n        backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 100%)',\n        backgroundSize: '200% 100%',\n        animation: `shinyShimmer ${speed}s linear infinite`,\n        WebkitBackgroundClip: 'text',\n        WebkitTextFillColor: 'transparent',\n      }}\n      className={cn('inline-block font-mono font-bold tracking-wider', className)}\n    >\n      {text}\n    </span>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "sliding-number",
+    "type": "registry:ui",
+    "title": "Sliding Number Counter",
+    "description": "Smooth mechanical counter and odometer number animation powered by spring transforms.",
+    "category": "text",
+    "dependencies": [
+      "motion",
+      "react-use-measure"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "counter",
+      "odometer",
+      "numbers"
+    ],
+    "files": [
+      {
+        "path": "registry/text/sliding-number/sliding-number.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sliding-number.tsx",
+        "content": "'use client';\n\nimport * as React from 'react';\nimport {\n  useSpring,\n  useTransform,\n  motion,\n  useMotionValue,\n  type MotionValue,\n  type SpringOptions,\n  type HTMLMotionProps,\n} from 'motion/react';\nimport useMeasure from 'react-use-measure';\n\nimport {\n  useIsInView,\n  type UseIsInViewOptions,\n} from '@/hooks/use-is-in-view';\n\ntype SlidingNumberRollerProps = {\n  prevValue: number;\n  value: number;\n  place: number;\n  transition: SpringOptions;\n  delay?: number;\n};\n\nfunction SlidingNumberRoller({\n  prevValue,\n  value,\n  place,\n  transition,\n  delay = 0,\n}: SlidingNumberRollerProps) {\n  const startNumber = Math.floor(prevValue / place) % 10;\n  const targetNumber = Math.floor(value / place) % 10;\n  const animatedValue = useSpring(startNumber, transition);\n\n  React.useEffect(() => {\n    const timeoutId = setTimeout(() => {\n      animatedValue.set(targetNumber);\n    }, delay);\n    return () => clearTimeout(timeoutId);\n  }, [targetNumber, animatedValue, delay]);\n\n  const [measureRef, { height }] = useMeasure();\n\n  return (\n    <span\n      ref={measureRef}\n      data-slot=\"sliding-number-roller\"\n      style={{\n        position: 'relative',\n        display: 'inline-block',\n        width: '1ch',\n        overflowX: 'visible',\n        overflowY: 'clip',\n        lineHeight: 1,\n        fontVariantNumeric: 'tabular-nums',\n      }}\n    >\n      <span style={{ visibility: 'hidden' }}>0</span>\n      {Array.from({ length: 10 }, (_, i) => (\n        <SlidingNumberDisplay\n          key={i}\n          motionValue={animatedValue}\n          number={i}\n          height={height}\n          transition={transition}\n        />\n      ))}\n    </span>\n  );\n}\n\ntype SlidingNumberDisplayProps = {\n  motionValue: MotionValue<number>;\n  number: number;\n  height: number;\n  transition: SpringOptions;\n};\n\nfunction SlidingNumberDisplay({\n  motionValue,\n  number,\n  height,\n  transition,\n}: SlidingNumberDisplayProps) {\n  const y = useTransform(motionValue, (latest) => {\n    if (!height) return 0;\n    const currentNumber = latest % 10;\n    const offset = (10 + number - currentNumber) % 10;\n    let translateY = offset * height;\n    if (offset > 5) translateY -= 10 * height;\n    return translateY;\n  });\n\n  if (!height) {\n    return (\n      <span style={{ visibility: 'hidden', position: 'absolute' }}>\n        {number}\n      </span>\n    );\n  }\n\n  return (\n    <motion.span\n      data-slot=\"sliding-number-display\"\n      style={{\n        y,\n        position: 'absolute',\n        inset: 0,\n        display: 'flex',\n        alignItems: 'center',\n        justifyContent: 'center',\n      }}\n      transition={{ ...transition, type: 'spring' }}\n    >\n      {number}\n    </motion.span>\n  );\n}\n\ntype SlidingNumberProps = Omit<HTMLMotionProps<'span'>, 'children'> & {\n  number: number;\n  fromNumber?: number;\n  onNumberChange?: (number: number) => void;\n  padStart?: boolean;\n  decimalSeparator?: string;\n  decimalPlaces?: number;\n  thousandSeparator?: string;\n  transition?: SpringOptions;\n  delay?: number;\n  initiallyStable?: boolean;\n} & UseIsInViewOptions;\n\nfunction SlidingNumber({\n  ref,\n  number,\n  fromNumber,\n  onNumberChange,\n  inView = false,\n  inViewMargin = '0px',\n  inViewOnce = true,\n  padStart = false,\n  decimalSeparator = '.',\n  decimalPlaces = 0,\n  thousandSeparator,\n  transition = { stiffness: 200, damping: 20, mass: 0.4 },\n  delay = 0,\n  initiallyStable = false,\n  ...props\n}: SlidingNumberProps) {\n  const { ref: localRef, isInView } = useIsInView(\n    ref as React.Ref<HTMLElement>,\n    {\n      inView,\n      inViewOnce,\n      inViewMargin,\n    },\n  );\n\n  const initialNumeric = Math.abs(Number(number));\n  const prevNumberRef = React.useRef<number>(\n    initiallyStable ? initialNumeric : 0,\n  );\n\n  const hasAnimated = fromNumber !== undefined;\n\n  const motionVal = useMotionValue<number>(\n    initiallyStable ? initialNumeric : (fromNumber ?? 0),\n  );\n  const springVal = useSpring(motionVal, { stiffness: 90, damping: 50 });\n\n  const skippedInitialWhenStable = React.useRef(false);\n\n  React.useEffect(() => {\n    if (!hasAnimated) return;\n    if (initiallyStable && !skippedInitialWhenStable.current) {\n      skippedInitialWhenStable.current = true;\n      return;\n    }\n    const timeoutId = setTimeout(() => {\n      if (isInView) motionVal.set(number);\n    }, delay);\n    return () => clearTimeout(timeoutId);\n  }, [hasAnimated, initiallyStable, isInView, number, motionVal, delay]);\n\n  const [effectiveNumber, setEffectiveNumber] = React.useState<number>(\n    initiallyStable ? initialNumeric : 0,\n  );\n\n  React.useEffect(() => {\n    if (hasAnimated) {\n      const inferredDecimals =\n        typeof decimalPlaces === 'number' && decimalPlaces >= 0\n          ? decimalPlaces\n          : (() => {\n              const s = String(number);\n              const idx = s.indexOf('.');\n              return idx >= 0 ? s.length - idx - 1 : 0;\n            })();\n\n      const factor = Math.pow(10, inferredDecimals);\n\n      const unsubscribe = springVal.on('change', (latest: any) => {\n        const newValue =\n          inferredDecimals > 0\n            ? Math.round(latest * factor) / factor\n            : Math.round(latest);\n\n        if (effectiveNumber !== newValue) {\n          setEffectiveNumber(newValue);\n          onNumberChange?.(newValue);\n        }\n      });\n      return () => unsubscribe();\n    } else {\n      setEffectiveNumber(\n        initiallyStable ? initialNumeric : !isInView ? 0 : initialNumeric,\n      );\n    }\n  }, [\n    hasAnimated,\n    springVal,\n    isInView,\n    number,\n    decimalPlaces,\n    onNumberChange,\n    effectiveNumber,\n    initiallyStable,\n    initialNumeric,\n  ]);\n\n  const formatNumber = React.useCallback(\n    (num: number) =>\n      decimalPlaces != null ? num.toFixed(decimalPlaces) : num.toString(),\n    [decimalPlaces],\n  );\n\n  const numberStr = formatNumber(effectiveNumber);\n  const [newIntStrRaw, newDecStrRaw = ''] = numberStr.split('.');\n\n  const finalIntLength = padStart\n    ? Math.max(\n        Math.floor(Math.abs(number)).toString().length,\n        newIntStrRaw.length,\n      )\n    : newIntStrRaw.length;\n\n  const newIntStr = padStart\n    ? newIntStrRaw.padStart(finalIntLength, '0')\n    : newIntStrRaw;\n\n  const prevFormatted = formatNumber(prevNumberRef.current);\n  const [prevIntStrRaw = '', prevDecStrRaw = ''] = prevFormatted.split('.');\n  const prevIntStr = padStart\n    ? prevIntStrRaw.padStart(finalIntLength, '0')\n    : prevIntStrRaw;\n\n  const adjustedPrevInt = React.useMemo(() => {\n    return prevIntStr.length > finalIntLength\n      ? prevIntStr.slice(-finalIntLength)\n      : prevIntStr.padStart(finalIntLength, '0');\n  }, [prevIntStr, finalIntLength]);\n\n  const adjustedPrevDec = React.useMemo(() => {\n    if (!newDecStrRaw) return '';\n    return prevDecStrRaw.length > newDecStrRaw.length\n      ? prevDecStrRaw.slice(0, newDecStrRaw.length)\n      : prevDecStrRaw.padEnd(newDecStrRaw.length, '0');\n  }, [prevDecStrRaw, newDecStrRaw]);\n\n  React.useEffect(() => {\n    if (isInView || initiallyStable) {\n      prevNumberRef.current = effectiveNumber;\n    }\n  }, [effectiveNumber, isInView, initiallyStable]);\n\n  const intPlaces = React.useMemo(\n    () =>\n      Array.from({ length: finalIntLength }, (_, i) =>\n        Math.pow(10, finalIntLength - i - 1),\n      ),\n    [finalIntLength],\n  );\n  const decPlaces = React.useMemo(\n    () =>\n      newDecStrRaw\n        ? Array.from({ length: newDecStrRaw.length }, (_, i) =>\n            Math.pow(10, newDecStrRaw.length - i - 1),\n          )\n        : [],\n    [newDecStrRaw],\n  );\n\n  const newDecValue = newDecStrRaw ? parseInt(newDecStrRaw, 10) : 0;\n  const prevDecValue = adjustedPrevDec ? parseInt(adjustedPrevDec, 10) : 0;\n\n  return (\n    <motion.span\n      ref={localRef}\n      data-slot=\"sliding-number\"\n      style={{\n        display: 'inline-flex',\n        alignItems: 'center',\n      }}\n      {...props}\n    >\n      {isInView && Number(number) < 0 && (\n        <span style={{ marginRight: '0.25rem' }}>-</span>\n      )}\n\n      {intPlaces.map((place, idx) => {\n        const digitsToRight = intPlaces.length - idx - 1;\n        const isSeparatorPosition =\n          typeof thousandSeparator !== 'undefined' &&\n          digitsToRight > 0 &&\n          digitsToRight % 3 === 0;\n\n        return (\n          <React.Fragment key={`int-${place}`}>\n            <SlidingNumberRoller\n              prevValue={parseInt(adjustedPrevInt, 10)}\n              value={parseInt(newIntStr ?? '0', 10)}\n              place={place}\n              transition={transition}\n            />\n            {isSeparatorPosition && <span>{thousandSeparator}</span>}\n          </React.Fragment>\n        );\n      })}\n\n      {newDecStrRaw && (\n        <>\n          <span>{decimalSeparator}</span>\n          {decPlaces.map((place) => (\n            <SlidingNumberRoller\n              key={`dec-${place}`}\n              prevValue={prevDecValue}\n              value={newDecValue}\n              place={place}\n              transition={transition}\n              delay={delay}\n            />\n          ))}\n        </>\n      )}\n    </motion.span>\n  );\n}\n\nexport { SlidingNumber, type SlidingNumberProps };\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "split-text",
+    "type": "registry:ui",
+    "title": "Kinetic Split Character Spring",
+    "description": "Character-level split typography animation with spring physics.",
+    "category": "text",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "split",
+      "kinetic",
+      "characters"
+    ],
+    "files": [
+      {
+        "path": "registry/text/split-text/split-text.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/split-text.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface SplitTextProps {\n  text?: string\n  className?: string\n}\n\nexport const SplitText: React.FC<SplitTextProps> = ({\n  text = 'KINETIC INTENT COMPILER',\n  className,\n}) => {\n  const characters = text.split('')\n\n  return (\n    <div className={cn('inline-flex flex-wrap overflow-hidden font-mono tracking-widest', className)}>\n      {characters.map((char, index) => (\n        <motion.span\n          key={`${char}-${index}`}\n          className=\"inline-block cursor-default select-none text-zinc-100\"\n          whileHover={{\n            y: -6,\n            color: '#38bdf8',\n            scale: 1.15,\n            transition: { type: 'spring', stiffness: 350, damping: 10 },\n          }}\n          transition={{ duration: 0.15 }}\n        >\n          {char === ' ' ? '\\u00A0' : char}\n        </motion.span>\n      ))}\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "text-reveal",
+    "type": "registry:ui",
+    "title": "Masked Text Reveal",
+    "description": "Cinematic word-by-word mask displacement reveal with customizable stagger delays.",
+    "category": "text",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "reveal",
+      "mask",
+      "typography"
+    ],
+    "files": [
+      {
+        "path": "registry/text/text-reveal/text-reveal.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/text-reveal.tsx",
+        "content": "import React from 'react'\nimport { motion } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface TextRevealProps {\n  text?: string\n  delay?: number\n  className?: string\n}\n\nexport const TextReveal: React.FC<TextRevealProps> = ({\n  text = 'Deterministic Software Synthesis Engine',\n  delay = 0,\n  className,\n}) => {\n  const words = text.split(' ')\n\n  const container = {\n    hidden: { opacity: 0 },\n    visible: (i = 1) => ({\n      opacity: 1,\n      transition: { staggerChildren: 0.08, delayChildren: 0.04 * i + delay },\n    }),\n  }\n\n  const child = {\n    visible: {\n      opacity: 1,\n      y: 0,\n      filter: 'blur(0px)',\n      transition: {\n        type: 'spring' as const,\n        damping: 18,\n        stiffness: 120,\n      },\n    },\n    hidden: {\n      opacity: 0,\n      y: 20,\n      filter: 'blur(4px)',\n    },\n  }\n\n  return (\n    <motion.div\n      variants={container}\n      initial=\"hidden\"\n      whileInView=\"visible\"\n      viewport={{ once: false }}\n      className={cn('flex flex-wrap gap-x-2 gap-y-1 font-bold text-white', className)}\n    >\n      {words.map((word, index) => (\n        <motion.span\n          key={`${word}-${index}`}\n          variants={child}\n          className=\"inline-block\"\n        >\n          {word}\n        </motion.span>\n      ))}\n    </motion.div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  },
+  {
+    "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+    "name": "typing-text",
+    "type": "registry:ui",
+    "title": "Dynamic Typewriter Loop",
+    "description": "Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.",
+    "category": "text",
+    "dependencies": [],
+    "devDependencies": [],
+    "registryDependencies": [],
+    "tags": [
+      "text",
+      "typewriter",
+      "typing",
+      "terminal"
+    ],
+    "files": [
+      {
+        "path": "registry/text/typing-text/typing-text.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/typing-text.tsx",
+        "content": "import React, { useState, useEffect } from 'react'\nimport { cn } from '@/lib/utils'\n\nexport interface TypingTextProps {\n  words?: string[]\n  speed?: number\n  delay?: number\n  className?: string\n}\n\nexport const TypingText: React.FC<TypingTextProps> = ({\n  words = ['Synthesizing Raft Cluster...', 'Proving Invariant Logic...', 'Emitting WASM Bytecode...', 'Zero Hallucinations.'],\n  speed = 80,\n  delay = 1500,\n  className,\n}) => {\n  const [wordIndex, setWordIndex] = useState(0)\n  const [currentText, setCurrentText] = useState('')\n  const [isDeleting, setIsDeleting] = useState(false)\n\n  useEffect(() => {\n    const fullWord = words[wordIndex % words.length]\n\n    const timeout = setTimeout(\n      () => {\n        if (!isDeleting) {\n          setCurrentText(fullWord.substring(0, currentText.length + 1))\n          if (currentText === fullWord) {\n            setTimeout(() => setIsDeleting(true), delay)\n          }\n        } else {\n          setCurrentText(fullWord.substring(0, currentText.length - 1))\n          if (currentText === '') {\n            setIsDeleting(false)\n            setWordIndex((prev) => prev + 1)\n          }\n        }\n      },\n      isDeleting ? speed / 2 : speed\n    )\n\n    return () => clearTimeout(timeout)\n  }, [currentText, isDeleting, wordIndex, words, speed, delay])\n\n  return (\n    <div className={cn('inline-flex items-center font-mono text-white', className)}>\n      <span>{currentText}</span>\n      <span className=\"ml-1 inline-block h-4 w-2 bg-emerald-400 animate-[pulse_0.8s_ease-in-out_infinite]\" />\n    </div>\n  )\n}\n"
+      }
+    ],
+    "tailwind": {
+      "required": true
+    },
+    "framework": [
+      "react",
+      "nextjs",
+      "vite"
+    ]
+  }
+]

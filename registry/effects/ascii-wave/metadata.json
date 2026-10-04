@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ascii-wave",
+  "type": "registry:ui",
+  "title": "Generative ASCII Wave",
+  "description": "Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.",
+  "category": "effects",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effects",
+    "ascii",
+    "wave",
+    "generative"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/ascii-wave/ascii-wave.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ascii-wave.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

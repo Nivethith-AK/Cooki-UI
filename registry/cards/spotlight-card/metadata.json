@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "type": "registry:ui",
+  "title": "Radial Cursor Spotlight Card",
+  "description": "Card with a dynamic radial cursor spotlight illuminating borders and background on hover.",
+  "category": "cards",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "spotlight",
+    "radial",
+    "hover"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/spotlight-card/spotlight-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/spotlight-card.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

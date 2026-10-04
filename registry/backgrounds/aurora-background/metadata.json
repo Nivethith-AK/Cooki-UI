@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aurora-background",
+  "type": "registry:ui",
+  "title": "Fluid Aurora Lighting",
+  "description": "Chromatic atmospheric aurora simulation with smooth organic color blending.",
+  "category": "backgrounds",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "aurora",
+    "fluid",
+    "gradient"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/aurora-background/aurora-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/aurora-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

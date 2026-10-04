@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slide-to-confirm",
+  "type": "registry:ui",
+  "title": "Slide to Confirm Slider",
+  "description": "Draggable tactical slide-to-confirm button with spring physics and unlock callback.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "slider",
+    "confirm",
+    "drag",
+    "security"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/slide-to-confirm/slide-to-confirm.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/slide-to-confirm.tsx",
+      "content": "import React, { useState, useRef } from 'react'\nimport { motion, useMotionValue, useTransform } from 'framer-motion'\nimport { ArrowRight, Check, ShieldCheck } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface SlideToConfirmProps {\n  label?: string\n  confirmedLabel?: string\n  onConfirm?: () => void\n  className?: string\n}\n\nexport const SlideToConfirm: React.FC<SlideToConfirmProps> = ({\n  label = 'Slide to Deploy Kernel',\n  confirmedLabel = 'Kernel Deployed',\n  onConfirm,\n  className,\n}) => {\n  const [isConfirmed, setIsConfirmed] = useState(false)\n  const trackRef = useRef<HTMLDivElement>(null)\n  const x = useMotionValue(0)\n\n  const handleDragEnd = () => {\n    if (!trackRef.current) return\n    const trackWidth = trackRef.current.offsetWidth\n    const maxDrag = trackWidth - 56 // button width\n    if (x.get() >= maxDrag * 0.85) {\n      setIsConfirmed(true)\n      onConfirm?.()\n    } else {\n      x.set(0)\n    }\n  }\n\n  const handleReset = () => {\n    setIsConfirmed(false)\n    x.set(0)\n  }\n\n  return (\n    <div className={cn('w-full max-w-sm', className)}>\n      <div\n        ref={trackRef}\n        className={`relative flex h-14 w-full items-center justify-between rounded-full border p-1.5 transition-colors select-none ${\n          isConfirmed\n            ? 'border-emerald-500/40 bg-emerald-950/40'\n            : 'border-white/15 bg-zinc-950 shadow-inner'\n        }`}\n      >\n        {/* Track Label */}\n        <div className=\"absolute inset-0 flex items-center justify-center font-mono text-xs font-semibold text-zinc-400 pointer-events-none\">\n          {isConfirmed ? (\n            <span className=\"flex items-center gap-1.5 text-emerald-400\">\n              <Check size={16} weight=\"bold\" />\n              <span>{confirmedLabel}</span>\n            </span>\n          ) : (\n            <span className=\"animate-pulse\">{label}</span>\n          )}\n        </div>\n\n        {/* Draggable Thumb */}\n        {!isConfirmed ? (\n          <motion.div\n            drag=\"x\"\n            dragConstraints={{ left: 0, right: 260 }}\n            dragElastic={0.05}\n            onDragEnd={handleDragEnd}\n            style={{ x }}\n            className=\"relative z-10 flex h-11 w-11 cursor-grab active:cursor-grabbing items-center justify-center rounded-full bg-white text-zinc-950 shadow-xl transition-shadow hover:shadow-cyan-500/20\"\n          >\n            <ArrowRight size={18} weight=\"bold\" />\n          </motion.div>\n        ) : (\n          <button\n            onClick={handleReset}\n            className=\"relative z-10 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-zinc-950 shadow-lg hover:scale-105 transition-transform\"\n            title=\"Click to reset\"\n          >\n            <Check size={18} weight=\"bold\" />\n          </button>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

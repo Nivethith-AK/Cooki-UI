@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-bento-block",
+  "type": "registry:ui",
+  "title": "Technical Feature Bento Block",
+  "description": "Asymmetric technical bento grid section with hardware isolation badges and metrics.",
+  "category": "sections",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "sections",
+    "bento",
+    "features",
+    "grid"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/feature-bento-block/feature-bento-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/feature-bento-block.tsx",
+      "content": "import React from 'react'\nimport { ShieldCheck, Cpu, Database, Check } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface FeatureBentoBlockProps {\n  className?: string\n}\n\nexport const FeatureBentoBlock: React.FC<FeatureBentoBlockProps> = ({ className }) => {\n  return (\n    <div className={cn('grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl text-white font-sans', className)}>\n      <div className=\"md:col-span-2 rounded-3xl border border-white/10 bg-zinc-950 p-6 flex flex-col justify-between\">\n        <div className=\"flex items-center gap-3\">\n          <div className=\"flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white\">\n            <Cpu size={20} weight=\"bold\" />\n          </div>\n          <div>\n            <h4 className=\"font-bold text-white\">Hermetic WASM Isolate Sandbox</h4>\n            <span className=\"font-mono text-[10px] text-zinc-500\">RING-0 MEMORY CONFINEMENT</span>\n          </div>\n        </div>\n        <p className=\"mt-4 text-xs text-zinc-400 leading-relaxed\">\n          Executes every generated function in a fresh, bit-reproducible WebAssembly container. Pre-allocates heap limits and blocks network socket leaks.\n        </p>\n        <div className=\"mt-4 flex items-center justify-between pt-3 border-t border-white/5 font-mono text-[11px] text-zinc-500\">\n          <span>Memory: 64MB Fixed</span>\n          <span className=\"text-emerald-400\">Bytecode Verified</span>\n        </div>\n      </div>\n\n      <div className=\"rounded-3xl border border-white/10 bg-zinc-950 p-6 flex flex-col justify-between\">\n        <div className=\"flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-emerald-400\">\n          <ShieldCheck size={20} weight=\"bold\" />\n        </div>\n        <div>\n          <h4 className=\"mt-3 font-bold text-white\">SMT Proofs</h4>\n          <p className=\"mt-1 text-xs text-zinc-400\">Mathematical invariant assertions powered by Z3.</p>\n        </div>\n        <div className=\"mt-4 pt-3 border-t border-white/5 font-mono text-[11px] text-emerald-400 flex items-center gap-1.5\">\n          <Check size={14} weight=\"bold\" />\n          <span>Zero Deadlocks</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

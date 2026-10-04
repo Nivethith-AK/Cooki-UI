@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beam-grid-background",
+  "type": "registry:ui",
+  "title": "Coordinate Beam Grid Matrix",
+  "description": "SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.",
+  "category": "backgrounds",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "beam",
+    "grid",
+    "laser"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/beam-grid-background/beam-grid-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/beam-grid-background.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glow-action-button",
+  "type": "registry:ui",
+  "title": "Glow Action Button",
+  "description": "Tactile action button with dynamic ambient radial bloom backdrop.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "glow",
+    "bloom",
+    "action"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/glow-action-button/glow-action-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glow-action-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

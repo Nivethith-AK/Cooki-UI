@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expandable-search-bar",
+  "type": "registry:ui",
+  "title": "Expandable Command Search Bar",
+  "description": "Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.",
+  "category": "forms",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "forms",
+    "search",
+    "cmd-k",
+    "filter"
+  ],
+  "files": [
+    {
+      "path": "registry/forms/expandable-search-bar/expandable-search-bar.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/expandable-search-bar.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

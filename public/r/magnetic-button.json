@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-button",
+  "type": "registry:ui",
+  "title": "Magnetic Button",
+  "description": "Interactive magnetic button with spring pull physics and cursor tracking.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "magnetic",
+    "spring physics",
+    "cursor"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/magnetic-button/magnetic-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-button.tsx",
+      "content": "import React, { useRef } from 'react'\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode\n  variant?: 'default' | 'glow' | 'minimal' | 'ghost'\n  size?: 'sm' | 'md' | 'lg'\n  distance?: number\n  className?: string\n}\n\nexport const MagneticButton: React.FC<MagneticButtonProps> = ({\n  children = 'Magnetic Action',\n  variant = 'default',\n  size = 'md',\n  distance = 60,\n  className,\n  ...props\n}) => {\n  const ref = useRef<HTMLButtonElement>(null)\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n\n  const springConfig = { damping: 15, stiffness: 150, mass: 0.1 }\n  const springX = useSpring(x, springConfig)\n  const springY = useSpring(y, springConfig)\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!ref.current) return\n    const rect = ref.current.getBoundingClientRect()\n    const centerX = rect.left + rect.width / 2\n    const centerY = rect.top + rect.height / 2\n    const deltaX = (e.clientX - centerX) * 0.4\n    const deltaY = (e.clientY - centerY) * 0.4\n    x.set(deltaX)\n    y.set(deltaY)\n  }\n\n  const handleMouseLeave = () => {\n    x.set(0)\n    y.set(0)\n  }\n\n  const sizeStyles = {\n    sm: 'px-4 py-2 text-xs rounded-full gap-1.5',\n    md: 'px-6 py-3 text-sm rounded-full gap-2',\n    lg: 'px-8 py-4 text-base rounded-full gap-3 font-semibold',\n  }\n\n  const variantStyles = {\n    default: 'bg-zinc-900 text-white border border-white/15 hover:border-white/30 dark:bg-zinc-100 dark:text-zinc-950 shadow-md',\n    glow: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 border-0 hover:shadow-cyan-500/40',\n    minimal: 'bg-white/10 text-zinc-200 border border-white/10 hover:bg-white/15 dark:bg-black/40',\n    ghost: 'bg-transparent text-zinc-300 hover:text-white hover:bg-white/5 border border-transparent',\n  }\n\n  return (\n    <motion.button\n      ref={ref}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      style={{ x: springX, y: springY }}\n      whileTap={{ scale: 0.96 }}\n      className={cn(\n        'relative inline-flex items-center justify-center font-medium transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',\n        sizeStyles[size],\n        variantStyles[variant],\n        className\n      )}\n      {...(props as any)}\n    >\n      <motion.span\n        style={{ x: useTransform(springX, (val) => val * 0.3), y: useTransform(springY, (val) => val * 0.3) }}\n        className=\"flex items-center gap-2\"\n      >\n        {children}\n      </motion.span>\n    </motion.button>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

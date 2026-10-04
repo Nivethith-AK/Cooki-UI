@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cosmic-dust-background",
+  "type": "registry:ui",
+  "title": "Cosmic Dust Gravity Canvas",
+  "description": "Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.",
+  "category": "backgrounds",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "background",
+    "cosmic",
+    "dust",
+    "canvas"
+  ],
+  "files": [
+    {
+      "path": "registry/backgrounds/cosmic-dust-background/cosmic-dust-background.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cosmic-dust-background.tsx",
+      "content": "import React, { useRef, useEffect } from 'react';\n\ninterface CosmicDustBackgroundProps {\n  className?: string;\n  particleCount?: number;\n  dustColor?: string;\n  interactive?: boolean;\n  children?: React.ReactNode;\n}\n\ninterface Particle {\n  x: number;\n  y: number;\n  size: number;\n  vx: number;\n  vy: number;\n  alpha: number;\n  maxAlpha: number;\n  pulseSpeed: number;\n}\n\nexport const CosmicDustBackground: React.FC<CosmicDustBackgroundProps> = ({\n  className = '',\n  particleCount = 120,\n  dustColor = 'rgba(165, 180, 252, ',\n  interactive = true,\n  children,\n}) => {\n  const canvasRef = useRef<HTMLCanvasElement>(null);\n  const mouseRef = useRef<{ x: number; y: number; active: boolean }>({ x: 0, y: 0, active: false });\n\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    let animationFrameId: number;\n    let width = (canvas.width = canvas.parentElement?.clientWidth || 600);\n    let height = (canvas.height = canvas.parentElement?.clientHeight || 400);\n\n    const particles: Particle[] = [];\n    for (let i = 0; i < particleCount; i++) {\n      particles.push({\n        x: Math.random() * width,\n        y: Math.random() * height,\n        size: Math.random() * 2.2 + 0.5,\n        vx: (Math.random() - 0.5) * 0.35,\n        vy: (Math.random() - 0.5) * 0.35,\n        alpha: Math.random() * 0.8,\n        maxAlpha: 0.3 + Math.random() * 0.6,\n        pulseSpeed: 0.01 + Math.random() * 0.02,\n      });\n    }\n\n    const handleResize = () => {\n      if (!canvas.parentElement) return;\n      width = canvas.width = canvas.parentElement.clientWidth;\n      height = canvas.height = canvas.parentElement.clientHeight;\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    const render = () => {\n      ctx.clearRect(0, 0, width, height);\n\n      particles.forEach((p) => {\n        // Pulse alpha\n        p.alpha += p.pulseSpeed;\n        if (p.alpha > p.maxAlpha || p.alpha < 0.1) {\n          p.pulseSpeed = -p.pulseSpeed;\n        }\n\n        // Move particle\n        p.x += p.vx;\n        p.y += p.vy;\n\n        // Interactive mouse gravity deflection\n        if (interactive && mouseRef.current.active) {\n          const dx = mouseRef.current.x - p.x;\n          const dy = mouseRef.current.y - p.y;\n          const dist = Math.sqrt(dx * dx + dy * dy);\n          if (dist < 120) {\n            const force = (120 - dist) / 120;\n            p.x -= (dx / dist) * force * 1.5;\n            p.y -= (dy / dist) * force * 1.5;\n          }\n        }\n\n        // Wrap edges\n        if (p.x < 0) p.x = width;\n        if (p.x > width) p.x = 0;\n        if (p.y < 0) p.y = height;\n        if (p.y > height) p.y = 0;\n\n        // Draw particle with glow\n        ctx.beginPath();\n        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);\n        ctx.fillStyle = `${dustColor}${Math.max(0, p.alpha)})`;\n        ctx.shadowBlur = p.size > 1.5 ? 8 : 0;\n        ctx.shadowColor = '#818cf8';\n        ctx.fill();\n      });\n\n      animationFrameId = requestAnimationFrame(render);\n    };\n\n    render();\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n      window.removeEventListener('resize', handleResize);\n    };\n  }, [particleCount, dustColor, interactive]);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    const rect = e.currentTarget.getBoundingClientRect();\n    mouseRef.current = {\n      x: e.clientX - rect.left,\n      y: e.clientY - rect.top,\n      active: true,\n    };\n  };\n\n  const handleMouseLeave = () => {\n    mouseRef.current.active = false;\n  };\n\n  return (\n    <div\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n      className={`relative w-full h-full min-h-[360px] overflow-hidden rounded-2xl bg-zinc-950 flex items-center justify-center ${className}`}\n    >\n      <canvas ref={canvasRef} className=\"absolute inset-0 w-full h-full pointer-events-none\" />\n\n      {/* Atmospheric ambient nebulas */}\n      <div className=\"absolute -top-24 -left-24 w-72 h-72 bg-indigo-600/15 rounded-full blur-[90px] pointer-events-none\" />\n      <div className=\"absolute -bottom-24 -right-24 w-72 h-72 bg-violet-600/15 rounded-full blur-[90px] pointer-events-none\" />\n\n      {/* Content wrapper */}\n      <div className=\"relative z-10 w-full max-w-lg p-8 text-center pointer-events-auto\">\n        {children || (\n          <div className=\"space-y-3 bg-zinc-900/50 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl\">\n            <span className=\"inline-block px-3 py-1 text-xs font-mono font-medium tracking-widest text-violet-400 bg-violet-500/10 rounded-full border border-violet-500/20\">\n              DEEP COSMOS PARTICLES\n            </span>\n            <h3 className=\"text-xl font-semibold text-white tracking-tight\">\n              Cosmic Dust Stardust\n            </h3>\n            <p className=\"text-xs text-zinc-400 leading-relaxed\">\n              Hover and move your mouse to disturb the particulate gravitational field.\n            </p>\n          </div>\n        )}\n      </div>\n    </div>\n  );\n};\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

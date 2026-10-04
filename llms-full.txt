@@ -1,0 +1,848 @@
+# Cooki UI — Full Developer & AI Agent Specification
+
+Generated: 2026-10-04T10:32:56.729Z
+Components in Registry: 44
+
+## Architecture Overview
+Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
+
+---
+
+## Component Registry Directory
+
+### Generative Animated Mesh Gradient (`animated-mesh-background`)
+- **Category**: backgrounds
+- **Description**: Deep spatial canvas mesh gradient with animated organic noise displacement.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-mesh-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-mesh-background.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedMeshBackground } from "@/components/ui/animated-mesh-background"
+
+export default function Example() {
+  return <AnimatedMeshBackground />
+}
+```
+
+---
+
+### Fluid Aurora Lighting (`aurora-background`)
+- **Category**: backgrounds
+- **Description**: Chromatic atmospheric aurora simulation with smooth organic color blending.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/aurora-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/aurora-background.json`
+
+#### Installation & Usage
+```tsx
+import { AuroraBackground } from "@/components/ui/aurora-background"
+
+export default function Example() {
+  return <AuroraBackground />
+}
+```
+
+---
+
+### Coordinate Beam Grid Matrix (`beam-grid-background`)
+- **Category**: backgrounds
+- **Description**: SVG Cartesian coordinate matrix with bidirectional glowing laser pulses racing on axis paths.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/beam-grid-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/beam-grid-background.json`
+
+#### Installation & Usage
+```tsx
+import { BeamGridBackground } from "@/components/ui/beam-grid-background"
+
+export default function Example() {
+  return <BeamGridBackground />
+}
+```
+
+---
+
+### Cosmic Dust Gravity Canvas (`cosmic-dust-background`)
+- **Category**: backgrounds
+- **Description**: Interactive HTML5 canvas starfield dust particles repelled by cursor gravitational force fields.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cosmic-dust-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cosmic-dust-background.json`
+
+#### Installation & Usage
+```tsx
+import { CosmicDustBackground } from "@/components/ui/cosmic-dust-background"
+
+export default function Example() {
+  return <CosmicDustBackground />
+}
+```
+
+---
+
+### Matrix Dot Grid Pattern (`dot-background`)
+- **Category**: backgrounds
+- **Description**: High-density micro-dot matrix pattern with subtle center bloom illumination.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/dot-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/dot-background.json`
+
+#### Installation & Usage
+```tsx
+import { DotBackground } from "@/components/ui/dot-background"
+
+export default function Example() {
+  return <DotBackground />
+}
+```
+
+---
+
+### Precision Cartesian Grid (`grid-background`)
+- **Category**: backgrounds
+- **Description**: Infinite architectural coordinate grid with radial spotlight vignette.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/grid-background.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/grid-background.json`
+
+#### Installation & Usage
+```tsx
+import { GridBackground } from "@/components/ui/grid-background"
+
+export default function Example() {
+  return <GridBackground />
+}
+```
+
+---
+
+### Celebration Confetti Burst Button (`confetti-button`)
+- **Category**: buttons
+- **Description**: Multi-color physics confetti explosion upon click with spring recoil.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/confetti-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/confetti-button.json`
+
+#### Installation & Usage
+```tsx
+import { ConfettiButton } from "@/components/ui/confetti-button"
+
+export default function Example() {
+  return <ConfettiButton />
+}
+```
+
+---
+
+### Floating Action Button Cluster (`floating-action-button`)
+- **Category**: buttons
+- **Description**: Expandable speed-dial floating action cluster with staggered spring reveals.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/floating-action-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-action-button.json`
+
+#### Installation & Usage
+```tsx
+import { FloatingActionButton } from "@/components/ui/floating-action-button"
+
+export default function Example() {
+  return <FloatingActionButton />
+}
+```
+
+---
+
+### Glow Action Button (`glow-action-button`)
+- **Category**: buttons
+- **Description**: Tactile action button with dynamic ambient radial bloom backdrop.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glow-action-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glow-action-button.json`
+
+#### Installation & Usage
+```tsx
+import { GlowActionButton } from "@/components/ui/glow-action-button"
+
+export default function Example() {
+  return <GlowActionButton />
+}
+```
+
+---
+
+### Gradient Shimmer Button (`gradient-shimmer-button`)
+- **Category**: buttons
+- **Description**: High-speed dual-phase border shimmer button with glowing radial backdrop.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/gradient-shimmer-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/gradient-shimmer-button.json`
+
+#### Installation & Usage
+```tsx
+import { GradientShimmerButton } from "@/components/ui/gradient-shimmer-button"
+
+export default function Example() {
+  return <GradientShimmerButton />
+}
+```
+
+---
+
+### Refractive Liquid Glass Button (`liquid-glass-button`)
+- **Category**: buttons
+- **Description**: Frosted Apple-style refractive glass with dynamic cursor specular reflection sweep.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/liquid-glass-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/liquid-glass-button.json`
+
+#### Installation & Usage
+```tsx
+import { LiquidGlassButton } from "@/components/ui/liquid-glass-button"
+
+export default function Example() {
+  return <LiquidGlassButton />
+}
+```
+
+---
+
+### Magnetic Button (`magnetic-button`)
+- **Category**: buttons
+- **Description**: Interactive magnetic button with spring pull physics and cursor tracking.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json`
+
+#### Installation & Usage
+```tsx
+import { MagneticButton } from "@/components/ui/magnetic-button"
+
+export default function Example() {
+  return <MagneticButton />
+}
+```
+
+---
+
+### Radial Ripple Button (`ripple-button`)
+- **Category**: buttons
+- **Description**: Material-inspired coordinate-origin expanding liquid wave ripple.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ripple-button.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ripple-button.json`
+
+#### Installation & Usage
+```tsx
+import { RippleButton } from "@/components/ui/ripple-button"
+
+export default function Example() {
+  return <RippleButton />
+}
+```
+
+---
+
+### Slide to Confirm Slider (`slide-to-confirm`)
+- **Category**: buttons
+- **Description**: Draggable tactical slide-to-confirm button with spring physics and unlock callback.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/slide-to-confirm.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/slide-to-confirm.json`
+
+#### Installation & Usage
+```tsx
+import { SlideToConfirm } from "@/components/ui/slide-to-confirm"
+
+export default function Example() {
+  return <SlideToConfirm />
+}
+```
+
+---
+
+### Spring Expandable Modal Card (`expandable-card`)
+- **Category**: cards
+- **Description**: Card that smoothly expands into an overlay detail view via shared layout springs.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/expandable-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-card.json`
+
+#### Installation & Usage
+```tsx
+import { ExpandableCard } from "@/components/ui/expandable-card"
+
+export default function Example() {
+  return <ExpandableCard />
+}
+```
+
+---
+
+### Frosted Acrylic Glass Card (`glass-card`)
+- **Category**: cards
+- **Description**: Multi-layer frosted glass card with noise texture and rim lighting.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glass-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glass-card.json`
+
+#### Installation & Usage
+```tsx
+import { GlassCard } from "@/components/ui/glass-card"
+
+export default function Example() {
+  return <GlassCard />
+}
+```
+
+---
+
+### Interactive 3D Tilt Card (`interactive-tilt-card`)
+- **Category**: cards
+- **Description**: Subtle physics tilt card with specular gradient sheen responding to mouse position.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-tilt-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-tilt-card.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveTiltCard } from "@/components/ui/interactive-tilt-card"
+
+export default function Example() {
+  return <InteractiveTiltCard />
+}
+```
+
+---
+
+### Concentric Planetary Orbit Card (`orbit-card`)
+- **Category**: cards
+- **Description**: Dual circular orbit rings with counter-rotating planetary tech nodes and central core.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/orbit-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/orbit-card.json`
+
+#### Installation & Usage
+```tsx
+import { OrbitCard } from "@/components/ui/orbit-card"
+
+export default function Example() {
+  return <OrbitCard />
+}
+```
+
+---
+
+### 3D Parallax Perspective Card (`perspective-card-3d`)
+- **Category**: cards
+- **Description**: Multilayer spatial depth card where internal elements float along the Z-axis.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/perspective-card-3d.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/perspective-card-3d.json`
+
+#### Installation & Usage
+```tsx
+import { PerspectiveCard3d } from "@/components/ui/perspective-card-3d"
+
+export default function Example() {
+  return <PerspectiveCard3d />
+}
+```
+
+---
+
+### Radial Cursor Spotlight Card (`spotlight-card`)
+- **Category**: cards
+- **Description**: Card with a dynamic radial cursor spotlight illuminating borders and background on hover.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spotlight-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-card.json`
+
+#### Installation & Usage
+```tsx
+import { SpotlightCard } from "@/components/ui/spotlight-card"
+
+export default function Example() {
+  return <SpotlightCard />
+}
+```
+
+---
+
+### Interactive Developer Terminal Card (`terminal-card`)
+- **Category**: cards
+- **Description**: Simulated developer CLI shell executing interactive commands with status logs.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/terminal-card.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/terminal-card.json`
+
+#### Installation & Usage
+```tsx
+import { TerminalCard } from "@/components/ui/terminal-card"
+
+export default function Example() {
+  return <TerminalCard />
+}
+```
+
+---
+
+### Generative ASCII Wave (`ascii-wave`)
+- **Category**: effects
+- **Description**: Real-time mathematical ASCII typography fluid wave reactive to pointer coordinates.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ascii-wave.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ascii-wave.json`
+
+#### Installation & Usage
+```tsx
+import { AsciiWave } from "@/components/ui/ascii-wave"
+
+export default function Example() {
+  return <AsciiWave />
+}
+```
+
+---
+
+### Luminous Border Beam (`border-beam`)
+- **Category**: effects
+- **Description**: Animated glowing laser beam traveling along card perimeter with soft specular light trail.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/border-beam.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/border-beam.json`
+
+#### Installation & Usage
+```tsx
+import { BorderBeam } from "@/components/ui/border-beam"
+
+export default function Example() {
+  return <BorderBeam />
+}
+```
+
+---
+
+### Procedural Film Grain Synthesizer (`noise-grain-overlay`)
+- **Category**: effects
+- **Description**: Perlin noise procedural SVG texture overlay with dynamic density and mix-blend controls.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/noise-grain-overlay.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/noise-grain-overlay.json`
+
+#### Installation & Usage
+```tsx
+import { NoiseGrainOverlay } from "@/components/ui/noise-grain-overlay"
+
+export default function Example() {
+  return <NoiseGrainOverlay />
+}
+```
+
+---
+
+### Harmonic Spectrum Equalizer (`spectrum-loader`)
+- **Category**: effects
+- **Description**: Multi-frequency audio spectrum equalizer wave with harmonic amplitude oscillation.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spectrum-loader.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spectrum-loader.json`
+
+#### Installation & Usage
+```tsx
+import { SpectrumLoader } from "@/components/ui/spectrum-loader"
+
+export default function Example() {
+  return <SpectrumLoader />
+}
+```
+
+---
+
+### Expandable Command Search Bar (`expandable-search-bar`)
+- **Category**: forms
+- **Description**: Compact search capsule expanding smoothly into a multi-tag command prompt with shortcuts.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/expandable-search-bar.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-search-bar.json`
+
+#### Installation & Usage
+```tsx
+import { ExpandableSearchBar } from "@/components/ui/expandable-search-bar"
+
+export default function Example() {
+  return <ExpandableSearchBar />
+}
+```
+
+---
+
+### Interactive Entropy Password Input (`password-strength-indicator`)
+- **Category**: forms
+- **Description**: Real-time security entropy calculation with multi-tier colored meter and requirement checklist.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/password-strength-indicator.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/password-strength-indicator.json`
+
+#### Installation & Usage
+```tsx
+import { PasswordStrengthIndicator } from "@/components/ui/password-strength-indicator"
+
+export default function Example() {
+  return <PasswordStrengthIndicator />
+}
+```
+
+---
+
+### Spring Notification Toast Stack (`animated-notification-stack`)
+- **Category**: navigation
+- **Description**: Tactile stacked notification cards with interactive expandable deck and live push dispatch.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-notification-stack.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-notification-stack.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedNotificationStack } from "@/components/ui/animated-notification-stack"
+
+export default function Example() {
+  return <AnimatedNotificationStack />
+}
+```
+
+---
+
+### Spotlight Command Palette (⌘K) (`command-palette`)
+- **Category**: navigation
+- **Description**: Keyboard-first modal command center with fuzzy query matching and shortcuts.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/command-palette.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/command-palette.json`
+
+#### Installation & Usage
+```tsx
+import { CommandPalette } from "@/components/ui/command-palette"
+
+export default function Example() {
+  return <CommandPalette />
+}
+```
+
+---
+
+### Dynamic Floating Capsule Navbar (`floating-navbar`)
+- **Category**: navigation
+- **Description**: Adaptive capsule navigation bar with backdrop blur and pill indicators.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/floating-navbar.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-navbar.json`
+
+#### Installation & Usage
+```tsx
+import { FloatingNavbar } from "@/components/ui/floating-navbar"
+
+export default function Example() {
+  return <FloatingNavbar />
+}
+```
+
+---
+
+### Componentry Magnetic Dock (`magnetic-dock`)
+- **Category**: navigation
+- **Description**: macOS-style navigation dock with spring-physics cursor magnification, tooltips, and badges.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, clsx, tailwind-merge
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-dock.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-dock.json`
+
+#### Installation & Usage
+```tsx
+import { MagneticDock } from "@/components/ui/magnetic-dock"
+
+export default function Example() {
+  return <MagneticDock />
+}
+```
+
+---
+
+### Infinite Brand Logo Marquee (`sliding-logo-marquee`)
+- **Category**: navigation
+- **Description**: Seamless hardware-accelerated horizontal brand partner marquee with hover pause.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-logo-marquee.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-logo-marquee.json`
+
+#### Installation & Usage
+```tsx
+import { SlidingLogoMarquee } from "@/components/ui/sliding-logo-marquee"
+
+export default function Example() {
+  return <SlidingLogoMarquee />
+}
+```
+
+---
+
+### Morphing Spring Pill Tabs (`tabs-morph`)
+- **Category**: navigation
+- **Description**: Fluid layoutId morphing background indicator tabs with tactile spring motion.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/tabs-morph.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/tabs-morph.json`
+
+#### Installation & Usage
+```tsx
+import { TabsMorph } from "@/components/ui/tabs-morph"
+
+export default function Example() {
+  return <TabsMorph />
+}
+```
+
+---
+
+### High-Conversion Terminal CTA (`animated-cta-block`)
+- **Category**: sections
+- **Description**: Conversion-optimized terminal deployment CTA with instant command copy and status pulse.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-cta-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-cta-block.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedCtaBlock } from "@/components/ui/animated-cta-block"
+
+export default function Example() {
+  return <AnimatedCtaBlock />
+}
+```
+
+---
+
+### Technical Feature Bento Block (`feature-bento-block`)
+- **Category**: sections
+- **Description**: Asymmetric technical bento grid section with hardware isolation badges and metrics.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/feature-bento-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/feature-bento-block.json`
+
+#### Installation & Usage
+```tsx
+import { FeatureBentoBlock } from "@/components/ui/feature-bento-block"
+
+export default function Example() {
+  return <FeatureBentoBlock />
+}
+```
+
+---
+
+### Installation Terminal Block (`interactive-terminal-block`)
+- **Category**: sections
+- **Description**: Interactive CLI command runner terminal with execution simulation and tab controls.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-terminal-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-terminal-block.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveTerminalBlock } from "@/components/ui/interactive-terminal-block"
+
+export default function Example() {
+  return <InteractiveTerminalBlock />
+}
+```
+
+---
+
+### Tiered SaaS Pricing Matrix (`pricing-comparison-block`)
+- **Category**: sections
+- **Description**: Production 3-tier SaaS pricing section with annual discount toggle, badges, and feature checklists.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react, framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/pricing-comparison-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/pricing-comparison-block.json`
+
+#### Installation & Usage
+```tsx
+import { PricingComparisonBlock } from "@/components/ui/pricing-comparison-block"
+
+export default function Example() {
+  return <PricingComparisonBlock />
+}
+```
+
+---
+
+### Endless Social Proof Testimonials (`testimonial-marquee-block`)
+- **Category**: sections
+- **Description**: Continuous dual-directional testimonial marquee with verified engineer reviews and star ratings.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/testimonial-marquee-block.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/testimonial-marquee-block.json`
+
+#### Installation & Usage
+```tsx
+import { TestimonialMarqueeBlock } from "@/components/ui/testimonial-marquee-block"
+
+export default function Example() {
+  return <TestimonialMarqueeBlock />
+}
+```
+
+---
+
+### Atmospheric Gaussian Blur Reveal (`blur-reveal`)
+- **Category**: text
+- **Description**: Smooth transition from heavy Gaussian blur to crisp legibility.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/blur-reveal.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/blur-reveal.json`
+
+#### Installation & Usage
+```tsx
+import { BlurReveal } from "@/components/ui/blur-reveal"
+
+export default function Example() {
+  return <BlurReveal />
+}
+```
+
+---
+
+### Specular Shiny Text (`shiny-text`)
+- **Category**: text
+- **Description**: Reflective specular light ray sweeping continuously across metallic typographic titles.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/shiny-text.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/shiny-text.json`
+
+#### Installation & Usage
+```tsx
+import { ShinyText } from "@/components/ui/shiny-text"
+
+export default function Example() {
+  return <ShinyText />
+}
+```
+
+---
+
+### Sliding Number Counter (`sliding-number`)
+- **Category**: text
+- **Description**: Smooth mechanical counter and odometer number animation powered by spring transforms.
+- **Tags**: N/A
+- **Dependencies**: motion, react-use-measure
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-number.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-number.json`
+
+#### Installation & Usage
+```tsx
+import { SlidingNumber } from "@/components/ui/sliding-number"
+
+export default function Example() {
+  return <SlidingNumber />
+}
+```
+
+---
+
+### Kinetic Split Character Spring (`split-text`)
+- **Category**: text
+- **Description**: Character-level split typography animation with spring physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/split-text.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/split-text.json`
+
+#### Installation & Usage
+```tsx
+import { SplitText } from "@/components/ui/split-text"
+
+export default function Example() {
+  return <SplitText />
+}
+```
+
+---
+
+### Masked Text Reveal (`text-reveal`)
+- **Category**: text
+- **Description**: Cinematic word-by-word mask displacement reveal with customizable stagger delays.
+- **Tags**: N/A
+- **Dependencies**: framer-motion
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/text-reveal.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/text-reveal.json`
+
+#### Installation & Usage
+```tsx
+import { TextReveal } from "@/components/ui/text-reveal"
+
+export default function Example() {
+  return <TextReveal />
+}
+```
+
+---
+
+### Dynamic Typewriter Loop (`typing-text`)
+- **Category**: text
+- **Description**: Autonomous multi-phrase typewriter with natural typing rhythm and blinking cursor.
+- **Tags**: N/A
+- **Dependencies**: None
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/typing-text.json`
+- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/typing-text.json`
+
+#### Installation & Usage
+```tsx
+import { TypingText } from "@/components/ui/typing-text"
+
+export default function Example() {
+  return <TypingText />
+}
+```
+
+---
+

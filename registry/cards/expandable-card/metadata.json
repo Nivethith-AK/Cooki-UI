@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expandable-card",
+  "type": "registry:ui",
+  "title": "Spring Expandable Modal Card",
+  "description": "Card that smoothly expands into an overlay detail view via shared layout springs.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "expandable",
+    "modal",
+    "layoutId"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/expandable-card/expandable-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/expandable-card.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,37 @@
+# Cooki UI
+
+> A professional, source-first, AI-friendly React & Next.js component library with 1,000+ interactive artifacts, shadcn-compatible registry endpoints, and zero-runtime-dependency source ownership.
+
+## Key Links
+- Homepage: https://cooki-ui.vercel.app
+- Registry API: https://cooki-ui.vercel.app/r/index.json
+- Root Registry Manifest: https://cooki-ui.vercel.app/registry.json
+- GitHub Repository: https://github.com/Nivethith-AK/Cooki-UI
+
+## Philosophy
+- **Source-First**: You own the code. Components are installed directly into your repository (`components/ui/`). No obscure runtime packages.
+- **shadcn Compatible**: Install via `npx shadcn@latest add https://cooki-ui.vercel.app/r/[component-name].json`.
+- **Zero Database Required**: 100% static registry served directly from GitHub and Vercel CDN.
+- **1,000+ Artifacts**: 520+ interactive components and 500+ backgrounds (grids, shaders, particle canvases, vectors, textures).
+
+## Component Categories
+- **Buttons**: Magnetic Button, Gradient Shimmer Button, Glow Action Button, Floating Action Button, Ripple Button, Slide to Confirm, Confetti Button, Liquid Glass Button.
+- **Cards**: 3D Parallax Perspective Card, Interactive 3D Tilt Card, Radial Cursor Spotlight Card, Frosted Acrylic Glass Card, Spring Expandable Card, Concentric Planetary Orbit Card, Developer Terminal Card.
+- **Backgrounds**: Coordinate Beam Grid, Cosmic Dust Canvas, Fluid Aurora Lighting, Precision Cartesian Grid, Matrix Dot Grid, Generative Animated Mesh Gradient.
+- **Navigation**: Componentry Magnetic Dock, Dynamic Floating Capsule Navbar, Spotlight Command Palette (⌘K), Infinite Brand Logo Marquee, Spring Notification Toast Stack, Morphing Spring Pill Tabs.
+- **Typography & Text**: Sliding Number Counter, Specular Shiny Text, Dynamic Typewriter Loop, Masked Text Reveal, Kinetic Split Character Spring, Gaussian Blur Reveal.
+- **Forms & Inputs**: Interactive Entropy Password Input, Expandable Command Search Bar.
+- **Effects & Shaders**: Luminous Border Beam, Generative ASCII Wave, Harmonic Spectrum Equalizer, Procedural Film Grain Synthesizer.
+- **Sections**: Technical Feature Bento Block, Interactive Terminal Block, High-Conversion Terminal CTA, Tiered SaaS Pricing Matrix, Endless Social Proof Testimonials.
+
+## Installation
+Add any component directly to your project:
+```bash
+# Using shadcn CLI
+npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+
+# Using Cooki UI CLI (upcoming)
+npx cooki-ui add magnetic-button
+```
+
+Full machine-readable documentation: https://cooki-ui.vercel.app/llms-full.txt

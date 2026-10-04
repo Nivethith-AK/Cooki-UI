@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-tilt-card",
+  "type": "registry:ui",
+  "title": "Interactive 3D Tilt Card",
+  "description": "Subtle physics tilt card with specular gradient sheen responding to mouse position.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "tilt",
+    "3d",
+    "sheen"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/interactive-tilt-card/interactive-tilt-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-tilt-card.tsx",
+      "content": "import React, { useRef } from 'react'\nimport { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'\nimport { cn } from '@/lib/utils'\n\nexport interface InteractiveTiltCardProps {\n  title?: string\n  subtitle?: string\n  description?: string\n  badge?: string\n  className?: string\n}\n\nexport const InteractiveTiltCard: React.FC<InteractiveTiltCardProps> = ({\n  title = 'Autonomous Synthesis Pod',\n  subtitle = 'ISOLATE MEMORY #44',\n  description = 'Coordinates AST transformations and sandboxed WASM test suites without side effects.',\n  badge = 'ACTIVE',\n  className,\n}) => {\n  const cardRef = useRef<HTMLDivElement>(null)\n  const x = useMotionValue(0)\n  const y = useMotionValue(0)\n\n  const mouseXSpring = useSpring(x, { stiffness: 200, damping: 20 })\n  const mouseYSpring = useSpring(y, { stiffness: 200, damping: 20 })\n\n  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['14deg', '-14deg'])\n  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-14deg', '14deg'])\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!cardRef.current) return\n    const rect = cardRef.current.getBoundingClientRect()\n    const width = rect.width\n    const height = rect.height\n    const mouseX = e.clientX - rect.left\n    const mouseY = e.clientY - rect.top\n    const xPct = mouseX / width - 0.5\n    const yPct = mouseY / height - 0.5\n    x.set(xPct)\n    y.set(yPct)\n  }\n\n  const handleMouseLeave = () => {\n    x.set(0)\n    y.set(0)\n  }\n\n  return (\n    <div style={{ perspective: '1000px' }} className={cn('w-full max-w-sm', className)}>\n      <motion.div\n        ref={cardRef}\n        onMouseMove={handleMouseMove}\n        onMouseLeave={handleMouseLeave}\n        style={{\n          rotateX,\n          rotateY,\n          transformStyle: 'preserve-3d',\n        }}\n        className=\"relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6 text-white shadow-2xl transition-shadow hover:shadow-cyan-500/10\"\n      >\n        <div style={{ transform: 'translateZ(30px)' }} className=\"flex items-center justify-between\">\n          <span className=\"font-mono text-[10px] uppercase tracking-widest text-zinc-400\">{subtitle}</span>\n          <span className=\"rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono text-[10px] text-emerald-400 border border-emerald-500/30\">\n            {badge}\n          </span>\n        </div>\n\n        <div style={{ transform: 'translateZ(40px)' }} className=\"mt-4\">\n          <h4 className=\"text-lg font-bold text-white tracking-tight\">{title}</h4>\n          <p className=\"mt-2 text-xs text-zinc-400 leading-relaxed\">{description}</p>\n        </div>\n\n        <div style={{ transform: 'translateZ(25px)' }} className=\"mt-6 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[11px] text-zinc-500\">\n          <span>Latency: 12ms</span>\n          <span>Zero-Copy DAG</span>\n        </div>\n\n        {/* Specular Glare Reflection */}\n        <div className=\"pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 transition-opacity hover:opacity-100\" />\n      </motion.div>\n    </div>\n  )\n}\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-morph",
+  "type": "registry:ui",
+  "title": "Morphing Spring Pill Tabs",
+  "description": "Fluid layoutId morphing background indicator tabs with tactile spring motion.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "navigation",
+    "tabs",
+    "segmented",
+    "morph"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/tabs-morph/tabs-morph.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/tabs-morph.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}
