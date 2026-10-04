@@ -25,7 +25,8 @@ export const StoreDock: React.FC = () => {
     showFavoritesOnly, 
     setShowFavoritesOnly, 
     favorites,
-    setSearchQuery 
+    setSearchQuery,
+    setCommandPaletteOpen
   } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
@@ -40,6 +41,12 @@ export const StoreDock: React.FC = () => {
   }
 
   const dockItems: DockItemData[] = [
+    {
+      id: 'search',
+      label: 'Search (⌘K)',
+      icon: <MagnifyingGlass size={20} />,
+      onClick: () => setCommandPaletteOpen(true),
+    },
     {
       id: 'all',
       label: 'All Components',

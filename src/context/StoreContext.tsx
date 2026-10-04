@@ -23,6 +23,8 @@ interface StoreContextType {
   setSelectedComponent: (comp: RegistryItem | null) => void
   mobileFilterOpen: boolean
   setMobileFilterOpen: (open: boolean) => void
+  commandPaletteOpen: boolean
+  setCommandPaletteOpen: (open: boolean) => void
   resetFilters: () => void
 }
 
@@ -45,6 +47,8 @@ const defaultStoreContext: StoreContextType = {
   setSelectedComponent: () => {},
   mobileFilterOpen: false,
   setMobileFilterOpen: () => {},
+  commandPaletteOpen: false,
+  setCommandPaletteOpen: () => {},
   resetFilters: () => {},
 }
 
@@ -58,6 +62,18 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
   const [selectedComponent, setSelectedComponent] = useState<RegistryItem | null>(null)
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setCommandPaletteOpen((prev) => !prev)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
@@ -153,6 +169,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setSelectedComponent,
         mobileFilterOpen,
         setMobileFilterOpen,
+        commandPaletteOpen,
+        setCommandPaletteOpen,
         resetFilters,
       }}
     >

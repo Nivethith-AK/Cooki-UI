@@ -8,31 +8,31 @@ export interface SlidingLogoMarqueeProps {
 
 export const SlidingLogoMarquee: React.FC<SlidingLogoMarqueeProps> = ({ className }) => {
   const items = [
-    { name: 'WASM Isolate', icon: <Cpu size={16} /> },
-    { name: 'Raft Quorum', icon: <Database size={16} /> },
-    { name: 'Formal Z3', icon: <ShieldCheck size={16} /> },
-    { name: 'Deterministic AST', icon: <Code size={16} /> },
-    { name: 'Zero-IPC Ring', icon: <Lightning size={16} /> },
-    { name: 'Git Trunk Merge', icon: <GitBranch size={16} /> },
-    { name: 'Edge Mesh', icon: <Globe size={16} /> },
-    { name: 'CLI Runtime', icon: <Terminal size={16} /> },
+    { name: 'Next.js 15', icon: <Cpu size={15} /> },
+    { name: 'React 19', icon: <Code size={15} /> },
+    { name: 'Tailwind CSS v4', icon: <Lightning size={15} /> },
+    { name: 'TypeScript 5.7', icon: <ShieldCheck size={15} /> },
+    { name: 'Framer Motion', icon: <Globe size={15} /> },
+    { name: 'Vite 6', icon: <GitBranch size={15} /> },
+    { name: 'Astro', icon: <Terminal size={15} /> },
+    { name: 'Remix', icon: <Database size={15} /> },
   ]
 
   return (
-    <div className={cn('relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 py-3', className)}>
+    <div className={cn('relative w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200/80 dark:border-white/10 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md py-2.5', className)}>
       {/* Gradient edge masks */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-zinc-950 to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-zinc-950 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10" />
 
       {/* Marquee Track */}
-      <div className="flex w-max gap-4 animate-[marquee_20s_linear_infinite] hover:[animation-play-state:paused]">
-        {[...items, ...items].map((item, idx) => (
+      <div className="flex w-max gap-3 animate-[marquee_24s_linear_infinite] hover:[animation-play-state:paused]">
+        {[...items, ...items, ...items].map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-zinc-300 hover:text-white hover:border-white/20 transition-colors cursor-pointer select-none"
+            className="flex items-center gap-2 rounded-xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/90 dark:bg-white/5 px-3 py-1 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white hover:border-indigo-400 dark:hover:border-white/25 transition-colors cursor-pointer select-none"
           >
-            <span className="text-emerald-400">{item.icon}</span>
-            <span>{item.name}</span>
+            <span className="text-indigo-500 dark:text-emerald-400">{item.icon}</span>
+            <span className="font-semibold">{item.name}</span>
           </div>
         ))}
       </div>

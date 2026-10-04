@@ -8,6 +8,7 @@ import { StoreHero } from './components/store/StoreHero'
 import { SidebarFilters } from './components/store/SidebarFilters'
 import { ComponentGrid } from './components/store/ComponentGrid'
 import { ComponentDetailModal } from './components/store/ComponentDetailModal'
+import { GlobalCommandPalette } from './components/store/GlobalCommandPalette'
 import { StoreDock } from './components/store/StoreDock'
 import { Footer } from './components/Footer'
 
@@ -36,6 +37,9 @@ export const AppContent: React.FC = () => {
 
       {/* Component Detail & Playground Modal */}
       <ComponentDetailModal />
+
+      {/* Global Command Palette (⌘K) */}
+      <GlobalCommandPalette />
 
       {/* Signature Persistent Control Dock */}
       <StoreDock />

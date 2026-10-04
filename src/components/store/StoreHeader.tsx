@@ -1,10 +1,10 @@
 import React from 'react'
-import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo } from '@phosphor-icons/react'
+import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
 export const StoreHeader: React.FC = () => {
-  const { components, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly } = useStore()
+  const { components, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly, setCommandPaletteOpen } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
   return (
@@ -40,6 +40,19 @@ export const StoreHeader: React.FC = () => {
         {/* Right Utilities */}
         <div className="flex items-center gap-2">
           
+          {/* Quick Search ⌘K Button */}
+          <button
+            onClick={() => setCommandPaletteOpen(true)}
+            aria-label="Quick search components"
+            className="flex h-8 items-center gap-2 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 px-3 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <MagnifyingGlass size={13} weight="bold" />
+            <span className="hidden sm:inline">Search</span>
+            <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 px-1 py-0.2 text-[9px] font-mono text-zinc-500">
+              ⌘K
+            </kbd>
+          </button>
+
           {/* Mobile Filter Toggle */}
           <button
             onClick={() => setMobileFilterOpen(true)}

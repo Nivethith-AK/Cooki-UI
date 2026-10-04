@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
   MagnifyingGlass, 
@@ -7,16 +7,32 @@ import {
   PaintBrush, 
   Waveform, 
   Code, 
-  SquaresFour,
-  Sparkle,
-  Cursor,
-  Rows,
-  Sliders,
-  Database
+  SquaresFour, 
+  Sparkle, 
+  Cursor, 
+  Rows, 
+  Sliders, 
+  Database,
+  Terminal,
+  Check,
+  Eye,
+  Command
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { ComponentCategory } from '../../types/component'
 import { ALL_REGISTRY_ITEMS } from '../../registry'
+import { BorderBeam } from '../library/effects/BorderBeam'
+import { ShinyText } from '../library/text/ShinyText'
+import { MagneticButton } from '../library/buttons/MagneticButton'
+import { SlidingLogoMarquee } from '../library/navigation/SlidingLogoMarquee'
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxContent,
+  ComboboxList,
+  ComboboxItem,
+  ComboboxEmpty,
+} from '@/components/ui/combobox'
 
 export const StoreHero: React.FC = () => {
   const { 
@@ -24,12 +40,38 @@ export const StoreHero: React.FC = () => {
     setSelectedCategory, 
     searchQuery, 
     setSearchQuery,
-    filteredComponents,
+    setSelectedComponent,
+    setCommandPaletteOpen,
     setShowFavoritesOnly,
     showFavoritesOnly
   } = useStore()
 
   const inputRef = useRef<HTMLInputElement>(null)
+  const [selectedQuickName, setSelectedQuickName] = useState('Magnetic Dock')
+  const [copiedCli, setCopiedCli] = useState(false)
+
+  const componentNames = React.useMemo(() => ALL_REGISTRY_ITEMS.map((c) => c.name), [])
+  const selectedQuickItem = React.useMemo(
+    () => ALL_REGISTRY_ITEMS.find((c) => c.name === selectedQuickName) || ALL_REGISTRY_ITEMS[0],
+    [selectedQuickName]
+  )
+
+  const handleCopyCli = () => {
+    const slug = selectedQuickItem?.id || 'magnetic-dock'
+    navigator.clipboard.writeText(`npx cooki-ui add ${slug}`)
+    setCopiedCli(true)
+    setTimeout(() => setCopiedCli(false), 2000)
+  }
+
+  const handleOpenSelectedModal = () => {
+    if (selectedQuickItem) {
+      setSelectedComponent(selectedQuickItem)
+    }
+  }
+
+  const scrollToCatalogue = () => {
+    document.getElementById('component-catalogue')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const categories: { id: ComponentCategory | 'all'; label: string; count: number; icon: React.ReactNode }[] = [
     { id: 'all', label: 'All Artifacts', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={13} /> },
@@ -57,28 +99,131 @@ export const StoreHero: React.FC = () => {
   }, [])
 
   return (
-    <section className="relative overflow-hidden pt-6 pb-6 border-b border-zinc-200/80 dark:border-white/5 bg-gradient-to-b from-transparent via-zinc-100/30 dark:via-white/[0.01] to-transparent">
-      {/* Background Ambience */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-lines opacity-10" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[180px] w-[500px] rounded-full bg-indigo-500/5 blur-3xl -z-10" />
+    <section className="relative overflow-hidden pt-10 pb-8 border-b border-zinc-200/80 dark:border-white/5 bg-gradient-to-b from-transparent via-zinc-100/40 dark:via-white/[0.01] to-transparent">
+      {/* Background Ambience & Lighting */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-lines opacity-15" />
+      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[260px] w-[700px] rounded-full bg-indigo-500/10 blur-[100px] -z-10" />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
         
-        {/* Compact, Clean Eyebrow Header */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-4">
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <h1 className="font-mono text-xs uppercase tracking-[0.2em] font-semibold text-zinc-900 dark:text-zinc-200">
-              Cooki UI Registry &bull; <span className="text-indigo-600 dark:text-indigo-400 font-bold">{ALL_REGISTRY_ITEMS.length} Verified Artifacts</span>
-            </h1>
-          </div>
-          <div className="text-[11px] font-mono text-zinc-500 hidden sm:flex items-center gap-2">
-            <span>Zero-Backend &bull; Source-First &bull; MIT Licensed</span>
+        {/* Iridescent Eyebrow Pill with ShinyText */}
+        <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1.5 backdrop-blur-md mb-5 shadow-xs">
+          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <ShinyText 
+            text="✦ COOKI UI &bull; PRODUCTION-GRADE REACT & TAILWIND ARTIFACTS" 
+            className="text-[11px] font-mono tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold" 
+          />
+        </div>
+
+        {/* Flagship Headline & Copy */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white max-w-4xl mx-auto leading-[1.12]">
+          The Autonomous UI Registry for Modern React & Tailwind
+        </h1>
+        <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-sans leading-relaxed">
+          {ALL_REGISTRY_ITEMS.length} handcrafted interactive components with spring physics, 3D WebGL, and source ownership. Zero runtime lock-in.
+        </p>
+
+        {/* Featured Showcase Stage with BorderBeam */}
+        <div className="relative overflow-hidden rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-2xl shadow-2xl dark:shadow-black/70 p-5 sm:p-7 my-8 max-w-3xl mx-auto text-left">
+          <BorderBeam size={280} duration={8} borderWidth={1.5} colorFrom="#6366f1" colorTo="#a855f7" />
+
+          <div className="relative z-10 flex flex-col gap-5">
+            {/* Stage Header & Fast Copy Pill */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-zinc-100 dark:border-white/10">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs uppercase tracking-wider font-semibold text-indigo-600 dark:text-indigo-400">
+                    Interactive Component Selector
+                  </span>
+                  <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                    Live Registry
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-500 mt-0.5">
+                  Pick any canonical component to preview or copy its install command
+                </p>
+              </div>
+
+              {/* Quick CLI Copy Pill */}
+              <button
+                onClick={handleCopyCli}
+                className="flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100/90 dark:bg-zinc-900/90 px-3 py-1.5 font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white transition-colors cursor-pointer self-start sm:self-auto"
+              >
+                {copiedCli ? <Check size={14} className="text-emerald-500" /> : <Terminal size={14} />}
+                <span>{copiedCli ? 'Copied to Clipboard!' : `npx cooki-ui add ${selectedQuickItem?.id || 'magnetic-dock'}`}</span>
+              </button>
+            </div>
+
+            {/* Quick Jumper Selector Row */}
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <div className="w-full sm:flex-1">
+                <Combobox
+                  items={componentNames}
+                  value={selectedQuickName}
+                  onValueChange={(val) => {
+                    if (val) setSelectedQuickName(val)
+                  }}
+                  className="w-full"
+                >
+                  <ComboboxInput placeholder="Search component to preview (e.g. Magnetic Dock)..." />
+                  <ComboboxContent>
+                    <ComboboxEmpty>No matching component found.</ComboboxEmpty>
+                    <ComboboxList>
+                      {(name) => (
+                        <ComboboxItem key={name} value={name}>
+                          {name}
+                        </ComboboxItem>
+                      )}
+                    </ComboboxList>
+                  </ComboboxContent>
+                </Combobox>
+              </div>
+
+              <button
+                onClick={handleOpenSelectedModal}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 text-xs font-semibold text-white shadow-md transition-all cursor-pointer shrink-0"
+              >
+                <Eye size={15} weight="bold" />
+                <span>Preview Component</span>
+              </button>
+            </div>
+
+            {/* Action CTAs powered by MagneticButton */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-100 dark:border-white/10">
+              <div className="flex items-center gap-3">
+                <MagneticButton
+                  variant="default"
+                  size="sm"
+                  onClick={scrollToCatalogue}
+                >
+                  Explore 121 Components &darr;
+                </MagneticButton>
+
+                <MagneticButton
+                  variant="minimal"
+                  size="sm"
+                  onClick={() => setCommandPaletteOpen(true)}
+                >
+                  Command Palette (⌘K)
+                </MagneticButton>
+              </div>
+
+              <div className="text-[11px] font-mono text-zinc-400 hidden md:flex items-center gap-2">
+                <span>Zero Runtime Lock-In</span>
+                <span>&bull;</span>
+                <span>shadcn Compatible</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Central Prominent Command Search Bar */}
-        <div className="relative group">
+        {/* Framework Compatibility Sliding Marquee */}
+        <div className="my-6">
+          <SlidingLogoMarquee className="mx-auto" />
+        </div>
+
+        {/* Central Search Bar */}
+        <div className="relative group max-w-3xl mx-auto mt-6">
           <div className="relative flex items-center rounded-2xl border border-zinc-300 dark:border-white/15 bg-white/95 dark:bg-zinc-900/90 shadow-md dark:shadow-xl dark:shadow-black/50 backdrop-blur-xl transition-all focus-within:border-indigo-500 dark:focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/20">
             <div className="pl-4 pr-2 text-zinc-400 flex items-center justify-center">
               <MagnifyingGlass size={18} weight="bold" />
@@ -103,16 +248,20 @@ export const StoreHero: React.FC = () => {
                   <span>Clear</span>
                 </button>
               ) : (
-                <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-md border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-800/80 px-2 py-0.5 text-[10px] font-mono text-zinc-500 dark:text-zinc-400 shadow-2xs">
-                  /
-                </kbd>
+                <button
+                  onClick={() => setCommandPaletteOpen(true)}
+                  className="hidden sm:inline-flex items-center gap-1 rounded-md border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-800/80 px-2 py-0.5 text-[10px] font-mono text-zinc-500 dark:text-zinc-400 shadow-2xs hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
+                >
+                  <Command size={10} />
+                  <span>K</span>
+                </button>
               )}
             </div>
           </div>
         </div>
 
         {/* Category Filter Chips directly attached under the search bar */}
-        <div className="mt-3.5 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat.id && !showFavoritesOnly
             return (
