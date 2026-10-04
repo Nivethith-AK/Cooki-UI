@@ -17,6 +17,14 @@ import {
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 import { CodeViewer } from './CodeViewer'
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from '@/components/ui/combobox'
 
 interface ErrorBoundaryState {
   hasError: boolean
@@ -266,17 +274,32 @@ export const ComponentDetailModal: React.FC = () => {
                           <label className="text-xs font-mono text-zinc-500 dark:text-zinc-400">{ctrl.label}</label>
 
                           {ctrl.type === 'select' && (
-                            <select
+                            <Combobox
+                              items={ctrl.options || []}
                               value={controlValues[ctrl.name] ?? ctrl.defaultValue}
-                              onChange={(e) => handleControlChange(ctrl.name, e.target.value)}
-                              className="rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 px-3 py-1.5 text-xs text-zinc-900 dark:text-white focus:outline-none"
+                              onValueChange={(val) => handleControlChange(ctrl.name, val)}
+                              className="w-full"
                             >
-                              {ctrl.options?.map((opt) => (
-                                <option key={opt} value={opt}>
-                                  {opt}
-                                </option>
-                              ))}
-                            </select>
+                              <ComboboxInput
+                                placeholder={controlValues[ctrl.name] ?? ctrl.defaultValue ?? `Select ${ctrl.label}...`}
+                                className="py-1 text-xs font-mono"
+                                wrapperClassName="h-8.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-950 shadow-xs hover:border-zinc-300 dark:hover:border-white/20 transition-colors"
+                              />
+                              <ComboboxContent className="z-50 min-w-full">
+                                <ComboboxEmpty>No options</ComboboxEmpty>
+                                <ComboboxList>
+                                  {(opt) => (
+                                    <ComboboxItem
+                                      key={opt}
+                                      value={opt}
+                                      className="text-xs font-mono py-1.5"
+                                    >
+                                      {opt}
+                                    </ComboboxItem>
+                                  )}
+                                </ComboboxList>
+                              </ComboboxContent>
+                            </Combobox>
                           )}
 
                           {ctrl.type === 'number' && (

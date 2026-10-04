@@ -114,10 +114,10 @@ export function Combobox<T = any>({
         inputRef,
       }}
     >
-      <div ref={containerRef} className={cn("relative w-full max-w-sm", className)}>
+      <div ref={containerRef} className={cn("relative w-full max-w-sm", isOpen && "z-30", className)}>
         {children}
-      </div>
-    </ComboboxContext.Provider>
+       </div>
+     </ComboboxContext.Provider>
   )
 }
 
@@ -135,6 +135,8 @@ export const ComboboxInput = React.forwardRef<HTMLInputElement, ComboboxInputPro
     const displayValue = isOpen
       ? query
       : query || (selectedValue ? String(selectedValue) : "")
+
+    const effectivePlaceholder = (selectedValue && isOpen) ? String(selectedValue) : placeholder
 
     return (
       <div
@@ -156,7 +158,7 @@ export const ComboboxInput = React.forwardRef<HTMLInputElement, ComboboxInputPro
           ref={inputRef}
           type="text"
           value={displayValue}
-          placeholder={placeholder}
+          placeholder={effectivePlaceholder}
           onChange={(e) => {
             setQuery(e.target.value)
             if (!isOpen) setIsOpen(true)
