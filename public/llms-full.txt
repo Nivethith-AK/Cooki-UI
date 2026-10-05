@@ -1,6 +1,6 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-04T19:24:33.898Z
+Generated: 2026-10-05T03:26:50.875Z
 Components in Registry: 121
 
 ## Architecture Overview
@@ -16,7 +16,7 @@ Cooki UI is designed as a source-first, registry-driven component platform. Each
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json`
+- **CLI Command**: `npx cooki-ui add audio-waveform-visualizer` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json`
 
 #### Installation & Usage
 ```tsx
@@ -35,7 +35,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/code-hover-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/code-hover-card.json`
+- **CLI Command**: `npx cooki-ui add code-hover-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/code-hover-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -54,7 +54,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cube-perspective-3d.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cube-perspective-3d.json`
+- **CLI Command**: `npx cooki-ui add cube-perspective-3d` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/cube-perspective-3d.json`
 
 #### Installation & Usage
 ```tsx
@@ -73,7 +73,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hanging-id-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hanging-id-card.json`
+- **CLI Command**: `npx cooki-ui add hanging-id-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/hanging-id-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -92,7 +92,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/particle-vortex-tunnel.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/particle-vortex-tunnel.json`
+- **CLI Command**: `npx cooki-ui add particle-vortex-tunnel` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/particle-vortex-tunnel.json`
 
 #### Installation & Usage
 ```tsx
@@ -111,7 +111,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/plasma-globe.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/plasma-globe.json`
+- **CLI Command**: `npx cooki-ui add plasma-globe` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/plasma-globe.json`
 
 #### Installation & Usage
 ```tsx
@@ -130,7 +130,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-code-diff-viewer.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-code-diff-viewer.json`
+- **CLI Command**: `npx cooki-ui add ai-code-diff-viewer` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-code-diff-viewer.json`
 
 #### Installation & Usage
 ```tsx
@@ -149,7 +149,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-prompt-input.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-prompt-input.json`
+- **CLI Command**: `npx cooki-ui add ai-prompt-input` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-prompt-input.json`
 
 #### Installation & Usage
 ```tsx
@@ -168,7 +168,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-streaming-bubble.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-streaming-bubble.json`
+- **CLI Command**: `npx cooki-ui add ai-streaming-bubble` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-streaming-bubble.json`
 
 #### Installation & Usage
 ```tsx
@@ -187,7 +187,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-token-cost-meter.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-token-cost-meter.json`
+- **CLI Command**: `npx cooki-ui add ai-token-cost-meter` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-token-cost-meter.json`
 
 #### Installation & Usage
 ```tsx
@@ -206,7 +206,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/wave-frequency-bars.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/wave-frequency-bars.json`
+- **CLI Command**: `npx cooki-ui add wave-frequency-bars` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/wave-frequency-bars.json`
 
 #### Installation & Usage
 ```tsx
@@ -225,7 +225,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-mesh-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-mesh-background.json`
+- **CLI Command**: `npx cooki-ui add animated-mesh-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-mesh-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -244,7 +244,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/aurora-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/aurora-background.json`
+- **CLI Command**: `npx cooki-ui add aurora-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/aurora-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -263,7 +263,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/beam-grid-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/beam-grid-background.json`
+- **CLI Command**: `npx cooki-ui add beam-grid-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/beam-grid-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -282,7 +282,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cosmic-dust-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cosmic-dust-background.json`
+- **CLI Command**: `npx cooki-ui add cosmic-dust-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/cosmic-dust-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -301,7 +301,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cyber-hive-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-hive-background.json`
+- **CLI Command**: `npx cooki-ui add cyber-hive-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-hive-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -320,7 +320,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/dot-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/dot-background.json`
+- **CLI Command**: `npx cooki-ui add dot-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/dot-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -339,7 +339,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/flowing-lines-wave-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/flowing-lines-wave-background.json`
+- **CLI Command**: `npx cooki-ui add flowing-lines-wave-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/flowing-lines-wave-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -358,7 +358,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/grid-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/grid-background.json`
+- **CLI Command**: `npx cooki-ui add grid-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/grid-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -377,7 +377,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/morphing-blob-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/morphing-blob-background.json`
+- **CLI Command**: `npx cooki-ui add morphing-blob-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/morphing-blob-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -396,7 +396,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/particle-constellation-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/particle-constellation-background.json`
+- **CLI Command**: `npx cooki-ui add particle-constellation-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/particle-constellation-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -415,7 +415,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/quantum-field-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/quantum-field-background.json`
+- **CLI Command**: `npx cooki-ui add quantum-field-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/quantum-field-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -434,7 +434,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json`
+- **CLI Command**: `npx cooki-ui add starfield-hyperdrive-background` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json`
 
 #### Installation & Usage
 ```tsx
@@ -453,7 +453,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/confetti-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/confetti-button.json`
+- **CLI Command**: `npx cooki-ui add confetti-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/confetti-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -472,7 +472,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/floating-action-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-action-button.json`
+- **CLI Command**: `npx cooki-ui add floating-action-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-action-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -491,7 +491,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/fluid-liquid-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-liquid-button.json`
+- **CLI Command**: `npx cooki-ui add fluid-liquid-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-liquid-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -510,7 +510,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glow-action-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glow-action-button.json`
+- **CLI Command**: `npx cooki-ui add glow-action-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/glow-action-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -529,7 +529,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/gradient-shimmer-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/gradient-shimmer-button.json`
+- **CLI Command**: `npx cooki-ui add gradient-shimmer-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/gradient-shimmer-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -548,7 +548,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hold-to-confirm-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hold-to-confirm-button.json`
+- **CLI Command**: `npx cooki-ui add hold-to-confirm-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/hold-to-confirm-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -567,7 +567,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/liquid-glass-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/liquid-glass-button.json`
+- **CLI Command**: `npx cooki-ui add liquid-glass-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/liquid-glass-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -586,7 +586,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json`
+- **CLI Command**: `npx cooki-ui add magnetic-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -605,7 +605,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ripple-button.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ripple-button.json`
+- **CLI Command**: `npx cooki-ui add ripple-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ripple-button.json`
 
 #### Installation & Usage
 ```tsx
@@ -624,7 +624,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/slide-to-confirm.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/slide-to-confirm.json`
+- **CLI Command**: `npx cooki-ui add slide-to-confirm` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/slide-to-confirm.json`
 
 #### Installation & Usage
 ```tsx
@@ -643,7 +643,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/expandable-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-card.json`
+- **CLI Command**: `npx cooki-ui add expandable-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -662,7 +662,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glare-hologram-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glare-hologram-card.json`
+- **CLI Command**: `npx cooki-ui add glare-hologram-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/glare-hologram-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -681,7 +681,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glass-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glass-card.json`
+- **CLI Command**: `npx cooki-ui add glass-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/glass-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -700,7 +700,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-tilt-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-tilt-card.json`
+- **CLI Command**: `npx cooki-ui add interactive-tilt-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-tilt-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -719,7 +719,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/orbit-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/orbit-card.json`
+- **CLI Command**: `npx cooki-ui add orbit-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/orbit-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -738,7 +738,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/perspective-card-3d.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/perspective-card-3d.json`
+- **CLI Command**: `npx cooki-ui add perspective-card-3d` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/perspective-card-3d.json`
 
 #### Installation & Usage
 ```tsx
@@ -757,7 +757,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scratch-to-reveal-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scratch-to-reveal-card.json`
+- **CLI Command**: `npx cooki-ui add scratch-to-reveal-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/scratch-to-reveal-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -776,7 +776,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spotlight-border-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-border-card.json`
+- **CLI Command**: `npx cooki-ui add spotlight-border-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-border-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -795,7 +795,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spotlight-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-card.json`
+- **CLI Command**: `npx cooki-ui add spotlight-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -814,7 +814,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/stack-card-deck.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/stack-card-deck.json`
+- **CLI Command**: `npx cooki-ui add stack-card-deck` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/stack-card-deck.json`
 
 #### Installation & Usage
 ```tsx
@@ -833,7 +833,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/terminal-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/terminal-card.json`
+- **CLI Command**: `npx cooki-ui add terminal-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/terminal-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -852,7 +852,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/fluid-particle-cursor.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-particle-cursor.json`
+- **CLI Command**: `npx cooki-ui add fluid-particle-cursor` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-particle-cursor.json`
 
 #### Installation & Usage
 ```tsx
@@ -871,7 +871,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-cursor-follower.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-cursor-follower.json`
+- **CLI Command**: `npx cooki-ui add magnetic-cursor-follower` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-cursor-follower.json`
 
 #### Installation & Usage
 ```tsx
@@ -890,7 +890,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spotlight-reveal-cursor.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-reveal-cursor.json`
+- **CLI Command**: `npx cooki-ui add spotlight-reveal-cursor` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/spotlight-reveal-cursor.json`
 
 #### Installation & Usage
 ```tsx
@@ -909,7 +909,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/activity-feed-stream.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/activity-feed-stream.json`
+- **CLI Command**: `npx cooki-ui add activity-feed-stream` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/activity-feed-stream.json`
 
 #### Installation & Usage
 ```tsx
@@ -928,7 +928,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/circular-gauge-speedometer.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/circular-gauge-speedometer.json`
+- **CLI Command**: `npx cooki-ui add circular-gauge-speedometer` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/circular-gauge-speedometer.json`
 
 #### Installation & Usage
 ```tsx
@@ -947,7 +947,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/comparative-feature-table.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/comparative-feature-table.json`
+- **CLI Command**: `npx cooki-ui add comparative-feature-table` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/comparative-feature-table.json`
 
 #### Installation & Usage
 ```tsx
@@ -966,7 +966,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/git-contribution-heatmap.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/git-contribution-heatmap.json`
+- **CLI Command**: `npx cooki-ui add git-contribution-heatmap` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/git-contribution-heatmap.json`
 
 #### Installation & Usage
 ```tsx
@@ -985,7 +985,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/live-telemetry-status-grid.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/live-telemetry-status-grid.json`
+- **CLI Command**: `npx cooki-ui add live-telemetry-status-grid` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/live-telemetry-status-grid.json`
 
 #### Installation & Usage
 ```tsx
@@ -1004,7 +1004,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/radial-progress-gauge.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/radial-progress-gauge.json`
+- **CLI Command**: `npx cooki-ui add radial-progress-gauge` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/radial-progress-gauge.json`
 
 #### Installation & Usage
 ```tsx
@@ -1023,7 +1023,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scroll-timeline.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scroll-timeline.json`
+- **CLI Command**: `npx cooki-ui add scroll-timeline` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/scroll-timeline.json`
 
 #### Installation & Usage
 ```tsx
@@ -1042,7 +1042,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/telemetry-metric-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/telemetry-metric-card.json`
+- **CLI Command**: `npx cooki-ui add telemetry-metric-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/telemetry-metric-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -1061,7 +1061,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ascii-wave.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/ascii-wave.json`
+- **CLI Command**: `npx cooki-ui add ascii-wave` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ascii-wave.json`
 
 #### Installation & Usage
 ```tsx
@@ -1080,7 +1080,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: clsx, tailwind-merge
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/border-beam.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/border-beam.json`
+- **CLI Command**: `npx cooki-ui add border-beam` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/border-beam.json`
 
 #### Installation & Usage
 ```tsx
@@ -1099,7 +1099,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/light-pillar-beacon.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/light-pillar-beacon.json`
+- **CLI Command**: `npx cooki-ui add light-pillar-beacon` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/light-pillar-beacon.json`
 
 #### Installation & Usage
 ```tsx
@@ -1118,7 +1118,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/matrix-rain-terminal.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/matrix-rain-terminal.json`
+- **CLI Command**: `npx cooki-ui add matrix-rain-terminal` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/matrix-rain-terminal.json`
 
 #### Installation & Usage
 ```tsx
@@ -1137,7 +1137,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/metaball-gooey-effect.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/metaball-gooey-effect.json`
+- **CLI Command**: `npx cooki-ui add metaball-gooey-effect` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/metaball-gooey-effect.json`
 
 #### Installation & Usage
 ```tsx
@@ -1156,7 +1156,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/noise-grain-overlay.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/noise-grain-overlay.json`
+- **CLI Command**: `npx cooki-ui add noise-grain-overlay` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/noise-grain-overlay.json`
 
 #### Installation & Usage
 ```tsx
@@ -1175,7 +1175,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/spectrum-loader.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/spectrum-loader.json`
+- **CLI Command**: `npx cooki-ui add spectrum-loader` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/spectrum-loader.json`
 
 #### Installation & Usage
 ```tsx
@@ -1194,7 +1194,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-counter-pill.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-counter-pill.json`
+- **CLI Command**: `npx cooki-ui add animated-counter-pill` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-counter-pill.json`
 
 #### Installation & Usage
 ```tsx
@@ -1213,7 +1213,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/progress-step-loader.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/progress-step-loader.json`
+- **CLI Command**: `npx cooki-ui add progress-step-loader` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/progress-step-loader.json`
 
 #### Installation & Usage
 ```tsx
@@ -1232,7 +1232,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/skeleton-shimmer-card.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/skeleton-shimmer-card.json`
+- **CLI Command**: `npx cooki-ui add skeleton-shimmer-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/skeleton-shimmer-card.json`
 
 #### Installation & Usage
 ```tsx
@@ -1251,7 +1251,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/status-radar-badge.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/status-radar-badge.json`
+- **CLI Command**: `npx cooki-ui add status-radar-badge` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/status-radar-badge.json`
 
 #### Installation & Usage
 ```tsx
@@ -1270,7 +1270,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/toast-notification-hub.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/toast-notification-hub.json`
+- **CLI Command**: `npx cooki-ui add toast-notification-hub` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/toast-notification-hub.json`
 
 #### Installation & Usage
 ```tsx
@@ -1289,7 +1289,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-floating-input.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-floating-input.json`
+- **CLI Command**: `npx cooki-ui add animated-floating-input` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-floating-input.json`
 
 #### Installation & Usage
 ```tsx
@@ -1308,7 +1308,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/color-palette-picker.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/color-palette-picker.json`
+- **CLI Command**: `npx cooki-ui add color-palette-picker` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/color-palette-picker.json`
 
 #### Installation & Usage
 ```tsx
@@ -1327,7 +1327,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/color-theme-switcher-pill.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/color-theme-switcher-pill.json`
+- **CLI Command**: `npx cooki-ui add color-theme-switcher-pill` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/color-theme-switcher-pill.json`
 
 #### Installation & Usage
 ```tsx
@@ -1346,7 +1346,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react, clsx, tailwind-merge
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/combobox.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/combobox.json`
+- **CLI Command**: `npx cooki-ui add combobox` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/combobox.json`
 
 #### Installation & Usage
 ```tsx
@@ -1365,7 +1365,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/drag-drop-file-upload.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/drag-drop-file-upload.json`
+- **CLI Command**: `npx cooki-ui add drag-drop-file-upload` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/drag-drop-file-upload.json`
 
 #### Installation & Usage
 ```tsx
@@ -1384,7 +1384,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/dual-range-slider.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/dual-range-slider.json`
+- **CLI Command**: `npx cooki-ui add dual-range-slider` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/dual-range-slider.json`
 
 #### Installation & Usage
 ```tsx
@@ -1403,7 +1403,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/expandable-search-bar.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-search-bar.json`
+- **CLI Command**: `npx cooki-ui add expandable-search-bar` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/expandable-search-bar.json`
 
 #### Installation & Usage
 ```tsx
@@ -1422,7 +1422,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/multi-select-combobox.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/multi-select-combobox.json`
+- **CLI Command**: `npx cooki-ui add multi-select-combobox` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/multi-select-combobox.json`
 
 #### Installation & Usage
 ```tsx
@@ -1441,7 +1441,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/otp-input.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/otp-input.json`
+- **CLI Command**: `npx cooki-ui add otp-input` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/otp-input.json`
 
 #### Installation & Usage
 ```tsx
@@ -1460,7 +1460,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/password-strength-indicator.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/password-strength-indicator.json`
+- **CLI Command**: `npx cooki-ui add password-strength-indicator` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/password-strength-indicator.json`
 
 #### Installation & Usage
 ```tsx
@@ -1479,7 +1479,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/pin-code-vault-input.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/pin-code-vault-input.json`
+- **CLI Command**: `npx cooki-ui add pin-code-vault-input` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/pin-code-vault-input.json`
 
 #### Installation & Usage
 ```tsx
@@ -1498,7 +1498,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/toggle-pill-switch.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/toggle-pill-switch.json`
+- **CLI Command**: `npx cooki-ui add toggle-pill-switch` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/toggle-pill-switch.json`
 
 #### Installation & Usage
 ```tsx
@@ -1517,7 +1517,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/accordion-faq-group.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/accordion-faq-group.json`
+- **CLI Command**: `npx cooki-ui add accordion-faq-group` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/accordion-faq-group.json`
 
 #### Installation & Usage
 ```tsx
@@ -1536,7 +1536,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/image-comparison-slider.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/image-comparison-slider.json`
+- **CLI Command**: `npx cooki-ui add image-comparison-slider` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/image-comparison-slider.json`
 
 #### Installation & Usage
 ```tsx
@@ -1555,7 +1555,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/infinite-card-carousel.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/infinite-card-carousel.json`
+- **CLI Command**: `npx cooki-ui add infinite-card-carousel` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/infinite-card-carousel.json`
 
 #### Installation & Usage
 ```tsx
@@ -1574,7 +1574,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-image-compare-lens.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-image-compare-lens.json`
+- **CLI Command**: `npx cooki-ui add interactive-image-compare-lens` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-image-compare-lens.json`
 
 #### Installation & Usage
 ```tsx
@@ -1593,7 +1593,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/resizable-split-panel.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/resizable-split-panel.json`
+- **CLI Command**: `npx cooki-ui add resizable-split-panel` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/resizable-split-panel.json`
 
 #### Installation & Usage
 ```tsx
@@ -1612,7 +1612,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/segmented-control-switch.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/segmented-control-switch.json`
+- **CLI Command**: `npx cooki-ui add segmented-control-switch` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/segmented-control-switch.json`
 
 #### Installation & Usage
 ```tsx
@@ -1631,7 +1631,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-notification-stack.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-notification-stack.json`
+- **CLI Command**: `npx cooki-ui add animated-notification-stack` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-notification-stack.json`
 
 #### Installation & Usage
 ```tsx
@@ -1650,7 +1650,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/breadcrumb-stepper.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/breadcrumb-stepper.json`
+- **CLI Command**: `npx cooki-ui add breadcrumb-stepper` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/breadcrumb-stepper.json`
 
 #### Installation & Usage
 ```tsx
@@ -1669,7 +1669,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/command-palette.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/command-palette.json`
+- **CLI Command**: `npx cooki-ui add command-palette` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/command-palette.json`
 
 #### Installation & Usage
 ```tsx
@@ -1688,7 +1688,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/cyber-command-menu.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-command-menu.json`
+- **CLI Command**: `npx cooki-ui add cyber-command-menu` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/cyber-command-menu.json`
 
 #### Installation & Usage
 ```tsx
@@ -1707,7 +1707,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/floating-navbar.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-navbar.json`
+- **CLI Command**: `npx cooki-ui add floating-navbar` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/floating-navbar.json`
 
 #### Installation & Usage
 ```tsx
@@ -1726,7 +1726,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/fluid-action-panel.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-action-panel.json`
+- **CLI Command**: `npx cooki-ui add fluid-action-panel` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-action-panel.json`
 
 #### Installation & Usage
 ```tsx
@@ -1745,7 +1745,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, clsx, tailwind-merge
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-dock.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-dock.json`
+- **CLI Command**: `npx cooki-ui add magnetic-dock` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-dock.json`
 
 #### Installation & Usage
 ```tsx
@@ -1764,7 +1764,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-social-dock.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-dock.json`
+- **CLI Command**: `npx cooki-ui add magnetic-social-dock` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-dock.json`
 
 #### Installation & Usage
 ```tsx
@@ -1783,7 +1783,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-social-share-cluster.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-share-cluster.json`
+- **CLI Command**: `npx cooki-ui add magnetic-social-share-cluster` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-social-share-cluster.json`
 
 #### Installation & Usage
 ```tsx
@@ -1802,7 +1802,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/minimal-radial-menu.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/minimal-radial-menu.json`
+- **CLI Command**: `npx cooki-ui add minimal-radial-menu` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/minimal-radial-menu.json`
 
 #### Installation & Usage
 ```tsx
@@ -1821,7 +1821,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-logo-marquee.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-logo-marquee.json`
+- **CLI Command**: `npx cooki-ui add sliding-logo-marquee` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-logo-marquee.json`
 
 #### Installation & Usage
 ```tsx
@@ -1840,7 +1840,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/tabs-morph.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/tabs-morph.json`
+- **CLI Command**: `npx cooki-ui add tabs-morph` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/tabs-morph.json`
 
 #### Installation & Usage
 ```tsx
@@ -1859,7 +1859,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/context-action-menu.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/context-action-menu.json`
+- **CLI Command**: `npx cooki-ui add context-action-menu` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/context-action-menu.json`
 
 #### Installation & Usage
 ```tsx
@@ -1878,7 +1878,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-dialog-modal.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-dialog-modal.json`
+- **CLI Command**: `npx cooki-ui add interactive-dialog-modal` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-dialog-modal.json`
 
 #### Installation & Usage
 ```tsx
@@ -1897,7 +1897,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json`
+- **CLI Command**: `npx cooki-ui add sliding-drawer-sheet` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json`
 
 #### Installation & Usage
 ```tsx
@@ -1916,7 +1916,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/tooltip-popover.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/tooltip-popover.json`
+- **CLI Command**: `npx cooki-ui add tooltip-popover` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/tooltip-popover.json`
 
 #### Installation & Usage
 ```tsx
@@ -1935,7 +1935,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: clsx, tailwind-merge, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/animated-cta-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-cta-block.json`
+- **CLI Command**: `npx cooki-ui add animated-cta-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-cta-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -1954,7 +1954,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/faq-accordion-section.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/faq-accordion-section.json`
+- **CLI Command**: `npx cooki-ui add faq-accordion-section` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/faq-accordion-section.json`
 
 #### Installation & Usage
 ```tsx
@@ -1973,7 +1973,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: clsx, tailwind-merge, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/feature-bento-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/feature-bento-block.json`
+- **CLI Command**: `npx cooki-ui add feature-bento-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/feature-bento-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -1992,7 +1992,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/hero-geometry-glow-section.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/hero-geometry-glow-section.json`
+- **CLI Command**: `npx cooki-ui add hero-geometry-glow-section` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/hero-geometry-glow-section.json`
 
 #### Installation & Usage
 ```tsx
@@ -2011,7 +2011,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/holographic-pricing-table.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/holographic-pricing-table.json`
+- **CLI Command**: `npx cooki-ui add holographic-pricing-table` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/holographic-pricing-table.json`
 
 #### Installation & Usage
 ```tsx
@@ -2030,7 +2030,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-terminal-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-terminal-block.json`
+- **CLI Command**: `npx cooki-ui add interactive-terminal-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-terminal-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -2049,7 +2049,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion, @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-workflow-pipeline.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-workflow-pipeline.json`
+- **CLI Command**: `npx cooki-ui add interactive-workflow-pipeline` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-workflow-pipeline.json`
 
 #### Installation & Usage
 ```tsx
@@ -2068,7 +2068,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react, framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/pricing-comparison-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/pricing-comparison-block.json`
+- **CLI Command**: `npx cooki-ui add pricing-comparison-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/pricing-comparison-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -2087,7 +2087,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/stats-counter-strip-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/stats-counter-strip-block.json`
+- **CLI Command**: `npx cooki-ui add stats-counter-strip-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/stats-counter-strip-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -2106,7 +2106,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: @phosphor-icons/react
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/testimonial-marquee-block.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/testimonial-marquee-block.json`
+- **CLI Command**: `npx cooki-ui add testimonial-marquee-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/testimonial-marquee-block.json`
 
 #### Installation & Usage
 ```tsx
@@ -2125,7 +2125,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/blur-reveal.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/blur-reveal.json`
+- **CLI Command**: `npx cooki-ui add blur-reveal` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/blur-reveal.json`
 
 #### Installation & Usage
 ```tsx
@@ -2144,7 +2144,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glitch-cyber-text.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/glitch-cyber-text.json`
+- **CLI Command**: `npx cooki-ui add glitch-cyber-text` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/glitch-cyber-text.json`
 
 #### Installation & Usage
 ```tsx
@@ -2163,7 +2163,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/kinetic-text-marquee.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/kinetic-text-marquee.json`
+- **CLI Command**: `npx cooki-ui add kinetic-text-marquee` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/kinetic-text-marquee.json`
 
 #### Installation & Usage
 ```tsx
@@ -2182,7 +2182,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/rolling-text-3d.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/rolling-text-3d.json`
+- **CLI Command**: `npx cooki-ui add rolling-text-3d` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/rolling-text-3d.json`
 
 #### Installation & Usage
 ```tsx
@@ -2201,7 +2201,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/scramble-text.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/scramble-text.json`
+- **CLI Command**: `npx cooki-ui add scramble-text` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/scramble-text.json`
 
 #### Installation & Usage
 ```tsx
@@ -2220,7 +2220,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/shiny-text.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/shiny-text.json`
+- **CLI Command**: `npx cooki-ui add shiny-text` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/shiny-text.json`
 
 #### Installation & Usage
 ```tsx
@@ -2239,7 +2239,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: motion, react-use-measure
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/sliding-number.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-number.json`
+- **CLI Command**: `npx cooki-ui add sliding-number` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-number.json`
 
 #### Installation & Usage
 ```tsx
@@ -2258,7 +2258,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/split-text.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/split-text.json`
+- **CLI Command**: `npx cooki-ui add split-text` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/split-text.json`
 
 #### Installation & Usage
 ```tsx
@@ -2277,7 +2277,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: framer-motion
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/text-reveal.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/text-reveal.json`
+- **CLI Command**: `npx cooki-ui add text-reveal` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/text-reveal.json`
 
 #### Installation & Usage
 ```tsx
@@ -2296,7 +2296,7 @@ export default function Example() {
 - **Tags**: N/A
 - **Dependencies**: None
 - **Registry Endpoint**: `https://cooki-ui.vercel.app/r/typing-text.json`
-- **CLI Command**: `npx shadcn@latest add https://cooki-ui.vercel.app/r/typing-text.json`
+- **CLI Command**: `npx cooki-ui add typing-text` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/typing-text.json`
 
 #### Installation & Usage
 ```tsx

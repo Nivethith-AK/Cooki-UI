@@ -1,10 +1,10 @@
 import React from 'react'
-import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass } from '@phosphor-icons/react'
+import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass, Terminal, Sparkle } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
 export const StoreHeader: React.FC = () => {
-  const { components, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly, setCommandPaletteOpen } = useStore()
+  const { components, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly, setCommandPaletteOpen, setInstallGuideOpen } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
   return (
@@ -46,6 +46,18 @@ export const StoreHeader: React.FC = () => {
         {/* Right Utilities */}
         <div className="flex items-center gap-2">
           
+          {/* Terminal CLI & AI Agent MCP Guide */}
+          <button
+            onClick={() => setInstallGuideOpen(true)}
+            aria-label="Terminal installation and AI agent MCP connection guide"
+            title="Terminal CLI & AI Agent MCP Setup"
+            className="flex h-8 items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 dark:bg-indigo-500/15 px-3 text-xs font-mono font-medium text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/20 transition-all cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <Terminal size={13} weight="bold" />
+            <span>CLI & MCP</span>
+            <Sparkle size={11} weight="fill" className="text-amber-500" />
+          </button>
+
           {/* Quick Search ⌘K Button */}
           <button
             onClick={() => setCommandPaletteOpen(true)}

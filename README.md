@@ -85,22 +85,32 @@ export function cn(...inputs: ClassValue[]) {
 
 <br/>
 
-### 2 — Add a Component
+### 2 — Add a Component via Terminal
 
-Install any component from Cooki UI using the official `shadcn` CLI:
+You can add components to your terminal using either the standalone Cooki UI CLI or the shadcn CLI:
 
+#### Option A: Standalone Cooki UI CLI (Fastest)
 ```bash
 # Add Magnetic Button
-npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+npx cooki-ui add magnetic-button
 
 # Add 3D Perspective Card
-npx shadcn@latest add https://cooki-ui.vercel.app/r/perspective-card-3d.json
+npx cooki-ui add perspective-card-3d
 
-# Add Starfield Hyperdrive Background
-npx shadcn@latest add https://cooki-ui.vercel.app/r/starfield-hyperdrive-background.json
+# Browse all available components
+npx cooki-ui list
+```
 
-# Add Hold To Confirm Button
-npx shadcn@latest add https://cooki-ui.vercel.app/r/hold-to-confirm-button.json
+#### Option B: shadcn CLI
+```bash
+# npm
+npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+
+# pnpm
+pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+
+# bun
+bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
 ```
 
 Dependencies (e.g. `framer-motion`, `@phosphor-icons/react`) are automatically resolved and installed in your project.
@@ -208,29 +218,26 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 
 ### MCP Client Configuration
 
-#### Cursor / Windsurf (`~/.cursor/mcp.json`)
+Connect your AI coding assistant in 10 seconds. Add this server definition to your tool:
+
 ```json
 {
   "mcpServers": {
-    "cooki-ui-mcp": {
+    "cooki-ui": {
       "command": "npx",
-      "args": ["-y", "@cooki-ui/mcp"]
+      "args": ["-y", "cooki-ui@latest", "mcp"]
     }
   }
 }
 ```
 
-#### Claude Desktop (`%APPDATA%\\Claude\\claude_desktop_config.json` on Windows / `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS)
-```json
-{
-  "mcpServers": {
-    "cooki-ui-mcp": {
-      "command": "npx",
-      "args": ["-y", "@cooki-ui/mcp"]
-    }
-  }
-}
-```
+#### Configuration File Locations:
+- **Cursor**: `~/.cursor/mcp.json` or Settings → Features → MCP → Add New MCP Server (`command`, `npx -y cooki-ui@latest mcp`)
+- **Claude Desktop / Claude Code**:
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windsurf**: `~/.codeium/windsurf/mcp_config.json`
+- **Antigravity / Stitch**: `.gemini/antigravity/mcp_config.json` or `.mcp.json`
 
 <br/>
 

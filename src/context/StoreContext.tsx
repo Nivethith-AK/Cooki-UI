@@ -25,6 +25,8 @@ interface StoreContextType {
   setMobileFilterOpen: (open: boolean) => void
   commandPaletteOpen: boolean
   setCommandPaletteOpen: (open: boolean) => void
+  installGuideOpen: boolean
+  setInstallGuideOpen: (open: boolean) => void
   resetFilters: () => void
 }
 
@@ -49,6 +51,8 @@ const defaultStoreContext: StoreContextType = {
   setMobileFilterOpen: () => {},
   commandPaletteOpen: false,
   setCommandPaletteOpen: () => {},
+  installGuideOpen: false,
+  setInstallGuideOpen: () => {},
   resetFilters: () => {},
 }
 
@@ -63,6 +67,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [selectedComponent, setSelectedComponent] = useState<RegistryItem | null>(null)
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false)
+  const [installGuideOpen, setInstallGuideOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -172,6 +177,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setMobileFilterOpen,
         commandPaletteOpen,
         setCommandPaletteOpen,
+        installGuideOpen,
+        setInstallGuideOpen,
         resetFilters,
       }}
     >

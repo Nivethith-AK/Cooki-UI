@@ -9,6 +9,7 @@ import { SidebarFilters } from './components/store/SidebarFilters'
 import { ComponentGrid } from './components/store/ComponentGrid'
 import { ComponentDetailModal } from './components/store/ComponentDetailModal'
 import { GlobalCommandPalette } from './components/store/GlobalCommandPalette'
+import { InstallGuideModal } from './components/store/InstallGuideModal'
 import { StoreDock } from './components/store/StoreDock'
 import { Footer } from './components/Footer'
 
@@ -40,6 +41,9 @@ export const AppContent: React.FC = () => {
 
       {/* Global Command Palette (⌘K) */}
       <GlobalCommandPalette />
+
+      {/* Terminal Installation & AI Agent MCP Connection Guide Modal */}
+      <InstallGuideModal />
 
       {/* Signature Persistent Control Dock */}
       <StoreDock />

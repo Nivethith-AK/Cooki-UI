@@ -46,12 +46,39 @@ Example JSON payload for `magnetic-button`:
 
 ---
 
-## 2. Agent Installation Instructions
+## 2. Terminal Installation Commands
+
+Users can install components into their terminal via:
+
+### Option A: Standalone Cooki UI CLI
+```bash
+npx cooki-ui add <slug>
+# e.g.: npx cooki-ui add magnetic-button
+```
+
+### Option B: shadcn CLI
+```bash
+# npm
+npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+
+# pnpm
+pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+
+# bun
+bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+
+# yarn
+npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+```
+
+---
+
+## 3. Agent Installation Instructions
 
 When a user asks you to add a Cooki UI component to their project:
 
-### Step 1: Query Registry JSON
-Fetch `https://cooki-ui.vercel.app/r/{name}.json`.
+### Step 1: Query Registry JSON or MCP Tool
+Fetch `https://cooki-ui.vercel.app/r/{name}.json` or invoke the `get_component_source` MCP tool.
 
 ### Step 2: Extract Dependencies
 Check the `dependencies` array. Run:
@@ -76,22 +103,36 @@ export function cn(...inputs: ClassValue[]) {
 
 ---
 
-## 3. Contributing New Components to Cooki UI
+## 4. Model Context Protocol (MCP) Server Integration
 
-To register a new component into Cooki UI:
-1. **Source Code**: Create `registry/<category>/<slug>/<slug>.tsx`.
-2. **Isolated Demo**: Create `registry/<category>/<slug>/demo.tsx`.
-3. **Metadata**: Create `registry/<category>/<slug>/metadata.json` conforming to shadcn registry item schema.
-4. **Compile Registry**: Run `npm run registry:build`.
-5. **Validate**: Run `npm run registry:validate`.
-6. **Commit & Push**: Commit changes to Git and push to `origin/main`.
+Cooki UI provides a first-class Model Context Protocol (MCP) server over `stdio` that enables AI assistants to autonomously query and install components.
 
----
+### Universal MCP Client Configuration
+Add the following to your AI environment's MCP configuration:
 
-## 4. Future MCP Server Integration
-Cooki UI is designed to expose a Model Context Protocol (MCP) server providing:
-- `list_components({ category?: string })`
-- `search_components({ query: string })`
-- `get_component_source({ name: string })`
-- `get_component_dependencies({ name: string })`
-- `install_component({ name: string, targetPath?: string })`
+```json
+{
+  "mcpServers": {
+    "cooki-ui": {
+      "command": "npx",
+      "args": ["-y", "cooki-ui@latest", "mcp"]
+    }
+  }
+}
+```
+
+### IDE Configuration File Locations:
+- **Cursor**: `~/.cursor/mcp.json` or Cursor Settings `Features` &rarr; `MCP`
+- **Claude Desktop**:
+  - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+  - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windsurf**: `~/.codeium/windsurf/mcp_config.json`
+- **Antigravity / Google Stitch**: `.gemini/antigravity/mcp_config.json` or project `.mcp.json`
+
+### Exposed MCP Tools:
+- `list_components({ category?: string })`: Lists all canonical components, their category, description, and dependencies.
+- `search_components({ query: string })`: Searches components by keyword, title, category, or features.
+- `get_component_source({ name: string })`: Returns the complete TypeScript/React source code.
+- `get_component_dependencies({ name: string })`: Returns the required npm dependencies.
+- `install_component({ name: string, targetPath?: string })`: Writes the component directly to disk and details dependencies.
+

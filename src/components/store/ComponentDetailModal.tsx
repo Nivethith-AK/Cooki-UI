@@ -9,7 +9,9 @@ import {
   ArrowSquareOut,
   ArrowsOutSimple,
   ArrowsInSimple,
-  ArrowClockwise
+  ArrowClockwise,
+  Terminal,
+  Sparkle
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
@@ -62,11 +64,13 @@ class PreviewErrorBoundary extends React.Component<{ children: React.ReactNode }
 }
 
 export const ComponentDetailModal: React.FC = () => {
-  const { selectedComponent, setSelectedComponent, favorites, toggleFavorite } = useStore()
+  const { selectedComponent, setSelectedComponent, favorites, toggleFavorite, setInstallGuideOpen } = useStore()
   const { isDark } = useTheme()
 
   const [controlValues, setControlValues] = useState<Record<string, any>>({})
   const [copiedInstall, setCopiedInstall] = useState(false)
+  const [copiedMcp, setCopiedMcp] = useState(false)
+  const [pmTab, setPmTab] = useState<'npm' | 'pnpm' | 'bun' | 'yarn'>('npm')
   const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install' | 'registry'>('preview')
   const [isFullscreen, setIsFullscreen] = useState(false)
 
@@ -398,18 +402,51 @@ export const ComponentDetailModal: React.FC = () => {
               {/* TAB 3: INSTALLATION & SPECS */}
               {activeTab === 'install' && (
                 <div className="space-y-6">
+                  {/* 1. Terminal Installation */}
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">1. SHADCN REGISTRY INSTALLATION</h4>
+                      <div className="flex items-center gap-2">
+                        <Terminal size={15} className="text-emerald-500" />
+                        <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">1. TERMINAL CLI INSTALLATION</h4>
+                      </div>
                       <span className="text-[10px] font-mono uppercase text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">RECOMMENDED</span>
                     </div>
+
+                    {/* Package Manager Switcher */}
+                    <div className="flex items-center gap-1 mb-2">
+                      {(['npm', 'pnpm', 'bun', 'yarn'] as const).map((pm) => (
+                        <button
+                          key={pm}
+                          onClick={() => setPmTab(pm)}
+                          className={`rounded-lg px-2.5 py-1 text-[11px] font-mono transition-colors cursor-pointer ${
+                            pmTab === pm
+                              ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-bold'
+                              : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300'
+                          }`}
+                        >
+                          {pm}
+                        </button>
+                      ))}
+                    </div>
+
                     <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
                       <span className="text-emerald-400 truncate mr-2">
-                        $ npx shadcn@latest add https://cooki-ui.vercel.app/r/{selectedComponent.slug}.json
+                        $ {
+                          pmTab === 'pnpm' 
+                            ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                            : pmTab === 'bun'
+                            ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                            : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                        }
                       </span>
                       <button
                         onClick={() => {
-                          navigator.clipboard.writeText(`npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                          const cmd = pmTab === 'pnpm' 
+                            ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                            : pmTab === 'bun'
+                            ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                            : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          navigator.clipboard.writeText(cmd)
                           setCopiedInstall(true)
                           setTimeout(() => setCopiedInstall(false), 2000)
                         }}
@@ -420,12 +457,13 @@ export const ComponentDetailModal: React.FC = () => {
                       </button>
                     </div>
                     <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
-                      Directly downloads and installs the component into your project&apos;s <code className="text-zinc-700 dark:text-zinc-300">components/ui/</code> directory.
+                      Directly downloads and installs <code className="text-zinc-700 dark:text-zinc-300">{selectedComponent.slug}.tsx</code> into your <code className="text-zinc-700 dark:text-zinc-300">components/ui/</code> directory.
                     </p>
                   </div>
 
+                  {/* 2. Cooki UI Standalone CLI */}
                   <div>
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">2. COOKI UI CLI (PREVIEW)</h4>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">2. COOKI UI STANDALONE CLI (PREVIEW)</h4>
                     <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
                       <span className="text-indigo-400">$ npx cooki-ui add {selectedComponent.slug}</span>
                       <button
@@ -442,8 +480,63 @@ export const ComponentDetailModal: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* 3. AI Coding Agent MCP Server Connection */}
+                  <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 dark:bg-indigo-500/10 p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Sparkle size={15} weight="fill" className="text-amber-500" />
+                        <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">
+                          3. AI AGENT MCP SERVER CONNECTION
+                        </h4>
+                      </div>
+                      <span className="rounded bg-indigo-500/20 px-2 py-0.5 text-[9px] font-mono text-indigo-400 border border-indigo-500/30">
+                        CURSOR &bull; CLAUDE &bull; WINDSURF
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
+                      Let your AI coding assistant install this component automatically. Add this to your editor&apos;s MCP config file (<code className="text-zinc-800 dark:text-zinc-200 font-mono text-[11px]">mcp.json</code>):
+                    </p>
+
+                    <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/90 p-3 font-mono text-xs text-indigo-300">
+                      <span className="truncate mr-2">npx -y cooki-ui@latest mcp</span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <button
+                          onClick={() => {
+                            const mcpSnippet = JSON.stringify(
+                              {
+                                mcpServers: {
+                                  'cooki-ui': {
+                                    command: 'npx',
+                                    args: ['-y', 'cooki-ui@latest', 'mcp']
+                                  }
+                                }
+                              },
+                              null,
+                              2
+                            )
+                            navigator.clipboard.writeText(mcpSnippet)
+                            setCopiedMcp(true)
+                            setTimeout(() => setCopiedMcp(false), 2000)
+                          }}
+                          className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 cursor-pointer"
+                        >
+                          {copiedMcp ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                          <span>{copiedMcp ? 'Copied JSON' : 'Copy MCP JSON'}</span>
+                        </button>
+                        <button
+                          onClick={() => setInstallGuideOpen(true)}
+                          className="flex items-center gap-1 rounded bg-indigo-600 px-2.5 py-1 text-[11px] text-white hover:bg-indigo-500 cursor-pointer font-sans"
+                        >
+                          <span>Full Guide &rarr;</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 4. Dependencies */}
                   <div>
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">3. DEPENDENCIES</h4>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">4. DEPENDENCIES</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedComponent.dependencies.length > 0 ? (
                         selectedComponent.dependencies.map((dep) => (
@@ -457,8 +550,9 @@ export const ComponentDetailModal: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* 5. Component Metadata */}
                   <div>
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">4. COMPONENT METADATA</h4>
+                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">5. COMPONENT METADATA</h4>
                     <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/40 p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
                       <div>
                         <span className="text-zinc-500">Frameworks:</span>

@@ -24,14 +24,46 @@
 - **Effects & Shaders**: Luminous Border Beam, Generative ASCII Wave, Harmonic Spectrum Equalizer, Procedural Film Grain Synthesizer.
 - **Sections**: Technical Feature Bento Block, Interactive Terminal Block, High-Conversion Terminal CTA, Tiered SaaS Pricing Matrix, Endless Social Proof Testimonials.
 
-## Installation
-Add any component directly to your project:
+## Installation & Terminal Usage
+Add any component directly into your local project (`components/ui/`):
+
+### 1. Direct Cooki UI CLI (Fastest)
 ```bash
-# Using shadcn CLI
+npx cooki-ui add magnetic-button
+npx cooki-ui list
+```
+
+### 2. shadcn CLI Compatibility
+```bash
+# npm
 npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
 
-# Using Cooki UI CLI (upcoming)
-npx cooki-ui add magnetic-button
+# pnpm
+pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+
+# bun
+bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
 ```
+
+## Model Context Protocol (MCP) Server
+AI coding agents (Cursor, Claude Code / Desktop, Windsurf, Antigravity) can connect to the live Cooki UI MCP server:
+
+```json
+{
+  "mcpServers": {
+    "cooki-ui": {
+      "command": "npx",
+      "args": ["-y", "cooki-ui@latest", "mcp"]
+    }
+  }
+}
+```
+
+Exposed MCP Tools:
+- `list_components({ category?: string })`: Discover all components
+- `search_components({ query: string })`: Search by keyword or UI pattern
+- `get_component_source({ name: string })`: Retrieve raw TSX source code
+- `get_component_dependencies({ name: string })`: Get required packages
+- `install_component({ name: string, targetPath?: string })`: Autonomously install to disk
 
 Full machine-readable documentation: https://cooki-ui.vercel.app/llms-full.txt

@@ -12,7 +12,8 @@ import {
   Heart, 
   Sun, 
   Moon, 
-  MagnifyingGlass 
+  MagnifyingGlass,
+  Terminal
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
@@ -27,7 +28,8 @@ export const StoreDock: React.FC = () => {
     setShowFavoritesOnly, 
     favorites,
     setSearchQuery,
-    setCommandPaletteOpen
+    setCommandPaletteOpen,
+    setInstallGuideOpen
   } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
@@ -43,6 +45,12 @@ export const StoreDock: React.FC = () => {
       label: 'Search (⌘K)',
       icon: <MagnifyingGlass size={20} />,
       onClick: () => setCommandPaletteOpen(true),
+    },
+    {
+      id: 'cli-mcp',
+      label: 'Terminal & MCP',
+      icon: <Terminal size={20} weight="bold" />,
+      onClick: () => setInstallGuideOpen(true),
     },
     {
       id: 'all',

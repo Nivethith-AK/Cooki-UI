@@ -43,6 +43,7 @@ export const StoreHero: React.FC = () => {
     setSearchQuery,
     setSelectedComponent,
     setCommandPaletteOpen,
+    setInstallGuideOpen,
     setShowFavoritesOnly,
     showFavoritesOnly
   } = useStore()
@@ -206,6 +207,15 @@ export const StoreHero: React.FC = () => {
                   onClick={() => setCommandPaletteOpen(true)}
                 >
                   Command Palette (⌘K)
+                </MagneticButton>
+
+                <MagneticButton
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setInstallGuideOpen(true)}
+                  className="hidden sm:inline-flex border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10"
+                >
+                  Terminal & MCP Guide ✦
                 </MagneticButton>
               </div>
 

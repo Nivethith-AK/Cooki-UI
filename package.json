@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "bin": {
+    "cooki-ui": "./bin/cli.cjs"
+  },
   "scripts": {
     "dev": "vite",
     "build": "node scripts/build-registry.cjs && vite build",
