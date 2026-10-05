@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Sparkle } from '@phosphor-icons/react';
+import { Check } from '@phosphor-icons/react';
 
 export const HolographicPricingTable: React.FC = () => {
   const [annual, setAnnual] = useState(true);

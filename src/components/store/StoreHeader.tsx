@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass, Terminal, Sparkle } from '@phosphor-icons/react'
+import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass, Terminal } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
@@ -55,7 +55,6 @@ export const StoreHeader: React.FC = () => {
           >
             <Terminal size={13} weight="bold" />
             <span>CLI & MCP</span>
-            <Sparkle size={11} weight="fill" className="text-amber-500" />
           </button>
 
           {/* Quick Search ⌘K Button */}

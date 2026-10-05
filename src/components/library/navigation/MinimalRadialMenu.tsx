@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Terminal, Gear, Code, ShareNetwork, Sparkle } from '@phosphor-icons/react';
+import { Plus, Terminal, Gear, Code, ShareNetwork, Cpu } from '@phosphor-icons/react';
 
 const ACTIONS = [
   { id: 'code', icon: <Code size={15} />, label: 'Inspect' },
   { id: 'term', icon: <Terminal size={15} />, label: 'CLI' },
   { id: 'gear', icon: <Gear size={15} />, label: 'Settings' },
   { id: 'share', icon: <ShareNetwork size={15} />, label: 'Share' },
-  { id: 'ai', icon: <Sparkle size={15} />, label: 'AI Gen' },
+  { id: 'ai', icon: <Cpu size={15} />, label: 'AI Gen' },
 ];
 
 export const MinimalRadialMenu: React.FC = () => {

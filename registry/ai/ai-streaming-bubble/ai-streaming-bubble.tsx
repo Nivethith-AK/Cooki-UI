@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, Check, ArrowClockwise, Sparkle } from '@phosphor-icons/react';
+import { Copy, Check, ArrowClockwise, Cpu } from '@phosphor-icons/react';
 
 const FULL_TEXT = `import { MagneticDock } from '@/components/ui'
 
@@ -43,7 +43,7 @@ export const AiStreamingBubble: React.FC = () => {
       <div className="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/5">
         <div className="flex items-center gap-2">
           <div className="h-6 w-6 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-            <Sparkle size={13} weight="fill" />
+            <Cpu size={13} weight="bold" />
           </div>
           <span className="text-xs font-mono font-semibold text-zinc-900 dark:text-zinc-100">
             Assistant Stream

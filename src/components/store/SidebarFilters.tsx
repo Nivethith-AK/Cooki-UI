@@ -8,7 +8,7 @@ import {
   Heart, 
   X, 
   ArrowClockwise,
-  Sparkle, 
+  Cpu, 
   Cursor, 
   Rows, 
   Sliders, 
@@ -58,7 +58,7 @@ export const SidebarFilters: React.FC = () => {
   const categories: { id: ComponentCategory | 'all'; label: string; icon: React.ReactNode }[] = [
     { id: 'all', label: 'All Artifacts', countOverride: components.length, icon: <SquaresFour size={15} /> },
     { id: 'components', label: 'UI Components', icon: <Browsers size={15} /> },
-    { id: 'ai', label: 'AI & LLM Tools', icon: <Sparkle size={15} /> },
+    { id: 'ai', label: 'AI & LLM Tools', icon: <Cpu size={15} /> },
     { id: 'cursors', label: 'Cursors & Pointer FX', icon: <Cursor size={15} /> },
     { id: 'layout', label: 'Layout & Elements', icon: <Rows size={15} /> },
     { id: 'forms', label: 'Forms & Inputs', icon: <Sliders size={15} /> },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paperclip, Sparkle, ArrowUp, Globe, CaretDown } from '@phosphor-icons/react';
+import { Paperclip, Cpu, ArrowUp, Globe, CaretDown } from '@phosphor-icons/react';
 
 export const AiPromptInput: React.FC = () => {
   const [value, setValue] = useState('');
@@ -22,7 +22,7 @@ export const AiPromptInput: React.FC = () => {
         <div className="flex items-center gap-1.5 flex-wrap">
           {/* Model Selector Chip */}
           <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-[11px] font-mono text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-white/5">
-            <Sparkle size={12} className="text-indigo-500" />
+            <Cpu size={12} className="text-indigo-500" />
             <span>{model}</span>
           </div>
 

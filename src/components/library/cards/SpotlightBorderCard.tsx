@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Sparkle, ArrowUpRight } from '@phosphor-icons/react';
+import { Cpu, ArrowUpRight } from '@phosphor-icons/react';
 
 export interface SpotlightBorderCardProps {
   title?: string;
@@ -47,7 +47,7 @@ export const SpotlightBorderCard: React.FC<SpotlightBorderCardProps> = ({
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20">
-              <Sparkle size={18} weight="fill" />
+              <Cpu size={18} weight="bold" />
             </span>
             <span className="font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
               ACTIVE

@@ -11,7 +11,7 @@ import {
   ArrowsInSimple,
   ArrowClockwise,
   Terminal,
-  Sparkle
+  Cpu
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
@@ -484,7 +484,7 @@ export const ComponentDetailModal: React.FC = () => {
                   <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 dark:bg-indigo-500/10 p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Sparkle size={15} weight="fill" className="text-amber-500" />
+                        <Cpu size={15} weight="bold" className="text-indigo-500" />
                         <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-mono">
                           3. AI AGENT MCP SERVER CONNECTION
                         </h4>

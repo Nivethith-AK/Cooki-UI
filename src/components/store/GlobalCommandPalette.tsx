@@ -4,7 +4,6 @@ import {
   MagnifyingGlass,
   X,
   Browsers,
-  Sparkle,
   Cursor,
   Rows,
   Sliders,

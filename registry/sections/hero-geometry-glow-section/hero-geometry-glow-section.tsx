@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkle, Terminal } from '@phosphor-icons/react';
+import { ArrowRight, Lightning, Terminal } from '@phosphor-icons/react';
 
 export const HeroGeometryGlowSection: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ export const HeroGeometryGlowSection: React.FC = () => {
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono text-cyan-300 mb-4">
-          <Sparkle size={13} weight="fill" />
+          <Lightning size={13} weight="fill" />
           <span>BUILT FOR NEXT-GEN DEVELOPERS</span>
         </div>
 

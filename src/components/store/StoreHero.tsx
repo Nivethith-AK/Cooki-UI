@@ -8,7 +8,7 @@ import {
   Waveform, 
   Code, 
   SquaresFour, 
-  Sparkle, 
+  Cpu, 
   Cursor, 
   Rows, 
   Sliders, 
@@ -78,7 +78,7 @@ export const StoreHero: React.FC = () => {
   const categories: { id: ComponentCategory | 'all'; label: string; count: number; icon: React.ReactNode }[] = [
     { id: 'all', label: 'All Artifacts', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={13} /> },
     { id: 'components', label: 'Components', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'components').length, icon: <Browsers size={13} /> },
-    { id: 'ai', label: 'AI & LLM Tools', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'ai').length, icon: <Sparkle size={13} /> },
+    { id: 'ai', label: 'AI & LLM Tools', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'ai').length, icon: <Cpu size={13} /> },
     { id: 'cursors', label: 'Cursors', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'cursors').length, icon: <Cursor size={13} /> },
     { id: 'layout', label: 'Layout', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'layout').length, icon: <Rows size={13} /> },
     { id: 'forms', label: 'Forms', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'forms').length, icon: <Sliders size={13} /> },
@@ -112,7 +112,7 @@ export const StoreHero: React.FC = () => {
         <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1.5 backdrop-blur-md mb-5 shadow-xs">
           <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           <ShinyText 
-            text="✦ COOKI UI &bull; PRODUCTION-GRADE REACT & TAILWIND ARTIFACTS" 
+            text="COOKI UI &bull; PRODUCTION-GRADE REACT & TAILWIND ARTIFACTS" 
             className="text-[11px] font-mono tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold" 
           />
         </div>
@@ -215,7 +215,7 @@ export const StoreHero: React.FC = () => {
                   onClick={() => setInstallGuideOpen(true)}
                   className="hidden sm:inline-flex border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10"
                 >
-                  Terminal & MCP Guide ✦
+                  Terminal & MCP Guide
                 </MagneticButton>
               </div>
 
