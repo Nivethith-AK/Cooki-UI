@@ -72,7 +72,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
   }
 
   return (
-    <div className={`group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 backdrop-blur-xl shadow-xs dark:shadow-lg transition-all duration-300 hover:border-zinc-300 dark:hover:border-white/25 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-black/40 ${
+    <div className={`component-grid-card group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 backdrop-blur-xl shadow-xs dark:shadow-lg transition-all duration-300 hover:border-zinc-300 dark:hover:border-white/25 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-black/40 ${
       effectiveExpanded ? 'ring-1 ring-indigo-500/30' : ''
     }`}>
       
@@ -161,8 +161,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
 
         {/* Live Component Render Canvas with unconstrained child sizing */}
         <div 
-          data-lenis-prevent="true"
-          className="relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-x-auto overflow-y-visible text-zinc-900 dark:text-zinc-100 modal-scroll"
+          className="component-card-canvas relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-hidden text-zinc-900 dark:text-zinc-100"
         >
           <CardErrorBoundary key={item.id}>
             {item.renderPreview({}, isDark)}

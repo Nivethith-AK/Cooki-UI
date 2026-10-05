@@ -34,7 +34,11 @@ export const KineticScrollbar: React.FC = () => {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (typeof (window as any).__lenis?.scrollTo === 'function') {
+      ;(window as any).__lenis.scrollTo(0, { duration: 1.2 })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   return (
