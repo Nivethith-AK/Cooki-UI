@@ -9,13 +9,7 @@ export function scrollToCatalogue(offset = -90) {
     return
   }
 
-  // Use Lenis kinetic engine if initialized
-  if (typeof (window as any).__lenis?.scrollTo === 'function') {
-    (window as any).__lenis.scrollTo(elem, { offset, duration: 0.75 })
-  } else {
-    // Native scroll calculation with sticky header clearance
-    const elemRect = elem.getBoundingClientRect()
-    const targetY = elemRect.top + window.pageYOffset + offset
-    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
-  }
+  const elemRect = elem.getBoundingClientRect()
+  const targetY = elemRect.top + window.scrollY + offset
+  window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
 }

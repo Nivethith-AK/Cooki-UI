@@ -29,11 +29,21 @@ export const ComponentGrid: React.FC = () => {
   const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredComponents.length)
   const currentItems = filteredComponents.slice(startIndex, endIndex)
 
+  const isFirstMount = React.useRef(true)
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false
+      return
+    }
+    const timer = setTimeout(() => {
+      scrollToCatalogue(-90)
+    }, 20)
+    return () => clearTimeout(timer)
+  }, [currentPage])
+
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages || newPage === currentPage) return
     setCurrentPage(newPage)
-    // Smoothly scroll to the top of the catalogue with sticky header clearance
-    scrollToCatalogue(-90)
   }
 
   const sortOptions: { id: SortOption; label: string }[] = [

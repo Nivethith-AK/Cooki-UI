@@ -265,10 +265,7 @@ export const ComponentDetailModal: React.FC = () => {
 
             {/* Modal Scrollable Body */}
             <div 
-              data-lenis-prevent="true"
-              onWheel={(e) => e.stopPropagation()}
-              onTouchMove={(e) => e.stopPropagation()}
-              className="flex-1 min-h-0 overflow-y-auto modal-scroll p-4 sm:p-6 space-y-6"
+              className="flex-1 min-h-0 overflow-y-auto modal-scroll p-4 sm:p-6 space-y-6 overscroll-contain"
             >
               
               {/* TAB 1: PLAYGROUND & PREVIEW */}
@@ -277,18 +274,20 @@ export const ComponentDetailModal: React.FC = () => {
                   
                   {/* Live Sandbox Area with Auto-Centering and Scrollable Safety */}
                   <div 
-                    data-lenis-prevent="true"
-                    onWheel={(e) => e.stopPropagation()}
                     className={`relative ${
                       isFullscreen 
                         ? 'min-h-[500px]' 
                         : selectedComponent.category === 'sections' 
                         ? 'min-h-[420px]' 
                         : 'min-h-[340px]'
-                    } w-full flex items-center justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-auto modal-scroll shadow-inner transition-all`}
+                    } w-full flex ${
+                      selectedComponent.category === 'sections' ? 'items-start' : 'items-center'
+                    } justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-auto modal-scroll shadow-inner transition-all`}
                   >
                     <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
-                    <div className="relative isolate z-10 w-full flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 my-auto">
+                    <div className={`relative isolate z-10 w-full flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 ${
+                      selectedComponent.category === 'sections' ? 'my-0' : 'my-auto'
+                    }`}>
                       <PreviewErrorBoundary key={selectedComponent.id}>
                         {selectedComponent.renderPreview(controlValues, isDark)}
                       </PreviewErrorBoundary>

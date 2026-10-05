@@ -1,68 +1,49 @@
-import React, { useEffect, useRef } from 'react'
-import Lenis from 'lenis'
+import React, { useEffect } from 'react'
 
 export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const lenisRef = useRef<Lenis | null>(null)
-
   useEffect(() => {
-    // Initialize Lenis for luxurious, silky smooth kinetic scrolling
-    const lenis = new Lenis({
-      duration: 0.85,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -8 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      touchMultiplier: 1.2,
-      infinite: false,
-    })
-
-    lenisRef.current = lenis
-    ;(window as any).__lenis = lenis
-
-    let rafId: number
-    function raf(time: number) {
-      lenis.raf(time)
-      rafId = requestAnimationFrame(raf)
-    }
-    rafId = requestAnimationFrame(raf)
-
-    // MutationObserver to automatically halt Lenis virtual scroll whenever a modal locks body scroll
-    const checkScrollLock = () => {
-      const isLocked =
-        document.body.style.overflow === 'hidden' ||
-        document.documentElement.style.overflow === 'hidden' ||
-        document.body.classList.contains('overflow-hidden')
-
-      if (isLocked) {
-        lenis.stop()
-      } else {
-        lenis.start()
-      }
+    // Provide a native-backed shim for any component calling __lenis
+    const lenisShim = {
+      scrollTo: (target: number | HTMLElement | string, options?: { offset?: number; duration?: number }) => {
+        const offset = options?.offset || 0
+        if (typeof target === 'number') {
+          window.scrollTo({ top: Math.max(0, target + offset), behavior: 'smooth' })
+        } else if (target instanceof HTMLElement) {
+          const rect = target.getBoundingClientRect()
+          const targetY = rect.top + window.scrollY + offset
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
+        } else if (typeof target === 'string') {
+          const elem = document.querySelector(target)
+          if (elem) {
+            const rect = elem.getBoundingClientRect()
+            const targetY = rect.top + window.scrollY + offset
+            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
+          }
+        }
+      },
+      stop: () => {},
+      start: () => {},
     }
 
-    const observer = new MutationObserver(checkScrollLock)
-    observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style', 'class'] })
+    ;(window as any).__lenis = lenisShim
 
-    // Smoothly route in-page hash links through Lenis
+    // Smoothly route in-page hash links natively
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement)?.closest('a')
       if (target && target.hash && target.hash.startsWith('#') && target.origin === window.location.origin) {
         const elem = document.querySelector(target.hash)
         if (elem) {
           e.preventDefault()
-          lenis.scrollTo(elem as HTMLElement, { offset: -80, duration: 1.2 })
+          const rect = elem.getBoundingClientRect()
+          const targetY = rect.top + window.scrollY - 80
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
         }
       }
     }
     document.addEventListener('click', handleAnchorClick)
 
     return () => {
-      cancelAnimationFrame(rafId)
-      observer.disconnect()
       document.removeEventListener('click', handleAnchorClick)
-      lenis.destroy()
-      lenisRef.current = null
       delete (window as any).__lenis
     }
   }, [])

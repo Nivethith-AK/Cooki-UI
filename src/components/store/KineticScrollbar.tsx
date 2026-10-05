@@ -1,23 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { motion, useSpring, useMotionValue } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUp } from '@phosphor-icons/react'
 
 export const KineticScrollbar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const railRef = useRef<HTMLDivElement>(null)
-
-  // Motion values with physics spring for slow-motion lag effect
-  const progressSpring = useSpring(0, {
-    stiffness: 70,
-    damping: 18,
-    mass: 0.8,
-  })
-
-  const thumbSpring = useSpring(0, {
-    stiffness: 60,
-    damping: 18,
-  })
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   useEffect(() => {
     let ticking = false
@@ -29,9 +16,10 @@ export const KineticScrollbar: React.FC = () => {
           if (totalHeight > 0) {
             const current = Math.min(1, Math.max(0, window.scrollY / totalHeight))
             setScrollProgress(current)
-            progressSpring.set(current)
-            thumbSpring.set(current * (176 - 24))
-            setIsVisible(window.scrollY > 80)
+            setShowBackToTop(window.scrollY > 400)
+          } else {
+            setScrollProgress(0)
+            setShowBackToTop(false)
           }
           ticking = false
         })
@@ -43,85 +31,45 @@ export const KineticScrollbar: React.FC = () => {
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [progressSpring, thumbSpring])
+  }, [])
 
   const scrollToTop = () => {
-    if (typeof (window as any).__lenis?.scrollTo === 'function') {
-      ;(window as any).__lenis.scrollTo(0, { duration: 0.9 })
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
-  const handleRailClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!railRef.current) return
-    const rect = railRef.current.getBoundingClientRect()
-    const clickY = e.clientY - rect.top
-    const ratio = Math.max(0, Math.min(1, clickY / rect.height))
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-    const targetY = ratio * totalHeight
-    if (typeof (window as any).__lenis?.scrollTo === 'function') {
-      ;(window as any).__lenis.scrollTo(targetY, { duration: 0.8 })
-    } else {
-      window.scrollTo({ top: targetY, behavior: 'smooth' })
-    }
-  }
-
-  const percent = Math.round(scrollProgress * 100)
 
   return (
     <>
-      {/* 1. Razor-thin Top Luminous Gradient Progress Line */}
+      {/* 1. Razor-thin Top Luminous Gradient Progress Line (Instant 1:1 hardware response, no lag) */}
       <div className="fixed top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none bg-zinc-200/40 dark:bg-white/5">
-        <motion.div
-          className="h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 shadow-[0_0_10px_rgba(56,189,248,0.5)] origin-left"
-          style={{ scaleX: progressSpring }}
+        <div
+          className="h-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 shadow-[0_0_10px_rgba(56,189,248,0.5)] origin-left transition-transform duration-75 ease-out"
+          style={{ transform: `scaleX(${scrollProgress})` }}
         />
       </div>
 
-      {/* 2. Floating Right-Edge Slow-Motion Kinetic Rail HUD */}
-      <div 
-        className={`fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center gap-3 transition-opacity duration-300 ${
-          isVisible ? 'opacity-100' : 'opacity-30 hover:opacity-100'
-        }`}
-      >
-        {/* Scroll percentage badge */}
-        <div className="px-2 py-0.5 rounded-full border border-zinc-200/80 dark:border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md text-[9px] font-mono text-zinc-600 dark:text-zinc-400 shadow-xs">
-          {percent}%
-        </div>
-
-        {/* Slow-motion Rail Track */}
-        <div
-          ref={railRef}
-          onClick={handleRailClick}
-          className="group relative w-2 h-44 rounded-full border border-zinc-200/90 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-md cursor-pointer overflow-hidden p-0.5 transition-all hover:w-2.5"
-          title="Click to jump along page"
-        >
-          {/* Subtle track markers */}
-          <div className="absolute inset-x-0 top-1/4 h-[1px] bg-zinc-300 dark:bg-white/10 pointer-events-none" />
-          <div className="absolute inset-x-0 top-2/4 h-[1px] bg-zinc-300 dark:bg-white/10 pointer-events-none" />
-          <div className="absolute inset-x-0 top-3/4 h-[1px] bg-zinc-300 dark:bg-white/10 pointer-events-none" />
-
-          {/* Glowing Slow-Motion Floating Thumb */}
+      {/* 2. Sleek Floating Back-to-Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
           <motion.div
-            className="w-full rounded-full bg-gradient-to-b from-indigo-500 via-cyan-400 to-emerald-400 shadow-[0_0_12px_rgba(99,102,241,0.8)]"
-            style={{
-              height: '24px',
-              y: thumbSpring,
-            }}
-          />
-        </div>
-
-        {/* Scroll To Top Button */}
-        <button
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
-          className="flex h-7 w-7 items-center justify-center rounded-full border border-zinc-200/80 dark:border-white/10 bg-white/90 dark:bg-zinc-950/90 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-white/25 shadow-xs backdrop-blur-md transition-all cursor-pointer hover:scale-105 active:scale-95"
-          title="Back to Top"
-        >
-          <ArrowUp size={12} weight="bold" />
-        </button>
-      </div>
+            initial={{ opacity: 0, y: 16, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-6 right-6 z-40"
+          >
+            <button
+              onClick={scrollToTop}
+              aria-label="Scroll back to top"
+              title="Back to Top"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-zinc-200/90 dark:border-white/15 bg-white/95 dark:bg-zinc-900/95 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-300 dark:hover:border-white/30 shadow-lg dark:shadow-2xl dark:shadow-black/60 backdrop-blur-md transition-all cursor-pointer hover:scale-105 active:scale-95 group text-xs font-mono font-medium"
+            >
+              <ArrowUp size={14} weight="bold" className="transition-transform group-hover:-translate-y-0.5" />
+              <span className="hidden sm:inline">Top</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
+

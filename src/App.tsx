@@ -14,7 +14,7 @@ import { Footer } from './components/Footer'
 
 export const AppContent: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#050505] text-zinc-900 dark:text-[#ededed] antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-12">
+    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#050505] text-zinc-900 dark:text-[#ededed] antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-12 overflow-x-clip">
       {/* Cool Slow-Motion Kinetic Scroll Progress Bar & Floating Rail */}
       <KineticScrollbar />
 
