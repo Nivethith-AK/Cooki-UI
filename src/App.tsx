@@ -10,12 +10,11 @@ import { ComponentGrid } from './components/store/ComponentGrid'
 import { ComponentDetailModal } from './components/store/ComponentDetailModal'
 import { GlobalCommandPalette } from './components/store/GlobalCommandPalette'
 import { InstallGuideModal } from './components/store/InstallGuideModal'
-import { StoreDock } from './components/store/StoreDock'
 import { Footer } from './components/Footer'
 
 export const AppContent: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#050505] text-zinc-900 dark:text-[#ededed] antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-28">
+    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#050505] text-zinc-900 dark:text-[#ededed] antialiased selection:bg-neutral-800 selection:text-white transition-colors duration-200 pb-12">
       {/* Cool Slow-Motion Kinetic Scroll Progress Bar & Floating Rail */}
       <KineticScrollbar />
 
@@ -44,9 +43,6 @@ export const AppContent: React.FC = () => {
 
       {/* Terminal Installation & AI Agent MCP Connection Guide Modal */}
       <InstallGuideModal />
-
-      {/* Signature Persistent Control Dock */}
-      <StoreDock />
 
       {/* Footer */}
       <Footer />
