@@ -1,0 +1,11 @@
+# https://cooki-ui.vercel.app/robots.txt
+User-agent: *
+Allow: /
+
+# Canonical Sitemaps & Manifests
+Sitemap: https://cooki-ui.vercel.app/sitemap.xml
+
+# AI Agent Protocols
+# Manifest: https://cooki-ui.vercel.app/llms.txt
+# Catalog: https://cooki-ui.vercel.app/llms-full.txt
+# API: https://cooki-ui.vercel.app/r/index.json

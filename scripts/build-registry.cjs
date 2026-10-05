@@ -74,4 +74,7 @@ require('./sync-component-sources.cjs')
 // Regenerate AI documentation
 require('./generate-ai-docs.cjs')
 
+// Generate sitemap.xml
+require('./generate-sitemap.cjs')
+
 console.log(`Successfully built registry API with ${registryItems.length} endpoints in public/r/ and root registry.json!`)
