@@ -232,7 +232,6 @@ export const GlobalCommandPalette: React.FC = () => {
             <div 
               ref={listRef} 
               data-lenis-prevent="true"
-              onWheel={(e) => e.stopPropagation()}
               className="max-h-[360px] overflow-y-auto modal-scroll p-2 space-y-1"
             >
               <div className="px-2 py-1 text-[11px] font-mono uppercase tracking-wider text-zinc-400 flex items-center justify-between">

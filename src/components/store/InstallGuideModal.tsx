@@ -171,7 +171,6 @@ export const InstallGuideModal: React.FC = () => {
             {/* Scrollable Modal Body */}
             <div 
               data-lenis-prevent="true"
-              onWheel={(e) => e.stopPropagation()}
               className="flex-1 min-h-0 overflow-y-auto modal-scroll p-6 space-y-6"
             >
               {/* TAB 1: TERMINAL & CLI INSTALLATION */}

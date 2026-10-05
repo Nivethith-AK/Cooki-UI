@@ -67,7 +67,6 @@ export const CodeViewer: React.FC<CodeViewerProps> = ({ files, usage }) => {
       {/* Code Body with Line Numbers */}
       <div 
         data-lenis-prevent="true"
-        onWheel={(e) => e.stopPropagation()}
         className="max-h-[380px] overflow-auto modal-scroll p-4 flex gap-4 text-zinc-300 leading-relaxed"
       >
         <div className="select-none text-zinc-600 text-right pr-2 border-r border-white/5 font-mono text-[11px]">

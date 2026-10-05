@@ -282,7 +282,7 @@ export const ComponentDetailModal: React.FC = () => {
                         : 'min-h-[340px]'
                     } w-full flex ${
                       selectedComponent.category === 'sections' ? 'items-start' : 'items-center'
-                    } justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-auto modal-scroll shadow-inner transition-all`}
+                    } justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-x-auto overflow-y-visible shadow-inner transition-all`}
                   >
                     <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
                     <div className={`relative isolate z-10 w-full flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 ${
@@ -613,7 +613,6 @@ export const ComponentDetailModal: React.FC = () => {
                     <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-2 font-mono">REGISTRY SCHEMA PAYLOAD</h4>
                     <div 
                       data-lenis-prevent="true"
-                      onWheel={(e) => e.stopPropagation()}
                       className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/90 p-4 font-mono text-xs text-zinc-200 dark:text-zinc-300 max-h-[260px] overflow-auto modal-scroll"
                     >
                       <pre className="text-zinc-300 dark:text-zinc-400">

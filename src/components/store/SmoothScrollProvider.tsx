@@ -15,19 +15,15 @@ export const SmoothScrollProvider: React.FC<{ children: React.ReactNode }> = ({ 
       wheelMultiplier: 1.0,
       touchMultiplier: 1.2,
       infinite: false,
+      allowNestedScroll: true,
       prevent: (node: HTMLElement) => {
-        // ALWAYS allow scrolling when hovering anywhere on component cards, catalogue items, or main page
-        if (node.closest('.component-grid-card, .component-card-canvas, #component-catalogue, main')) {
-          return false
-        }
-        // Only prevent Lenis if an active modal or drawer with its own scrollbar is open
         const isModalOpen =
           document.body.style.overflow === 'hidden' ||
           document.documentElement.style.overflow === 'hidden'
 
         if (!isModalOpen) return false
 
-        return node.hasAttribute('data-lenis-prevent') || !!node.closest('[data-lenis-prevent]')
+        return Boolean(node?.hasAttribute?.('data-lenis-prevent') || node?.closest?.('[data-lenis-prevent]'))
       },
     })
 

@@ -210,7 +210,7 @@ export const SidebarFilters: React.FC = () => {
     <>
       {/* Desktop Sidebar */}
       <aside className="hidden lg:block w-64 shrink-0 pr-4">
-        <div className="sticky top-28 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/80 dark:bg-zinc-950/70 p-5 backdrop-blur-xl shadow-sm dark:shadow-xl transition-colors">
+        <div className="sticky top-28 max-h-[calc(100vh-8.5rem)] overflow-y-auto modal-scroll rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/80 dark:bg-zinc-950/70 p-5 backdrop-blur-xl shadow-sm dark:shadow-xl transition-colors">
           {sidebarContent}
         </div>
       </aside>
