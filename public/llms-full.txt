@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-13T06:05:00.883Z
-Components in Registry: 125
+Generated: 2026-10-13T06:21:21.235Z
+Components in Registry: 128
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -214,6 +214,25 @@ import { AiVoiceWaveform } from "@/components/ui/ai-voice-waveform"
 
 export default function Example() {
   return <AiVoiceWaveform />
+}
+```
+
+---
+
+### Elastic Kinetic Toggle (`elastic-kinetic-toggle`)
+- **Category**: animations
+- **Description**: Physics-driven elastic switch with gooey spring overshoot, tactile snap feedback, and responsive state indicators.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/elastic-kinetic-toggle.json`
+- **CLI Command**: `npx cooki-ui add elastic-kinetic-toggle` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/elastic-kinetic-toggle.json`
+
+#### Installation & Usage
+```tsx
+import { ElasticKineticToggle } from "@/components/ui/elastic-kinetic-toggle"
+
+export default function Example() {
+  return <ElasticKineticToggle />
 }
 ```
 
@@ -898,6 +917,25 @@ import { FluidParticleCursor } from "@/components/ui/fluid-particle-cursor"
 
 export default function Example() {
   return <FluidParticleCursor />
+}
+```
+
+---
+
+### Interactive HUD Cursor (`interactive-hud-cursor`)
+- **Category**: cursors
+- **Description**: Sci-fi tactical targeting reticle cursor with spring-damped tracking, coordinate readouts, lock-on brackets, and interactive pulse click physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-hud-cursor.json`
+- **CLI Command**: `npx cooki-ui add interactive-hud-cursor` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-hud-cursor.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveHudCursor } from "@/components/ui/interactive-hud-cursor"
+
+export default function Example() {
+  return <InteractiveHudCursor />
 }
 ```
 
@@ -1924,6 +1962,25 @@ import { ContextActionMenu } from "@/components/ui/context-action-menu"
 
 export default function Example() {
   return <ContextActionMenu />
+}
+```
+
+---
+
+### Glassmorphic Command HUD (`glassmorphic-command-hud`)
+- **Category**: overlays
+- **Description**: Modern floating spotlight palette with fuzzy search filter, keyboard shortcut triggers, category tags, and frosted dark glass backdrop.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/glassmorphic-command-hud.json`
+- **CLI Command**: `npx cooki-ui add glassmorphic-command-hud` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/glassmorphic-command-hud.json`
+
+#### Installation & Usage
+```tsx
+import { GlassmorphicCommandHud } from "@/components/ui/glassmorphic-command-hud"
+
+export default function Example() {
+  return <GlassmorphicCommandHud />
 }
 ```
 

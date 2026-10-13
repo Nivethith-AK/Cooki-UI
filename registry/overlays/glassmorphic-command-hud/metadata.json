@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "glassmorphic-command-hud",
+  "type": "registry:ui",
+  "title": "Glassmorphic Command HUD",
+  "description": "Modern floating spotlight palette with fuzzy search filter, keyboard shortcut triggers, category tags, and frosted dark glass backdrop.",
+  "category": "overlays",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/overlays/glassmorphic-command-hud/glassmorphic-command-hud.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glassmorphic-command-hud.tsx"
+    }
+  ]
+}

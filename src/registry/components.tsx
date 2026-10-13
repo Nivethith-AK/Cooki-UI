@@ -152,6 +152,9 @@ import { AiVoiceWaveform } from '../components/library/ai/AiVoiceWaveform'
 import { RadarPingBeacon } from '../components/library/animations/RadarPingBeacon'
 import { InteractiveFeatureCarousel } from '../components/library/layout/InteractiveFeatureCarousel'
 import { TerminalDiffBlock } from '../components/library/sections/TerminalDiffBlock'
+import { InteractiveHudCursor } from '../components/library/cursors/InteractiveHudCursor'
+import { ElasticKineticToggle } from '../components/library/animations/ElasticKineticToggle'
+import { GlassmorphicCommandHud } from '../components/library/overlays/GlassmorphicCommandHud'
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
   // 1. Magnetic Dock (Componentry)
@@ -4282,6 +4285,153 @@ export function ReleaseNotesDiff() {
         name: 'terminal-diff-block.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['terminal-diff-block'] || ''
+      }
+    ]
+  },
+
+  // 126. Interactive HUD Cursor
+  {
+    id: 'interactive-hud-cursor',
+    name: 'Interactive HUD Cursor',
+    slug: 'interactive-hud-cursor',
+    category: 'cursors',
+    subcategory: 'Custom Cursors',
+    description: 'Sci-fi tactical targeting reticle cursor with spring-damped tracking, coordinate readouts, lock-on brackets, and interactive pulse click physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'reticle-cursor'],
+    tags: ['cursor', 'hud', 'reticle', 'target', 'scifi', 'tactical', 'crosshair', 'motion'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add interactive-hud-cursor',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'cyan', options: ['cyan', 'emerald', 'amber', 'rose'] },
+      { name: 'showCoordinates', type: 'boolean', label: 'Show Coordinates', defaultValue: true },
+      { name: 'reticleSize', type: 'number', label: 'Reticle Size (px)', min: 40, max: 80, step: 4, defaultValue: 56 },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full max-w-lg p-2">
+        <InteractiveHudCursor
+          colorTheme={controls?.colorTheme || 'cyan'}
+          showCoordinates={controls?.showCoordinates ?? true}
+          reticleSize={controls?.reticleSize || 56}
+        />
+      </div>
+    ),
+    usage: `import { InteractiveHudCursor } from "@/components/ui/interactive-hud-cursor"
+
+export function TacticalReticlePreview() {
+  return (
+    <InteractiveHudCursor 
+      colorTheme="cyan"
+      showCoordinates={true}
+      reticleSize={56}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'interactive-hud-cursor.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-hud-cursor'] || ''
+      }
+    ]
+  },
+
+  // 127. Elastic Kinetic Toggle
+  {
+    id: 'elastic-kinetic-toggle',
+    name: 'Elastic Kinetic Toggle',
+    slug: 'elastic-kinetic-toggle',
+    category: 'animations',
+    subcategory: 'Kinetic Motion',
+    description: 'Physics-driven elastic switch with gooey spring overshoot, tactile snap feedback, and responsive state indicators.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'spring-physics'],
+    tags: ['toggle', 'switch', 'elastic', 'spring', 'physics', 'kinetic', 'interactive'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add elastic-kinetic-toggle',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'colorTheme', type: 'select', label: 'Theme', defaultValue: 'emerald', options: ['emerald', 'indigo', 'rose', 'amber'] },
+      { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+      { name: 'label', type: 'text', label: 'Label', defaultValue: 'Kinetic State' },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full p-6 flex items-center justify-center">
+        <ElasticKineticToggle
+          colorTheme={controls?.colorTheme || 'emerald'}
+          size={controls?.size || 'md'}
+          label={controls?.label || 'Kinetic State'}
+        />
+      </div>
+    ),
+    usage: `import { ElasticKineticToggle } from "@/components/ui/elastic-kinetic-toggle"
+
+export function PowerStateSwitch() {
+  return (
+    <ElasticKineticToggle 
+      colorTheme="emerald"
+      size="md"
+      label="Reactor Core"
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'elastic-kinetic-toggle.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['elastic-kinetic-toggle'] || ''
+      }
+    ]
+  },
+
+  // 128. Glassmorphic Command HUD
+  {
+    id: 'glassmorphic-command-hud',
+    name: 'Glassmorphic Command HUD',
+    slug: 'glassmorphic-command-hud',
+    category: 'overlays',
+    subcategory: 'Command Menus',
+    description: 'Modern floating spotlight palette with fuzzy search filter, keyboard shortcut triggers, category tags, and frosted dark glass backdrop.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'command-palette'],
+    tags: ['command', 'palette', 'spotlight', 'hud', 'search', 'overlay', 'shortcuts', 'modal'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add glassmorphic-command-hud',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'placeholder', type: 'text', label: 'Search Placeholder', defaultValue: 'Type a command or search action...' },
+      { name: 'maxResults', type: 'number', label: 'Max Results', min: 3, max: 6, step: 1, defaultValue: 5 },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full max-w-lg p-2">
+        <GlassmorphicCommandHud
+          placeholder={controls?.placeholder || 'Type a command or search action...'}
+          maxResults={controls?.maxResults || 5}
+        />
+      </div>
+    ),
+    usage: `import { GlassmorphicCommandHud } from "@/components/ui/glassmorphic-command-hud"
+
+export function SpotlightCommandTrigger() {
+  return (
+    <GlassmorphicCommandHud 
+      placeholder="Type a command or action..."
+      maxResults={5}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'glassmorphic-command-hud.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['glassmorphic-command-hud'] || ''
       }
     ]
   },

@@ -192,6 +192,24 @@
       ]
     },
     {
+      "name": "elastic-kinetic-toggle",
+      "type": "registry:ui",
+      "title": "Elastic Kinetic Toggle",
+      "description": "Physics-driven elastic switch with gooey spring overshoot, tactile snap feedback, and responsive state indicators.",
+      "category": "animations",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/animations/elastic-kinetic-toggle/elastic-kinetic-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/elastic-kinetic-toggle.tsx"
+        }
+      ]
+    },
+    {
       "name": "radar-ping-beacon",
       "type": "registry:ui",
       "title": "Radar Ping Beacon",
@@ -792,6 +810,24 @@
           "path": "registry/cursors/fluid-particle-cursor/fluid-particle-cursor.tsx",
           "type": "registry:ui",
           "target": "components/ui/fluid-particle-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-hud-cursor",
+      "type": "registry:ui",
+      "title": "Interactive HUD Cursor",
+      "description": "Sci-fi tactical targeting reticle cursor with spring-damped tracking, coordinate readouts, lock-on brackets, and interactive pulse click physics.",
+      "category": "cursors",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cursors/interactive-hud-cursor/interactive-hud-cursor.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-hud-cursor.tsx"
         }
       ]
     },
@@ -1727,6 +1763,24 @@
           "path": "registry/overlays/context-action-menu/context-action-menu.tsx",
           "type": "registry:ui",
           "target": "components/ui/context-action-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glassmorphic-command-hud",
+      "type": "registry:ui",
+      "title": "Glassmorphic Command HUD",
+      "description": "Modern floating spotlight palette with fuzzy search filter, keyboard shortcut triggers, category tags, and frosted dark glass backdrop.",
+      "category": "overlays",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/overlays/glassmorphic-command-hud/glassmorphic-command-hud.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glassmorphic-command-hud.tsx"
         }
       ]
     },

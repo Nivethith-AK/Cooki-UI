@@ -79,6 +79,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cooki-ui.vercel.app/r/elastic-kinetic-toggle.json</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cooki-ui.vercel.app/r/radar-ping-beacon.json</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -290,6 +296,12 @@
   </url>
   <url>
     <loc>https://cooki-ui.vercel.app/r/fluid-particle-cursor.json</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cooki-ui.vercel.app/r/interactive-hud-cursor.json</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -614,6 +626,12 @@
   </url>
   <url>
     <loc>https://cooki-ui.vercel.app/r/context-action-menu.json</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cooki-ui.vercel.app/r/glassmorphic-command-hud.json</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

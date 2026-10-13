@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "interactive-hud-cursor",
+  "type": "registry:ui",
+  "title": "Interactive HUD Cursor",
+  "description": "Sci-fi tactical targeting reticle cursor with spring-damped tracking, coordinate readouts, lock-on brackets, and interactive pulse click physics.",
+  "category": "cursors",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cursors/interactive-hud-cursor/interactive-hud-cursor.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-hud-cursor.tsx"
+    }
+  ]
+}

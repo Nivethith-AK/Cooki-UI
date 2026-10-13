@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "elastic-kinetic-toggle",
+  "type": "registry:ui",
+  "title": "Elastic Kinetic Toggle",
+  "description": "Physics-driven elastic switch with gooey spring overshoot, tactile snap feedback, and responsive state indicators.",
+  "category": "animations",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/animations/elastic-kinetic-toggle/elastic-kinetic-toggle.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/elastic-kinetic-toggle.tsx"
+    }
+  ]
+}
