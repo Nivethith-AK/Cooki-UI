@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "radar-ping-beacon",
+  "type": "registry:ui",
+  "title": "Radar Ping Beacon",
+  "description": "Atmospheric tactical radar sweep with concentric sonar ripples, interactive target blips, azimuth telemetry, and ping impulse physics.",
+  "category": "animations",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/animations/radar-ping-beacon/radar-ping-beacon.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/radar-ping-beacon.tsx"
+    }
+  ]
+}

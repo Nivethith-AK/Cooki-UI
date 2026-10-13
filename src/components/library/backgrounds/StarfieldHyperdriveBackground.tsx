@@ -57,6 +57,17 @@ export const StarfieldHyperdriveBackground: React.FC = () => {
 
     animId = requestAnimationFrame(render);
 
+    const handleResize = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+    };
+    handleResize();
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(canvas);
+
     const observer = new IntersectionObserver(([entry]) => {
       const wasVisible = isVisible;
       isVisible = entry.isIntersecting;
@@ -69,12 +80,13 @@ export const StarfieldHyperdriveBackground: React.FC = () => {
     return () => {
       cancelAnimationFrame(animId);
       observer.disconnect();
+      resizeObserver.disconnect();
     };
   }, []);
 
   return (
     <div className="relative w-full h-56 rounded-2xl overflow-hidden bg-black border border-white/10 flex items-center justify-center">
-      <canvas ref={canvasRef} width={500} height={224} className="w-full h-full" />
+      <canvas ref={canvasRef} className="w-full h-full" />
       <span className="absolute z-10 px-3 py-1 rounded-full bg-zinc-900/80 text-white text-[10px] font-mono border border-white/10 backdrop-blur-md">
         WARP FACTOR 9.2
       </span>

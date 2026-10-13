@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-05T08:40:58.565Z
-Components in Registry: 121
+Generated: 2026-10-13T06:05:00.883Z
+Components in Registry: 125
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -195,6 +195,44 @@ import { AiTokenCostMeter } from "@/components/ui/ai-token-cost-meter"
 
 export default function Example() {
   return <AiTokenCostMeter />
+}
+```
+
+---
+
+### AI Voice Waveform (`ai-voice-waveform`)
+- **Category**: ai
+- **Description**: Interactive real-time audio waveform visualizer for conversational AI agents with pulsating aura, live frequency spectrum, and listening states.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-voice-waveform.json`
+- **CLI Command**: `npx cooki-ui add ai-voice-waveform` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-voice-waveform.json`
+
+#### Installation & Usage
+```tsx
+import { AiVoiceWaveform } from "@/components/ui/ai-voice-waveform"
+
+export default function Example() {
+  return <AiVoiceWaveform />
+}
+```
+
+---
+
+### Radar Ping Beacon (`radar-ping-beacon`)
+- **Category**: animations
+- **Description**: Atmospheric tactical radar sweep with concentric sonar ripples, interactive target blips, azimuth telemetry, and ping impulse physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/radar-ping-beacon.json`
+- **CLI Command**: `npx cooki-ui add radar-ping-beacon` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/radar-ping-beacon.json`
+
+#### Installation & Usage
+```tsx
+import { RadarPingBeacon } from "@/components/ui/radar-ping-beacon"
+
+export default function Example() {
+  return <RadarPingBeacon />
 }
 ```
 
@@ -1568,6 +1606,25 @@ export default function Example() {
 
 ---
 
+### Interactive Feature Carousel (`interactive-feature-carousel`)
+- **Category**: layout
+- **Description**: 3D perspective feature deck with depth blur, interactive drag/swipe navigation, pagination pills, and keyboard traversal.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/interactive-feature-carousel.json`
+- **CLI Command**: `npx cooki-ui add interactive-feature-carousel` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-feature-carousel.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveFeatureCarousel } from "@/components/ui/interactive-feature-carousel"
+
+export default function Example() {
+  return <InteractiveFeatureCarousel />
+}
+```
+
+---
+
 ### Image Compare Lens (`interactive-image-compare-lens`)
 - **Category**: layout
 - **Description**: Split-screen before and after comparison slider with interactive dragger handle and visual contrast.
@@ -2095,6 +2152,25 @@ import { StatsCounterStripBlock } from "@/components/ui/stats-counter-strip-bloc
 
 export default function Example() {
   return <StatsCounterStripBlock />
+}
+```
+
+---
+
+### Terminal Diff Block (`terminal-diff-block`)
+- **Category**: sections
+- **Description**: Ultra-crisp Git diff code viewer with split and unified view toggle, line addition/deletion badges, hunk headers, and clipboard copy.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/terminal-diff-block.json`
+- **CLI Command**: `npx cooki-ui add terminal-diff-block` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/terminal-diff-block.json`
+
+#### Installation & Usage
+```tsx
+import { TerminalDiffBlock } from "@/components/ui/terminal-diff-block"
+
+export default function Example() {
+  return <TerminalDiffBlock />
 }
 ```
 

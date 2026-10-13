@@ -148,6 +148,10 @@ import { KineticTextMarquee } from '../components/library/text/KineticTextMarque
 import { HolographicPricingTable } from '../components/library/sections/HolographicPricingTable'
 import { InteractiveWorkflowPipeline } from '../components/library/sections/InteractiveWorkflowPipeline'
 import { FluidLiquidButton } from '../components/library/buttons/FluidLiquidButton'
+import { AiVoiceWaveform } from '../components/library/ai/AiVoiceWaveform'
+import { RadarPingBeacon } from '../components/library/animations/RadarPingBeacon'
+import { InteractiveFeatureCarousel } from '../components/library/layout/InteractiveFeatureCarousel'
+import { TerminalDiffBlock } from '../components/library/sections/TerminalDiffBlock'
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
   // 1. Magnetic Dock (Componentry)
@@ -4078,6 +4082,206 @@ export function ComboboxBasic() {
         name: 'combobox.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['combobox'] || ''
+      }
+    ]
+  },
+
+  // 122. AI Voice Waveform
+  {
+    id: 'ai-voice-waveform',
+    name: 'AI Voice Waveform',
+    slug: 'ai-voice-waveform',
+    category: 'ai',
+    subcategory: 'Audio & Speech',
+    description: 'Interactive real-time audio waveform visualizer for conversational AI agents with pulsating aura, live frequency spectrum, and listening states.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'clsx', 'tailwind-merge'],
+    tags: ['ai', 'voice', 'waveform', 'audio', 'speech', 'spectrum', 'visualizer', 'sound'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-voice-waveform',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'state', type: 'select', label: 'Audio State', defaultValue: 'listening', options: ['listening', 'speaking', 'idle'] },
+      { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'cyan', options: ['cyan', 'emerald', 'violet', 'amber'] },
+      { name: 'barCount', type: 'number', label: 'Bar Count', min: 12, max: 36, step: 2, defaultValue: 24 },
+      { name: 'active', type: 'boolean', label: 'Engine Active', defaultValue: true },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full max-w-lg p-2">
+        <AiVoiceWaveform
+          state={controls?.state || 'listening'}
+          colorTheme={controls?.colorTheme || 'cyan'}
+          barCount={controls?.barCount || 24}
+          active={controls?.active ?? true}
+        />
+      </div>
+    ),
+    usage: `import { AiVoiceWaveform } from "@/components/ui/ai-voice-waveform"
+
+export function VoiceAssistantWidget() {
+  return (
+    <AiVoiceWaveform 
+      state="listening"
+      colorTheme="cyan"
+      barCount={24}
+      active={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'ai-voice-waveform.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-voice-waveform'] || ''
+      }
+    ]
+  },
+
+  // 123. Radar Ping Beacon
+  {
+    id: 'radar-ping-beacon',
+    name: 'Radar Ping Beacon',
+    slug: 'radar-ping-beacon',
+    category: 'animations',
+    subcategory: 'Radar & Sensor',
+    description: 'Atmospheric tactical radar sweep with concentric sonar ripples, interactive target blips, azimuth telemetry, and ping impulse physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'tactical-hud'],
+    tags: ['radar', 'sonar', 'ping', 'beacon', 'hud', 'telemetry', 'sweep', 'sensor', 'tactical'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add radar-ping-beacon',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'sweepSpeed', type: 'number', label: 'Sweep Speed (s)', min: 1, max: 6, step: 0.5, defaultValue: 2.5 },
+      { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'emerald', options: ['emerald', 'cyan', 'amber'] },
+      { name: 'interactive', type: 'boolean', label: 'Interactive Pings', defaultValue: true },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full max-w-md p-2">
+        <RadarPingBeacon
+          sweepSpeed={controls?.sweepSpeed || 2.5}
+          colorTheme={controls?.colorTheme || 'emerald'}
+          interactive={controls?.interactive ?? true}
+        />
+      </div>
+    ),
+    usage: `import { RadarPingBeacon } from "@/components/ui/radar-ping-beacon"
+
+export function DefenseTelemetryRadar() {
+  return (
+    <RadarPingBeacon 
+      sweepSpeed={2.5}
+      colorTheme="emerald"
+      interactive={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'radar-ping-beacon.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['radar-ping-beacon'] || ''
+      }
+    ]
+  },
+
+  // 124. Interactive Feature Carousel
+  {
+    id: 'interactive-feature-carousel',
+    name: 'Interactive Feature Carousel',
+    slug: 'interactive-feature-carousel',
+    category: 'layout',
+    subcategory: 'Carousels & Sliders',
+    description: '3D perspective feature deck with depth blur, interactive drag/swipe navigation, pagination pills, and keyboard traversal.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'perspective-deck'],
+    tags: ['carousel', 'slider', '3d', 'features', 'cards', 'perspective', 'coverflow'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add interactive-feature-carousel',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'autoplay', type: 'boolean', label: 'Autoplay Deck', defaultValue: false },
+      { name: 'autoplayInterval', type: 'number', label: 'Interval (ms)', min: 2000, max: 8000, step: 500, defaultValue: 4500 },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full p-2">
+        <InteractiveFeatureCarousel
+          autoplay={controls?.autoplay ?? false}
+          autoplayInterval={controls?.autoplayInterval || 4500}
+        />
+      </div>
+    ),
+    usage: `import { InteractiveFeatureCarousel } from "@/components/ui/interactive-feature-carousel"
+
+export function ShowcaseSection() {
+  return (
+    <InteractiveFeatureCarousel 
+      autoplay={true}
+      autoplayInterval={4500}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'interactive-feature-carousel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-feature-carousel'] || ''
+      }
+    ]
+  },
+
+  // 125. Terminal Diff Block
+  {
+    id: 'terminal-diff-block',
+    name: 'Terminal Diff Block',
+    slug: 'terminal-diff-block',
+    category: 'sections',
+    subcategory: 'Code & Development',
+    description: 'Ultra-crisp Git diff code viewer with split and unified view toggle, line addition/deletion badges, hunk headers, and clipboard copy.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['@phosphor-icons/react', 'git-diff'],
+    tags: ['diff', 'git', 'terminal', 'code', 'commit', 'patch', 'review', 'codeblock'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add terminal-diff-block',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-13',
+    controls: [
+      { name: 'initialMode', type: 'select', label: 'Diff View Mode', defaultValue: 'unified', options: ['unified', 'split'] },
+      { name: 'filePath', type: 'text', label: 'File Path', defaultValue: 'src/hooks/use-agent-stream.ts' },
+      { name: 'branch', type: 'text', label: 'Branch Name', defaultValue: 'main' },
+    ],
+    renderPreview: (controls) => (
+      <div className="w-full max-w-3xl p-2">
+        <TerminalDiffBlock
+          initialMode={controls?.initialMode || 'unified'}
+          filePath={controls?.filePath || 'src/hooks/use-agent-stream.ts'}
+          branch={controls?.branch || 'main'}
+        />
+      </div>
+    ),
+    usage: `import { TerminalDiffBlock } from "@/components/ui/terminal-diff-block"
+
+export function ReleaseNotesDiff() {
+  return (
+    <TerminalDiffBlock 
+      filePath="src/hooks/use-agent-stream.ts"
+      branch="main"
+      initialMode="unified"
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'terminal-diff-block.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['terminal-diff-block'] || ''
       }
     ]
   },

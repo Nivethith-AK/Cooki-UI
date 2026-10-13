@@ -53,6 +53,17 @@ export const QuantumFieldBackground: React.FC = () => {
 
     animId = requestAnimationFrame(render);
 
+    const handleResize = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+    };
+    handleResize();
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(canvas);
+
     const observer = new IntersectionObserver(([entry]) => {
       const wasVisible = isVisible;
       isVisible = entry.isIntersecting;
@@ -65,12 +76,13 @@ export const QuantumFieldBackground: React.FC = () => {
     return () => {
       cancelAnimationFrame(animId);
       observer.disconnect();
+      resizeObserver.disconnect();
     };
   }, []);
 
   return (
     <div className="relative w-full h-44 rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-[#09090f] flex items-center justify-center">
-      <canvas ref={canvasRef} width={320} height={176} className="absolute inset-0 w-full h-full" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       <span className="relative z-10 text-xs font-mono font-bold tracking-widest text-indigo-300">
         QUANTUM CONSTELLATION
       </span>

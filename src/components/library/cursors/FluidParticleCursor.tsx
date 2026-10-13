@@ -65,7 +65,23 @@ export const FluidParticleCursor: React.FC = () => {
   };
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const handleResize = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+    };
+
+    handleResize();
+    const observer = new ResizeObserver(handleResize);
+    observer.observe(canvas);
+
     return () => {
+      observer.disconnect();
       if (animIdRef.current) {
         cancelAnimationFrame(animIdRef.current);
       }
@@ -106,8 +122,6 @@ export const FluidParticleCursor: React.FC = () => {
       </div>
       <canvas
         ref={canvasRef}
-        width={500}
-        height={256}
         onMouseMove={handleMouseMove}
         className="w-full h-full cursor-crosshair"
       />

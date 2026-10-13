@@ -1,0 +1,18 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "terminal-diff-block",
+  "type": "registry:ui",
+  "title": "Terminal Diff Block",
+  "description": "Ultra-crisp Git diff code viewer with split and unified view toggle, line addition/deletion badges, hunk headers, and clipboard copy.",
+  "category": "sections",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/sections/terminal-diff-block/terminal-diff-block.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/terminal-diff-block.tsx"
+    }
+  ]
+}

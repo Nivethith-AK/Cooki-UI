@@ -174,6 +174,42 @@
       ]
     },
     {
+      "name": "ai-voice-waveform",
+      "type": "registry:ui",
+      "title": "AI Voice Waveform",
+      "description": "Interactive real-time audio waveform visualizer for conversational AI agents with pulsating aura, live frequency spectrum, and listening states.",
+      "category": "ai",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/ai-voice-waveform/ai-voice-waveform.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ai-voice-waveform.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radar-ping-beacon",
+      "type": "registry:ui",
+      "title": "Radar Ping Beacon",
+      "description": "Atmospheric tactical radar sweep with concentric sonar ripples, interactive target blips, azimuth telemetry, and ping impulse physics.",
+      "category": "animations",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/animations/radar-ping-beacon/radar-ping-beacon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radar-ping-beacon.tsx"
+        }
+      ]
+    },
+    {
       "name": "wave-frequency-bars",
       "type": "registry:ui",
       "title": "Audio Frequency Spectrum Equalizer",
@@ -1394,6 +1430,24 @@
       ]
     },
     {
+      "name": "interactive-feature-carousel",
+      "type": "registry:ui",
+      "title": "Interactive Feature Carousel",
+      "description": "3D perspective feature deck with depth blur, interactive drag/swipe navigation, pagination pills, and keyboard traversal.",
+      "category": "layout",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/layout/interactive-feature-carousel/interactive-feature-carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-feature-carousel.tsx"
+        }
+      ]
+    },
+    {
       "name": "interactive-image-compare-lens",
       "type": "registry:ui",
       "title": "Image Compare Lens",
@@ -1886,6 +1940,23 @@
           "path": "registry/sections/stats-counter-strip-block/stats-counter-strip-block.tsx",
           "type": "registry:ui",
           "target": "components/ui/stats-counter-strip-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "terminal-diff-block",
+      "type": "registry:ui",
+      "title": "Terminal Diff Block",
+      "description": "Ultra-crisp Git diff code viewer with split and unified view toggle, line addition/deletion badges, hunk headers, and clipboard copy.",
+      "category": "sections",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/terminal-diff-block/terminal-diff-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/terminal-diff-block.tsx"
         }
       ]
     },

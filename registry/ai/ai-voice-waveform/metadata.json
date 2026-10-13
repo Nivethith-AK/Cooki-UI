@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "ai-voice-waveform",
+  "type": "registry:ui",
+  "title": "AI Voice Waveform",
+  "description": "Interactive real-time audio waveform visualizer for conversational AI agents with pulsating aura, live frequency spectrum, and listening states.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-voice-waveform/ai-voice-waveform.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-voice-waveform.tsx"
+    }
+  ]
+}

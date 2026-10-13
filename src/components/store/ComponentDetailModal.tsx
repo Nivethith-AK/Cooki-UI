@@ -67,7 +67,7 @@ export const ComponentDetailModal: React.FC = () => {
   const { selectedComponent, setSelectedComponent, favorites, toggleFavorite, setInstallGuideOpen } = useStore()
   const { isDark } = useTheme()
 
-  const [controlValues, setControlValues] = useState<Record<string, any>>({})
+  const [controlOverrides, setControlOverrides] = useState<Record<string, any>>({})
   const [copiedInstall, setCopiedInstall] = useState(false)
   const [copiedMcp, setCopiedMcp] = useState(false)
   const [pmTab, setPmTab] = useState<'npm' | 'pnpm' | 'bun' | 'yarn'>('npm')
@@ -100,19 +100,25 @@ export const ComponentDetailModal: React.FC = () => {
     }
   }, [selectedComponent])
 
+  // Reset tab and control overrides whenever component selection changes
   useEffect(() => {
-    if (selectedComponent?.controls) {
-      const initial: Record<string, any> = {}
-      selectedComponent.controls.forEach((c) => {
-        initial[c.name] = c.defaultValue
-      })
-      setControlValues(initial)
-    } else {
-      setControlValues({})
-    }
+    setControlOverrides({})
     setActiveTab('preview')
     setIsFullscreen(false)
-  }, [selectedComponent])
+  }, [selectedComponent?.id])
+
+  // Compute control values synchronously from defaults + active overrides
+  const controlValues = React.useMemo(() => {
+    const vals: Record<string, any> = {}
+    if (selectedComponent?.controls) {
+      for (const ctrl of selectedComponent.controls) {
+        vals[ctrl.name] = controlOverrides[ctrl.name] !== undefined 
+          ? controlOverrides[ctrl.name] 
+          : ctrl.defaultValue
+      }
+    }
+    return vals
+  }, [selectedComponent, controlOverrides])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -132,7 +138,11 @@ export const ComponentDetailModal: React.FC = () => {
   }
 
   const handleControlChange = (name: string, val: any) => {
-    setControlValues((prev) => ({ ...prev, [name]: val }))
+    setControlOverrides((prev) => ({ ...prev, [name]: val }))
+  }
+
+  const handleResetControls = () => {
+    setControlOverrides({})
   }
 
   return (
@@ -297,9 +307,19 @@ export const ComponentDetailModal: React.FC = () => {
                   {/* Customization Controls (If available) */}
                   {selectedComponent.controls && selectedComponent.controls.length > 0 && (
                     <div className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/50 p-4 sm:p-5 transition-colors">
-                      <div className="flex items-center gap-2 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400 mb-4 pb-2.5 border-b border-zinc-200/80 dark:border-white/5">
-                        <Sliders size={14} weight="bold" />
-                        <span>PLAYGROUND PARAMETERS</span>
+                      <div className="flex items-center justify-between text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400 mb-4 pb-2.5 border-b border-zinc-200/80 dark:border-white/5">
+                        <div className="flex items-center gap-2">
+                          <Sliders size={14} weight="bold" />
+                          <span>PLAYGROUND PARAMETERS</span>
+                        </div>
+                        <button
+                          onClick={handleResetControls}
+                          className="flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-[10px] font-mono font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                          title="Reset to default values"
+                        >
+                          <ArrowClockwise size={12} weight="bold" />
+                          <span>Reset</span>
+                        </button>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -428,33 +448,35 @@ export const ComponentDetailModal: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
-                      <span className="text-emerald-400 truncate mr-2">
-                        $ {
-                          pmTab === 'pnpm' 
-                            ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                            : pmTab === 'bun'
-                            ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                            : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                        }
-                      </span>
-                      <button
-                        onClick={() => {
-                          const cmd = pmTab === 'pnpm' 
-                            ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                            : pmTab === 'bun'
-                            ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                            : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                          navigator.clipboard.writeText(cmd)
-                          setCopiedInstall(true)
-                          setTimeout(() => setCopiedInstall(false), 2000)
-                        }}
-                        className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
-                      >
-                        {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-                        <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
-                      </button>
-                    </div>
+                    {(() => {
+                      const installCmd = 
+                        pmTab === 'pnpm'
+                          ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          : pmTab === 'bun'
+                          ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          : pmTab === 'yarn'
+                          ? `yarn dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+
+                      return (
+                        <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
+                          <span className="text-emerald-400 truncate mr-2">
+                            $ {installCmd}
+                          </span>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText(installCmd)
+                              setCopiedInstall(true)
+                              setTimeout(() => setCopiedInstall(false), 2000)
+                            }}
+                            className="flex items-center gap-1 rounded bg-zinc-800 px-2.5 py-1 text-[11px] text-zinc-200 hover:bg-zinc-700 shrink-0 cursor-pointer"
+                          >
+                            {copiedInstall ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                            <span>{copiedInstall ? 'Copied' : 'Copy'}</span>
+                          </button>
+                        </div>
+                      )
+                    })()}
                     <p className="mt-1.5 text-[11px] text-zinc-500 font-mono">
                       Directly downloads and installs <code className="text-zinc-700 dark:text-zinc-300">{selectedComponent.slug}.tsx</code> into your <code className="text-zinc-700 dark:text-zinc-300">components/ui/</code> directory.
                     </p>

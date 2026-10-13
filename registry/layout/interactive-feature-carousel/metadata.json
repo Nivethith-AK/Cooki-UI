@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "interactive-feature-carousel",
+  "type": "registry:ui",
+  "title": "Interactive Feature Carousel",
+  "description": "3D perspective feature deck with depth blur, interactive drag/swipe navigation, pagination pills, and keyboard traversal.",
+  "category": "layout",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/layout/interactive-feature-carousel/interactive-feature-carousel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-feature-carousel.tsx"
+    }
+  ]
+}
