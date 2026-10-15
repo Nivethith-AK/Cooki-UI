@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "neon-pulse-button",
+  "type": "registry:ui",
+  "title": "Neon Pulse Button",
+  "description": "High-voltage illuminated action button featuring interactive magnetic tracking, rotating edge tracer gradient, and spring ripple activation.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/neon-pulse-button/neon-pulse-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/neon-pulse-button.tsx"
+    }
+  ]
+}

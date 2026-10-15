@@ -1,0 +1,18 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "magnetic-target-cursor",
+  "type": "registry:ui",
+  "title": "Magnetic Target Cursor",
+  "description": "Tactical crosshair HUD cursor with magnetic element snap, real-time coordinate tracking, and target acquisition states.",
+  "category": "cursors",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/cursors/magnetic-target-cursor/magnetic-target-cursor.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magnetic-target-cursor.tsx"
+    }
+  ]
+}

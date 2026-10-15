@@ -1,0 +1,18 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "neural-token-stream",
+  "type": "registry:ui",
+  "title": "Neural Token Stream",
+  "description": "Interactive LLM token streaming visualizer with live probability heatmaps, reasoning chain display, and throughput telemetry.",
+  "category": "ai",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/neural-token-stream/neural-token-stream.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/neural-token-stream.tsx"
+    }
+  ]
+}

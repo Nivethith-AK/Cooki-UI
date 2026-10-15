@@ -1,0 +1,18 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "code-diff-slider",
+  "type": "registry:ui",
+  "title": "Code Diff Slider",
+  "description": "Interactive git code diff compare viewer with additions, deletions, unified slider wipes, and patch copying.",
+  "category": "data",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/code-diff-slider/code-diff-slider.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/code-diff-slider.tsx"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-13T06:21:21.235Z
-Components in Registry: 128
+Generated: 2026-10-15T05:48:51.491Z
+Components in Registry: 136
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -143,6 +143,25 @@ export default function Example() {
 
 ---
 
+### AI Model Benchmark Card (`ai-model-benchmark-card`)
+- **Category**: ai
+- **Description**: Comparative matrix showcasing leading LLM inference speeds, MMLU accuracy ratings, latency distribution, and token economics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/ai-model-benchmark-card.json`
+- **CLI Command**: `npx cooki-ui add ai-model-benchmark-card` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/ai-model-benchmark-card.json`
+
+#### Installation & Usage
+```tsx
+import { AiModelBenchmarkCard } from "@/components/ui/ai-model-benchmark-card"
+
+export default function Example() {
+  return <AiModelBenchmarkCard />
+}
+```
+
+---
+
 ### AI Prompt Studio Input (`ai-prompt-input`)
 - **Category**: ai
 - **Description**: Production LLM prompt container with auto-expanding textarea, model selector pill, token counter, attachment badge, and keyboard submit.
@@ -219,6 +238,25 @@ export default function Example() {
 
 ---
 
+### Neural Token Stream (`neural-token-stream`)
+- **Category**: ai
+- **Description**: Interactive LLM token streaming visualizer with live probability heatmaps, reasoning chain display, and throughput telemetry.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/neural-token-stream.json`
+- **CLI Command**: `npx cooki-ui add neural-token-stream` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/neural-token-stream.json`
+
+#### Installation & Usage
+```tsx
+import { NeuralTokenStream } from "@/components/ui/neural-token-stream"
+
+export default function Example() {
+  return <NeuralTokenStream />
+}
+```
+
+---
+
 ### Elastic Kinetic Toggle (`elastic-kinetic-toggle`)
 - **Category**: animations
 - **Description**: Physics-driven elastic switch with gooey spring overshoot, tactile snap feedback, and responsive state indicators.
@@ -233,6 +271,25 @@ import { ElasticKineticToggle } from "@/components/ui/elastic-kinetic-toggle"
 
 export default function Example() {
   return <ElasticKineticToggle />
+}
+```
+
+---
+
+### Orbital Particle Sphere (`orbital-particle-sphere`)
+- **Category**: animations
+- **Description**: 3D perspective particle globe rotating along equatorial and polar orbital planes with cursor velocity inertia and depth illumination.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/orbital-particle-sphere.json`
+- **CLI Command**: `npx cooki-ui add orbital-particle-sphere` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/orbital-particle-sphere.json`
+
+#### Installation & Usage
+```tsx
+import { OrbitalParticleSphere } from "@/components/ui/orbital-particle-sphere"
+
+export default function Example() {
+  return <OrbitalParticleSphere />
 }
 ```
 
@@ -656,6 +713,25 @@ export default function Example() {
 
 ---
 
+### Neon Pulse Button (`neon-pulse-button`)
+- **Category**: buttons
+- **Description**: High-voltage illuminated action button featuring interactive magnetic tracking, rotating edge tracer gradient, and spring ripple activation.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/neon-pulse-button.json`
+- **CLI Command**: `npx cooki-ui add neon-pulse-button` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/neon-pulse-button.json`
+
+#### Installation & Usage
+```tsx
+import { NeonPulseButton } from "@/components/ui/neon-pulse-button"
+
+export default function Example() {
+  return <NeonPulseButton />
+}
+```
+
+---
+
 ### Radial Ripple Button (`ripple-button`)
 - **Category**: buttons
 - **Description**: Material-inspired coordinate-origin expanding liquid wave ripple.
@@ -960,6 +1036,25 @@ export default function Example() {
 
 ---
 
+### Magnetic Target Cursor (`magnetic-target-cursor`)
+- **Category**: cursors
+- **Description**: Tactical crosshair HUD cursor with magnetic element snap, real-time coordinate tracking, and target acquisition states.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/magnetic-target-cursor.json`
+- **CLI Command**: `npx cooki-ui add magnetic-target-cursor` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-target-cursor.json`
+
+#### Installation & Usage
+```tsx
+import { MagneticTargetCursor } from "@/components/ui/magnetic-target-cursor"
+
+export default function Example() {
+  return <MagneticTargetCursor />
+}
+```
+
+---
+
 ### Spotlight Mask Reveal Cursor (`spotlight-reveal-cursor`)
 - **Category**: cursors
 - **Description**: Circular flashlight cursor mask revealing an illuminated technical circuit layer concealed beneath the dark surface.
@@ -1012,6 +1107,25 @@ import { CircularGaugeSpeedometer } from "@/components/ui/circular-gauge-speedom
 
 export default function Example() {
   return <CircularGaugeSpeedometer />
+}
+```
+
+---
+
+### Code Diff Slider (`code-diff-slider`)
+- **Category**: data
+- **Description**: Interactive git code diff compare viewer with additions, deletions, unified slider wipes, and patch copying.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/code-diff-slider.json`
+- **CLI Command**: `npx cooki-ui add code-diff-slider` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/code-diff-slider.json`
+
+#### Installation & Usage
+```tsx
+import { CodeDiffSlider } from "@/components/ui/code-diff-slider"
+
+export default function Example() {
+  return <CodeDiffSlider />
 }
 ```
 
@@ -1107,6 +1221,25 @@ import { ScrollTimeline } from "@/components/ui/scroll-timeline"
 
 export default function Example() {
   return <ScrollTimeline />
+}
+```
+
+---
+
+### System Architecture Graph (`system-architecture-graph`)
+- **Category**: data
+- **Description**: Interactive distributed node topology graph with animated bezier packet pulses, node health telemetry, and live throughput metrics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/system-architecture-graph.json`
+- **CLI Command**: `npx cooki-ui add system-architecture-graph` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/system-architecture-graph.json`
+
+#### Installation & Usage
+```tsx
+import { SystemArchitectureGraph } from "@/components/ui/system-architecture-graph"
+
+export default function Example() {
+  return <SystemArchitectureGraph />
 }
 ```
 
@@ -1715,6 +1848,25 @@ import { SegmentedControlSwitch } from "@/components/ui/segmented-control-switch
 
 export default function Example() {
   return <SegmentedControlSwitch />
+}
+```
+
+---
+
+### Audio Spectrum Equalizer (`audio-spectrum-equalizer`)
+- **Category**: media
+- **Description**: Multi-band DSP real-time audio visualizer with peak hold meters, decibel telemetry, and master gain controls.
+- **Tags**: N/A
+- **Dependencies**: @phosphor-icons/react
+- **Registry Endpoint**: `https://cooki-ui.vercel.app/r/audio-spectrum-equalizer.json`
+- **CLI Command**: `npx cooki-ui add audio-spectrum-equalizer` or `npx shadcn@latest add https://cooki-ui.vercel.app/r/audio-spectrum-equalizer.json`
+
+#### Installation & Usage
+```tsx
+import { AudioSpectrumEqualizer } from "@/components/ui/audio-spectrum-equalizer"
+
+export default function Example() {
+  return <AudioSpectrumEqualizer />
 }
 ```
 

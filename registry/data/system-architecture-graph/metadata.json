@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "system-architecture-graph",
+  "type": "registry:ui",
+  "title": "System Architecture Graph",
+  "description": "Interactive distributed node topology graph with animated bezier packet pulses, node health telemetry, and live throughput metrics.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/data/system-architecture-graph/system-architecture-graph.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/system-architecture-graph.tsx"
+    }
+  ]
+}

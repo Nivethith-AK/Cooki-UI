@@ -168,6 +168,8 @@ export const ComponentGrid: React.FC = () => {
                     return pages.map((pageNum) => (
                       <button
                         key={pageNum}
+                        data-pagination-btn={pageNum}
+                        aria-label={`Page ${pageNum}`}
                         onClick={() => handlePageChange(pageNum)}
                         className={`w-8 h-8 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
                           currentPage === pageNum

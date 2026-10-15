@@ -121,6 +121,24 @@
       ]
     },
     {
+      "name": "ai-model-benchmark-card",
+      "type": "registry:ui",
+      "title": "AI Model Benchmark Card",
+      "description": "Comparative matrix showcasing leading LLM inference speeds, MMLU accuracy ratings, latency distribution, and token economics.",
+      "category": "ai",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/ai-model-benchmark-card/ai-model-benchmark-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ai-model-benchmark-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-prompt-input",
       "type": "registry:ui",
       "title": "AI Prompt Studio Input",
@@ -192,6 +210,23 @@
       ]
     },
     {
+      "name": "neural-token-stream",
+      "type": "registry:ui",
+      "title": "Neural Token Stream",
+      "description": "Interactive LLM token streaming visualizer with live probability heatmaps, reasoning chain display, and throughput telemetry.",
+      "category": "ai",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/neural-token-stream/neural-token-stream.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neural-token-stream.tsx"
+        }
+      ]
+    },
+    {
       "name": "elastic-kinetic-toggle",
       "type": "registry:ui",
       "title": "Elastic Kinetic Toggle",
@@ -206,6 +241,23 @@
           "path": "registry/animations/elastic-kinetic-toggle/elastic-kinetic-toggle.tsx",
           "type": "registry:ui",
           "target": "components/ui/elastic-kinetic-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "orbital-particle-sphere",
+      "type": "registry:ui",
+      "title": "Orbital Particle Sphere",
+      "description": "3D perspective particle globe rotating along equatorial and polar orbital planes with cursor velocity inertia and depth illumination.",
+      "category": "animations",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/animations/orbital-particle-sphere/orbital-particle-sphere.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/orbital-particle-sphere.tsx"
         }
       ]
     },
@@ -573,6 +625,24 @@
       ]
     },
     {
+      "name": "neon-pulse-button",
+      "type": "registry:ui",
+      "title": "Neon Pulse Button",
+      "description": "High-voltage illuminated action button featuring interactive magnetic tracking, rotating edge tracer gradient, and spring ripple activation.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/neon-pulse-button/neon-pulse-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/neon-pulse-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "ripple-button",
       "type": "registry:ui",
       "title": "Radial Ripple Button",
@@ -849,6 +919,23 @@
       ]
     },
     {
+      "name": "magnetic-target-cursor",
+      "type": "registry:ui",
+      "title": "Magnetic Target Cursor",
+      "description": "Tactical crosshair HUD cursor with magnetic element snap, real-time coordinate tracking, and target acquisition states.",
+      "category": "cursors",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/cursors/magnetic-target-cursor/magnetic-target-cursor.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic-target-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "spotlight-reveal-cursor",
       "type": "registry:ui",
       "title": "Spotlight Mask Reveal Cursor",
@@ -895,6 +982,23 @@
           "path": "registry/data/circular-gauge-speedometer/circular-gauge-speedometer.tsx",
           "type": "registry:ui",
           "target": "components/ui/circular-gauge-speedometer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "code-diff-slider",
+      "type": "registry:ui",
+      "title": "Code Diff Slider",
+      "description": "Interactive git code diff compare viewer with additions, deletions, unified slider wipes, and patch copying.",
+      "category": "data",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/code-diff-slider/code-diff-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-diff-slider.tsx"
         }
       ]
     },
@@ -978,6 +1082,24 @@
           "path": "registry/data/scroll-timeline/scroll-timeline.tsx",
           "type": "registry:ui",
           "target": "components/ui/scroll-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "system-architecture-graph",
+      "type": "registry:ui",
+      "title": "System Architecture Graph",
+      "description": "Interactive distributed node topology graph with animated bezier packet pulses, node health telemetry, and live throughput metrics.",
+      "category": "data",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/system-architecture-graph/system-architecture-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/system-architecture-graph.tsx"
         }
       ]
     },
@@ -1531,6 +1653,23 @@
           "path": "registry/layout/segmented-control-switch/segmented-control-switch.tsx",
           "type": "registry:ui",
           "target": "components/ui/segmented-control-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "audio-spectrum-equalizer",
+      "type": "registry:ui",
+      "title": "Audio Spectrum Equalizer",
+      "description": "Multi-band DSP real-time audio visualizer with peak hold meters, decibel telemetry, and master gain controls.",
+      "category": "media",
+      "dependencies": [
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/media/audio-spectrum-equalizer/audio-spectrum-equalizer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/audio-spectrum-equalizer.tsx"
         }
       ]
     },

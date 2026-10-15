@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "ai-model-benchmark-card",
+  "type": "registry:ui",
+  "title": "AI Model Benchmark Card",
+  "description": "Comparative matrix showcasing leading LLM inference speeds, MMLU accuracy ratings, latency distribution, and token economics.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-model-benchmark-card/ai-model-benchmark-card.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-model-benchmark-card.tsx"
+    }
+  ]
+}

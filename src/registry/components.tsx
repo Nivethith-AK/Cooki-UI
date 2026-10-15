@@ -155,6 +155,14 @@ import { TerminalDiffBlock } from '../components/library/sections/TerminalDiffBl
 import { InteractiveHudCursor } from '../components/library/cursors/InteractiveHudCursor'
 import { ElasticKineticToggle } from '../components/library/animations/ElasticKineticToggle'
 import { GlassmorphicCommandHud } from '../components/library/overlays/GlassmorphicCommandHud'
+import { SystemArchitectureGraph } from '../components/library/data/SystemArchitectureGraph'
+import { AiModelBenchmarkCard } from '../components/library/ai/AiModelBenchmarkCard'
+import { NeonPulseButton } from '../components/library/buttons/NeonPulseButton'
+import { OrbitalParticleSphere } from '../components/library/animations/OrbitalParticleSphere'
+import { AudioSpectrumEqualizer } from '../components/library/media/AudioSpectrumEqualizer'
+import { NeuralTokenStream } from '../components/library/ai/NeuralTokenStream'
+import { CodeDiffSlider } from '../components/library/data/CodeDiffSlider'
+import { MagneticTargetCursor } from '../components/library/cursors/MagneticTargetCursor'
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
   // 1. Magnetic Dock (Componentry)
@@ -177,7 +185,7 @@ export const COMPONENT_REGISTRY: RegistryItem[] = [
       { name: 'iconSize', type: 'number', label: 'Icon Size', min: 36, max: 64, step: 4, defaultValue: 48 },
       { name: 'maxScale', type: 'number', label: 'Max Scale', min: 1.1, max: 1.8, step: 0.1, defaultValue: 1.4 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-6 w-full">
         <MagneticDock
           items={[
@@ -235,7 +243,7 @@ export default function Demo() {
       { name: 'number', type: 'number', label: 'Target Value', min: 100, max: 99999, step: 100, defaultValue: 4892 },
       { name: 'decimalPlaces', type: 'number', label: 'Decimals', min: 0, max: 2, step: 1, defaultValue: 0 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex flex-col items-center justify-center p-8 font-mono">
         <span className="text-xs uppercase tracking-widest text-zinc-500 mb-2">TELEMETRY COUNTER</span>
         <div className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white flex items-center gap-1">
@@ -282,7 +290,7 @@ export default function CounterDemo() {
       { name: 'variant', type: 'select', label: 'Variant', options: ['default', 'glow', 'minimal'], defaultValue: 'default' },
       { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8">
         <MagneticButton variant={props.variant || 'default'} size={props.size || 'md'}>
           <span>Deploy Kernel</span>
@@ -328,7 +336,7 @@ export default function ButtonDemo() {
       { name: 'speed', type: 'select', label: 'Speed', options: ['slow', 'normal', 'fast'], defaultValue: 'normal' },
       { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8">
         <GradientShimmerButton speed={props.speed || 'normal'} size={props.size || 'md'}>
           <span>Compile Monorepo</span>
@@ -365,7 +373,7 @@ export default function ButtonDemo() {
       { name: 'glowColor', type: 'select', label: 'Glow Color', options: ['cyan', 'amber', 'emerald', 'purple'], defaultValue: 'cyan' },
       { name: 'size', type: 'select', label: 'Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8">
         <GlowActionButton glowColor={props.glowColor || 'cyan'} size={props.size || 'md'}>
           <ShieldCheck size={16} />
@@ -431,7 +439,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'text', type: 'text', label: 'Custom Text', defaultValue: 'Autonomous Software Synthesis Engine' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8 max-w-md mx-auto text-center">
         <TextReveal text={props.text || 'Autonomous Software Synthesis Engine'} className="text-xl sm:text-2xl" />
       </div>
@@ -464,7 +472,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'text', type: 'text', label: 'Text', defaultValue: 'KINETIC INTENT COMPILER' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8">
         <SplitText text={props.text || 'KINETIC INTENT COMPILER'} className="text-lg sm:text-2xl font-bold" />
       </div>
@@ -652,7 +660,7 @@ export default function ButtonDemo() {
       { name: 'speed', type: 'select', label: 'Speed', options: ['slow', 'normal', 'fast'], defaultValue: 'normal' },
       { name: 'intensity', type: 'select', label: 'Intensity', options: ['subtle', 'medium', 'high'], defaultValue: 'medium' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full">
         <AuroraBackground speed={props.speed || 'normal'} intensity={props.intensity || 'medium'} />
       </div>
@@ -686,7 +694,7 @@ export default function ButtonDemo() {
       { name: 'size', type: 'select', label: 'Cell Size', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
       { name: 'withBeam', type: 'boolean', label: 'Scanning Beam', defaultValue: true },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full">
         <GridBackground size={props.size || 'md'} withBeam={props.withBeam ?? true} />
       </div>
@@ -720,7 +728,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'spacing', type: 'number', label: 'Spacing (px)', min: 16, max: 48, step: 4, defaultValue: 24 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full">
         <DotBackground spacing={props.spacing || 24} />
       </div>
@@ -753,7 +761,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'variant', type: 'select', label: 'Palette', options: ['deep', 'cyber', 'sunset'], defaultValue: 'deep' },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full">
         <AnimatedMeshBackground variant={props.variant || 'deep'} />
       </div>
@@ -939,7 +947,7 @@ export default function ButtonDemo() {
       { name: 'duration', type: 'number', label: 'Speed Duration (s)', min: 4, max: 20, step: 2, defaultValue: 8 },
       { name: 'borderWidth', type: 'number', label: 'Border Width (px)', min: 1, max: 4, step: 1, defaultValue: 1.5 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-6 w-full">
         <div className="relative w-72 p-6 rounded-2xl bg-zinc-900 border border-white/10 shadow-2xl overflow-hidden text-center space-y-2">
           <BorderBeam duration={props.duration || 8} borderWidth={props.borderWidth || 1.5} />
@@ -1045,7 +1053,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'speed', type: 'number', label: 'Speed (s)', min: 2, max: 10, step: 1, defaultValue: 4 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex flex-col items-center justify-center p-8 w-full gap-3">
         <ShinyText text="LIGHTSWIND REFLECTION" speed={props.speed || 4} className="text-2xl font-bold tracking-tight" />
         <p className="text-xs text-zinc-500 font-mono">Continuous metallic ray displacement</p>
@@ -1330,7 +1338,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'gridSize', type: 'number', label: 'Grid Size (px)', min: 32, max: 72, step: 8, defaultValue: 48 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full h-80 rounded-2xl overflow-hidden">
         <BeamGridBackground gridSize={props.gridSize || 48} />
       </div>
@@ -1366,7 +1374,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'particleCount', type: 'number', label: 'Particle Count', min: 60, max: 240, step: 20, defaultValue: 120 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full h-80 rounded-2xl overflow-hidden">
         <CosmicDustBackground particleCount={props.particleCount || 120} />
       </div>
@@ -1399,7 +1407,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'barCount', type: 'number', label: 'Bar Count', min: 8, max: 24, step: 2, defaultValue: 16 },
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-6 w-full">
         <SpectrumLoader barCount={props.barCount || 16} />
       </div>
@@ -1648,7 +1656,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'length', type: 'number', label: 'Digit Count', min: 4, max: 8, step: 1, defaultValue: 6 }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex flex-col items-center justify-center p-6 w-full">
         <OtpInput length={props.length || 6} />
       </div>
@@ -1682,7 +1690,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'label', type: 'text', label: 'Field Label', defaultValue: 'Enterprise Work Email' }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-6 w-full max-w-sm mx-auto">
         <AnimatedFloatingInput label={props.label || 'Enterprise Work Email'} />
       </div>
@@ -1809,7 +1817,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'currentStep', type: 'number', label: 'Active Step', min: 1, max: 4, step: 1, defaultValue: 2 }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full p-6">
         <ProgressStepLoader currentStep={props.currentStep || 2} />
       </div>
@@ -1844,7 +1852,7 @@ export default function ButtonDemo() {
       { name: 'status', type: 'select', label: 'Status Variant', options: ['online', 'busy', 'offline'], defaultValue: 'online' },
       { name: 'label', type: 'text', label: 'Badge Label', defaultValue: 'CLUSTER OPERATIONAL' }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8">
         <StatusRadarBadge status={props.status || 'online'} label={props.label || 'CLUSTER OPERATIONAL'} />
       </div>
@@ -1971,7 +1979,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'content', type: 'text', label: 'Tooltip Text', defaultValue: 'Verified SHA-256 Checksum Signature' }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-12">
         <TooltipPopover content={props.content || 'Verified SHA-256 Checksum Signature'}>
           <button className="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-xs font-semibold shadow">
@@ -2073,7 +2081,7 @@ export default function ButtonDemo() {
       { name: 'value', type: 'text', label: 'Primary Value', defaultValue: '14,892,104' },
       { name: 'change', type: 'text', label: 'Growth Delta', defaultValue: '+28.4%' }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="w-full max-w-sm mx-auto p-4">
         <TelemetryMetricCard
           title={props.title || 'Global Edge Invocations'}
@@ -2458,7 +2466,7 @@ export default function ButtonDemo() {
     controls: [
       { name: 'text', type: 'text', label: 'Target Text', defaultValue: 'ZERO_TRUST_VERIFIED' }
     ],
-    renderPreview: (props) => (
+    renderPreview: (props: any = {}) => (
       <div className="flex items-center justify-center p-8 w-full">
         <ScrambleText text={props.text || 'ZERO_TRUST_VERIFIED'} />
       </div>
@@ -4111,7 +4119,7 @@ export function ComboboxBasic() {
       { name: 'barCount', type: 'number', label: 'Bar Count', min: 12, max: 36, step: 2, defaultValue: 24 },
       { name: 'active', type: 'boolean', label: 'Engine Active', defaultValue: true },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full max-w-lg p-2">
         <AiVoiceWaveform
           state={controls?.state || 'listening'}
@@ -4163,7 +4171,7 @@ export function VoiceAssistantWidget() {
       { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'emerald', options: ['emerald', 'cyan', 'amber'] },
       { name: 'interactive', type: 'boolean', label: 'Interactive Pings', defaultValue: true },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full max-w-md p-2">
         <RadarPingBeacon
           sweepSpeed={controls?.sweepSpeed || 2.5}
@@ -4212,7 +4220,7 @@ export function DefenseTelemetryRadar() {
       { name: 'autoplay', type: 'boolean', label: 'Autoplay Deck', defaultValue: false },
       { name: 'autoplayInterval', type: 'number', label: 'Interval (ms)', min: 2000, max: 8000, step: 500, defaultValue: 4500 },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full p-2">
         <InteractiveFeatureCarousel
           autoplay={controls?.autoplay ?? false}
@@ -4260,7 +4268,7 @@ export function ShowcaseSection() {
       { name: 'filePath', type: 'text', label: 'File Path', defaultValue: 'src/hooks/use-agent-stream.ts' },
       { name: 'branch', type: 'text', label: 'Branch Name', defaultValue: 'main' },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full max-w-3xl p-2">
         <TerminalDiffBlock
           initialMode={controls?.initialMode || 'unified'}
@@ -4310,7 +4318,7 @@ export function ReleaseNotesDiff() {
       { name: 'showCoordinates', type: 'boolean', label: 'Show Coordinates', defaultValue: true },
       { name: 'reticleSize', type: 'number', label: 'Reticle Size (px)', min: 40, max: 80, step: 4, defaultValue: 56 },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full max-w-lg p-2">
         <InteractiveHudCursor
           colorTheme={controls?.colorTheme || 'cyan'}
@@ -4360,7 +4368,7 @@ export function TacticalReticlePreview() {
       { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
       { name: 'label', type: 'text', label: 'Label', defaultValue: 'Kinetic State' },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full p-6 flex items-center justify-center">
         <ElasticKineticToggle
           colorTheme={controls?.colorTheme || 'emerald'}
@@ -4409,7 +4417,7 @@ export function PowerStateSwitch() {
       { name: 'placeholder', type: 'text', label: 'Search Placeholder', defaultValue: 'Type a command or search action...' },
       { name: 'maxResults', type: 'number', label: 'Max Results', min: 3, max: 6, step: 1, defaultValue: 5 },
     ],
-    renderPreview: (controls) => (
+    renderPreview: (controls: any = {}) => (
       <div className="w-full max-w-lg p-2">
         <GlassmorphicCommandHud
           placeholder={controls?.placeholder || 'Type a command or search action...'}
@@ -4432,6 +4440,401 @@ export function SpotlightCommandTrigger() {
         name: 'glassmorphic-command-hud.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['glassmorphic-command-hud'] || ''
+      }
+    ]
+  },
+
+  // 129. System Architecture Graph
+  {
+    id: 'system-architecture-graph',
+    name: 'System Architecture Graph',
+    slug: 'system-architecture-graph',
+    category: 'data',
+    subcategory: 'Network & Graphs',
+    description: 'Interactive distributed node topology graph with animated bezier packet pulses, node health telemetry, and live throughput metrics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'topology-mesh'],
+    tags: ['graph', 'topology', 'network', 'system', 'architecture', 'metrics', 'nodes', 'packets'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add system-architecture-graph',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'activePacketPulse', type: 'boolean', label: 'Packet Pulse', defaultValue: true },
+      { name: 'interactive', type: 'boolean', label: 'Node Selection', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-3xl p-2">
+        <SystemArchitectureGraph
+          activePacketPulse={controls?.activePacketPulse ?? true}
+          interactive={controls?.interactive ?? true}
+        />
+      </div>
+    ),
+    usage: `import { SystemArchitectureGraph } from "@/components/ui/system-architecture-graph"
+
+export function InfrastructureTopology() {
+  return (
+    <SystemArchitectureGraph 
+      activePacketPulse={true}
+      interactive={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'system-architecture-graph.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['system-architecture-graph'] || ''
+      }
+    ]
+  },
+
+  // 130. AI Model Benchmark Card
+  {
+    id: 'ai-model-benchmark-card',
+    name: 'AI Model Benchmark Card',
+    slug: 'ai-model-benchmark-card',
+    category: 'ai',
+    subcategory: 'AI UI & LLM Tools',
+    description: 'Comparative matrix showcasing leading LLM inference speeds, MMLU accuracy ratings, latency distribution, and token economics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'benchmarks'],
+    tags: ['ai', 'benchmark', 'llm', 'speed', 'tps', 'mmlu', 'tokens', 'cost', 'metrics'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add ai-model-benchmark-card',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'initialModelId', type: 'select', label: 'Default Model', defaultValue: 'claude-3-7', options: ['claude-3-7', 'gpt-4o', 'deepseek-r1', 'llama-3-3'] },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-lg p-2">
+        <AiModelBenchmarkCard
+          initialModelId={controls?.initialModelId || 'claude-3-7'}
+        />
+      </div>
+    ),
+    usage: `import { AiModelBenchmarkCard } from "@/components/ui/ai-model-benchmark-card"
+
+export function LLMEfficiencyComparison() {
+  return (
+    <AiModelBenchmarkCard 
+      initialModelId="claude-3-7"
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'ai-model-benchmark-card.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-model-benchmark-card'] || ''
+      }
+    ]
+  },
+
+  // 131. Neon Pulse Button
+  {
+    id: 'neon-pulse-button',
+    name: 'Neon Pulse Button',
+    slug: 'neon-pulse-button',
+    category: 'buttons',
+    subcategory: 'Action Buttons',
+    description: 'High-voltage illuminated action button featuring interactive magnetic tracking, rotating edge tracer gradient, and spring ripple activation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
+    technologies: ['framer-motion', '@phosphor-icons/react', 'magnetic-physics'],
+    tags: ['button', 'neon', 'pulse', 'magnetic', 'glow', 'interactive', 'action', 'cta'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add neon-pulse-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'cyan', options: ['cyan', 'emerald', 'violet', 'amber'] },
+      { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+      { name: 'label', type: 'text', label: 'Label', defaultValue: 'Activate Superconductor' },
+      { name: 'magnetic', type: 'boolean', label: 'Magnetic Pull', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full p-8 flex items-center justify-center">
+        <NeonPulseButton
+          colorTheme={controls?.colorTheme || 'cyan'}
+          size={controls?.size || 'md'}
+          label={controls?.label || 'Activate Superconductor'}
+          magnetic={controls?.magnetic ?? true}
+        />
+      </div>
+    ),
+    usage: `import { NeonPulseButton } from "@/components/ui/neon-pulse-button"
+
+export function HyperdriveAction() {
+  return (
+    <NeonPulseButton 
+      label="Activate Superconductor"
+      colorTheme="cyan"
+      magnetic={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'neon-pulse-button.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['neon-pulse-button'] || ''
+      }
+    ]
+  },
+
+  // 132. Orbital Particle Sphere
+  {
+    id: 'orbital-particle-sphere',
+    name: 'Orbital Particle Sphere',
+    slug: 'orbital-particle-sphere',
+    category: 'animations',
+    subcategory: '3D & Motion',
+    description: '3D perspective particle globe rotating along equatorial and polar orbital planes with cursor velocity inertia and depth illumination.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas-3d', '@phosphor-icons/react', 'fibonacci-sphere'],
+    tags: ['globe', 'sphere', 'particles', '3d', 'orbital', 'fibonacci', 'animation', 'canvas'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add orbital-particle-sphere',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'colorTheme', type: 'select', label: 'Color Theme', defaultValue: 'cyan', options: ['cyan', 'emerald', 'violet', 'amber'] },
+      { name: 'particleCount', type: 'number', label: 'Particle Count', min: 80, max: 200, step: 20, defaultValue: 140 },
+      { name: 'rotationSpeed', type: 'number', label: 'Speed Multiplier', min: 0.5, max: 2.5, step: 0.5, defaultValue: 1 },
+      { name: 'interactive', type: 'boolean', label: 'Drag Rotation', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-md p-2">
+        <OrbitalParticleSphere
+          colorTheme={controls?.colorTheme || 'cyan'}
+          particleCount={controls?.particleCount || 140}
+          rotationSpeed={controls?.rotationSpeed || 1}
+          interactive={controls?.interactive ?? true}
+        />
+      </div>
+    ),
+    usage: `import { OrbitalParticleSphere } from "@/components/ui/orbital-particle-sphere"
+
+export function PlanetaryParticleMesh() {
+  return (
+    <OrbitalParticleSphere 
+      colorTheme="cyan"
+      particleCount={140}
+      rotationSpeed={1}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'orbital-particle-sphere.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['orbital-particle-sphere'] || ''
+      }
+    ]
+  },
+
+  // 133. Audio Spectrum Equalizer
+  {
+    id: 'audio-spectrum-equalizer',
+    name: 'Audio Spectrum Equalizer',
+    slug: 'audio-spectrum-equalizer',
+    category: 'media',
+    subcategory: 'Visualizer',
+    description: 'Multi-band DSP real-time audio visualizer with peak hold meters, decibel telemetry, and master gain controls.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['dsp-spectrum', '@phosphor-icons/react', 'web-audio'],
+    tags: ['audio', 'equalizer', 'spectrum', 'dsp', 'sound', 'visualizer', 'media'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add audio-spectrum-equalizer',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'barColor', type: 'select', label: 'Color Theme', defaultValue: 'cyan', options: ['cyan', 'emerald', 'violet', 'amber'] },
+      { name: 'barCount', type: 'number', label: 'Frequency Bars', min: 12, max: 32, step: 4, defaultValue: 24 },
+      { name: 'showDbMeter', type: 'boolean', label: 'dB Telemetry', defaultValue: true },
+      { name: 'interactive', type: 'boolean', label: 'Interactive Controls', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-lg p-2">
+        <AudioSpectrumEqualizer
+          barColor={controls?.barColor || 'cyan'}
+          barCount={controls?.barCount || 24}
+          showDbMeter={controls?.showDbMeter ?? true}
+          interactive={controls?.interactive ?? true}
+        />
+      </div>
+    ),
+    usage: `import { AudioSpectrumEqualizer } from "@/components/ui/audio-spectrum-equalizer"
+
+export function StudioMonitor() {
+  return (
+    <AudioSpectrumEqualizer 
+      barColor="cyan"
+      barCount={24}
+      showDbMeter={true}
+      interactive={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'audio-spectrum-equalizer.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['audio-spectrum-equalizer'] || ''
+      }
+    ]
+  },
+
+  // 134. Neural Token Stream
+  {
+    id: 'neural-token-stream',
+    name: 'Neural Token Stream',
+    slug: 'neural-token-stream',
+    category: 'ai',
+    subcategory: 'LLM',
+    description: 'Interactive LLM token streaming visualizer with live probability heatmaps, reasoning chain display, and throughput telemetry.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['token-streaming', '@phosphor-icons/react', 'ai-inference'],
+    tags: ['ai', 'llm', 'tokens', 'streaming', 'reasoning', 'neural', 'prompt'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add neural-token-stream',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'modelName', type: 'text', label: 'Model Name', defaultValue: 'Nexus-70B-MoE' },
+      { name: 'streamingSpeedMs', type: 'number', label: 'Delay (ms)', min: 30, max: 200, step: 10, defaultValue: 75 },
+      { name: 'showProbabilities', type: 'boolean', label: 'Logprob Inspector', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-lg p-2">
+        <NeuralTokenStream
+          modelName={controls?.modelName || 'Nexus-70B-MoE'}
+          streamingSpeedMs={controls?.streamingSpeedMs || 75}
+          showProbabilities={controls?.showProbabilities ?? true}
+        />
+      </div>
+    ),
+    usage: `import { NeuralTokenStream } from "@/components/ui/neural-token-stream"
+
+export function InferenceView() {
+  return (
+    <NeuralTokenStream 
+      modelName="Nexus-70B-MoE"
+      streamingSpeedMs={75}
+      showProbabilities={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'neural-token-stream.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['neural-token-stream'] || ''
+      }
+    ]
+  },
+
+  // 135. Code Diff Slider
+  {
+    id: 'code-diff-slider',
+    name: 'Code Diff Slider',
+    slug: 'code-diff-slider',
+    category: 'data',
+    subcategory: 'Developer Tools',
+    description: 'Interactive git code diff compare viewer with additions, deletions, unified slider wipes, and patch copying.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['git-diff', '@phosphor-icons/react', 'code-review'],
+    tags: ['git', 'diff', 'code', 'syntax', 'compare', 'developer', 'patch'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add code-diff-slider',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'filename', type: 'text', label: 'Filename', defaultValue: 'src/telemetry/mesh-client.ts' },
+      { name: 'beforeLabel', type: 'text', label: 'Before Label', defaultValue: 'v1.2.0 (Legacy)' },
+      { name: 'afterLabel', type: 'text', label: 'After Label', defaultValue: 'v2.0.0 (Zero-Copy)' },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-lg p-2">
+        <CodeDiffSlider
+          filename={controls?.filename || 'src/telemetry/mesh-client.ts'}
+          beforeLabel={controls?.beforeLabel || 'v1.2.0 (Legacy)'}
+          afterLabel={controls?.afterLabel || 'v2.0.0 (Zero-Copy)'}
+        />
+      </div>
+    ),
+    usage: `import { CodeDiffSlider } from "@/components/ui/code-diff-slider"
+
+export function VersionReview() {
+  return (
+    <CodeDiffSlider 
+      filename="src/telemetry/mesh-client.ts"
+      beforeLabel="v1.2.0 (Legacy)"
+      afterLabel="v2.0.0 (Zero-Copy)"
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'code-diff-slider.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['code-diff-slider'] || ''
+      }
+    ]
+  },
+
+  // 136. Magnetic Target Cursor
+  {
+    id: 'magnetic-target-cursor',
+    name: 'Magnetic Target Cursor',
+    slug: 'magnetic-target-cursor',
+    category: 'cursors',
+    subcategory: 'HUD',
+    description: 'Tactical crosshair HUD cursor with magnetic element snap, real-time coordinate tracking, and target acquisition states.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['crosshair-cursor', '@phosphor-icons/react', 'tactical-hud'],
+    tags: ['cursor', 'crosshair', 'target', 'hud', 'magnetic', 'tactical', 'interactive'],
+    dependencies: ['@phosphor-icons/react'],
+    installCommand: 'npx cook-ui add magnetic-target-cursor',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-15',
+    controls: [
+      { name: 'color', type: 'select', label: 'Reticle Color', defaultValue: 'cyan', options: ['cyan', 'emerald', 'amber', 'rose'] },
+      { name: 'showCoordinates', type: 'boolean', label: 'Coordinates HUD', defaultValue: true },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-lg p-2">
+        <MagneticTargetCursor
+          color={controls?.color || 'cyan'}
+          showCoordinates={controls?.showCoordinates ?? true}
+        />
+      </div>
+    ),
+    usage: `import { MagneticTargetCursor } from "@/components/ui/magnetic-target-cursor"
+
+export function TacticalViewport() {
+  return (
+    <MagneticTargetCursor 
+      color="cyan"
+      showCoordinates={true}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'magnetic-target-cursor.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['magnetic-target-cursor'] || ''
       }
     ]
   },

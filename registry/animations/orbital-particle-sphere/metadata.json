@@ -1,0 +1,18 @@
+{
+  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "name": "orbital-particle-sphere",
+  "type": "registry:ui",
+  "title": "Orbital Particle Sphere",
+  "description": "3D perspective particle globe rotating along equatorial and polar orbital planes with cursor velocity inertia and depth illumination.",
+  "category": "animations",
+  "dependencies": [
+    "@phosphor-icons/react"
+  ],
+  "files": [
+    {
+      "path": "registry/animations/orbital-particle-sphere/orbital-particle-sphere.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/orbital-particle-sphere.tsx"
+    }
+  ]
+}
