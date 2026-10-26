@@ -193,7 +193,7 @@ export const StoreHero: React.FC = () => {
                   size="sm"
                   onClick={handleScrollToCatalogue}
                 >
-                  Explore 121 Components &darr;
+                  Explore {ALL_REGISTRY_ITEMS.length} Components &darr;
                 </MagneticButton>
 
                 <MagneticButton

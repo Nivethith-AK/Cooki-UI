@@ -1,6 +1,6 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-26T08:54:23.621Z
+Generated: 2026-10-26T09:11:17.676Z
 Components in Registry: 136
 
 ## Architecture Overview

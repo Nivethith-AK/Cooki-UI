@@ -241,7 +241,7 @@ export function cn(...inputs: ClassValue[]) {
 
                     <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 mt-2">
                       <Package size={14} />
-                      <span>Works with any of the 121 components: replace <code className="text-zinc-700 dark:text-zinc-300 font-bold">magnetic-button</code> with any component slug!</span>
+                      <span>Works with any of the 136 components: replace <code className="text-zinc-700 dark:text-zinc-300 font-bold">magnetic-button</code> with any component slug!</span>
                     </div>
                   </div>
 
