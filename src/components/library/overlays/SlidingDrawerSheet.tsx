@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Gear, Sliders, Check } from '@phosphor-icons/react';
 
 export const SlidingDrawerSheet: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   return (
     <div className="flex items-center justify-center">
@@ -17,7 +26,13 @@ export const SlidingDrawerSheet: React.FC = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 overflow-hidden">
+          <div 
+            role="dialog"
+            aria-modal="true"
+            aria-label="Runtime Drawer Inspector"
+            data-lenis-prevent="true"
+            className="fixed inset-0 z-[70] overflow-hidden"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

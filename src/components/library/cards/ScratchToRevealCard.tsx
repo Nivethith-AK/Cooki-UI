@@ -28,21 +28,34 @@ export const ScratchToRevealCard: React.FC = () => {
     initCanvas();
   }, []);
 
-  const scratch = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const scratchAtPoint = (clientX: number, clientY: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    if (rect.width === 0 || rect.height === 0) return;
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = (clientX - rect.left) * scaleX;
+    const y = (clientY - rect.top) * scaleY;
 
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
     ctx.arc(x, y, 18, 0, Math.PI * 2);
     ctx.fill();
     setIsScratched(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (e.buttons === 1) scratchAtPoint(e.clientX, e.clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.touches.length > 0) {
+      scratchAtPoint(e.touches[0].clientX, e.touches[0].clientY);
+    }
   };
 
   return (
@@ -62,11 +75,11 @@ export const ScratchToRevealCard: React.FC = () => {
         {/* Scratch Surface Canvas */}
         <canvas
           ref={canvasRef}
-          onMouseMove={(e) => {
-            if (e.buttons === 1) scratch(e);
-          }}
-          onClick={scratch}
-          className="absolute inset-0 w-full h-full cursor-crosshair"
+          onMouseMove={handleMouseMove}
+          onTouchMove={handleTouchMove}
+          onTouchStart={handleTouchMove}
+          onClick={(e) => scratchAtPoint(e.clientX, e.clientY)}
+          className="absolute inset-0 w-full h-full cursor-crosshair touch-none"
         />
       </div>
 

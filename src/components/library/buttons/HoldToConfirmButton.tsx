@@ -54,6 +54,7 @@ export const HoldToConfirmButton: React.FC = () => {
         onMouseLeave={cancelHold}
         onTouchStart={startHold}
         onTouchEnd={cancelHold}
+        onTouchCancel={cancelHold}
         className={`relative overflow-hidden px-6 py-3 rounded-2xl font-mono text-xs font-bold transition-all select-none cursor-pointer border ${
           isConfirmed
             ? 'bg-emerald-500 text-white border-emerald-400 shadow-lg shadow-emerald-500/20'
@@ -88,7 +89,7 @@ export const HoldToConfirmButton: React.FC = () => {
           onClick={reset}
           className="text-[11px] font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline cursor-pointer"
         >
-          Reset Trigger
+          Reset Action
         </button>
       )}
     </div>

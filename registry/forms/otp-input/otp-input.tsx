@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export interface OTPInputProps {
@@ -15,6 +15,17 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   const [digits, setDigits] = useState<string[]>(Array(length).fill(''));
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  useEffect(() => {
+    setDigits((prev) => {
+      if (prev.length === length) return prev;
+      const next = Array(length).fill('');
+      for (let i = 0; i < Math.min(prev.length, length); i++) {
+        next[i] = prev[i];
+      }
+      return next;
+    });
+  }, [length]);
 
   const handleChange = (index: number, val: string) => {
     const char = val.slice(-1);
@@ -35,9 +46,15 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   };
 
   const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace' && !digits[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
-      setFocusedIndex(index - 1);
+    if (e.key === 'Backspace') {
+      if (!digits[index] && index > 0) {
+        inputRefs.current[index - 1]?.focus();
+        setFocusedIndex(index - 1);
+      } else if (digits[index]) {
+        const next = [...digits];
+        next[index] = '';
+        setDigits(next);
+      }
     } else if (e.key === 'ArrowLeft' && index > 0) {
       inputRefs.current[index - 1]?.focus();
       setFocusedIndex(index - 1);
@@ -76,6 +93,9 @@ export const OTPInput: React.FC<OTPInputProps> = ({
             <input
               ref={(el) => (inputRefs.current[idx] = el)}
               type="text"
+              id={`otp-input-${idx}`}
+              name={`otp-input-${idx}`}
+              aria-label={`Security Pin Digit ${idx + 1}`}
               inputMode="numeric"
               maxLength={1}
               value={digit}

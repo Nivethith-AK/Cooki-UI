@@ -8,9 +8,17 @@ export const ContextActionMenu: React.FC = () => {
 
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
+    openAtCoords(e.clientX, e.clientY);
+  };
+
+  const openAtCoords = (clientX: number, clientY: number) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (rect) {
-      setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      const rawX = clientX - rect.left;
+      const rawY = clientY - rect.top;
+      const clampedX = Math.max(10, Math.min(rawX, rect.width - 200));
+      const clampedY = Math.max(10, Math.min(rawY, rect.height - 160));
+      setPos({ x: clampedX, y: clampedY });
     }
   };
 
@@ -24,10 +32,13 @@ export const ContextActionMenu: React.FC = () => {
     <div
       ref={containerRef}
       onContextMenu={handleContextMenu}
-      className="relative w-full max-w-sm mx-auto h-40 rounded-3xl border-2 border-dashed border-zinc-300 dark:border-white/15 bg-zinc-100/60 dark:bg-zinc-900/40 flex flex-col items-center justify-center select-none cursor-context-menu"
+      onClick={(e) => {
+        if (!pos) openAtCoords(e.clientX, e.clientY);
+      }}
+      className="relative w-full max-w-sm mx-auto h-40 rounded-3xl border-2 border-dashed border-zinc-300 dark:border-white/15 bg-zinc-100/60 dark:bg-zinc-900/40 flex flex-col items-center justify-center select-none cursor-context-menu p-4 text-center"
     >
-      <span className="text-xs font-mono font-bold text-zinc-900 dark:text-white">RIGHT CLICK INSIDE THIS AREA</span>
-      <span className="text-[10px] font-mono text-zinc-500 mt-1">To trigger the custom context menu</span>
+      <span className="text-xs font-mono font-bold text-zinc-900 dark:text-white">RIGHT CLICK OR TAP TO OPEN</span>
+      <span className="text-[10px] font-mono text-zinc-500 mt-1">Triggers custom floating action context menu</span>
 
       <AnimatePresence>
         {pos && (

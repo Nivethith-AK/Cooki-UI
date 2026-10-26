@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react'
-import { motion, useMotionValue, useTransform } from 'framer-motion'
-import { ArrowRight, Check, ShieldCheck } from '@phosphor-icons/react'
+import React, { useState, useRef, useEffect } from 'react'
+import { motion, useMotionValue } from 'framer-motion'
+import { ArrowRight, Check } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 export interface SlideToConfirmProps {
@@ -18,13 +18,23 @@ export const SlideToConfirm: React.FC<SlideToConfirmProps> = ({
 }) => {
   const [isConfirmed, setIsConfirmed] = useState(false)
   const trackRef = useRef<HTMLDivElement>(null)
+  const [maxDrag, setMaxDrag] = useState(240)
   const x = useMotionValue(0)
+
+  useEffect(() => {
+    const updateBounds = () => {
+      if (trackRef.current) {
+        setMaxDrag(Math.max(60, trackRef.current.offsetWidth - 56))
+      }
+    }
+    updateBounds()
+    window.addEventListener('resize', updateBounds)
+    return () => window.removeEventListener('resize', updateBounds)
+  }, [])
 
   const handleDragEnd = () => {
     if (!trackRef.current) return
-    const trackWidth = trackRef.current.offsetWidth
-    const maxDrag = trackWidth - 56 // button width
-    if (x.get() >= maxDrag * 0.85) {
+    if (x.get() >= maxDrag * 0.8) {
       setIsConfirmed(true)
       onConfirm?.()
     } else {
@@ -63,7 +73,7 @@ export const SlideToConfirm: React.FC<SlideToConfirmProps> = ({
         {!isConfirmed ? (
           <motion.div
             drag="x"
-            dragConstraints={{ left: 0, right: 260 }}
+            dragConstraints={{ left: 0, right: maxDrag }}
             dragElastic={0.05}
             onDragEnd={handleDragEnd}
             style={{ x }}
@@ -74,7 +84,7 @@ export const SlideToConfirm: React.FC<SlideToConfirmProps> = ({
         ) : (
           <button
             onClick={handleReset}
-            className="relative z-10 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-zinc-950 shadow-lg hover:scale-105 transition-transform"
+            className="relative z-10 ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 text-zinc-950 shadow-lg hover:scale-105 transition-transform cursor-pointer"
             title="Click to reset"
           >
             <Check size={18} weight="bold" />

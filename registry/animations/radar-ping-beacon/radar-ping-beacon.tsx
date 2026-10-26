@@ -63,8 +63,17 @@ export const RadarPingBeacon: React.FC<RadarPingBeaconProps> = ({
 
   const triggerPing = (e?: React.MouseEvent<HTMLDivElement>) => {
     if (!interactive) return;
+    let x = 50;
+    let y = 50;
+    if (e && e.currentTarget) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+        y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+      }
+    }
     const newId = Date.now();
-    setPings((prev) => [...prev.slice(-3), { id: newId, x: 50, y: 50 }]);
+    setPings((prev) => [...prev.slice(-3), { id: newId, x, y }]);
     setTimeout(() => {
       setPings((prev) => prev.filter((p) => p.id !== newId));
     }, 1800);
