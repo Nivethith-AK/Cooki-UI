@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 interface ThemeContextType {
   isDark: boolean
@@ -43,6 +44,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const toggleTheme = (e?: React.MouseEvent | MouseEvent) => {
     const doc = document as any
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const nextDark = !isDark
 
     // Use native View Transition API for 60fps circular ripple transition
     if (typeof doc.startViewTransition === 'function' && !prefersReducedMotion) {
@@ -59,35 +61,51 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         Math.max(y, window.innerHeight - y)
       )
 
-      const transition = doc.startViewTransition(() => {
-        setIsDark((prev) => !prev)
-      })
+      try {
+        const transition = doc.startViewTransition(() => {
+          flushSync(() => {
+            setIsDark(nextDark)
+            const root = document.documentElement
+            if (nextDark) {
+              root.classList.add('dark')
+              root.classList.remove('light')
+              root.style.colorScheme = 'dark'
+            } else {
+              root.classList.remove('dark')
+              root.classList.add('light')
+              root.style.colorScheme = 'light'
+            }
+          })
+        })
 
-      transition.ready.then(() => {
-        const clipPath = [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`
-        ]
-        document.documentElement.animate(
-          {
-            clipPath: isDark ? [...clipPath].reverse() : clipPath
-          },
-          {
-            duration: 400,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)'
-          }
-        )
-      }).catch(() => {
-        setIsDark((prev) => !prev)
-      })
-      return
+        transition.ready.then(() => {
+          const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ]
+          document.documentElement.animate(
+            {
+              clipPath: nextDark ? clipPath : [...clipPath].reverse()
+            },
+            {
+              duration: 360,
+              easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              pseudoElement: nextDark ? '::view-transition-new(root)' : '::view-transition-old(root)'
+            }
+          )
+        }).catch(() => {
+          // Fallback if transition fails
+        })
+        return
+      } catch {
+        // Fallback to synchronous toggle
+      }
     }
 
     // Graceful fallback for browsers without View Transitions
     const root = document.documentElement
     root.classList.add('theme-transitioning')
-    setIsDark((prev) => !prev)
+    setIsDark(nextDark)
     setTimeout(() => {
       root.classList.remove('theme-transitioning')
     }, 280)

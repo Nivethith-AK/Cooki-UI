@@ -1439,7 +1439,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6 w-full">
+      <div className="flex items-center justify-center p-1 w-full">
         <PerspectiveCard3D />
       </div>
     ),
@@ -3244,7 +3244,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6 w-full">
+      <div className="flex items-center justify-center p-1 w-full">
         <GlareHologramCard />
       </div>
     ),

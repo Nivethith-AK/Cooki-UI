@@ -52,70 +52,83 @@ const AutoFitCanvas: React.FC<{
 }> = ({ children, isExpanded }) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const contentRef = React.useRef<HTMLDivElement>(null)
+  const [scale, setScale] = React.useState<number>(1)
 
-  React.useLayoutEffect(() => {
+  const calculateScale = React.useCallback(() => {
+    if (isExpanded) {
+      setScale(1)
+      return
+    }
+
     const container = containerRef.current
     const content = contentRef.current
     if (!container || !content) return
 
-    if (isExpanded) {
-      content.style.transform = ''
-      content.style.transformOrigin = ''
-      return
+    const child = (content.firstElementChild as HTMLElement) || content
+    if (!child) return
+
+    const containerRect = container.getBoundingClientRect()
+    if (containerRect.width === 0 || containerRect.height === 0) return
+
+    // Measure true natural unscaled dimensions
+    let childW = Math.max(child.scrollWidth || 0, child.offsetWidth || 0)
+    let childH = Math.max(child.scrollHeight || 0, child.offsetHeight || 0)
+
+    // Check inner element if child wrapper is a flex or pass-through div
+    if (child.firstElementChild && child.firstElementChild instanceof HTMLElement) {
+      const inner = child.firstElementChild
+      const innerW = Math.max(inner.scrollWidth || 0, inner.offsetWidth || 0)
+      const innerH = Math.max(inner.scrollHeight || 0, inner.offsetHeight || 0)
+      if (innerW > childW) childW = innerW
+      if (innerH > childH) childH = innerH
     }
 
-    const fitContent = () => {
-      const child = (content.firstElementChild as HTMLElement) || content
-      if (!child) return
+    // Generous breathing room: 24px safety buffer prevents any subpixel or border clipping
+    const availW = Math.max(80, containerRect.width - 24)
+    const availH = Math.max(80, containerRect.height - 24)
 
-      const containerRect = container.getBoundingClientRect()
-      if (containerRect.width === 0 || containerRect.height === 0) return
-
-      // Temporarily clear transform to read true natural unscaled dimensions
-      content.style.transform = 'none'
-      const childRect = child.getBoundingClientRect()
-
-      const availW = containerRect.width - 12
-      const availH = containerRect.height - 12
-
-      if (childRect.width > availW || childRect.height > availH) {
-        const scaleX = availW / childRect.width
-        const scaleY = availH / childRect.height
-        const targetScale = Math.min(scaleX, scaleY, 1) * 0.98
-        const clampedScale = Math.max(0.38, Math.min(1, Math.round(targetScale * 100) / 100))
-        content.style.transform = `scale(${clampedScale})`
-        content.style.transformOrigin = 'center center'
-      } else {
-        content.style.transform = ''
-        content.style.transformOrigin = ''
-      }
+    if (childW > availW || childH > availH) {
+      const scaleX = availW / childW
+      const scaleY = availH / childH
+      const targetScale = Math.min(scaleX, scaleY, 1) * 0.95
+      const clampedScale = Math.max(0.28, Math.min(1, Math.round(targetScale * 100) / 100))
+      setScale((prev) => (Math.abs(prev - clampedScale) > 0.01 ? clampedScale : prev))
+    } else {
+      setScale((prev) => (prev !== 1 ? 1 : prev))
     }
+  }, [isExpanded])
 
-    fitContent()
+  React.useLayoutEffect(() => {
+    calculateScale()
+  }, [calculateScale, children])
+
+  React.useEffect(() => {
+    calculateScale()
 
     const ro = new ResizeObserver(() => {
-      fitContent()
+      calculateScale()
     })
 
-    ro.observe(container)
-    if (content.firstElementChild) {
-      ro.observe(content.firstElementChild)
+    if (containerRef.current) ro.observe(containerRef.current)
+    if (contentRef.current?.firstElementChild) {
+      ro.observe(contentRef.current.firstElementChild)
     }
 
-    const t1 = setTimeout(fitContent, 100)
-    const t2 = setTimeout(fitContent, 400)
+    const t1 = setTimeout(calculateScale, 100)
+    const t2 = setTimeout(calculateScale, 300)
 
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       ro.disconnect()
     }
-  }, [isExpanded, children])
+  }, [calculateScale, children])
 
   return (
     <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-hidden">
       <div
         ref={contentRef}
+        style={scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'center center' } : undefined}
         className="w-full h-full flex items-center justify-center will-change-transform transition-transform duration-200"
       >
         {children}
