@@ -883,7 +883,7 @@ export default function ButtonDemo() {
     featured: false,
     dateAdded: '2026-10-02',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-1 w-full scale-[0.60] sm:scale-[0.64] origin-center">
+      <div className="flex items-center justify-center p-1 w-full">
         <FeatureBentoBlock />
       </div>
     ),
@@ -913,7 +913,7 @@ export default function ButtonDemo() {
     featured: false,
     dateAdded: '2026-10-01',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-2 w-full scale-[0.75] sm:scale-[0.80] origin-center">
+      <div className="flex items-center justify-center p-2 w-full">
         <AnimatedCtaBlock />
       </div>
     ),
@@ -1531,7 +1531,7 @@ export default function ButtonDemo() {
     featured: false,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-2 w-full scale-[0.72] sm:scale-75 origin-center">
+      <div className="flex items-center justify-center p-2 w-full sm:scale-75 origin-center">
         <TabsMorph />
       </div>
     ),
@@ -1592,7 +1592,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.55] sm:scale-[0.58] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <PricingComparisonBlock />
       </div>
     ),
@@ -2046,7 +2046,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full max-w-md mx-auto p-1 flex items-center justify-center scale-[0.78] sm:scale-[0.82] origin-center">
+      <div className="w-full max-w-md mx-auto p-1 flex items-center justify-center">
         <ScrollTimeline />
       </div>
     ),
@@ -2117,7 +2117,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.55] sm:scale-[0.58] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <ComparativeFeatureTable />
       </div>
     ),
@@ -2964,7 +2964,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.80] sm:scale-[0.85] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <GitContributionHeatmap />
       </div>
     ),
@@ -3026,7 +3026,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.75] sm:scale-[0.80] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <LiveTelemetryStatusGrid />
       </div>
     ),
@@ -3461,7 +3461,7 @@ export default function ButtonDemo() {
     popular: false,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-1 w-full scale-[0.68] origin-center">
+      <div className="flex items-center justify-center p-1 w-full">
         <MagneticSocialShareCluster />
       </div>
     ),
@@ -3523,7 +3523,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.72] sm:scale-[0.76] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <FaqAccordionSection />
       </div>
     ),
@@ -3554,7 +3554,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.56] sm:scale-[0.60] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <HeroGeometryGlowSection />
       </div>
     ),
@@ -3957,7 +3957,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.60] sm:scale-[0.64] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <HolographicPricingTable />
       </div>
     ),
@@ -3988,7 +3988,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.68] sm:scale-[0.72] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <InteractiveWorkflowPipeline />
       </div>
     ),
@@ -4221,7 +4221,7 @@ export function DefenseTelemetryRadar() {
       { name: 'autoplayInterval', type: 'number', label: 'Interval (ms)', min: 2000, max: 8000, step: 500, defaultValue: 4500 },
     ],
     renderPreview: (controls: any = {}) => (
-      <div className="w-full p-1 flex items-center justify-center scale-[0.62] sm:scale-[0.65] origin-center">
+      <div className="w-full p-1 flex items-center justify-center">
         <InteractiveFeatureCarousel
           autoplay={controls?.autoplay ?? false}
           autoplayInterval={controls?.autoplayInterval || 4500}
@@ -4269,7 +4269,7 @@ export function ShowcaseSection() {
       { name: 'branch', type: 'text', label: 'Branch Name', defaultValue: 'main' },
     ],
     renderPreview: (controls: any = {}) => (
-      <div className="w-full max-w-3xl p-1 flex items-center justify-center scale-[0.70] sm:scale-[0.75] origin-center">
+      <div className="w-full max-w-3xl p-1 flex items-center justify-center">
         <TerminalDiffBlock
           initialMode={controls?.initialMode || 'unified'}
           filePath={controls?.filePath || 'src/hooks/use-agent-stream.ts'}

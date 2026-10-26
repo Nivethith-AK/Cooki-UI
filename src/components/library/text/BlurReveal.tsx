@@ -18,14 +18,13 @@ export const BlurReveal: React.FC<BlurRevealProps> = ({
   return (
     <motion.div
       initial={{ opacity: 0, filter: 'blur(12px)', y: 15 }}
-      whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-      viewport={{ once: false }}
+      animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
       transition={{
         duration,
         delay,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className={cn('text-zinc-200', className)}
+      className={cn('text-zinc-900 dark:text-zinc-100 font-bold', className)}
     >
       {children}
     </motion.div>

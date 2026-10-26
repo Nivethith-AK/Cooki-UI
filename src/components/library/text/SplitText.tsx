@@ -18,7 +18,7 @@ export const SplitText: React.FC<SplitTextProps> = ({
       {characters.map((char, index) => (
         <motion.span
           key={`${char}-${index}`}
-          className="inline-block cursor-default select-none text-zinc-100"
+          className="inline-block cursor-default select-none text-zinc-900 dark:text-zinc-100 font-bold"
           whileHover={{
             y: -6,
             color: '#38bdf8',

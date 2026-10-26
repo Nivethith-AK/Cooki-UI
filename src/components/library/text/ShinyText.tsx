@@ -15,13 +15,13 @@ export const ShinyText: React.FC<ShinyTextProps> = ({
   return (
     <span
       style={{
-        backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 100%)',
+        backgroundImage: 'linear-gradient(120deg, currentColor 0%, rgba(99, 102, 241, 1) 50%, currentColor 100%)',
         backgroundSize: '200% 100%',
         animation: `shinyShimmer ${speed}s linear infinite`,
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
       }}
-      className={cn('inline-block font-mono font-bold tracking-wider', className)}
+      className={cn('inline-block font-mono font-bold tracking-wider text-zinc-900 dark:text-white', className)}
     >
       {text}
     </span>

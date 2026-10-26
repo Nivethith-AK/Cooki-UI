@@ -128,7 +128,7 @@ export const ComponentGrid: React.FC = () => {
               return (
                 <div 
                   key={item.id}
-                  className={isExpansiveView && wide ? 'col-span-1 md:col-span-2 xl:col-span-2 2xl:col-span-3 h-full' : 'col-span-1 h-full'}
+                  className={wide ? 'col-span-1 md:col-span-2 xl:col-span-2 2xl:col-span-3 h-full' : 'col-span-1 h-full'}
                 >
                   <ComponentCard item={item} forceExpanded={isExpansiveView} />
                 </div>
