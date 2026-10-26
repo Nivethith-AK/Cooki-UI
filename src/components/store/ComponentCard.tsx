@@ -61,16 +61,6 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
     setTimeout(() => setCopied(false), 2000)
   }
 
-  // Calculate tailored canvas height based on component classification
-  const getCanvasMinHeight = () => {
-    if (effectiveExpanded) return 'min-h-[480px]'
-    if (item.category === 'sections') return 'min-h-[360px]'
-    if (item.category === 'backgrounds') return 'min-h-[260px]'
-    if (item.subcategory === '3D Elements') return 'min-h-[280px]'
-    if (item.category === 'data') return 'min-h-[280px]'
-    return 'min-h-[240px]'
-  }
-
   const defaultControlValues = React.useMemo(() => {
     const vals: Record<string, any> = {}
     if (item.controls) {
@@ -84,7 +74,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
   return (
     <div 
       data-component-id={item.slug}
-      className={`component-grid-card group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 backdrop-blur-xl shadow-xs dark:shadow-lg transition-all duration-300 hover:border-zinc-300 dark:hover:border-white/25 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-black/40 ${
+      className={`component-grid-card group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/70 backdrop-blur-xl shadow-xs dark:shadow-lg transition-all duration-300 hover:border-zinc-300 dark:hover:border-white/25 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-black/40 h-full ${
       effectiveExpanded ? 'ring-1 ring-indigo-500/30' : ''
     }`}>
       
@@ -164,8 +154,9 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
       {/* 2. REAL Live Interactive Component Preview Viewport */}
       <div 
         onClick={() => setSelectedComponent(item)}
-        className={`relative flex ${getCanvasMinHeight()} cursor-pointer items-center justify-center overflow-hidden bg-zinc-100/70 dark:bg-[#070709] p-4 transition-all duration-300 select-none ${
-          effectiveExpanded ? 'max-h-none' : 'max-h-[520px]'
+        style={effectiveExpanded ? { minHeight: 480 } : { height: 290, minHeight: 290, maxHeight: 290, flex: '0 0 290px' }}
+        className={`relative flex w-full cursor-pointer items-center justify-center overflow-hidden bg-zinc-100/70 dark:bg-[#070709] p-4 transition-all duration-300 select-none ${
+          effectiveExpanded ? 'max-h-none flex-1' : ''
         }`}
       >
         {/* Subtle grid background */}
@@ -173,7 +164,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
 
         {/* Live Component Render Canvas with unconstrained child sizing */}
         <div 
-          className="component-card-canvas relative isolate z-10 w-full flex items-center justify-center pointer-events-auto max-w-full overflow-hidden text-zinc-900 dark:text-zinc-100"
+          className="component-card-canvas relative isolate z-10 w-full h-full flex items-center justify-center pointer-events-auto max-w-full overflow-hidden text-zinc-900 dark:text-zinc-100"
         >
           <CardErrorBoundary key={item.id}>
             {item.renderPreview(defaultControlValues, isDark)}
@@ -182,7 +173,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
       </div>
 
       {/* 3. Bottom Information & Links */}
-      <div className="relative z-20 p-5 flex flex-col justify-between gap-3 border-t border-zinc-200/60 dark:border-white/5 bg-white dark:bg-zinc-950/70">
+      <div className="relative z-20 p-5 flex flex-col justify-between gap-3 border-t border-zinc-200/60 dark:border-white/5 bg-white dark:bg-zinc-950/70 shrink-0">
         <div>
           <div className="flex items-center justify-between">
             <h3 
@@ -192,7 +183,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
               {item.name}
             </h3>
           </div>
-          <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed min-h-[32px]">
+          <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed h-[36px]">
             {item.description}
           </p>
         </div>

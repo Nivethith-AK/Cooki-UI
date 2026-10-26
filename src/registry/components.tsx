@@ -792,7 +792,7 @@ export default function ButtonDemo() {
     featured: false,
     dateAdded: '2026-10-02',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-8">
+      <div className="flex items-center justify-center p-2 w-full max-w-full overflow-hidden scale-90 sm:scale-95 origin-center">
         <FloatingNavbar />
       </div>
     ),
@@ -1531,7 +1531,7 @@ export default function ButtonDemo() {
     featured: false,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6 w-full">
+      <div className="flex items-center justify-center p-2 w-full scale-[0.72] sm:scale-75 origin-center">
         <TabsMorph />
       </div>
     ),
@@ -1657,7 +1657,7 @@ export default function ButtonDemo() {
       { name: 'length', type: 'number', label: 'Digit Count', min: 4, max: 8, step: 1, defaultValue: 6 }
     ],
     renderPreview: (props: any = {}) => (
-      <div className="flex flex-col items-center justify-center p-6 w-full">
+      <div className="flex flex-col items-center justify-center p-2 w-full scale-90 origin-center">
         <OtpInput length={props.length || 6} />
       </div>
     ),
@@ -1853,8 +1853,8 @@ export default function ButtonDemo() {
       { name: 'label', type: 'text', label: 'Badge Label', defaultValue: 'CLUSTER OPERATIONAL' }
     ],
     renderPreview: (props: any = {}) => (
-      <div className="flex items-center justify-center p-8">
-        <StatusRadarBadge status={props.status || 'online'} label={props.label || 'CLUSTER OPERATIONAL'} />
+      <div className="flex items-center justify-center p-2 w-full scale-90 sm:scale-95 origin-center">
+        <StatusRadarBadge status={props.status || 'online'} label={props.label || 'SYSTEM ACTIVE'} />
       </div>
     ),
     usage: `<StatusRadarBadge status="online" label="CLUSTER OPERATIONAL" />`,
@@ -2809,7 +2809,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6">
+      <div className="flex items-center justify-center p-2 w-full scale-85 sm:scale-90 origin-center">
         <SegmentedControlSwitch />
       </div>
     ),
@@ -3151,8 +3151,8 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6">
-        <GlitchCyberText text="ZERO_LATENCY_FABRIC" />
+      <div className="flex items-center justify-center p-4 w-full scale-90 sm:scale-95 origin-center">
+        <GlitchCyberText text="CYBERPUNK" />
       </div>
     ),
     usage: `<GlitchCyberText text="ZERO_LATENCY_FABRIC" />`,
@@ -3461,7 +3461,7 @@ export default function ButtonDemo() {
     popular: false,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-1 w-full scale-[0.68] origin-center">
         <MagneticSocialShareCluster />
       </div>
     ),
@@ -3833,7 +3833,7 @@ export default function ButtonDemo() {
     popular: true,
     dateAdded: '2026-10-04',
     renderPreview: () => (
-      <div className="w-full p-4 flex items-center justify-center">
+      <div className="w-full p-2 flex items-center justify-center scale-90 origin-center">
         <ScratchToRevealCard />
       </div>
     ),
@@ -4172,7 +4172,7 @@ export function VoiceAssistantWidget() {
       { name: 'interactive', type: 'boolean', label: 'Interactive Pings', defaultValue: true },
     ],
     renderPreview: (controls: any = {}) => (
-      <div className="w-full max-w-md p-2">
+      <div className="w-full max-w-md p-1 flex items-center justify-center scale-90 origin-center">
         <RadarPingBeacon
           sweepSpeed={controls?.sweepSpeed || 2.5}
           colorTheme={controls?.colorTheme || 'emerald'}

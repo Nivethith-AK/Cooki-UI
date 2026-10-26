@@ -122,13 +122,13 @@ export const ComponentGrid: React.FC = () => {
       {/* Grid of Real Components with Adaptive Column Spanning */}
       {currentItems.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6 items-stretch">
             {currentItems.map((item) => {
               const wide = isWideComponent(item.slug, item.category)
               return (
                 <div 
                   key={item.id}
-                  className={wide ? 'col-span-1 md:col-span-2 xl:col-span-2 2xl:col-span-3' : 'col-span-1'}
+                  className={isExpansiveView && wide ? 'col-span-1 md:col-span-2 xl:col-span-2 2xl:col-span-3 h-full' : 'col-span-1 h-full'}
                 >
                   <ComponentCard item={item} forceExpanded={isExpansiveView} />
                 </div>
