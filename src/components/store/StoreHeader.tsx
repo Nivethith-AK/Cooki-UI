@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass, Terminal } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
@@ -94,14 +95,27 @@ export const StoreHeader: React.FC = () => {
             <span>{favorites.length}</span>
           </button>
 
-          {/* Theme Toggle (Dark / Light) */}
-          <button
-            onClick={toggleTheme}
+          {/* Theme Toggle (Dark / Light) with smooth rotating icon & circular ripple trigger */}
+          <motion.button
+            whileTap={{ scale: 0.88 }}
+            onClick={(e) => toggleTheme(e)}
             aria-label="Toggle dark/light theme"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer"
+            title={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            className="relative flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer overflow-hidden shadow-2xs"
           >
-            {isDark ? <Sun size={15} /> : <Moon size={15} />}
-          </button>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={isDark ? 'dark' : 'light'}
+                initial={{ rotate: -90, scale: 0.4, opacity: 0 }}
+                animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                exit={{ rotate: 90, scale: 0.4, opacity: 0 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center justify-center"
+              >
+                {isDark ? <Sun size={15} weight="bold" /> : <Moon size={15} weight="bold" />}
+              </motion.div>
+            </AnimatePresence>
+          </motion.button>
 
         </div>
 

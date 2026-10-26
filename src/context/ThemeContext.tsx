@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 
 interface ThemeContextType {
   isDark: boolean
-  toggleTheme: () => void
+  toggleTheme: (e?: React.MouseEvent | MouseEvent) => void
 }
 
 const ThemeContext = createContext<ThemeContextType>({
@@ -40,13 +40,57 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [isDark])
 
-  const toggleTheme = () => {
+  const toggleTheme = (e?: React.MouseEvent | MouseEvent) => {
+    const doc = document as any
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Use native View Transition API for 60fps circular ripple transition
+    if (typeof doc.startViewTransition === 'function' && !prefersReducedMotion) {
+      let x = window.innerWidth - 48
+      let y = 24
+
+      if (e && typeof e.clientX === 'number' && e.clientX > 0) {
+        x = e.clientX
+        y = e.clientY
+      }
+
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      )
+
+      const transition = doc.startViewTransition(() => {
+        setIsDark((prev) => !prev)
+      })
+
+      transition.ready.then(() => {
+        const clipPath = [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`
+        ]
+        document.documentElement.animate(
+          {
+            clipPath: isDark ? [...clipPath].reverse() : clipPath
+          },
+          {
+            duration: 400,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)'
+          }
+        )
+      }).catch(() => {
+        setIsDark((prev) => !prev)
+      })
+      return
+    }
+
+    // Graceful fallback for browsers without View Transitions
     const root = document.documentElement
     root.classList.add('theme-transitioning')
     setIsDark((prev) => !prev)
     setTimeout(() => {
       root.classList.remove('theme-transitioning')
-    }, 300)
+    }, 280)
   }
 
   return (
