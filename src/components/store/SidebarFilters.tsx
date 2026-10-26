@@ -34,29 +34,8 @@ export const SidebarFilters: React.FC = () => {
     resetFilters,
   } = useStore()
 
-  // Lock body scroll and pause Lenis when mobile drawer is open
-  useEffect(() => {
-    if (mobileFilterOpen) {
-      const prevBody = document.body.style.overflow
-      const prevHtml = document.documentElement.style.overflow
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      if (typeof (window as any).__lenis?.stop === 'function') {
-        ;(window as any).__lenis.stop()
-      }
-
-      return () => {
-        document.body.style.overflow = prevBody
-        document.documentElement.style.overflow = prevHtml
-        if (typeof (window as any).__lenis?.start === 'function') {
-          ;(window as any).__lenis.start()
-        }
-      }
-    }
-  }, [mobileFilterOpen])
-
   const categories: { id: ComponentCategory | 'all'; label: string; icon: React.ReactNode }[] = [
-    { id: 'all', label: 'All Artifacts', countOverride: components.length, icon: <SquaresFour size={15} /> },
+    { id: 'all', label: 'All Components', countOverride: components.length, icon: <SquaresFour size={15} /> },
     { id: 'components', label: 'UI Components', icon: <Browsers size={15} /> },
     { id: 'ai', label: 'AI & LLM Tools', icon: <Cpu size={15} /> },
     { id: 'cursors', label: 'Cursors & Pointer FX', icon: <Cursor size={15} /> },
@@ -230,6 +209,9 @@ export const SidebarFilters: React.FC = () => {
               className="fixed inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
             />
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Filter Components"
               data-lenis-prevent="true"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
@@ -238,7 +220,7 @@ export const SidebarFilters: React.FC = () => {
               className="fixed inset-y-0 left-0 w-80 max-w-[85%] border-r border-zinc-200 dark:border-white/15 bg-white dark:bg-zinc-950 p-6 text-zinc-900 dark:text-white shadow-2xl overflow-y-auto modal-scroll"
             >
               <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 pb-4 mb-6">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">Filter Artifacts</span>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">Filter Components</span>
                 <button
                   onClick={() => setMobileFilterOpen(false)}
                   className="rounded-full p-1 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white cursor-pointer"

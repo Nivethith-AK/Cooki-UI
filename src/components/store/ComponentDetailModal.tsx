@@ -74,32 +74,6 @@ export const ComponentDetailModal: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'preview' | 'code' | 'install' | 'registry'>('preview')
   const [isFullscreen, setIsFullscreen] = useState(false)
 
-  // Lock background scroll and halt Lenis virtual scroll when modal is open
-  useEffect(() => {
-    if (selectedComponent) {
-      const prevBodyOverflow = document.body.style.overflow
-      const prevHtmlOverflow = document.documentElement.style.overflow
-      
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      
-      // Explicitly pause Lenis smooth scroll engine
-      if (typeof (window as any).__lenis?.stop === 'function') {
-        ;(window as any).__lenis.stop()
-      }
-
-      return () => {
-        document.body.style.overflow = prevBodyOverflow
-        document.documentElement.style.overflow = prevHtmlOverflow
-
-        // Explicitly resume Lenis smooth scroll engine
-        if (typeof (window as any).__lenis?.start === 'function') {
-          ;(window as any).__lenis.start()
-        }
-      }
-    }
-  }, [selectedComponent])
-
   // Reset tab and control overrides whenever component selection changes
   useEffect(() => {
     setControlOverrides({})
@@ -149,6 +123,9 @@ export const ComponentDetailModal: React.FC = () => {
     <AnimatePresence>
       {selectedComponent && (
         <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedComponent.name}
           data-lenis-prevent="true"
           className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-5 md:p-6 overflow-hidden"
         >

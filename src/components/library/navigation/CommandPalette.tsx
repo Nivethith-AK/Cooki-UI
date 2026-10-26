@@ -24,6 +24,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ className }) => 
       <div className="flex items-center gap-2.5 rounded-2xl border border-white/10 bg-zinc-900/80 px-3.5 py-2.5">
         <MagnifyingGlass size={16} className="text-zinc-400" />
         <input
+          id="cmd-palette-input"
+          name="cmdQuery"
+          aria-label="Search AST or commands"
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

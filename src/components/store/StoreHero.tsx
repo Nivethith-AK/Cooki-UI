@@ -75,7 +75,7 @@ export const StoreHero: React.FC = () => {
   }
 
   const categories: { id: ComponentCategory | 'all'; label: string; count: number; icon: React.ReactNode }[] = [
-    { id: 'all', label: 'All Artifacts', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={13} /> },
+    { id: 'all', label: 'All Components', count: ALL_REGISTRY_ITEMS.length, icon: <SquaresFour size={13} /> },
     { id: 'components', label: 'Components', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'components').length, icon: <Browsers size={13} /> },
     { id: 'ai', label: 'AI & LLM Tools', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'ai').length, icon: <Cpu size={13} /> },
     { id: 'cursors', label: 'Cursors', count: ALL_REGISTRY_ITEMS.filter(c => c.category === 'cursors').length, icon: <Cursor size={13} /> },
@@ -157,7 +157,12 @@ export const StoreHero: React.FC = () => {
                   }}
                   className="w-full"
                 >
-                  <ComboboxInput placeholder="Search component to preview (e.g. Magnetic Dock)..." />
+                  <ComboboxInput 
+                    id="hero-quick-selector" 
+                    name="quickSelector" 
+                    aria-label="Component quick preview selector" 
+                    placeholder="Search component to preview (e.g. Magnetic Dock)..." 
+                  />
                   <ComboboxContent>
                     <ComboboxEmpty>No matching component found.</ComboboxEmpty>
                     <ComboboxList>
@@ -231,6 +236,9 @@ export const StoreHero: React.FC = () => {
             </div>
             <input
               ref={inputRef}
+              id="hero-catalogue-search"
+              name="catalogueSearch"
+              aria-label={`Search ${ALL_REGISTRY_ITEMS.length}+ components`}
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

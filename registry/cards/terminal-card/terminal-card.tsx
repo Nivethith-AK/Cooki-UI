@@ -114,6 +114,9 @@ export const TerminalCard: React.FC = () => {
           <span className="text-cyan-400 font-bold">~</span>
           <span className="text-indigo-400">$</span>
           <input
+            id="terminal-card-input"
+            name="terminalInput"
+            aria-label="Terminal command input"
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}

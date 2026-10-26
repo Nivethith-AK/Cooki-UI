@@ -154,6 +154,33 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return result
   }, [selectedCategory, selectedFramework, searchQuery, sortBy, showFavoritesOnly, favorites])
 
+  // Centralized, leak-proof modal scroll locking and Lenis management
+  const isAnyModalOpen = Boolean(selectedComponent || commandPaletteOpen || installGuideOpen || mobileFilterOpen)
+
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      if (typeof (window as any).__lenis?.stop === 'function') {
+        ;(window as any).__lenis.stop()
+      }
+    } else {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      if (typeof (window as any).__lenis?.start === 'function') {
+        ;(window as any).__lenis.start()
+      }
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      if (typeof (window as any).__lenis?.start === 'function') {
+        ;(window as any).__lenis.start()
+      }
+    }
+  }, [isAnyModalOpen])
+
   return (
     <StoreContext.Provider
       value={{

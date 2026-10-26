@@ -42,28 +42,12 @@ export const GlobalCommandPalette: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
 
-  // Focus input and lock background scroll when opened
+  // Focus input when opened
   useEffect(() => {
     if (commandPaletteOpen) {
       setQuery('')
       setSelectedIndex(0)
       setTimeout(() => inputRef.current?.focus(), 50)
-
-      const prevBody = document.body.style.overflow
-      const prevHtml = document.documentElement.style.overflow
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      if (typeof (window as any).__lenis?.stop === 'function') {
-        ;(window as any).__lenis.stop()
-      }
-
-      return () => {
-        document.body.style.overflow = prevBody
-        document.documentElement.style.overflow = prevHtml
-        if (typeof (window as any).__lenis?.start === 'function') {
-          ;(window as any).__lenis.start()
-        }
-      }
     }
   }, [commandPaletteOpen])
 
@@ -158,6 +142,9 @@ export const GlobalCommandPalette: React.FC = () => {
     <AnimatePresence>
       {commandPaletteOpen && (
         <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Command Palette"
           data-lenis-prevent="true"
           className="fixed inset-0 z-[60] flex items-start justify-center pt-16 sm:pt-24 px-4 overflow-hidden"
         >
@@ -185,13 +172,16 @@ export const GlobalCommandPalette: React.FC = () => {
               <MagnifyingGlass size={20} weight="bold" className="text-zinc-400 shrink-0" />
               <input
                 ref={inputRef}
+                id="command-palette-search-input"
+                name="commandSearch"
+                aria-label="Search components and actions"
                 type="text"
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value)
                   setSelectedIndex(0)
                 }}
-                placeholder="Search all 121 artifacts, categories, or actions..."
+                placeholder={`Search all ${components.length} components, categories, or actions...`}
                 className="w-full bg-transparent text-sm placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none font-sans"
               />
               {query && (

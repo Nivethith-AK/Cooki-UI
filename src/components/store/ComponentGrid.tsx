@@ -71,7 +71,7 @@ export const ComponentGrid: React.FC = () => {
           <span className="font-bold text-zinc-900 dark:text-white">
             {filteredComponents.length}
           </span>
-          <span>ARTIFACTS</span>
+          <span>COMPONENTS</span>
           <span className="text-zinc-400 dark:text-zinc-600 hidden sm:inline">&bull;</span>
           <span className="text-zinc-500 hidden sm:inline">
             Showing {filteredComponents.length > 0 ? startIndex + 1 : 0}–{endIndex}

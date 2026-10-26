@@ -23,30 +23,6 @@ export const InstallGuideModal: React.FC = () => {
   const [mcpIdeTab, setMcpIdeTab] = useState<'cursor' | 'claude' | 'windsurf' | 'antigravity'>('cursor')
   const [copiedKey, setCopiedKey] = useState<string | null>(null)
 
-  // Lock background scroll and halt Lenis virtual scroll when modal is open
-  useEffect(() => {
-    if (installGuideOpen) {
-      const prevBody = document.body.style.overflow
-      const prevHtml = document.documentElement.style.overflow
-      
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      
-      if (typeof (window as any).__lenis?.stop === 'function') {
-        ;(window as any).__lenis.stop()
-      }
-
-      return () => {
-        document.body.style.overflow = prevBody
-        document.documentElement.style.overflow = prevHtml
-
-        if (typeof (window as any).__lenis?.start === 'function') {
-          ;(window as any).__lenis.start()
-        }
-      }
-    }
-  }, [installGuideOpen])
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setInstallGuideOpen(false)
@@ -92,6 +68,9 @@ export const InstallGuideModal: React.FC = () => {
     <AnimatePresence>
       {installGuideOpen && (
         <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Installation Guide and AI Agent Setup"
           data-lenis-prevent="true"
           className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-5 md:p-6 overflow-hidden"
         >
@@ -468,7 +447,7 @@ export default function MyPage() {
                           <span>list_components</span>
                         </div>
                         <p className="text-[11px] text-zinc-500">
-                          Discovers all 121 artifacts with descriptions, categories, and frameworks.
+                          Discovers all 136 components with descriptions, categories, and frameworks.
                         </p>
                       </div>
 
