@@ -5,7 +5,7 @@ Right-side sliding drawer panel with grab handle, spring slide physics, and back
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/sliding-drawer-sheet.json
+npx shadcn@latest add https://www.cooki-ui.design/r/sliding-drawer-sheet.json
 ```
 
 ## Dependencies

@@ -5,7 +5,7 @@ Accessible modal dialog with spring physics, backdrop blur, keyboard ESC trap, a
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/interactive-dialog-modal.json
+npx shadcn@latest add https://www.cooki-ui.design/r/interactive-dialog-modal.json
 ```
 
 ## Dependencies

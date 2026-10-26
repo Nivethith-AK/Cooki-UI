@@ -5,7 +5,7 @@ Vertical interactive audit timeline with connecting glowing track and milestone 
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/scroll-timeline.json
+npx shadcn@latest add https://www.cooki-ui.design/r/scroll-timeline.json
 ```
 
 ## Dependencies

@@ -11,23 +11,23 @@ Cooki UI operates a zero-backend, statically hosted shadcn-compatible registry o
 ### Discovering Components
 Fetch the full manifest:
 ```http
-GET https://cooki-ui.vercel.app/r/index.json
+GET https://www.cooki-ui.design/r/index.json
 ```
 Or check root manifest:
 ```http
-GET https://cooki-ui.vercel.app/registry.json
+GET https://www.cooki-ui.design/registry.json
 ```
 
 ### Fetching a Specific Component
 Every component has a dedicated endpoint containing its full raw TSX source code:
 ```http
-GET https://cooki-ui.vercel.app/r/{component-name}.json
+GET https://www.cooki-ui.design/r/{component-name}.json
 ```
 
 Example JSON payload for `magnetic-button`:
 ```json
 {
-  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
   "name": "magnetic-button",
   "type": "registry:ui",
   "title": "Magnetic Button",
@@ -59,16 +59,16 @@ npx cooki-ui add <slug>
 ### Option B: shadcn CLI
 ```bash
 # npm
-npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+npx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # pnpm
-pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # bun
-bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+bunx --bun shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # yarn
-npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+npx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 ```
 
 ---
@@ -78,7 +78,7 @@ npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
 When a user asks you to add a Cooki UI component to their project:
 
 ### Step 1: Query Registry JSON or MCP Tool
-Fetch `https://cooki-ui.vercel.app/r/{name}.json` or invoke the `get_component_source` MCP tool.
+Fetch `https://www.cooki-ui.design/r/{name}.json` or invoke the `get_component_source` MCP tool.
 
 ### Step 2: Extract Dependencies
 Check the `dependencies` array. Run:

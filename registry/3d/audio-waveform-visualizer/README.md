@@ -5,7 +5,7 @@ Kinetic frequency equalizer with spring bouncing bars, soundwave playback toggle
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/audio-waveform-visualizer.json
+npx shadcn@latest add https://www.cooki-ui.design/r/audio-waveform-visualizer.json
 ```
 
 ## Dependencies

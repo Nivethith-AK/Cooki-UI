@@ -428,12 +428,12 @@ export const ComponentDetailModal: React.FC = () => {
                     {(() => {
                       const installCmd = 
                         pmTab === 'pnpm'
-                          ? `pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          ? `pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/${selectedComponent.slug}.json`
                           : pmTab === 'bun'
-                          ? `bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          ? `bunx --bun shadcn@latest add https://www.cooki-ui.design/r/${selectedComponent.slug}.json`
                           : pmTab === 'yarn'
-                          ? `yarn dlx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
-                          : `npx shadcn@latest add https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`
+                          ? `yarn dlx shadcn@latest add https://www.cooki-ui.design/r/${selectedComponent.slug}.json`
+                          : `npx shadcn@latest add https://www.cooki-ui.design/r/${selectedComponent.slug}.json`
 
                       return (
                         <div className="flex items-center justify-between rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-black/80 p-3 font-mono text-xs text-zinc-200 dark:text-zinc-300">
@@ -593,7 +593,7 @@ export const ComponentDetailModal: React.FC = () => {
                       <span className="text-cyan-400">GET /r/{selectedComponent.slug}.json</span>
                       <button
                         onClick={() => {
-                          navigator.clipboard.writeText(`https://cooki-ui.vercel.app/r/${selectedComponent.slug}.json`)
+                          navigator.clipboard.writeText(`https://www.cooki-ui.design/r/${selectedComponent.slug}.json`)
                           setCopiedInstall(true)
                           setTimeout(() => setCopiedInstall(false), 2000)
                         }}
@@ -617,7 +617,7 @@ export const ComponentDetailModal: React.FC = () => {
                       <pre className="text-zinc-300 dark:text-zinc-400">
 {JSON.stringify(
   {
-    $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
+    $schema: 'https://www.cooki-ui.design/schema/registry-item.json',
     name: selectedComponent.slug,
     type: 'registry:ui',
     title: selectedComponent.name,

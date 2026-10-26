@@ -5,7 +5,7 @@ Multi-stage pipeline compilation loader with real-time status telemetry and spri
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/progress-step-loader.json
+npx shadcn@latest add https://www.cooki-ui.design/r/progress-step-loader.json
 ```
 
 ## Dependencies

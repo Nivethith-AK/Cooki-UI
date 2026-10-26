@@ -5,7 +5,7 @@ Cyberpunk matrix character decryption animation on hover or trigger with glyph c
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/scramble-text.json
+npx shadcn@latest add https://www.cooki-ui.design/r/scramble-text.json
 ```
 
 ## Dependencies

@@ -5,7 +5,7 @@ Modern breadcrumb and multi-step progression bar with completed checkmarks and a
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/breadcrumb-stepper.json
+npx shadcn@latest add https://www.cooki-ui.design/r/breadcrumb-stepper.json
 ```
 
 ## Dependencies

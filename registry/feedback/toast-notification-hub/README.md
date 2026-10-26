@@ -5,7 +5,7 @@ Stackable interactive toast manager with auto-dismiss timers, progress meters, a
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/toast-notification-hub.json
+npx shadcn@latest add https://www.cooki-ui.design/r/toast-notification-hub.json
 ```
 
 ## Dependencies

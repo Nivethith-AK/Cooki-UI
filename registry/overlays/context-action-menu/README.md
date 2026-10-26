@@ -5,7 +5,7 @@ Desktop-style right-click context menu with keyboard shortcuts, destructive acti
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/context-action-menu.json
+npx shadcn@latest add https://www.cooki-ui.design/r/context-action-menu.json
 ```
 
 ## Dependencies

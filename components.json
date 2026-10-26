@@ -1,5 +1,5 @@
 {
-  "$schema": "https://cooki-ui.vercel.app/schema.json",
+  "$schema": "https://www.cooki-ui.design/schema.json",
   "style": "new-york",
   "rsc": true,
   "tsx": true,
@@ -19,6 +19,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@cooki-ui": "https://cooki-ui.vercel.app/r/{name}.json"
+    "@cooki-ui": "https://www.cooki-ui.design/r/{name}.json"
   }
 }

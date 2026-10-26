@@ -5,7 +5,7 @@ Dynamic canvas particle constellation with nodes drifting and interconnecting dy
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/quantum-field-background.json
+npx shadcn@latest add https://www.cooki-ui.design/r/quantum-field-background.json
 ```
 
 ## Dependencies

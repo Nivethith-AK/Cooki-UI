@@ -5,7 +5,7 @@ Interactive file drop zone with dashed border animation, file type validation, a
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/drag-drop-file-upload.json
+npx shadcn@latest add https://www.cooki-ui.design/r/drag-drop-file-upload.json
 ```
 
 ## Dependencies

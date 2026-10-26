@@ -11,7 +11,7 @@ const ITEMS = [
   {
     id: '2',
     q: 'Can components be installed via shadcn CLI?',
-    a: 'Yes, every component complies with the official shadcn registry schema endpoint at https://cooki-ui.vercel.app/r/{slug}.json.'
+    a: 'Yes, every component complies with the official shadcn registry schema endpoint at https://www.cooki-ui.design/r/{slug}.json.'
   },
   {
     id: '3',

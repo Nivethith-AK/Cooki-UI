@@ -5,7 +5,7 @@ Interactive IDE preview card with syntax highlighted tokens, expandable line tab
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/code-hover-card.json
+npx shadcn@latest add https://www.cooki-ui.design/r/code-hover-card.json
 ```
 
 ## Dependencies

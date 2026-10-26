@@ -5,7 +5,7 @@ Searchable multi-select dropdown with animated tag removals, keyboard navigation
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/multi-select-combobox.json
+npx shadcn@latest add https://www.cooki-ui.design/r/multi-select-combobox.json
 ```
 
 ## Dependencies

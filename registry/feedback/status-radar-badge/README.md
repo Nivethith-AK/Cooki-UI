@@ -5,7 +5,7 @@ Live telemetry system status indicator badge with pulse sonar ring and calibrate
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/status-radar-badge.json
+npx shadcn@latest add https://www.cooki-ui.design/r/status-radar-badge.json
 ```
 
 ## Dependencies

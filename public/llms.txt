@@ -3,14 +3,14 @@
 > A professional, source-first, AI-friendly React & Next.js component library with 1,000+ interactive artifacts, shadcn-compatible registry endpoints, and zero-runtime-dependency source ownership.
 
 ## Key Links
-- Homepage: https://cooki-ui.vercel.app
-- Registry API: https://cooki-ui.vercel.app/r/index.json
-- Root Registry Manifest: https://cooki-ui.vercel.app/registry.json
+- Homepage: https://www.cooki-ui.design
+- Registry API: https://www.cooki-ui.design/r/index.json
+- Root Registry Manifest: https://www.cooki-ui.design/registry.json
 - GitHub Repository: https://github.com/Nivethith-AK/Cooki-UI
 
 ## Philosophy
 - **Source-First**: You own the code. Components are installed directly into your repository (`components/ui/`). No obscure runtime packages.
-- **shadcn Compatible**: Install via `npx shadcn@latest add https://cooki-ui.vercel.app/r/[component-name].json`.
+- **shadcn Compatible**: Install via `npx shadcn@latest add https://www.cooki-ui.design/r/[component-name].json`.
 - **Zero Database Required**: 100% static registry served directly from GitHub and Vercel CDN.
 - **1,000+ Artifacts**: 520+ interactive components and 500+ backgrounds (grids, shaders, particle canvases, vectors, textures).
 
@@ -36,13 +36,13 @@ npx cooki-ui list
 ### 2. shadcn CLI Compatibility
 ```bash
 # npm
-npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # pnpm
-pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # bun
-bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+bunx --bun shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 ```
 
 ## Model Context Protocol (MCP) Server
@@ -66,4 +66,4 @@ Exposed MCP Tools:
 - `get_component_dependencies({ name: string })`: Get required packages
 - `install_component({ name: string, targetPath?: string })`: Autonomously install to disk
 
-Full machine-readable documentation: https://cooki-ui.vercel.app/llms-full.txt
+Full machine-readable documentation: https://www.cooki-ui.design/llms-full.txt

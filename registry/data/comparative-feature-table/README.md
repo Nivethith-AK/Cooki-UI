@@ -5,7 +5,7 @@ Matrix comparison table with collapsible feature groupings and plan tier checkma
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/comparative-feature-table.json
+npx shadcn@latest add https://www.cooki-ui.design/r/comparative-feature-table.json
 ```
 
 ## Dependencies

@@ -451,7 +451,7 @@ export default function Demo() {
 
   // 3. Write metadata.json
   const metadata = {
-    $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
+    $schema: 'https://www.cooki-ui.design/schema/registry-item.json',
     name: item.slug,
     type: 'registry:ui',
     title: item.title,

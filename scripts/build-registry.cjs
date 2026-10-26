@@ -32,7 +32,7 @@ categories.forEach(cat => {
     // Attach raw source content into files array
     const registryItem = {
       ...metadata,
-      $schema: 'https://cooki-ui.vercel.app/schema/registry-item.json',
+      $schema: 'https://www.cooki-ui.design/schema/registry-item.json',
       files: metadata.files.map(f => ({
         ...f,
         content: sourceCode
@@ -52,9 +52,9 @@ fs.writeFileSync(path.join(publicRDir, 'index.json'), JSON.stringify(registryIte
 
 // Write root registry.json for CLI consumption
 const rootRegistry = {
-  $schema: 'https://cooki-ui.vercel.app/schema/registry.json',
+  $schema: 'https://www.cooki-ui.design/schema/registry.json',
   name: 'cooki-ui',
-  homepage: 'https://cooki-ui.vercel.app',
+  homepage: 'https://www.cooki-ui.design',
   items: registryItems.map(item => ({
     name: item.name,
     type: item.type,

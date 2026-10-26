@@ -5,7 +5,7 @@ Floating quick-action toolbar that morphs dynamically with spring expansion and 
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/fluid-action-panel.json
+npx shadcn@latest add https://www.cooki-ui.design/r/fluid-action-panel.json
 ```
 
 ## Dependencies

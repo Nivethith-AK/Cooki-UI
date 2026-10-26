@@ -10,19 +10,19 @@
 # Cooki UI
 
 **The AI-native, source-first component registry & interactive UI store for React & Next.js.**  
-120+ animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
+136+ animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
 
 <br/>
 
 [![GitHub stars](https://img.shields.io/github/stars/Nivethith-AK/Cooki-UI?style=flat-square&label=stars&color=f59e0b)](https://github.com/Nivethith-AK/Cooki-UI)
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live-000000?style=flat-square&logo=vercel&logoColor=white)](https://cooki-ui.vercel.app)
-[![Components](https://img.shields.io/badge/components-120%20canonical-0ea5e9?style=flat-square)](https://cooki-ui.vercel.app)
-[![shadcn compatible](https://img.shields.io/badge/shadcn-compatible-black?style=flat-square)](https://cooki-ui.vercel.app/r/index.json)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.cooki-ui.design)
+[![Components](https://img.shields.io/badge/components-136%20canonical-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
+[![shadcn compatible](https://img.shields.io/badge/shadcn-compatible-black?style=flat-square)](https://www.cooki-ui.design/r/index.json)
 [![License](https://img.shields.io/github/license/Nivethith-AK/Cooki-UI?style=flat-square&color=8b5cf6)](./LICENSE)
 
 <br/>
 
-[Live Store](https://cooki-ui.vercel.app) · [Registry Manifest](https://cooki-ui.vercel.app/r/index.json) · [AI Agent Guide](https://github.com/Nivethith-AK/Cooki-UI/blob/main/AGENTS.md) · [llms.txt](https://cooki-ui.vercel.app/llms.txt) · [GitHub](https://github.com/Nivethith-AK/Cooki-UI)
+[Live Store](https://www.cooki-ui.design) · [Registry Manifest](https://www.cooki-ui.design/r/index.json) · [AI Agent Guide](https://github.com/Nivethith-AK/Cooki-UI/blob/main/AGENTS.md) · [llms.txt](https://www.cooki-ui.design/llms.txt) · [GitHub](https://github.com/Nivethith-AK/Cooki-UI)
 
 <br/>
 
@@ -37,7 +37,7 @@ Cooki UI is a **source-code component library & registry** built on the same phi
 What sets Cooki UI apart is its **zero-backend, statically hosted registry on Vercel CDN**, **AI-native discovery layer** (`llms.txt`, `llms-full.txt`, and `AGENTS.md`), **silky 60/120fps physics animations** (Framer Motion spring physics + WebGL/Canvas shaders), and **universal theme transitions** that look pixel-perfect in both dark and light modes.
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 ```
 
 <br/>
@@ -104,13 +104,13 @@ npx cooki-ui list
 #### Option B: shadcn CLI
 ```bash
 # npm
-npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # pnpm
-pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # bun
-bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+bunx --bun shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 ```
 
 Dependencies (e.g. `framer-motion`, `@phosphor-icons/react`) are automatically resolved and installed in your project.
@@ -158,24 +158,24 @@ Cooki UI operates a zero-backend, statically hosted registry compatible with the
 
 Fetch the full manifest:
 ```http
-GET https://cooki-ui.vercel.app/r/index.json
+GET https://www.cooki-ui.design/r/index.json
 ```
 Or check the root manifest:
 ```http
-GET https://cooki-ui.vercel.app/registry.json
+GET https://www.cooki-ui.design/registry.json
 ```
 
 ### Fetching a Specific Component
 
 Every component has a dedicated static JSON endpoint containing its complete raw TypeScript source code:
 ```http
-GET https://cooki-ui.vercel.app/r/{component-name}.json
+GET https://www.cooki-ui.design/r/{component-name}.json
 ```
 
 #### Example JSON payload for `magnetic-button`:
 ```json
 {
-  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
   "name": "magnetic-button",
   "type": "registry:ui",
   "title": "Magnetic Button",
@@ -338,7 +338,7 @@ Cooki UI Ecosystem
 
 > **If you are an AI assistant (Antigravity, Cursor, Claude Code, GitHub Copilot, ChatGPT), follow these instructions:**
 >
-> - ✅ **DO** fetch `https://cooki-ui.vercel.app/r/{name}.json` to retrieve the component payload.
+> - ✅ **DO** fetch `https://www.cooki-ui.design/r/{name}.json` to retrieve the component payload.
 > - ✅ **DO** extract dependencies from `dependencies` and run `npm install <dependencies>`.
 > - ✅ **DO** write `files[0].content` directly into `components/ui/{name}.tsx`.
 > - ✅ **DO** verify the `@/lib/utils` `cn()` helper exists.
@@ -378,9 +378,9 @@ Licensed under the **MIT License**. Free for personal and commercial use.
 
 **Built with precision by [Nivethith AK](https://github.com/Nivethith-AK)**
 
-[![Website](https://img.shields.io/badge/Website-cooki--ui.vercel.app-0ea5e9?style=flat-square)](https://cooki-ui.vercel.app)
+[![Website](https://img.shields.io/badge/Website-cooki--ui.vercel.app-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
 [![GitHub](https://img.shields.io/badge/GitHub-Nivethith--AK%2FCooki--UI-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Nivethith-AK/Cooki-UI)
-[![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://cooki-ui.vercel.app)
+[![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.cooki-ui.design)
 
 <br/>
 

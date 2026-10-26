@@ -1,7 +1,7 @@
 {
-  "$schema": "https://cooki-ui.vercel.app/schema/registry.json",
+  "$schema": "https://www.cooki-ui.design/schema/registry.json",
   "name": "cooki-ui",
-  "homepage": "https://cooki-ui.vercel.app",
+  "homepage": "https://www.cooki-ui.design",
   "items": [
     {
       "name": "audio-waveform-visualizer",

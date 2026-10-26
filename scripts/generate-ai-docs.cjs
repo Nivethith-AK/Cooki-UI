@@ -16,14 +16,14 @@ const llmsTxt = `# Cooki UI
 > A professional, source-first, AI-friendly React & Next.js component library with 1,000+ interactive artifacts, shadcn-compatible registry endpoints, and zero-runtime-dependency source ownership.
 
 ## Key Links
-- Homepage: https://cooki-ui.vercel.app
-- Registry API: https://cooki-ui.vercel.app/r/index.json
-- Root Registry Manifest: https://cooki-ui.vercel.app/registry.json
+- Homepage: https://www.cooki-ui.design
+- Registry API: https://www.cooki-ui.design/r/index.json
+- Root Registry Manifest: https://www.cooki-ui.design/registry.json
 - GitHub Repository: https://github.com/Nivethith-AK/Cooki-UI
 
 ## Philosophy
 - **Source-First**: You own the code. Components are installed directly into your repository (\`components/ui/\`). No obscure runtime packages.
-- **shadcn Compatible**: Install via \`npx shadcn@latest add https://cooki-ui.vercel.app/r/[component-name].json\`.
+- **shadcn Compatible**: Install via \`npx shadcn@latest add https://www.cooki-ui.design/r/[component-name].json\`.
 - **Zero Database Required**: 100% static registry served directly from GitHub and Vercel CDN.
 - **1,000+ Artifacts**: 520+ interactive components and 500+ backgrounds (grids, shaders, particle canvases, vectors, textures).
 
@@ -49,13 +49,13 @@ npx cooki-ui list
 ### 2. shadcn CLI Compatibility
 \`\`\`bash
 # npm
-npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # pnpm
-pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 
 # bun
-bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json
+bunx --bun shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json
 \`\`\`
 
 ## Model Context Protocol (MCP) Server
@@ -79,7 +79,7 @@ Exposed MCP Tools:
 - \`get_component_dependencies({ name: string })\`: Get required packages
 - \`install_component({ name: string, targetPath?: string })\`: Autonomously install to disk
 
-Full machine-readable documentation: https://cooki-ui.vercel.app/llms-full.txt
+Full machine-readable documentation: https://www.cooki-ui.design/llms-full.txt
 `
 
 // 2. GENERATE llms-full.txt
@@ -103,8 +103,8 @@ components.forEach(comp => {
 - **Description**: ${comp.description}
 - **Tags**: ${comp.tags?.join(', ') || 'N/A'}
 - **Dependencies**: ${comp.dependencies?.length ? comp.dependencies.join(', ') : 'None'}
-- **Registry Endpoint**: \`https://cooki-ui.vercel.app/r/${comp.name}.json\`
-- **CLI Command**: \`npx cooki-ui add ${comp.name}\` or \`npx shadcn@latest add https://cooki-ui.vercel.app/r/${comp.name}.json\`
+- **Registry Endpoint**: \`https://www.cooki-ui.design/r/${comp.name}.json\`
+- **CLI Command**: \`npx cooki-ui add ${comp.name}\` or \`npx shadcn@latest add https://www.cooki-ui.design/r/${comp.name}.json\`
 
 #### Installation & Usage
 \`\`\`tsx
@@ -134,23 +134,23 @@ Cooki UI operates a zero-backend, statically hosted shadcn-compatible registry o
 ### Discovering Components
 Fetch the full manifest:
 \`\`\`http
-GET https://cooki-ui.vercel.app/r/index.json
+GET https://www.cooki-ui.design/r/index.json
 \`\`\`
 Or check root manifest:
 \`\`\`http
-GET https://cooki-ui.vercel.app/registry.json
+GET https://www.cooki-ui.design/registry.json
 \`\`\`
 
 ### Fetching a Specific Component
 Every component has a dedicated endpoint containing its full raw TSX source code:
 \`\`\`http
-GET https://cooki-ui.vercel.app/r/{component-name}.json
+GET https://www.cooki-ui.design/r/{component-name}.json
 \`\`\`
 
 Example JSON payload for \`magnetic-button\`:
 \`\`\`json
 {
-  "$schema": "https://cooki-ui.vercel.app/schema/registry-item.json",
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
   "name": "magnetic-button",
   "type": "registry:ui",
   "title": "Magnetic Button",
@@ -182,16 +182,16 @@ npx cooki-ui add <slug>
 ### Option B: shadcn CLI
 \`\`\`bash
 # npm
-npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+npx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # pnpm
-pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # bun
-bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+bunx --bun shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 
 # yarn
-npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
+npx shadcn@latest add https://www.cooki-ui.design/r/<slug>.json
 \`\`\`
 
 ---
@@ -201,7 +201,7 @@ npx shadcn@latest add https://cooki-ui.vercel.app/r/<slug>.json
 When a user asks you to add a Cooki UI component to their project:
 
 ### Step 1: Query Registry JSON or MCP Tool
-Fetch \`https://cooki-ui.vercel.app/r/{name}.json\` or invoke the \`get_component_source\` MCP tool.
+Fetch \`https://www.cooki-ui.design/r/{name}.json\` or invoke the \`get_component_source\` MCP tool.
 
 ### Step 2: Extract Dependencies
 Check the \`dependencies\` array. Run:

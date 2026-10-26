@@ -5,7 +5,7 @@ Physics-based hover and click tooltip with collision detection and spring scale 
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/tooltip-popover.json
+npx shadcn@latest add https://www.cooki-ui.design/r/tooltip-popover.json
 ```
 
 ## Dependencies

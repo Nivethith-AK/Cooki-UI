@@ -4,7 +4,7 @@ import { CaretDown, Question } from '@phosphor-icons/react';
 const FAQS = [
   { q: 'Is Cooki UI open source and free for commercial projects?', a: 'Yes, 100% MIT Licensed. You can freely use, modify, and redistribute components in personal or enterprise commercial apps.' },
   { q: 'Do components require an external server runtime or database?', a: 'No. Cooki UI operates on a zero-backend architecture where components are bundled statically as raw TSX source code.' },
-  { q: 'Can I add these components using standard package managers?', a: 'You can install via shadcn CLI using npx shadcn@latest add https://cooki-ui.vercel.app/r/{slug}.json, or copy the TSX code directly.' },
+  { q: 'Can I add these components using standard package managers?', a: 'You can install via shadcn CLI using npx shadcn@latest add https://www.cooki-ui.design/r/{slug}.json, or copy the TSX code directly.' },
 ];
 
 export const FaqAccordionSection: React.FC = () => {

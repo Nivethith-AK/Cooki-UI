@@ -51,10 +51,10 @@ export const InstallGuideModal: React.FC = () => {
   )
 
   const shadcnCommand = {
-    npm: 'npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json',
-    pnpm: 'pnpm dlx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json',
-    bun: 'bunx --bun shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json',
-    yarn: 'npx shadcn@latest add https://cooki-ui.vercel.app/r/magnetic-button.json',
+    npm: 'npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json',
+    pnpm: 'pnpm dlx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json',
+    bun: 'bunx --bun shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json',
+    yarn: 'npx shadcn@latest add https://www.cooki-ui.design/r/magnetic-button.json',
   }[pmTab]
 
   const installDepsCommand = {

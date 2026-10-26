@@ -6,7 +6,7 @@ const https = require('https')
 const http = require('http')
 const readline = require('readline')
 
-const REGISTRY_HOST = 'https://cooki-ui.vercel.app'
+const REGISTRY_HOST = 'https://www.cooki-ui.design'
 const VERSION = '1.0.0'
 
 // Utility: HTTP GET helper that follows redirects
@@ -422,7 +422,7 @@ Examples:
   npx cooki-ui list buttons
   npx cooki-ui mcp
 
-Learn more at: https://cooki-ui.vercel.app
+Learn more at: https://www.cooki-ui.design
 `)
 }
 

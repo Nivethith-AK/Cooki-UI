@@ -5,7 +5,7 @@ Material/Vercel-style input with smooth spring floating label, clear action, and
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/animated-floating-input.json
+npx shadcn@latest add https://www.cooki-ui.design/r/animated-floating-input.json
 ```
 
 ## Dependencies

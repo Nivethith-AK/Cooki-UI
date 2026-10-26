@@ -5,7 +5,7 @@ Real-time telemetry event stream with status badges, user tokens, and relative t
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/activity-feed-stream.json
+npx shadcn@latest add https://www.cooki-ui.design/r/activity-feed-stream.json
 ```
 
 ## Dependencies

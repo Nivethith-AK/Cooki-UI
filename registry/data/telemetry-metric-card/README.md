@@ -5,7 +5,7 @@ Financial & system performance telemetry card with SVG sparkline trend curve and
 ## Installation
 
 ```bash
-npx shadcn@latest add https://cooki-ui.vercel.app/r/telemetry-metric-card.json
+npx shadcn@latest add https://www.cooki-ui.design/r/telemetry-metric-card.json
 ```
 
 ## Dependencies
