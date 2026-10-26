@@ -15,23 +15,13 @@ import {
   Database,
   Terminal,
   Check,
-  Eye,
   Command
 } from '@phosphor-icons/react'
 import { useStore } from '../../context/StoreContext'
 import { ComponentCategory } from '../../types/component'
 import { ALL_REGISTRY_ITEMS } from '../../registry'
-import { BorderBeam } from '../library/effects/BorderBeam'
 import { MagneticButton } from '../library/buttons/MagneticButton'
 import { SlidingLogoMarquee } from '../library/navigation/SlidingLogoMarquee'
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxEmpty,
-} from '@/components/ui/combobox'
 import { scrollToCatalogue } from '../../utils/scroll'
 
 export const StoreHero: React.FC = () => {
@@ -40,7 +30,6 @@ export const StoreHero: React.FC = () => {
     setSelectedCategory, 
     searchQuery, 
     setSearchQuery,
-    setSelectedComponent,
     setCommandPaletteOpen,
     setInstallGuideOpen,
     setShowFavoritesOnly,
@@ -48,26 +37,12 @@ export const StoreHero: React.FC = () => {
   } = useStore()
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const [selectedQuickName, setSelectedQuickName] = useState('Magnetic Dock')
   const [copiedCli, setCopiedCli] = useState(false)
 
-  const componentNames = React.useMemo(() => ALL_REGISTRY_ITEMS.map((c) => c.name), [])
-  const selectedQuickItem = React.useMemo(
-    () => ALL_REGISTRY_ITEMS.find((c) => c.name === selectedQuickName) || ALL_REGISTRY_ITEMS[0],
-    [selectedQuickName]
-  )
-
   const handleCopyCli = () => {
-    const slug = selectedQuickItem?.id || 'magnetic-dock'
-    navigator.clipboard.writeText(`npx cooki-ui add ${slug}`)
+    navigator.clipboard.writeText('npx cooki-ui add magnetic-button')
     setCopiedCli(true)
     setTimeout(() => setCopiedCli(false), 2000)
-  }
-
-  const handleOpenSelectedModal = () => {
-    if (selectedQuickItem) {
-      setSelectedComponent(selectedQuickItem)
-    }
   }
 
   const handleScrollToCatalogue = () => {
@@ -115,112 +90,33 @@ export const StoreHero: React.FC = () => {
           {ALL_REGISTRY_ITEMS.length} handcrafted interactive components with spring physics, 3D WebGL, and source ownership. Zero runtime lock-in.
         </p>
 
-        {/* Featured Showcase Stage with BorderBeam */}
-        <div className="relative overflow-hidden rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-2xl shadow-2xl dark:shadow-black/70 p-5 sm:p-7 my-8 max-w-3xl mx-auto text-left">
-          <BorderBeam size={280} duration={8} borderWidth={1.5} colorFrom="#6366f1" colorTo="#a855f7" />
+        {/* Primary Clean Action CTAs */}
+        <div className="mt-8 mb-4 flex flex-wrap items-center justify-center gap-3">
+          <MagneticButton
+            variant="default"
+            size="md"
+            onClick={handleScrollToCatalogue}
+          >
+            Explore {ALL_REGISTRY_ITEMS.length} Components &darr;
+          </MagneticButton>
 
-          <div className="relative z-10 flex flex-col gap-5">
-            {/* Stage Header & Fast Copy Pill */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-zinc-100 dark:border-white/10">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs uppercase tracking-wider font-semibold text-indigo-600 dark:text-indigo-400">
-                    Interactive Component Selector
-                  </span>
-                  <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-                    Live Registry
-                  </span>
-                </div>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  Pick any canonical component to preview or copy its install command
-                </p>
-              </div>
+          <MagneticButton
+            variant="minimal"
+            size="md"
+            onClick={() => setInstallGuideOpen(true)}
+            className="flex items-center gap-2"
+          >
+            <Terminal size={15} />
+            <span>CLI & MCP Guide</span>
+          </MagneticButton>
 
-              {/* Quick CLI Copy Pill */}
-              <button
-                onClick={handleCopyCli}
-                className="flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100/90 dark:bg-zinc-900/90 px-3 py-1.5 font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white transition-colors cursor-pointer self-start sm:self-auto"
-              >
-                {copiedCli ? <Check size={14} className="text-emerald-500" /> : <Terminal size={14} />}
-                <span>{copiedCli ? 'Copied to Clipboard!' : `npx cooki-ui add ${selectedQuickItem?.id || 'magnetic-dock'}`}</span>
-              </button>
-            </div>
-
-            {/* Quick Jumper Selector Row */}
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <div className="w-full sm:flex-1">
-                <Combobox
-                  items={componentNames}
-                  value={selectedQuickName}
-                  onValueChange={(val) => {
-                    if (val) setSelectedQuickName(val)
-                  }}
-                  className="w-full"
-                >
-                  <ComboboxInput 
-                    id="hero-quick-selector" 
-                    name="quickSelector" 
-                    aria-label="Component quick preview selector" 
-                    placeholder="Search component to preview (e.g. Magnetic Dock)..." 
-                  />
-                  <ComboboxContent>
-                    <ComboboxEmpty>No matching component found.</ComboboxEmpty>
-                    <ComboboxList>
-                      {(name) => (
-                        <ComboboxItem key={name} value={name}>
-                          {name}
-                        </ComboboxItem>
-                      )}
-                    </ComboboxList>
-                  </ComboboxContent>
-                </Combobox>
-              </div>
-
-              <button
-                onClick={handleOpenSelectedModal}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 text-xs font-semibold text-white shadow-md transition-all cursor-pointer shrink-0"
-              >
-                <Eye size={15} weight="bold" />
-                <span>Preview Component</span>
-              </button>
-            </div>
-
-            {/* Action CTAs powered by MagneticButton */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-zinc-100 dark:border-white/10">
-              <div className="flex items-center gap-3">
-                <MagneticButton
-                  variant="default"
-                  size="sm"
-                  onClick={handleScrollToCatalogue}
-                >
-                  Explore {ALL_REGISTRY_ITEMS.length} Components &darr;
-                </MagneticButton>
-
-                <MagneticButton
-                  variant="minimal"
-                  size="sm"
-                  onClick={() => setCommandPaletteOpen(true)}
-                >
-                  Command Palette (⌘K)
-                </MagneticButton>
-
-                <MagneticButton
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setInstallGuideOpen(true)}
-                  className="hidden sm:inline-flex border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10"
-                >
-                  Terminal & MCP Guide
-                </MagneticButton>
-              </div>
-
-              <div className="text-[11px] font-mono text-zinc-400 hidden md:flex items-center gap-2">
-                <span>Zero Runtime Lock-In</span>
-                <span>&bull;</span>
-                <span>shadcn Compatible</span>
-              </div>
-            </div>
-          </div>
+          <button
+            onClick={handleCopyCli}
+            className="flex items-center gap-2 rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100/90 dark:bg-zinc-900/90 px-4 py-2.5 font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white transition-colors cursor-pointer"
+          >
+            {copiedCli ? <Check size={14} className="text-emerald-500" /> : <Terminal size={14} />}
+            <span>{copiedCli ? 'Copied to Clipboard!' : 'npx cooki-ui add magnetic-button'}</span>
+          </button>
         </div>
 
         {/* Framework Compatibility Sliding Marquee */}
