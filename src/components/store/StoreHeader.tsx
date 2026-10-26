@@ -21,19 +21,15 @@ export const StoreHeader: React.FC = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
             }}
+            aria-label="Cooki UI home"
             className="flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-indigo-600 to-violet-600 shadow-inner">
               <Cpu size={18} weight="bold" className="text-white" />
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5 font-mono text-sm font-bold tracking-wider text-zinc-900 dark:text-white">
-                <span>COOKI UI</span>
-                <span className="rounded bg-indigo-500/15 dark:bg-indigo-500/20 px-1.5 py-0.2 text-[9px] font-medium text-indigo-600 dark:text-indigo-300 border border-indigo-500/25 dark:border-indigo-500/30">
-                  REGISTRY
-                </span>
-              </div>
-            </div>
+            <span className="font-mono text-sm font-bold tracking-wider text-zinc-900 dark:text-white">
+              COOKI UI
+            </span>
           </button>
         </div>
 
