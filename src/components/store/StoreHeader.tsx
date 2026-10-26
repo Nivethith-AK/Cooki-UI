@@ -4,7 +4,7 @@ import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
 export const StoreHeader: React.FC = () => {
-  const { components, favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly, setCommandPaletteOpen, setInstallGuideOpen } = useStore()
+  const { favorites, setMobileFilterOpen, showFavoritesOnly, setShowFavoritesOnly, setCommandPaletteOpen, setInstallGuideOpen } = useStore()
   const { isDark, toggleTheme } = useTheme()
 
   return (
@@ -35,12 +35,6 @@ export const StoreHeader: React.FC = () => {
               </div>
             </div>
           </button>
-        </div>
-
-        {/* Center Tagline / Status */}
-        <div className="hidden md:flex items-center gap-2 text-xs font-mono text-zinc-500">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          <span>{components.length} Canonical Components &bull; Production Ready</span>
         </div>
 
         {/* Right Utilities */}

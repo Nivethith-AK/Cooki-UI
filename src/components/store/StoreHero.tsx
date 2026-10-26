@@ -22,7 +22,6 @@ import { useStore } from '../../context/StoreContext'
 import { ComponentCategory } from '../../types/component'
 import { ALL_REGISTRY_ITEMS } from '../../registry'
 import { BorderBeam } from '../library/effects/BorderBeam'
-import { ShinyText } from '../library/text/ShinyText'
 import { MagneticButton } from '../library/buttons/MagneticButton'
 import { SlidingLogoMarquee } from '../library/navigation/SlidingLogoMarquee'
 import {
@@ -108,15 +107,6 @@ export const StoreHero: React.FC = () => {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
         
-        {/* Iridescent Eyebrow Pill with ShinyText */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1.5 backdrop-blur-md mb-5 shadow-xs">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <ShinyText 
-            text="COOKI UI &bull; PRODUCTION-GRADE REACT & TAILWIND ARTIFACTS" 
-            className="text-[11px] font-mono tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold" 
-          />
-        </div>
-
         {/* Flagship Headline & Copy */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white max-w-4xl mx-auto leading-[1.12]">
           The Autonomous UI Registry for Modern React & Tailwind
