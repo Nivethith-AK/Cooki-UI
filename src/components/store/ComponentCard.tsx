@@ -46,6 +46,84 @@ class CardErrorBoundary extends React.Component<{ children: React.ReactNode }, {
   }
 }
 
+const AutoFitCanvas: React.FC<{
+  children: React.ReactNode
+  isExpanded?: boolean
+}> = ({ children, isExpanded }) => {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const contentRef = React.useRef<HTMLDivElement>(null)
+
+  React.useLayoutEffect(() => {
+    const container = containerRef.current
+    const content = contentRef.current
+    if (!container || !content) return
+
+    if (isExpanded) {
+      content.style.transform = ''
+      content.style.transformOrigin = ''
+      return
+    }
+
+    const fitContent = () => {
+      const child = (content.firstElementChild as HTMLElement) || content
+      if (!child) return
+
+      const containerRect = container.getBoundingClientRect()
+      if (containerRect.width === 0 || containerRect.height === 0) return
+
+      // Temporarily clear transform to read true natural unscaled dimensions
+      content.style.transform = 'none'
+      const childRect = child.getBoundingClientRect()
+
+      const availW = containerRect.width - 12
+      const availH = containerRect.height - 12
+
+      if (childRect.width > availW || childRect.height > availH) {
+        const scaleX = availW / childRect.width
+        const scaleY = availH / childRect.height
+        const targetScale = Math.min(scaleX, scaleY, 1) * 0.98
+        const clampedScale = Math.max(0.38, Math.min(1, Math.round(targetScale * 100) / 100))
+        content.style.transform = `scale(${clampedScale})`
+        content.style.transformOrigin = 'center center'
+      } else {
+        content.style.transform = ''
+        content.style.transformOrigin = ''
+      }
+    }
+
+    fitContent()
+
+    const ro = new ResizeObserver(() => {
+      fitContent()
+    })
+
+    ro.observe(container)
+    if (content.firstElementChild) {
+      ro.observe(content.firstElementChild)
+    }
+
+    const t1 = setTimeout(fitContent, 100)
+    const t2 = setTimeout(fitContent, 400)
+
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+      ro.disconnect()
+    }
+  }, [isExpanded, children])
+
+  return (
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-hidden">
+      <div
+        ref={contentRef}
+        className="w-full h-full flex items-center justify-center will-change-transform transition-transform duration-200"
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
+
 export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpanded = false }) => {
   const { setSelectedComponent, favorites, toggleFavorite } = useStore()
   const { isDark } = useTheme()
@@ -79,22 +157,22 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
     }`}>
       
       {/* 1. Elevated Persistent Top Action & Meta Bar (z-30 ensures Inspect is NEVER obscured) */}
-      <div className="relative z-30 flex items-center justify-between p-4 pb-3 border-b border-zinc-200/60 dark:border-white/5 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md">
+      <div className="relative z-30 flex items-center justify-between px-3.5 py-2.5 sm:px-4 sm:py-3 border-b border-zinc-200/60 dark:border-white/5 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md gap-2">
         
         {/* Left Badges */}
-        <div className="flex items-center gap-2 overflow-hidden mr-2 min-w-0">
-          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 truncate">
+        <div className="flex items-center gap-1.5 overflow-hidden min-w-0 pr-1">
+          <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
             {item.subcategory}
           </span>
           {item.featured && (
-            <span className="shrink-0 rounded-full bg-cyan-500/10 px-2 py-0.5 font-mono text-[9px] text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+            <span className="shrink-0 rounded-full bg-cyan-500/10 px-1.5 py-0.5 font-mono text-[8px] font-bold text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 tracking-wide">
               FEATURED
             </span>
           )}
         </div>
 
         {/* Right Action Cluster (Never hidden, always accessible) */}
-        <div className="flex items-center gap-1.5 shrink-0">
+        <div className="flex items-center gap-1 shrink-0">
           
           {/* Prominent Inspect Button */}
           <button
@@ -102,7 +180,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
               e.stopPropagation()
               setSelectedComponent(item)
             }}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-[10px] font-bold shadow-xs hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-all cursor-pointer hover:scale-105 active:scale-95"
+            className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-mono text-[10px] font-bold shadow-xs hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:text-white transition-all cursor-pointer hover:scale-105 active:scale-95"
             title="Inspect source code and interactive playground"
           >
             <Eye size={12} weight="bold" />
@@ -153,22 +231,28 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({ item, forceExpande
 
       {/* 2. REAL Live Interactive Component Preview Viewport */}
       <div 
-        onClick={() => setSelectedComponent(item)}
-        style={effectiveExpanded ? { minHeight: 480 } : { height: 290, minHeight: 290, maxHeight: 290, flex: '0 0 290px' }}
-        className={`relative flex w-full cursor-pointer items-center justify-center overflow-hidden bg-zinc-100/70 dark:bg-[#070709] p-4 transition-all duration-300 select-none ${
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setSelectedComponent(item)
+          }
+        }}
+        style={effectiveExpanded ? { minHeight: 480 } : { height: 340, minHeight: 340, maxHeight: 340, flex: '0 0 340px' }}
+        className={`relative flex w-full items-center justify-center overflow-hidden bg-zinc-100/70 dark:bg-[#070709] p-3 sm:p-4 transition-all duration-300 ${
           effectiveExpanded ? 'max-h-none flex-1' : ''
         }`}
       >
         {/* Subtle grid background */}
         <div className="pointer-events-none absolute inset-0 opacity-15 bg-grid-dots" />
 
-        {/* Live Component Render Canvas with unconstrained child sizing */}
+        {/* Live Component Render Canvas with unconstrained child sizing & auto-fit */}
         <div 
           className="component-card-canvas relative isolate z-10 w-full h-full flex items-center justify-center pointer-events-auto max-w-full overflow-hidden text-zinc-900 dark:text-zinc-100"
         >
-          <CardErrorBoundary key={item.id}>
-            {item.renderPreview(defaultControlValues, isDark)}
-          </CardErrorBoundary>
+          <AutoFitCanvas key={item.id} isExpanded={effectiveExpanded}>
+            <CardErrorBoundary key={item.id}>
+              {item.renderPreview(defaultControlValues, isDark)}
+            </CardErrorBoundary>
+          </AutoFitCanvas>
         </div>
       </div>
 
