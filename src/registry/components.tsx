@@ -172,6 +172,16 @@ import { InteractiveLens } from '../components/library/effects/InteractiveLens'
 import { AnimatedCopyButton } from '../components/library/buttons/AnimatedCopyButton'
 import { DragOrderList } from '../components/library/data/DragOrderList'
 import { ConnectionGraph } from '../components/library/data/ConnectionGraph'
+import { CountUp } from '../components/library/text/CountUp'
+import { ImageReveal } from '../components/library/media/ImageReveal'
+import { HamburgerMenuOverlay } from '../components/library/navigation/HamburgerMenuOverlay'
+import { SlidingCards } from '../components/library/cards/SlidingCards'
+import { InteractiveStepper } from '../components/library/forms/InteractiveStepper'
+import { VideoTextMask } from '../components/library/text/VideoTextMask'
+import { MagicParticleLoader } from '../components/library/effects/MagicParticleLoader'
+import { FluidActionHub } from '../components/library/navigation/FluidActionHub'
+import { DynamicIsland } from '../components/library/navigation/DynamicIsland'
+import { DynamicNavigation } from '../components/library/navigation/DynamicNavigation'
 
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
@@ -4869,7 +4879,7 @@ export function TacticalViewport() {
       { name: 'size', type: 'select', label: 'Button Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
     ],
     renderPreview: (controls: any = {}) => (
-      <div className="flex items-center justify-center p-8 w-full">
+      <div className="flex items-end justify-center pt-28 pb-6 w-full h-full min-h-[220px]">
         <ExpandableSpeedDial
           direction={controls?.direction || 'up'}
           size={controls?.size || 'md'}
@@ -5219,6 +5229,392 @@ export function TopologyGraphDemo() {
         name: 'connection-graph.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['connection-graph'] || ''
+      }
+    ]
+  },
+  // 145. Count Up (Lightswind)
+  {
+    id: 'count-up',
+    name: 'Count Up',
+    slug: 'count-up',
+    category: 'components',
+    subcategory: 'Typography',
+    description: 'Performant spring-physics numerical counter with decimals, prefix/suffix formatting, and scroll-triggered viewport detection.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'spring-physics'],
+    tags: ['counter', 'numbers', 'count-up', 'animation', 'typography', 'spring-physics', 'interactive'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cooki-ui add count-up',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'value', type: 'number', label: 'Target Value', defaultValue: 84920, min: 100, max: 1000000 },
+      { name: 'prefix', type: 'text', label: 'Prefix', defaultValue: '$' },
+      { name: 'colorScheme', type: 'select', label: 'Color Scheme', defaultValue: 'gradient', options: ['gradient', 'default', 'primary'] }
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex flex-col items-center justify-center p-6 w-full">
+        <CountUp
+          value={controls?.value || 84920}
+          prefix={controls?.prefix || '$'}
+          colorScheme={controls?.colorScheme || 'gradient'}
+          interactive
+        />
+        <span className="text-xs text-zinc-500 font-mono mt-2">Active Users</span>
+      </div>
+    ),
+    usage: `import { CountUp } from "@/components/ui/count-up"
+
+export function CountUpDemo() {
+  return (
+    <CountUp value={84920} prefix="$" colorScheme="gradient" interactive />
+  )
+}`,
+    files: [
+      {
+        name: 'count-up.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['count-up'] || ''
+      }
+    ]
+  },
+
+  // 146. Image Reveal (Lightswind)
+  {
+    id: 'image-reveal',
+    name: 'Image Reveal',
+    slug: 'image-reveal',
+    category: 'motion',
+    subcategory: 'Media',
+    description: 'Interactive cursor-following image reveal hover effect with spring damping and responsive boundaries.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'spring-physics'],
+    tags: ['image', 'reveal', 'cursor-follow', 'hover', 'motion', 'media', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add image-reveal',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full max-w-sm p-2 flex items-center justify-center">
+        <ImageReveal />
+      </div>
+    ),
+    usage: `import { ImageReveal } from "@/components/ui/image-reveal"
+
+export function ImageRevealDemo() {
+  return (
+    <ImageReveal />
+  )
+}`,
+    files: [
+      {
+        name: 'image-reveal.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['image-reveal'] || ''
+      }
+    ]
+  },
+
+  // 147. Hamburger Menu Overlay (Lightswind)
+  {
+    id: 'hamburger-menu-overlay',
+    name: 'Hamburger Menu Overlay',
+    slug: 'hamburger-menu-overlay',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Cinematic circular clip-path expanding navigation overlay with staggered entrance animations.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['lucide-react', 'clip-path'],
+    tags: ['menu', 'navigation', 'hamburger', 'overlay', 'clip-path', 'reveal', 'interactive'],
+    dependencies: ['lucide-react'],
+    installCommand: 'npx cooki-ui add hamburger-menu-overlay',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full h-64 p-2 flex items-center justify-center">
+        <HamburgerMenuOverlay buttonTop="28px" buttonLeft="28px" />
+      </div>
+    ),
+    usage: `import { HamburgerMenuOverlay } from "@/components/ui/hamburger-menu-overlay"
+
+export function HamburgerMenuOverlayDemo() {
+  return (
+    <HamburgerMenuOverlay />
+  )
+}`,
+    files: [
+      {
+        name: 'hamburger-menu-overlay.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['hamburger-menu-overlay'] || ''
+      }
+    ]
+  },
+
+  // 148. Sliding Cards (Lightswind)
+  {
+    id: 'sliding-cards',
+    name: 'Sliding Cards',
+    slug: 'sliding-cards',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Interactive 3D gesture-driven card stack with swipeable physics, rotational tilt, and depth layering.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['lucide-react', '3d-perspective', 'gesture-physics'],
+    tags: ['cards', 'deck', 'swipe', 'gesture', '3d', 'stack', 'interactive'],
+    dependencies: ['lucide-react'],
+    installCommand: 'npx cooki-ui add sliding-cards',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full flex items-center justify-center p-2">
+        <SlidingCards />
+      </div>
+    ),
+    usage: `import { SlidingCards } from "@/components/ui/sliding-cards"
+
+export function SlidingCardsDemo() {
+  return (
+    <SlidingCards />
+  )
+}`,
+    files: [
+      {
+        name: 'sliding-cards.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['sliding-cards'] || ''
+      }
+    ]
+  },
+
+  // 149. Interactive Stepper (Lightswind)
+  {
+    id: 'interactive-stepper',
+    name: 'Interactive Stepper',
+    slug: 'interactive-stepper',
+    category: 'forms',
+    subcategory: 'Wizard',
+    description: 'Fluid directional animated stepper input with spring vertical sliding numerals and boundary protections.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'spring-physics'],
+    tags: ['stepper', 'input', 'counter', 'form', 'number', 'animation', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add interactive-stepper',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex flex-col items-center justify-center gap-3 p-6 w-full">
+        <InteractiveStepper defaultValue={4} min={1} max={20} size={controls?.size || 'md'} />
+        <span className="text-xs text-zinc-500 font-mono">Cluster Replicas</span>
+      </div>
+    ),
+    usage: `import { InteractiveStepper } from "@/components/ui/interactive-stepper"
+
+export function StepperDemo() {
+  return (
+    <InteractiveStepper defaultValue={3} min={1} max={10} />
+  )
+}`,
+    files: [
+      {
+        name: 'interactive-stepper.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-stepper'] || ''
+      }
+    ]
+  },
+
+  // 150. Video Text Mask (Lightswind)
+  {
+    id: 'video-text-mask',
+    name: 'Video Text Mask',
+    slug: 'video-text-mask',
+    category: 'text',
+    subcategory: 'Typography',
+    description: 'Dynamic looping video masked inside responsive SVG typography with fluid background illumination.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'svg-mask', 'video'],
+    tags: ['video', 'text', 'mask', 'typography', 'motion', 'creative', 'header'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cooki-ui add video-text-mask',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full max-w-sm p-2 flex items-center justify-center">
+        <VideoTextMask fontSize="22vw">
+          COOKI
+        </VideoTextMask>
+      </div>
+    ),
+    usage: `import { VideoTextMask } from "@/components/ui/video-text-mask"
+
+export function VideoTextMaskDemo() {
+  return (
+    <VideoTextMask fontSize="20vw">COOKI</VideoTextMask>
+  )
+}`,
+    files: [
+      {
+        name: 'video-text-mask.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['video-text-mask'] || ''
+      }
+    ]
+  },
+
+  // 151. Magic Particle Loader (Lightswind)
+  {
+    id: 'magic-particle-loader',
+    name: 'Magic Particle Loader',
+    slug: 'magic-particle-loader',
+    category: 'motion',
+    subcategory: 'Loaders',
+    description: 'High-performance HTML5 Canvas glowing particle vortex loader with dynamic orbital physics and hue cycles.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas-api', 'particle-physics', 'framer-motion'],
+    tags: ['loader', 'particles', 'vortex', 'glow', 'canvas', 'motion', 'physics'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cooki-ui add magic-particle-loader',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-2 w-full">
+        <MagicParticleLoader size={180} particleCount={2} speed={1.1} />
+      </div>
+    ),
+    usage: `import { MagicParticleLoader } from "@/components/ui/magic-particle-loader"
+
+export function LoaderDemo() {
+  return (
+    <MagicParticleLoader size={180} />
+  )
+}`,
+    files: [
+      {
+        name: 'magic-particle-loader.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['magic-particle-loader'] || ''
+      }
+    ]
+  },
+
+  // 152. Fluid Action Hub (Lightswind)
+  {
+    id: 'fluid-action-hub',
+    name: 'Fluid Action Hub',
+    slug: 'fluid-action-hub',
+    category: 'components',
+    subcategory: 'Actions',
+    description: 'Morphing expandable action hub with circular scroll-progress indicator, theme switch, quick share, and link copy.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'morphing-layout'],
+    tags: ['floating-panel', 'action-hub', 'quick-actions', 'scroll-progress', 'morph', 'menu', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add fluid-action-hub',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full min-h-[140px]">
+        <FluidActionHub position="inline" />
+      </div>
+    ),
+    usage: `import { FluidActionHub } from "@/components/ui/fluid-action-hub"
+
+export function ActionHubDemo() {
+  return (
+    <FluidActionHub position="bottom-right" />
+  )
+}`,
+    files: [
+      {
+        name: 'fluid-action-hub.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['fluid-action-hub'] || ''
+      }
+    ]
+  },
+
+  // 153. Dynamic Island (Lightswind)
+  {
+    id: 'dynamic-island',
+    name: 'Dynamic Island',
+    slug: 'dynamic-island',
+    category: 'motion',
+    subcategory: 'Floating UI',
+    description: 'Floating dynamic island control bar with section tracking, circular progress indicator, font switcher, and theme color controls.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'floating-ui', 'spring-physics'],
+    tags: ['dynamic-island', 'floating-bar', 'navigation', 'theme-picker', 'font-picker', 'scroll-progress', 'interactive'],
+    dependencies: ['framer-motion'],
+    installCommand: 'npx cooki-ui add dynamic-island',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <DynamicIsland position="inline" />
+      </div>
+    ),
+    usage: `import { DynamicIsland } from "@/components/ui/dynamic-island"
+
+export function DynamicIslandDemo() {
+  return (
+    <DynamicIsland position="bottom-center" />
+  )
+}`,
+    files: [
+      {
+        name: 'dynamic-island.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['dynamic-island'] || ''
+      }
+    ]
+  },
+
+  // 154. Dynamic Navigation (Lightswind)
+  {
+    id: 'dynamic-navigation',
+    name: 'Dynamic Navigation',
+    slug: 'dynamic-navigation',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Adaptive pill navigation bar with spring active background highlight and tactile click ripple feedback.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['lucide-react', 'spring-highlight', 'ripple'],
+    tags: ['navigation', 'navbar', 'pill', 'tabs', 'ripple', 'active-indicator', 'interactive'],
+    dependencies: ['lucide-react'],
+    installCommand: 'npx cooki-ui add dynamic-navigation',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-6 w-full">
+        <DynamicNavigation />
+      </div>
+    ),
+    usage: `import { DynamicNavigation } from "@/components/ui/dynamic-navigation"
+
+export function DynamicNavDemo() {
+  return (
+    <DynamicNavigation />
+  )
+}`,
+    files: [
+      {
+        name: 'dynamic-navigation.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['dynamic-navigation'] || ''
       }
     ]
   },

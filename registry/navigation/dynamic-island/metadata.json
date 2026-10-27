@@ -1,0 +1,14 @@
+{
+  "name": "dynamic-island",
+  "type": "registry:ui",
+  "title": "Dynamic Island",
+  "description": "Floating dynamic island control bar with section tracking, circular progress indicator, font switcher, and theme color controls.",
+  "dependencies": ["framer-motion"],
+  "files": [
+    {
+      "path": "registry/navigation/dynamic-island/dynamic-island.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/dynamic-island.tsx"
+    }
+  ]
+}

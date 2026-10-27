@@ -1,0 +1,14 @@
+{
+  "name": "video-text-mask",
+  "type": "registry:ui",
+  "title": "Video Text Mask",
+  "description": "Dynamic looping video masked inside responsive SVG typography with fluid background illumination.",
+  "dependencies": ["framer-motion"],
+  "files": [
+    {
+      "path": "registry/text/video-text-mask/video-text-mask.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/video-text-mask.tsx"
+    }
+  ]
+}

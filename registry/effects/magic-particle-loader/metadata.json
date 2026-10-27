@@ -1,0 +1,14 @@
+{
+  "name": "magic-particle-loader",
+  "type": "registry:ui",
+  "title": "Magic Particle Loader",
+  "description": "High-performance HTML5 Canvas glowing particle vortex loader with dynamic orbital physics and hue cycles.",
+  "dependencies": ["framer-motion"],
+  "files": [
+    {
+      "path": "registry/effects/magic-particle-loader/magic-particle-loader.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/magic-particle-loader.tsx"
+    }
+  ]
+}

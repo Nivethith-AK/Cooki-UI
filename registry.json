@@ -888,6 +888,22 @@
       ]
     },
     {
+      "name": "sliding-cards",
+      "type": "registry:ui",
+      "title": "Sliding Cards",
+      "description": "Interactive 3D gesture-driven card stack with swipeable physics, rotational tilt, and depth layering.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/sliding-cards/sliding-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sliding-cards.tsx"
+        }
+      ]
+    },
+    {
       "name": "spotlight-border-card",
       "type": "registry:ui",
       "title": "Spotlight Border Card",
@@ -1314,6 +1330,22 @@
       ]
     },
     {
+      "name": "magic-particle-loader",
+      "type": "registry:ui",
+      "title": "Magic Particle Loader",
+      "description": "High-performance HTML5 Canvas glowing particle vortex loader with dynamic orbital physics and hue cycles.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/magic-particle-loader/magic-particle-loader.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/magic-particle-loader.tsx"
+        }
+      ]
+    },
+    {
       "name": "matrix-rain-terminal",
       "type": "registry:ui",
       "title": "Matrix Rain Terminal",
@@ -1592,6 +1624,23 @@
       ]
     },
     {
+      "name": "interactive-stepper",
+      "type": "registry:ui",
+      "title": "Interactive Stepper",
+      "description": "Fluid directional animated stepper input with spring vertical sliding numerals and boundary protections.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/forms/interactive-stepper/interactive-stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-stepper.tsx"
+        }
+      ]
+    },
+    {
       "name": "multi-select-combobox",
       "type": "registry:ui",
       "title": "Multi-Select Combobox",
@@ -1817,6 +1866,23 @@
       ]
     },
     {
+      "name": "image-reveal",
+      "type": "registry:ui",
+      "title": "Image Reveal",
+      "description": "Interactive cursor-following image reveal hover effect with spring damping and responsive boundaries.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/media/image-reveal/image-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/image-reveal.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-notification-stack",
       "type": "registry:ui",
       "title": "Spring Notification Toast Stack",
@@ -1888,6 +1954,38 @@
       ]
     },
     {
+      "name": "dynamic-island",
+      "type": "registry:ui",
+      "title": "Dynamic Island",
+      "description": "Floating dynamic island control bar with section tracking, circular progress indicator, font switcher, and theme color controls.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/dynamic-island/dynamic-island.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dynamic-island.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dynamic-navigation",
+      "type": "registry:ui",
+      "title": "Dynamic Navigation",
+      "description": "Adaptive pill navigation bar with spring active background highlight and tactile click ripple feedback.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/dynamic-navigation/dynamic-navigation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dynamic-navigation.tsx"
+        }
+      ]
+    },
+    {
       "name": "floating-navbar",
       "type": "registry:ui",
       "title": "Dynamic Floating Capsule Navbar",
@@ -1906,6 +2004,23 @@
       ]
     },
     {
+      "name": "fluid-action-hub",
+      "type": "registry:ui",
+      "title": "Fluid Action Hub",
+      "description": "Morphing expandable action hub with circular scroll-progress indicator, theme switch, quick share, and link copy.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/fluid-action-hub/fluid-action-hub.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-action-hub.tsx"
+        }
+      ]
+    },
+    {
       "name": "fluid-action-panel",
       "type": "registry:ui",
       "title": "Fluid Action Panel",
@@ -1920,6 +2035,22 @@
           "path": "registry/navigation/fluid-action-panel/fluid-action-panel.tsx",
           "type": "registry:ui",
           "target": "components/ui/fluid-action-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hamburger-menu-overlay",
+      "type": "registry:ui",
+      "title": "Hamburger Menu Overlay",
+      "description": "Cinematic circular clip-path expanding navigation overlay with staggered entrance animations.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/hamburger-menu-overlay/hamburger-menu-overlay.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/hamburger-menu-overlay.tsx"
         }
       ]
     },
@@ -2331,6 +2462,22 @@
       ]
     },
     {
+      "name": "count-up",
+      "type": "registry:ui",
+      "title": "Count Up",
+      "description": "Performant spring-physics numerical counter with decimals, prefix/suffix formatting, and scroll-triggered viewport detection.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/count-up/count-up.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/count-up.tsx"
+        }
+      ]
+    },
+    {
       "name": "glitch-cyber-text",
       "type": "registry:ui",
       "title": "Glitch Cyberpunk Text",
@@ -2475,6 +2622,22 @@
           "path": "registry/text/typing-text/typing-text.tsx",
           "type": "registry:ui",
           "target": "components/ui/typing-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "video-text-mask",
+      "type": "registry:ui",
+      "title": "Video Text Mask",
+      "description": "Dynamic looping video masked inside responsive SVG typography with fluid background illumination.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/video-text-mask/video-text-mask.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/video-text-mask.tsx"
         }
       ]
     }

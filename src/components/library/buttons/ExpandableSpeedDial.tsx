@@ -59,35 +59,35 @@ export const ExpandableSpeedDial: React.FC<ExpandableSpeedDialProps> = ({
   const activeActions = actions || defaultActions
 
   const sizes = {
-    sm: 'h-10 w-10',
-    md: 'h-12 w-12',
-    lg: 'h-14 w-14',
+    sm: 'h-9 w-9',
+    md: 'h-11 w-11',
+    lg: 'h-13 w-13',
   }
 
   const actionSizes = {
-    sm: 'h-8 w-8',
-    md: 'h-10 w-10',
-    lg: 'h-11 w-11',
+    sm: 'h-7 w-7',
+    md: 'h-8 w-8',
+    lg: 'h-9 w-9',
   }
 
   const getDirectionClasses = () => {
     switch (direction) {
       case 'up':
-        return 'bottom-full mb-3 flex-col-reverse left-1/2 -translate-x-1/2'
+        return 'bottom-full mb-2 flex-col-reverse left-1/2 -translate-x-1/2'
       case 'down':
-        return 'top-full mt-3 flex-col left-1/2 -translate-x-1/2'
+        return 'top-full mt-2 flex-col left-1/2 -translate-x-1/2'
       case 'left':
-        return 'right-full mr-3 flex-row-reverse top-1/2 -translate-y-1/2'
+        return 'right-full mr-2 flex-row-reverse top-1/2 -translate-y-1/2'
       case 'right':
-        return 'left-full ml-3 flex-row top-1/2 -translate-y-1/2'
+        return 'left-full ml-2 flex-row top-1/2 -translate-y-1/2'
       default:
-        return 'bottom-full mb-3 flex-col-reverse left-1/2 -translate-x-1/2'
+        return 'bottom-full mb-2 flex-col-reverse left-1/2 -translate-x-1/2'
     }
   }
 
   const getMotionVariants = (index: number) => {
-    const delay = index * 0.04
-    const distance = 16
+    const delay = index * 0.03
+    const distance = 10
 
     let x = 0
     let y = 0
@@ -138,7 +138,7 @@ export const ExpandableSpeedDial: React.FC<ExpandableSpeedDialProps> = ({
     <div className={cn('relative inline-flex items-center justify-center isolate', className)}>
       <AnimatePresence>
         {isOpen && (
-          <div className={cn('absolute flex gap-2.5 items-center pointer-events-auto', getDirectionClasses())}>
+          <div className={cn('absolute flex gap-2 items-center pointer-events-auto', getDirectionClasses())}>
             {activeActions.map((action, index) => (
               <motion.button
                 key={action.label + index}

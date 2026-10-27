@@ -1,0 +1,14 @@
+{
+  "name": "dynamic-navigation",
+  "type": "registry:ui",
+  "title": "Dynamic Navigation",
+  "description": "Adaptive pill navigation bar with spring active background highlight and tactile click ripple feedback.",
+  "dependencies": ["lucide-react"],
+  "files": [
+    {
+      "path": "registry/navigation/dynamic-navigation/dynamic-navigation.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/dynamic-navigation.tsx"
+    }
+  ]
+}

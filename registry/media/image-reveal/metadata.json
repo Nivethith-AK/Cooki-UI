@@ -1,0 +1,14 @@
+{
+  "name": "image-reveal",
+  "type": "registry:ui",
+  "title": "Image Reveal",
+  "description": "Interactive cursor-following image reveal hover effect with spring damping and responsive boundaries.",
+  "dependencies": ["framer-motion", "lucide-react"],
+  "files": [
+    {
+      "path": "registry/media/image-reveal/image-reveal.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/image-reveal.tsx"
+    }
+  ]
+}

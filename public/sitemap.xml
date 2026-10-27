@@ -325,6 +325,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/sliding-cards.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/spotlight-border-card.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -475,6 +481,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/magic-particle-loader.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/matrix-rain-terminal.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -571,6 +583,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/interactive-stepper.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/multi-select-combobox.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -649,6 +667,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/image-reveal.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/animated-notification-stack.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -673,13 +697,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/dynamic-island.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cooki-ui.design/r/dynamic-navigation.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/floating-navbar.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/fluid-action-hub.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/fluid-action-panel.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cooki-ui.design/r/hamburger-menu-overlay.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -823,6 +871,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cooki-ui.design/r/count-up.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cooki-ui.design/r/glitch-cyber-text.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -872,6 +926,12 @@
   </url>
   <url>
     <loc>https://www.cooki-ui.design/r/typing-text.json</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cooki-ui.design/r/video-text-mask.json</loc>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -1,0 +1,14 @@
+{
+  "name": "sliding-cards",
+  "type": "registry:ui",
+  "title": "Sliding Cards",
+  "description": "Interactive 3D gesture-driven card stack with swipeable physics, rotational tilt, and depth layering.",
+  "dependencies": ["lucide-react"],
+  "files": [
+    {
+      "path": "registry/cards/sliding-cards/sliding-cards.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/sliding-cards.tsx"
+    }
+  ]
+}

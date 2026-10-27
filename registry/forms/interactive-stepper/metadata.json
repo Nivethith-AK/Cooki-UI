@@ -1,0 +1,14 @@
+{
+  "name": "interactive-stepper",
+  "type": "registry:ui",
+  "title": "Interactive Stepper",
+  "description": "Fluid directional animated stepper input with spring vertical sliding numerals and boundary protections.",
+  "dependencies": ["framer-motion", "lucide-react"],
+  "files": [
+    {
+      "path": "registry/forms/interactive-stepper/interactive-stepper.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-stepper.tsx"
+    }
+  ]
+}

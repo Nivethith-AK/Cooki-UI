@@ -1,0 +1,14 @@
+{
+  "name": "fluid-action-hub",
+  "type": "registry:ui",
+  "title": "Fluid Action Hub",
+  "description": "Morphing expandable action hub with circular scroll-progress indicator, theme switch, quick share, and link copy.",
+  "dependencies": ["framer-motion", "lucide-react"],
+  "files": [
+    {
+      "path": "registry/navigation/fluid-action-hub/fluid-action-hub.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fluid-action-hub.tsx"
+    }
+  ]
+}

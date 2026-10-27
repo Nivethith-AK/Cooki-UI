@@ -1,0 +1,14 @@
+{
+  "name": "count-up",
+  "type": "registry:ui",
+  "title": "Count Up",
+  "description": "Performant spring-physics numerical counter with decimals, prefix/suffix formatting, and scroll-triggered viewport detection.",
+  "dependencies": ["framer-motion"],
+  "files": [
+    {
+      "path": "registry/text/count-up/count-up.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/count-up.tsx"
+    }
+  ]
+}

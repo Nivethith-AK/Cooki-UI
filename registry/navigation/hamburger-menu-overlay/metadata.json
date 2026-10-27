@@ -1,0 +1,14 @@
+{
+  "name": "hamburger-menu-overlay",
+  "type": "registry:ui",
+  "title": "Hamburger Menu Overlay",
+  "description": "Cinematic circular clip-path expanding navigation overlay with staggered entrance animations.",
+  "dependencies": ["lucide-react"],
+  "files": [
+    {
+      "path": "registry/navigation/hamburger-menu-overlay/hamburger-menu-overlay.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/hamburger-menu-overlay.tsx"
+    }
+  ]
+}
