@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "animated-copy-button",
+  "type": "registry:ui",
+  "title": "Animated Morphing Copy Button",
+  "description": "Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "copy",
+    "clipboard",
+    "ripple",
+    "morphing",
+    "feedback",
+    "micro-interaction"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/animated-copy-button/animated-copy-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-copy-button.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

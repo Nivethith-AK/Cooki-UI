@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "drag-order-list",
+  "type": "registry:ui",
+  "title": "Draggable Pipeline Reorder List",
+  "description": "Interactive reorderable list using Framer Motion Reorder component with drag handles, z-index elevation, and spring physics.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "data",
+    "list",
+    "reorder",
+    "drag-and-drop",
+    "framer-motion",
+    "workflow",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/data/drag-order-list/drag-order-list.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/drag-order-list.tsx",
+      "content": "import React, { useState } from 'react'\nimport { motion, Reorder, useMotionValue, useDragControls } from 'framer-motion'\nimport { DotsSixVertical } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface DragOrderItemData {\n  id: string\n  title: string\n  subtitle: string\n  status: 'active' | 'completed' | 'queued'\n  tag: string\n}\n\nexport interface DragOrderListProps {\n  items?: DragOrderItemData[]\n  className?: string\n  onReorder?: (items: DragOrderItemData[]) => void\n}\n\nconst DEFAULT_ITEMS: DragOrderItemData[] = [\n  {\n    id: 'step-1',\n    title: 'AST Dependency Tree Synthesis',\n    subtitle: 'Resolves Tailwind CSS v4 variables & Phosphor icons',\n    status: 'completed',\n    tag: 'PARSER',\n  },\n  {\n    id: 'step-2',\n    title: 'Physics Spring Engine Initialization',\n    subtitle: 'Mounts 60 FPS damping & velocity curves',\n    status: 'active',\n    tag: 'MOTION',\n  },\n  {\n    id: 'step-3',\n    title: 'Zero-Lockin Source Serialization',\n    subtitle: 'Outputs standalone production TSX to components/ui',\n    status: 'queued',\n    tag: 'REGISTRY',\n  },\n]\n\nexport const DragOrderList: React.FC<DragOrderListProps> = ({\n  items = DEFAULT_ITEMS,\n  className,\n  onReorder,\n}) => {\n  const [list, setList] = useState(items)\n\n  const handleReorder = (newList: DragOrderItemData[]) => {\n    setList(newList)\n    if (onReorder) onReorder(newList)\n  }\n\n  return (\n    <div className={cn('w-full max-w-[420px] mx-auto select-none', className)}>\n      <div className=\"flex items-center justify-between pb-3 mb-2 border-b border-zinc-200/60 dark:border-white/10 font-mono text-[11px] text-zinc-500\">\n        <span>PIPELINE EXECUTION ORDER</span>\n        <span className=\"text-indigo-600 dark:text-cyan-400 font-bold\">DRAG TO REORDER</span>\n      </div>\n\n      <Reorder.Group\n        axis=\"y\"\n        values={list}\n        onReorder={handleReorder}\n        className=\"space-y-2.5\"\n      >\n        {list.map((item, index) => (\n          <DragOrderItemRow key={item.id} item={item} index={index} />\n        ))}\n      </Reorder.Group>\n    </div>\n  )\n}\n\nfunction DragOrderItemRow({ item, index }: { item: DragOrderItemData; index: number }) {\n  const y = useMotionValue(0)\n  const dragControls = useDragControls()\n  const [isDragging, setIsDragging] = useState(false)\n\n  return (\n    <Reorder.Item\n      value={item}\n      dragListener={false}\n      dragControls={dragControls}\n      onDragStart={() => setIsDragging(true)}\n      onDragEnd={() => setIsDragging(false)}\n      style={{ y }}\n      className={cn(\n        'group flex items-center justify-between gap-3 p-3.5 rounded-xl border transition-colors',\n        'bg-white dark:bg-zinc-900 border-zinc-200/90 dark:border-white/10 text-zinc-900 dark:text-zinc-100',\n        isDragging\n          ? 'shadow-2xl border-indigo-500 ring-2 ring-indigo-500/20 z-50 cursor-grabbing bg-zinc-50 dark:bg-zinc-850'\n          : 'shadow-xs hover:border-zinc-300 dark:hover:border-white/20'\n      )}\n    >\n      <div className=\"flex items-center gap-2.5\">\n        <div\n          onPointerDown={(e) => dragControls.start(e)}\n          className=\"p-1 rounded-md text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-white/10 cursor-grab active:cursor-grabbing transition-colors\"\n          title=\"Drag to reorder\"\n        >\n          <DotsSixVertical size={18} weight=\"bold\" />\n        </div>\n\n        <span className=\"flex h-5 w-5 items-center justify-center rounded-md bg-zinc-100 dark:bg-white/5 border border-zinc-200/60 dark:border-white/10 font-mono text-[10px] font-bold text-zinc-500\">\n          0{index + 1}\n        </span>\n\n        <div className=\"text-left\">\n          <div className=\"flex items-center gap-1.5\">\n            <h5 className=\"text-xs font-bold leading-tight text-zinc-900 dark:text-white\">\n              {item.title}\n            </h5>\n          </div>\n          <p className=\"text-[11px] text-zinc-500 dark:text-zinc-400 truncate max-w-[210px] mt-0.5\">\n            {item.subtitle}\n          </p>\n        </div>\n      </div>\n\n      <span className=\"font-mono text-[9px] font-bold tracking-wider px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20\">\n        {item.tag}\n      </span>\n    </Reorder.Item>\n  )\n}\n\nexport default DragOrderList\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

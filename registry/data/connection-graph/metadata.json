@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "connection-graph",
+  "type": "registry:ui",
+  "title": "Neural Connection Circuit Graph",
+  "description": "Interactive distributed neural circuit graph with animated laser beam data streams, pulsing nodes, and real-time topology highlights.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "data",
+    "graph",
+    "network",
+    "nodes",
+    "connections",
+    "laser-beam",
+    "topology",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/data/connection-graph/connection-graph.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/connection-graph.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

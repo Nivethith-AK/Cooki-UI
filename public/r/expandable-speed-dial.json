@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "expandable-speed-dial",
+  "type": "registry:ui",
+  "title": "Expandable Speed Dial",
+  "description": "Functional speed dial floating action button with staggered spring physics fan-out and micro-tooltips.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "speed-dial",
+    "fab",
+    "floating-action-button",
+    "spring-physics",
+    "menu",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/expandable-speed-dial/expandable-speed-dial.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/expandable-speed-dial.tsx",
+      "content": "import React, { useState } from 'react'\nimport { motion, AnimatePresence } from 'framer-motion'\nimport { Plus, Share2, Copy, Download, Heart } from 'lucide-react'\nimport { cn } from '@/lib/utils'\n\nexport interface SpeedDialAction {\n  icon: React.ReactNode\n  label: string\n  onClick: () => void\n  color?: string\n}\n\nexport interface ExpandableSpeedDialProps {\n  /** The actions to display when expanded */\n  actions?: SpeedDialAction[]\n  /** Expansion direction */\n  direction?: 'up' | 'down' | 'left' | 'right'\n  /** Optional classname for the container */\n  className?: string\n  /** Size of the main trigger button */\n  size?: 'sm' | 'md' | 'lg'\n}\n\nexport const ExpandableSpeedDial: React.FC<ExpandableSpeedDialProps> = ({\n  actions,\n  direction = 'up',\n  className,\n  size = 'md',\n}) => {\n  const [isOpen, setIsOpen] = useState(false)\n  const [copied, setCopied] = useState(false)\n\n  const defaultActions: SpeedDialAction[] = [\n    {\n      icon: <Copy className=\"w-4 h-4\" />,\n      label: copied ? 'Copied!' : 'Copy Code',\n      onClick: () => {\n        setCopied(true)\n        setTimeout(() => setCopied(false), 1500)\n      },\n    },\n    {\n      icon: <Share2 className=\"w-4 h-4\" />,\n      label: 'Share Component',\n      onClick: () => {},\n    },\n    {\n      icon: <Download className=\"w-4 h-4\" />,\n      label: 'Export TSX',\n      onClick: () => {},\n    },\n    {\n      icon: <Heart className=\"w-4 h-4 text-rose-500\" />,\n      label: 'Favorite',\n      onClick: () => {},\n    },\n  ]\n\n  const activeActions = actions || defaultActions\n\n  const sizes = {\n    sm: 'h-10 w-10',\n    md: 'h-12 w-12',\n    lg: 'h-14 w-14',\n  }\n\n  const actionSizes = {\n    sm: 'h-8 w-8',\n    md: 'h-10 w-10',\n    lg: 'h-11 w-11',\n  }\n\n  const getDirectionClasses = () => {\n    switch (direction) {\n      case 'up':\n        return 'bottom-full mb-3 flex-col-reverse left-1/2 -translate-x-1/2'\n      case 'down':\n        return 'top-full mt-3 flex-col left-1/2 -translate-x-1/2'\n      case 'left':\n        return 'right-full mr-3 flex-row-reverse top-1/2 -translate-y-1/2'\n      case 'right':\n        return 'left-full ml-3 flex-row top-1/2 -translate-y-1/2'\n      default:\n        return 'bottom-full mb-3 flex-col-reverse left-1/2 -translate-x-1/2'\n    }\n  }\n\n  const getMotionVariants = (index: number) => {\n    const delay = index * 0.04\n    const distance = 16\n\n    let x = 0\n    let y = 0\n\n    switch (direction) {\n      case 'up':\n        y = distance\n        break\n      case 'down':\n        y = -distance\n        break\n      case 'left':\n        x = distance\n        break\n      case 'right':\n        x = -distance\n        break\n    }\n\n    return {\n      hidden: { opacity: 0, scale: 0.4, x, y },\n      visible: {\n        opacity: 1,\n        scale: 1,\n        x: 0,\n        y: 0,\n        transition: {\n          type: 'spring' as const,\n          stiffness: 380,\n          damping: 24,\n          delay,\n        },\n      },\n      exit: {\n        opacity: 0,\n        scale: 0.4,\n        x,\n        y,\n        transition: {\n          duration: 0.18,\n          delay: (activeActions.length - 1 - index) * 0.03,\n        },\n      },\n    }\n  }\n\n  return (\n    <div className={cn('relative inline-flex items-center justify-center isolate', className)}>\n      <AnimatePresence>\n        {isOpen && (\n          <div className={cn('absolute flex gap-2.5 items-center pointer-events-auto', getDirectionClasses())}>\n            {activeActions.map((action, index) => (\n              <motion.button\n                key={action.label + index}\n                variants={getMotionVariants(index)}\n                initial=\"hidden\"\n                animate=\"visible\"\n                exit=\"exit\"\n                onClick={() => {\n                  action.onClick()\n                  setIsOpen(false)\n                }}\n                className={cn(\n                  'group relative flex items-center justify-center rounded-full bg-white dark:bg-zinc-900 shadow-md border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-300 dark:hover:border-white/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer',\n                  actionSizes[size]\n                )}\n                title={action.label}\n                aria-label={action.label}\n                whileHover={{ scale: 1.12 }}\n                whileTap={{ scale: 0.94 }}\n              >\n                {action.icon}\n\n                {/* Micro tooltip */}\n                {(direction === 'up' || direction === 'down') && (\n                  <span className=\"absolute right-full mr-2.5 whitespace-nowrap rounded-lg bg-zinc-900/90 dark:bg-zinc-800/95 px-2.5 py-1 text-[11px] font-mono text-white opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow-lg border border-white/10\">\n                    {action.label}\n                  </span>\n                )}\n                {(direction === 'left' || direction === 'right') && (\n                  <span className=\"absolute bottom-full mb-2.5 whitespace-nowrap rounded-lg bg-zinc-900/90 dark:bg-zinc-800/95 px-2.5 py-1 text-[11px] font-mono text-white opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none shadow-lg border border-white/10\">\n                    {action.label}\n                  </span>\n                )}\n              </motion.button>\n            ))}\n          </div>\n        )}\n      </AnimatePresence>\n\n      <motion.button\n        onClick={() => setIsOpen(!isOpen)}\n        className={cn(\n          'relative flex items-center justify-center rounded-full bg-indigo-600 dark:bg-indigo-500 text-white shadow-lg hover:shadow-indigo-500/25 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer',\n          sizes[size]\n        )}\n        aria-label=\"Toggle Speed Dial\"\n        whileTap={{ scale: 0.92 }}\n        whileHover={{ scale: 1.05 }}\n      >\n        <motion.div\n          animate={{ rotate: isOpen ? 135 : 0 }}\n          transition={{ type: 'spring', stiffness: 350, damping: 22 }}\n          className=\"flex items-center justify-center\"\n        >\n          <Plus className={size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-7 w-7' : 'h-5 w-5'} />\n        </motion.div>\n      </motion.button>\n    </div>\n  )\n}\n\nexport default ExpandableSpeedDial\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

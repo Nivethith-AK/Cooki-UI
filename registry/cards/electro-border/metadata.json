@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "electro-border",
+  "type": "registry:ui",
+  "title": "Electro Border Shield",
+  "description": "Dynamic electric distortion border with procedural SVG turbulence filter displacement, glowing aura, and responsive resizing.",
+  "category": "cards",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "border",
+    "electric",
+    "svg-filter",
+    "displacement-map",
+    "turbulence",
+    "glow",
+    "hologram"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/electro-border/electro-border.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/electro-border.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

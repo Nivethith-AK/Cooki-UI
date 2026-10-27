@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-26T15:51:31.077Z
-Components in Registry: 136
+Generated: 2026-10-27T07:06:11.764Z
+Components in Registry: 144
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -561,6 +561,25 @@ export default function Example() {
 
 ---
 
+### Animated Morphing Copy Button (`animated-copy-button`)
+- **Category**: buttons
+- **Description**: Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/animated-copy-button.json`
+- **CLI Command**: `npx cooki-ui add animated-copy-button` or `npx shadcn@latest add https://www.cooki-ui.design/r/animated-copy-button.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedCopyButton } from "@/components/ui/animated-copy-button"
+
+export default function Example() {
+  return <AnimatedCopyButton />
+}
+```
+
+---
+
 ### Celebration Confetti Burst Button (`confetti-button`)
 - **Category**: buttons
 - **Description**: Multi-color physics confetti explosion upon click with spring recoil.
@@ -575,6 +594,25 @@ import { ConfettiButton } from "@/components/ui/confetti-button"
 
 export default function Example() {
   return <ConfettiButton />
+}
+```
+
+---
+
+### Expandable Speed Dial (`expandable-speed-dial`)
+- **Category**: buttons
+- **Description**: Functional speed dial floating action button with staggered spring physics fan-out and micro-tooltips.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/expandable-speed-dial.json`
+- **CLI Command**: `npx cooki-ui add expandable-speed-dial` or `npx shadcn@latest add https://www.cooki-ui.design/r/expandable-speed-dial.json`
+
+#### Installation & Usage
+```tsx
+import { ExpandableSpeedDial } from "@/components/ui/expandable-speed-dial"
+
+export default function Example() {
+  return <ExpandableSpeedDial />
 }
 ```
 
@@ -770,6 +808,44 @@ export default function Example() {
 
 ---
 
+### Code Matrix Hover Cards (`code-hover-cards`)
+- **Category**: cards
+- **Description**: Interactive cards with real-time character matrix decryption reveal and spotlight glow effects under cursor coordinates.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/code-hover-cards.json`
+- **CLI Command**: `npx cooki-ui add code-hover-cards` or `npx shadcn@latest add https://www.cooki-ui.design/r/code-hover-cards.json`
+
+#### Installation & Usage
+```tsx
+import { CodeHoverCards } from "@/components/ui/code-hover-cards"
+
+export default function Example() {
+  return <CodeHoverCards />
+}
+```
+
+---
+
+### Electro Border Shield (`electro-border`)
+- **Category**: cards
+- **Description**: Dynamic electric distortion border with procedural SVG turbulence filter displacement, glowing aura, and responsive resizing.
+- **Tags**: N/A
+- **Dependencies**: lucide-react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/electro-border.json`
+- **CLI Command**: `npx cooki-ui add electro-border` or `npx shadcn@latest add https://www.cooki-ui.design/r/electro-border.json`
+
+#### Installation & Usage
+```tsx
+import { ElectroBorder } from "@/components/ui/electro-border"
+
+export default function Example() {
+  return <ElectroBorder />
+}
+```
+
+---
+
 ### Spring Expandable Modal Card (`expandable-card`)
 - **Category**: cards
 - **Description**: Card that smoothly expands into an overlay detail view via shared layout springs.
@@ -822,6 +898,25 @@ import { GlassCard } from "@/components/ui/glass-card"
 
 export default function Example() {
   return <GlassCard />
+}
+```
+
+---
+
+### 3D Glassmorphic Folder (`glass-folder`)
+- **Category**: cards
+- **Description**: Interactive 3D glassmorphic document folder with multi-layer depth, perspective hover flap, and interior document sheets.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/glass-folder.json`
+- **CLI Command**: `npx cooki-ui add glass-folder` or `npx shadcn@latest add https://www.cooki-ui.design/r/glass-folder.json`
+
+#### Installation & Usage
+```tsx
+import { GlassFolder } from "@/components/ui/glass-folder"
+
+export default function Example() {
+  return <GlassFolder />
 }
 ```
 
@@ -1150,6 +1245,44 @@ export default function Example() {
 
 ---
 
+### Neural Connection Circuit Graph (`connection-graph`)
+- **Category**: data
+- **Description**: Interactive distributed neural circuit graph with animated laser beam data streams, pulsing nodes, and real-time topology highlights.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/connection-graph.json`
+- **CLI Command**: `npx cooki-ui add connection-graph` or `npx shadcn@latest add https://www.cooki-ui.design/r/connection-graph.json`
+
+#### Installation & Usage
+```tsx
+import { ConnectionGraph } from "@/components/ui/connection-graph"
+
+export default function Example() {
+  return <ConnectionGraph />
+}
+```
+
+---
+
+### Draggable Pipeline Reorder List (`drag-order-list`)
+- **Category**: data
+- **Description**: Interactive reorderable list using Framer Motion Reorder component with drag handles, z-index elevation, and spring physics.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/drag-order-list.json`
+- **CLI Command**: `npx cooki-ui add drag-order-list` or `npx shadcn@latest add https://www.cooki-ui.design/r/drag-order-list.json`
+
+#### Installation & Usage
+```tsx
+import { DragOrderList } from "@/components/ui/drag-order-list"
+
+export default function Example() {
+  return <DragOrderList />
+}
+```
+
+---
+
 ### Git Activity Contribution Heatmap (`git-contribution-heatmap`)
 - **Category**: data
 - **Description**: GitHub-inspired commit calendar heatmap grid with 5 luminescent intensity levels, month labels, and live hover tooltips.
@@ -1297,6 +1430,25 @@ import { BorderBeam } from "@/components/ui/border-beam"
 
 export default function Example() {
   return <BorderBeam />
+}
+```
+
+---
+
+### Interactive Magnifying Lens (`interactive-lens`)
+- **Category**: effects
+- **Description**: Interactive magnifying glass inspection lens with spring-following cursor tracking, zoom factor control, and reticle overlay.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/interactive-lens.json`
+- **CLI Command**: `npx cooki-ui add interactive-lens` or `npx shadcn@latest add https://www.cooki-ui.design/r/interactive-lens.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveLens } from "@/components/ui/interactive-lens"
+
+export default function Example() {
+  return <InteractiveLens />
 }
 ```
 

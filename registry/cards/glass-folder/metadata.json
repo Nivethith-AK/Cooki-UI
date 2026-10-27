@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "glass-folder",
+  "type": "registry:ui",
+  "title": "3D Glassmorphic Folder",
+  "description": "Interactive 3D glassmorphic document folder with multi-layer depth, perspective hover flap, and interior document sheets.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "folder",
+    "glassmorphism",
+    "3d",
+    "depth",
+    "framer-motion",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/glass-folder/glass-folder.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glass-folder.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

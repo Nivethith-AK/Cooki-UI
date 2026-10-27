@@ -163,6 +163,16 @@ import { AudioSpectrumEqualizer } from '../components/library/media/AudioSpectru
 import { NeuralTokenStream } from '../components/library/ai/NeuralTokenStream'
 import { CodeDiffSlider } from '../components/library/data/CodeDiffSlider'
 import { MagneticTargetCursor } from '../components/library/cursors/MagneticTargetCursor'
+// Newly Added Lightswind Components
+import { ExpandableSpeedDial } from '../components/library/buttons/ExpandableSpeedDial'
+import { GlassFolder } from '../components/library/cards/GlassFolder'
+import { CodeHoverCards } from '../components/library/cards/CodeHoverCards'
+import { ElectroBorder } from '../components/library/cards/ElectroBorder'
+import { InteractiveLens } from '../components/library/effects/InteractiveLens'
+import { AnimatedCopyButton } from '../components/library/buttons/AnimatedCopyButton'
+import { DragOrderList } from '../components/library/data/DragOrderList'
+import { ConnectionGraph } from '../components/library/data/ConnectionGraph'
+
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
   // 1. Magnetic Dock (Componentry)
@@ -4835,6 +4845,380 @@ export function TacticalViewport() {
         name: 'magnetic-target-cursor.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['magnetic-target-cursor'] || ''
+      }
+    ]
+  },
+  // 137. Expandable Speed Dial (Lightswind)
+  {
+    id: 'expandable-speed-dial',
+    name: 'Expandable Speed Dial',
+    slug: 'expandable-speed-dial',
+    category: 'components',
+    subcategory: 'Buttons & Triggers',
+    description: 'Functional speed dial floating action button with staggered spring physics fan-out and micro-tooltips.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'spring-physics'],
+    tags: ['button', 'speed-dial', 'fab', 'floating-action-button', 'spring-physics', 'menu', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add expandable-speed-dial',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'direction', type: 'select', label: 'Direction', defaultValue: 'up', options: ['up', 'down', 'left', 'right'] },
+      { name: 'size', type: 'select', label: 'Button Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <ExpandableSpeedDial
+          direction={controls?.direction || 'up'}
+          size={controls?.size || 'md'}
+        />
+      </div>
+    ),
+    usage: `import { ExpandableSpeedDial } from "@/components/ui/expandable-speed-dial"
+
+export function SpeedDialDemo() {
+  return (
+    <div className="relative p-12">
+      <ExpandableSpeedDial direction="up" size="md" />
+    </div>
+  )
+}`,
+    files: [
+      {
+        name: 'expandable-speed-dial.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['expandable-speed-dial'] || ''
+      }
+    ]
+  },
+
+  // 138. 3D Glassmorphic Folder (Lightswind)
+  {
+    id: 'glass-folder',
+    name: '3D Glassmorphic Folder',
+    slug: 'glass-folder',
+    category: 'motion',
+    subcategory: '3D & Depth',
+    description: 'Interactive 3D glassmorphic document folder with multi-layer depth, perspective hover flap, and interior document sheets.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'glassmorphism', '3d-perspective'],
+    tags: ['card', 'folder', 'glassmorphism', '3d', 'depth', 'framer-motion', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add glass-folder',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'title', type: 'text', label: 'Folder Title', defaultValue: 'Registry Schemas' },
+      { name: 'count', type: 'number', label: 'Item Count', defaultValue: 12, min: 1, max: 99 },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex items-center justify-center p-4 w-full">
+        <GlassFolder
+          title={controls?.title || 'Registry Schemas'}
+          count={controls?.count ?? 12}
+        />
+      </div>
+    ),
+    usage: `import { GlassFolder } from "@/components/ui/glass-folder"
+
+export function FolderDemo() {
+  return (
+    <GlassFolder 
+      title="Design System Assets" 
+      count={24} 
+      tags={['Icons', 'Tokens', 'UI Kit']}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'glass-folder.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['glass-folder'] || ''
+      }
+    ]
+  },
+
+  // 139. Code Matrix Hover Cards (Lightswind)
+  {
+    id: 'code-hover-cards',
+    name: 'Code Matrix Hover Cards',
+    slug: 'code-hover-cards',
+    category: 'components',
+    subcategory: 'Cards & Surfaces',
+    description: 'Interactive cards with real-time character matrix decryption reveal and spotlight glow effects under cursor coordinates.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['matrix-decrypt', 'cursor-spotlight', 'radial-mask'],
+    tags: ['card', 'matrix', 'code', 'hover', 'decrypt', 'spotlight', 'cursor-tracking', 'interactive'],
+    dependencies: ['framer-motion', 'lucide-react'],
+    installCommand: 'npx cooki-ui add code-hover-cards',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'maskRadius', type: 'number', label: 'Mask Radius', defaultValue: 240, min: 100, max: 400, step: 20 },
+      { name: 'columns', type: 'select', label: 'Columns', defaultValue: 2, options: [1, 2] },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full p-2">
+        <CodeHoverCards
+          maskRadius={controls?.maskRadius || 240}
+          columns={2}
+          cards={[
+            {
+              id: 'runtime',
+              icon: Terminal,
+              title: 'CLI Orchestrator',
+              description: 'Dynamic terminal code generator with instant AST dependency resolving.',
+              tag: 'SYSTEM',
+            },
+            {
+              id: 'shaders',
+              icon: Cpu,
+              title: 'GLSL Quantum Shader',
+              description: 'Hardware-accelerated fragment pipelines compiling at 60 FPS in browser.',
+              tag: 'WEBGL',
+            },
+          ]}
+        />
+      </div>
+    ),
+    usage: `import { CodeHoverCards } from "@/components/ui/code-hover-cards"
+
+export function MatrixCardsDemo() {
+  return (
+    <CodeHoverCards 
+      columns={3}
+      maskRadius={260}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'code-hover-cards.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['code-hover-cards'] || ''
+      }
+    ]
+  },
+
+  // 140. Electro Border Shield (Lightswind)
+  {
+    id: 'electro-border',
+    name: 'Electro Border Shield',
+    slug: 'electro-border',
+    category: 'motion',
+    subcategory: 'Borders & Beams',
+    description: 'Dynamic electric distortion border with procedural SVG turbulence filter displacement, glowing aura, and responsive resizing.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['svg-filters', 'feTurbulence', 'displacement-map', 'glow-aura'],
+    tags: ['card', 'border', 'electric', 'svg-filter', 'displacement-map', 'turbulence', 'glow', 'hologram'],
+    dependencies: ['lucide-react'],
+    installCommand: 'npx cooki-ui add electro-border',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'borderColor', type: 'select', label: 'Border Color', defaultValue: '#6366f1', options: ['#6366f1', '#06b6d4', '#10b981', '#f43f5e'] },
+      { name: 'distortion', type: 'number', label: 'Distortion Intensity', defaultValue: 0.5, min: 0.1, max: 1.0, step: 0.1 },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex items-center justify-center p-3 w-full">
+        <ElectroBorder
+          borderColor={controls?.borderColor || '#6366f1'}
+          distortion={controls?.distortion ?? 0.5}
+        />
+      </div>
+    ),
+    usage: `import { ElectroBorder } from "@/components/ui/electro-border"
+
+export function ElectricCardDemo() {
+  return (
+    <ElectroBorder borderColor="#6366f1" distortion={0.5}>
+      <div className="p-6">
+        <h3>Shield Activated</h3>
+      </div>
+    </ElectroBorder>
+  )
+}`,
+    files: [
+      {
+        name: 'electro-border.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['electro-border'] || ''
+      }
+    ]
+  },
+
+  // 141. Interactive Magnifying Lens (Lightswind)
+  {
+    id: 'interactive-lens',
+    name: 'Interactive Magnifying Lens',
+    slug: 'interactive-lens',
+    category: 'motion',
+    subcategory: 'Micro-Interactions',
+    description: 'Interactive magnifying glass inspection lens with spring-following cursor tracking, zoom factor control, and reticle overlay.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'cursor-zoom', 'magnifying-glass'],
+    tags: ['effect', 'lens', 'magnify', 'zoom', 'inspection', 'cursor-tracking', 'interactive'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cooki-ui add interactive-lens',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'zoomFactor', type: 'number', label: 'Zoom Level', defaultValue: 1.6, min: 1.2, max: 2.5, step: 0.2 },
+      { name: 'lensSize', type: 'number', label: 'Lens Diameter', defaultValue: 150, min: 100, max: 200, step: 10 },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex items-center justify-center p-2 w-full">
+        <InteractiveLens
+          zoomFactor={controls?.zoomFactor || 1.6}
+          lensSize={controls?.lensSize || 150}
+        />
+      </div>
+    ),
+    usage: `import { InteractiveLens } from "@/components/ui/interactive-lens"
+
+export function LensInspectionDemo() {
+  return (
+    <InteractiveLens zoomFactor={1.6} lensSize={160}>
+      <div className="p-6 rounded-2xl bg-zinc-900 text-white">
+        <h3>Silicon Chip Inspection</h3>
+      </div>
+    </InteractiveLens>
+  )
+}`,
+    files: [
+      {
+        name: 'interactive-lens.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-lens'] || ''
+      }
+    ]
+  },
+
+  // 142. Animated Morphing Copy Button (Lightswind)
+  {
+    id: 'animated-copy-button',
+    name: 'Animated Morphing Copy Button',
+    slug: 'animated-copy-button',
+    category: 'components',
+    subcategory: 'Buttons & Triggers',
+    description: 'Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'clipboard-api', 'spring-morphing'],
+    tags: ['button', 'copy', 'clipboard', 'ripple', 'morphing', 'feedback', 'micro-interaction'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cooki-ui add animated-copy-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    controls: [
+      { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="flex items-center justify-center p-8 w-full">
+        <AnimatedCopyButton
+          textToCopy="npx cooki-ui add animated-copy-button"
+          size={controls?.size || 'md'}
+        />
+      </div>
+    ),
+    usage: `import { AnimatedCopyButton } from "@/components/ui/animated-copy-button"
+
+export function CopyDemo() {
+  return (
+    <AnimatedCopyButton 
+      textToCopy="git clone https://github.com/Nivethith-AK/Cooki-UI.git"
+      size="md"
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'animated-copy-button.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['animated-copy-button'] || ''
+      }
+    ]
+  },
+
+  // 143. Draggable Pipeline Reorder List (Lightswind)
+  {
+    id: 'drag-order-list',
+    name: 'Draggable Pipeline Reorder List',
+    slug: 'drag-order-list',
+    category: 'components',
+    subcategory: 'Interactive Lists',
+    description: 'Interactive reorderable list using Framer Motion Reorder component with drag handles, z-index elevation, and spring physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'reorder-api', 'drag-drop-physics'],
+    tags: ['data', 'list', 'reorder', 'drag-and-drop', 'framer-motion', 'workflow', 'interactive'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cooki-ui add drag-order-list',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full p-2">
+        <DragOrderList />
+      </div>
+    ),
+    usage: `import { DragOrderList } from "@/components/ui/drag-order-list"
+
+export function PipelineListDemo() {
+  return (
+    <DragOrderList 
+      onReorder={(newItems) => console.log('Reordered:', newItems)}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'drag-order-list.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['drag-order-list'] || ''
+      }
+    ]
+  },
+
+  // 144. Neural Connection Circuit Graph (Lightswind)
+  {
+    id: 'connection-graph',
+    name: 'Neural Connection Circuit Graph',
+    slug: 'connection-graph',
+    category: 'data',
+    subcategory: 'Graph & Network',
+    description: 'Interactive distributed neural circuit graph with animated laser beam data streams, pulsing nodes, and real-time topology highlights.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['svg-circuits', 'laser-streams', 'neural-nodes'],
+    tags: ['data', 'graph', 'network', 'nodes', 'connections', 'laser-beam', 'topology', 'interactive'],
+    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    installCommand: 'npx cooki-ui add connection-graph',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-10-27',
+    renderPreview: () => (
+      <div className="w-full p-1 flex items-center justify-center">
+        <ConnectionGraph />
+      </div>
+    ),
+    usage: `import { ConnectionGraph } from "@/components/ui/connection-graph"
+
+export function TopologyGraphDemo() {
+  return (
+    <ConnectionGraph />
+  )
+}`,
+    files: [
+      {
+        name: 'connection-graph.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['connection-graph'] || ''
       }
     ]
   },

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "animated-copy-button",
+  "type": "registry:ui",
+  "title": "Animated Morphing Copy Button",
+  "description": "Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "copy",
+    "clipboard",
+    "ripple",
+    "morphing",
+    "feedback",
+    "micro-interaction"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/animated-copy-button/animated-copy-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-copy-button.tsx",
+      "content": "import React, { useState } from 'react'\nimport { motion, AnimatePresence } from 'framer-motion'\nimport { Copy, Check } from '@phosphor-icons/react'\nimport { cn } from '@/lib/utils'\n\nexport interface AnimatedCopyButtonProps {\n  /** The text that will be copied to clipboard */\n  textToCopy?: string\n  /** Button label text */\n  label?: string\n  /** Size variant */\n  size?: 'sm' | 'md' | 'lg'\n  /** Optional classname */\n  className?: string\n  /** Optional callback fired when copied */\n  onCopy?: () => void\n}\n\nexport const AnimatedCopyButton: React.FC<AnimatedCopyButtonProps> = ({\n  textToCopy = 'npx cooki-ui add magnetic-button',\n  label,\n  size = 'md',\n  className,\n  onCopy,\n}) => {\n  const [isCopied, setIsCopied] = useState(false)\n\n  const handleCopy = async () => {\n    try {\n      if (navigator.clipboard) {\n        await navigator.clipboard.writeText(textToCopy)\n      }\n      setIsCopied(true)\n      if (onCopy) onCopy()\n\n      setTimeout(() => {\n        setIsCopied(false)\n      }, 2000)\n    } catch (err) {\n      console.error('Failed to copy:', err)\n    }\n  }\n\n  const sizes = {\n    sm: 'h-8 px-2.5 text-xs',\n    md: 'h-10 px-3.5 text-xs',\n    lg: 'h-12 px-4 text-sm',\n  }\n\n  const iconSizes = {\n    sm: 14,\n    md: 16,\n    lg: 18,\n  }\n\n  return (\n    <div className=\"relative inline-flex items-center justify-center\">\n      <motion.button\n        onClick={handleCopy}\n        whileTap={{ scale: 0.94 }}\n        className={cn(\n          'relative flex items-center gap-2 rounded-xl border font-mono transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer overflow-hidden shadow-xs',\n          isCopied\n            ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'\n            : 'border-zinc-200 dark:border-white/10 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white',\n          sizes[size],\n          className\n        )}\n        aria-label=\"Copy code to clipboard\"\n      >\n        <AnimatePresence mode=\"wait\" initial={false}>\n          {isCopied ? (\n            <motion.div\n              key=\"check\"\n              initial={{ opacity: 0, scale: 0.4, rotate: -45 }}\n              animate={{ opacity: 1, scale: 1, rotate: 0 }}\n              exit={{ opacity: 0, scale: 0.4, rotate: 45 }}\n              transition={{ type: 'spring', stiffness: 400, damping: 22 }}\n              className=\"flex items-center justify-center text-emerald-500\"\n            >\n              <Check size={iconSizes[size]} weight=\"bold\" />\n            </motion.div>\n          ) : (\n            <motion.div\n              key=\"copy\"\n              initial={{ opacity: 0, scale: 0.5 }}\n              animate={{ opacity: 1, scale: 1 }}\n              exit={{ opacity: 0, scale: 0.5 }}\n              transition={{ type: 'spring', stiffness: 400, damping: 22 }}\n              className=\"flex items-center justify-center text-zinc-500 dark:text-zinc-400\"\n            >\n              <Copy size={iconSizes[size]} weight=\"bold\" />\n            </motion.div>\n          )}\n        </AnimatePresence>\n\n        <span>{isCopied ? 'Copied to Clipboard' : label || textToCopy}</span>\n\n        <AnimatePresence>\n          {isCopied && (\n            <motion.div\n              initial={{ opacity: 0.6, scale: 0.8 }}\n              animate={{ opacity: 0, scale: 2 }}\n              exit={{ opacity: 0 }}\n              transition={{ duration: 0.6, ease: 'easeOut' }}\n              className=\"absolute inset-0 rounded-xl bg-emerald-500/25 pointer-events-none\"\n            />\n          )}\n        </AnimatePresence>\n      </motion.button>\n    </div>\n  )\n}\n\nexport default AnimatedCopyButton\n"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

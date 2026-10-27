@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "interactive-lens",
+  "type": "registry:ui",
+  "title": "Interactive Magnifying Lens",
+  "description": "Interactive magnifying glass inspection lens with spring-following cursor tracking, zoom factor control, and reticle overlay.",
+  "category": "effects",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "effect",
+    "lens",
+    "magnify",
+    "zoom",
+    "inspection",
+    "cursor-tracking",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/effects/interactive-lens/interactive-lens.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-lens.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

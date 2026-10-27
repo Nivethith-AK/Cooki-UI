@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "drag-order-list",
+  "type": "registry:ui",
+  "title": "Draggable Pipeline Reorder List",
+  "description": "Interactive reorderable list using Framer Motion Reorder component with drag handles, z-index elevation, and spring physics.",
+  "category": "data",
+  "dependencies": [
+    "framer-motion",
+    "@phosphor-icons/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "data",
+    "list",
+    "reorder",
+    "drag-and-drop",
+    "framer-motion",
+    "workflow",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/data/drag-order-list/drag-order-list.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/drag-order-list.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

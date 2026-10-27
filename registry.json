@@ -485,6 +485,24 @@
       ]
     },
     {
+      "name": "animated-copy-button",
+      "type": "registry:ui",
+      "title": "Animated Morphing Copy Button",
+      "description": "Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/animated-copy-button/animated-copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-copy-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "confetti-button",
       "type": "registry:ui",
       "title": "Celebration Confetti Burst Button",
@@ -499,6 +517,24 @@
           "path": "registry/buttons/confetti-button/confetti-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/confetti-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-speed-dial",
+      "type": "registry:ui",
+      "title": "Expandable Speed Dial",
+      "description": "Functional speed dial floating action button with staggered spring physics fan-out and micro-tooltips.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/expandable-speed-dial/expandable-speed-dial.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-speed-dial.tsx"
         }
       ]
     },
@@ -676,6 +712,41 @@
       ]
     },
     {
+      "name": "code-hover-cards",
+      "type": "registry:ui",
+      "title": "Code Matrix Hover Cards",
+      "description": "Interactive cards with real-time character matrix decryption reveal and spotlight glow effects under cursor coordinates.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/code-hover-cards/code-hover-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-hover-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "electro-border",
+      "type": "registry:ui",
+      "title": "Electro Border Shield",
+      "description": "Dynamic electric distortion border with procedural SVG turbulence filter displacement, glowing aura, and responsive resizing.",
+      "category": "cards",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/electro-border/electro-border.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/electro-border.tsx"
+        }
+      ]
+    },
+    {
       "name": "expandable-card",
       "type": "registry:ui",
       "title": "Spring Expandable Modal Card",
@@ -724,6 +795,24 @@
           "path": "registry/cards/glass-card/glass-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/glass-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-folder",
+      "type": "registry:ui",
+      "title": "3D Glassmorphic Folder",
+      "description": "Interactive 3D glassmorphic document folder with multi-layer depth, perspective hover flap, and interior document sheets.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/glass-folder/glass-folder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glass-folder.tsx"
         }
       ]
     },
@@ -1020,6 +1109,42 @@
       ]
     },
     {
+      "name": "connection-graph",
+      "type": "registry:ui",
+      "title": "Neural Connection Circuit Graph",
+      "description": "Interactive distributed neural circuit graph with animated laser beam data streams, pulsing nodes, and real-time topology highlights.",
+      "category": "data",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/connection-graph/connection-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/connection-graph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drag-order-list",
+      "type": "registry:ui",
+      "title": "Draggable Pipeline Reorder List",
+      "description": "Interactive reorderable list using Framer Motion Reorder component with drag handles, z-index elevation, and spring physics.",
+      "category": "data",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/data/drag-order-list/drag-order-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/drag-order-list.tsx"
+        }
+      ]
+    },
+    {
       "name": "git-contribution-heatmap",
       "type": "registry:ui",
       "title": "Git Activity Contribution Heatmap",
@@ -1150,6 +1275,24 @@
           "path": "registry/effects/border-beam/border-beam.tsx",
           "type": "registry:ui",
           "target": "components/ui/border-beam.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-lens",
+      "type": "registry:ui",
+      "title": "Interactive Magnifying Lens",
+      "description": "Interactive magnifying glass inspection lens with spring-following cursor tracking, zoom factor control, and reticle overlay.",
+      "category": "effects",
+      "dependencies": [
+        "framer-motion",
+        "@phosphor-icons/react"
+      ],
+      "files": [
+        {
+          "path": "registry/effects/interactive-lens/interactive-lens.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-lens.tsx"
         }
       ]
     },

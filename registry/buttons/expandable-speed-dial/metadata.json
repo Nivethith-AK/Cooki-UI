@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "expandable-speed-dial",
+  "type": "registry:ui",
+  "title": "Expandable Speed Dial",
+  "description": "Functional speed dial floating action button with staggered spring physics fan-out and micro-tooltips.",
+  "category": "buttons",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "button",
+    "speed-dial",
+    "fab",
+    "floating-action-button",
+    "spring-physics",
+    "menu",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/expandable-speed-dial/expandable-speed-dial.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/expandable-speed-dial.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}

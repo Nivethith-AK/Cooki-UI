@@ -1,0 +1,39 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "code-hover-cards",
+  "type": "registry:ui",
+  "title": "Code Matrix Hover Cards",
+  "description": "Interactive cards with real-time character matrix decryption reveal and spotlight glow effects under cursor coordinates.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "tags": [
+    "card",
+    "matrix",
+    "code",
+    "hover",
+    "decrypt",
+    "spotlight",
+    "cursor-tracking",
+    "interactive"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/code-hover-cards/code-hover-cards.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/code-hover-cards.tsx"
+    }
+  ],
+  "tailwind": {
+    "required": true
+  },
+  "framework": [
+    "react",
+    "nextjs",
+    "vite"
+  ]
+}
