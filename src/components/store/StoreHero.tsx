@@ -84,7 +84,7 @@ export const StoreHero: React.FC = () => {
         
         {/* Flagship Headline & Copy */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white max-w-4xl mx-auto leading-[1.12]">
-          The Autonomous UI Registry for Modern React & Tailwind
+          The Open Component Registry Built for Developers &amp; AI Agents
         </h1>
         <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-sans leading-relaxed">
           {ALL_REGISTRY_ITEMS.length} handcrafted interactive components with spring physics, 3D WebGL, and source ownership. Zero runtime lock-in.
