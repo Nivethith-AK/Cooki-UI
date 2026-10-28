@@ -1,0 +1,23 @@
+# Development & Web Application Source
+src/
+public/
+dist/
+.github/
+.agent/
+.agents/
+scripts/
+index.html
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+postcss.config.js
+tailwind.config.js
+
+# Testing & Coverage
+coverage/
+
+# Logs & Environment
+*.log
+.env*
+.DS_Store
+Thumbs.db

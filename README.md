@@ -211,7 +211,7 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 
 | Tool | Description |
 |---|---|
-| `list_components` | Browse all 120+ canonical components with categories and tags |
+| `list_components` | Browse all 154 canonical components with categories and tags |
 | `search_components` | Search components by keyword, technology, or UI use-case |
 | `get_component_source` | Fetch raw TypeScript source code ready for disk writes |
 | `get_component_dependencies` | Read package dependencies required for a component |
@@ -244,33 +244,33 @@ Connect your AI coding assistant in 10 seconds. Add this server definition to yo
 
 ---
 
-## Component Library (120 Canonical Components)
+## Component Library (154 Canonical Components)
 
-### 🧊 3D & Holograms
+### 🧊 3D Elements & Holograms
 `audio-waveform-visualizer` · `code-hover-card` · `cube-perspective-3d` · `hanging-id-card` · `particle-vortex-tunnel` · `plasma-globe`
 
 ### 🤖 AI Interfaces & Telemetry
-`ai-code-diff-viewer` · `ai-prompt-input` · `ai-streaming-bubble` · `ai-token-cost-meter`
+`ai-code-diff-viewer` · `ai-prompt-input` · `ai-streaming-bubble` · `ai-token-cost-meter` · `system-architecture-graph`
 
-### ⚡ Animations & Kinetic Visuals
-`wave-frequency-bars`
+### ⚡ Animations & Kinetic Motion
+`wave-frequency-bars` · `spinning-text` · `glitch-cyber-text` · `kinetic-text-marquee`
 
 ### 🌅 Backgrounds & Shaders
 `animated-mesh-background` · `aurora-background` · `beam-grid-background` · `cosmic-dust-background` · `cyber-hive-background` · `dot-background` · `flowing-lines-wave-background` · `grid-background` · `morphing-blob-background` · `particle-constellation-background` · `quantum-field-background` · `starfield-hyperdrive-background`
 
-### 🔘 Interactive Buttons
+### 🔘 Interactive Buttons & Triggers
 `confetti-button` · `floating-action-button` · `fluid-liquid-button` · `glow-action-button` · `gradient-shimmer-button` · `hold-to-confirm-button` · `liquid-glass-button` · `magnetic-button` · `ripple-button` · `slide-to-confirm`
 
-### 🎴 Advanced Cards & Decks
+### 🎴 Advanced Cards & Surfaces
 `expandable-card` · `glare-hologram-card` · `glass-card` · `interactive-tilt-card` · `orbit-card` · `perspective-card-3d` · `scratch-to-reveal-card` · `spotlight-border-card` · `spotlight-card` · `stack-card-deck` · `terminal-card`
 
-### 🖱️ Cursor Physics & Followers
-`fluid-particle-cursor` · `magnetic-cursor-follower` · `spotlight-reveal-cursor`
+### 🖱️ Cursor Physics & Pointers
+`fluid-particle-cursor` · `magnetic-cursor-follower` · `magnetic-target-cursor` · `spotlight-reveal-cursor`
 
-### 📊 Data Visualizations & Feeds
-`activity-feed-stream` · `circular-gauge-speedometer` · `comparative-feature-table` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `radial-progress-gauge` · `scroll-timeline` · `telemetry-metric-card`
+### 📊 Data Visualizations & Dashboards
+`activity-feed-stream` · `circular-gauge-speedometer` · `comparative-feature-table` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `radial-progress-gauge` · `scroll-timeline` · `system-architecture-graph` · `telemetry-metric-card`
 
-### 🔮 Shaders & Atmospheric Effects
+### 🔮 Shaders & Atmospheric FX
 `ascii-wave` · `border-beam` · `light-pillar-beacon` · `matrix-rain-terminal` · `metaball-gooey-effect` · `noise-grain-overlay` · `spectrum-loader`
 
 ### 🔔 Feedback & Indicators
@@ -283,7 +283,7 @@ Connect your AI coding assistant in 10 seconds. Add this server definition to yo
 `accordion-faq-group` · `image-comparison-slider` · `infinite-card-carousel` · `interactive-image-compare-lens` · `resizable-split-panel` · `segmented-control-switch`
 
 ### 🧭 Navigation & App Shells
-`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `cyber-command-menu` · `floating-navbar` · `fluid-action-panel` · `magnetic-dock` · `magnetic-social-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `sliding-logo-marquee` · `tabs-morph`
+`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `cyber-command-menu` · `floating-navbar` · `fluid-action-hub` · `fluid-action-panel` · `magnetic-dock` · `magnetic-social-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `sliding-logo-marquee` · `tabs-morph`
 
 ### 🪟 Overlays & Dialogs
 `context-action-menu` · `interactive-dialog-modal` · `sliding-drawer-sheet` · `tooltip-popover`
@@ -379,7 +379,7 @@ Licensed under the **MIT License**. Free for personal and commercial use.
 
 **Built with precision by [Nivethith AK](https://github.com/Nivethith-AK)**
 
-[![Website](https://img.shields.io/badge/Website-cooki--ui.vercel.app-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
+[![Website](https://img.shields.io/badge/Website-cooki--ui.design-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
 [![GitHub](https://img.shields.io/badge/GitHub-Nivethith--AK%2FCooki--UI-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Nivethith-AK/Cooki-UI)
 [![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.cooki-ui.design)
 

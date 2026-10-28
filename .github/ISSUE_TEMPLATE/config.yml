@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/Nivethith-AK/Cooki-UI/discussions
+    about: Ask questions, share your creations, and discuss architecture with the community.
+  - name: 🌐 Live Component Discovery Store
+    url: https://www.cooki-ui.design
+    about: Browse and test all 154 interactive components with live spring physics and source inspector.

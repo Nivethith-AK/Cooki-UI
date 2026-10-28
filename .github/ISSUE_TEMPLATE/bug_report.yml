@@ -1,0 +1,66 @@
+name: Bug Report
+description: Report a bug or visual defect in a Cooki UI component or the CLI
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue! Please check if the bug has already been reported before submitting.
+
+  - type: input
+    id: component
+    attributes:
+      label: Component Slug / Name
+      description: What component is affected? (e.g. `circular-gauge-speedometer`, `cooki-ui cli`)
+      placeholder: "e.g. magnetic-target-cursor"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Framework & Environment
+      options:
+        - Next.js (App Router)
+        - Next.js (Pages Router)
+        - Vite + React
+        - Remix
+        - Astro
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can maintainers reproduce the issue?
+      placeholder: |
+        1. Run `npx cooki-ui add ...`
+        2. Mount component with props ...
+        3. Switch from dark mode to light mode
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Error Logs
+      description: Paste any screenshots, GIFs, or console stack traces here.

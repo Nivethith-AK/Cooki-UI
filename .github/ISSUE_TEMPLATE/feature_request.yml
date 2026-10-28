@@ -1,0 +1,49 @@
+name: Component / Feature Request
+description: Suggest a new component, animation effect, or CLI capability
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for a stunning interactive component or physics interaction? Propose it below!
+
+  - type: input
+    id: component_name
+    attributes:
+      label: Suggested Component Name
+      placeholder: "e.g. Holographic HUD Telemetry Grid"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Target Category
+      options:
+        - UI Components
+        - AI & LLM Tools
+        - Cursors & Pointer FX
+        - Motion & 3D Elements
+        - Data & Dashboards
+        - Forms & Inputs
+        - Shaders & Backgrounds
+        - Layout & Dynamic Splitters
+        - UI Sections & Blocks
+        - CLI / MCP Integration
+    validations:
+      required: true
+
+  - type: textarea
+    id: concept
+    attributes:
+      label: Concept & Physics Description
+      description: Describe the visual appearance, spring physics, and interaction mechanics.
+    validations:
+      required: true
+
+  - type: textarea
+    id: inspiration
+    attributes:
+      label: Design Inspiration / References
+      description: Links to visual references, Dribbble shots, Codepen demos, or Figma mocks.

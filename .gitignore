@@ -39,3 +39,5 @@ lerna-debug.log*
 
 # Agent skills cache
 .agents
+.agent
+*.log
