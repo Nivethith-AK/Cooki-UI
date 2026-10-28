@@ -1,10 +1,42 @@
 {
-  "name": "cook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "cooki-ui",
+  "version": "1.0.0",
+  "description": "The Open Component Registry Built for Developers & AI Agents — 154 handcrafted components with spring physics, 3D WebGL, and source ownership.",
   "type": "module",
   "bin": {
     "cooki-ui": "./bin/cli.cjs"
+  },
+  "main": "./bin/cli.cjs",
+  "files": [
+    "bin",
+    "registry.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "cooki-ui",
+    "react",
+    "tailwind",
+    "shadcn",
+    "components",
+    "ui",
+    "framer-motion",
+    "cli",
+    "mcp",
+    "ai-agents"
+  ],
+  "author": "Nivethith-AK",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nivethith-AK/Cooki-UI.git"
+  },
+  "homepage": "https://www.cooki-ui.design",
+  "bugs": {
+    "url": "https://github.com/Nivethith-AK/Cooki-UI/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "dev": "vite",

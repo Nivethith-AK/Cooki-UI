@@ -9,14 +9,15 @@
 
 # Cooki UI
 
-**The AI-native, source-first component registry & interactive UI store for React & Next.js.**  
-136+ animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
+**The Open Component Registry Built for Developers & AI Agents**  
+154 animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
 
 <br/>
 
 [![GitHub stars](https://img.shields.io/github/stars/Nivethith-AK/Cooki-UI?style=flat-square&label=stars&color=f59e0b)](https://github.com/Nivethith-AK/Cooki-UI)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.cooki-ui.design)
-[![Components](https://img.shields.io/badge/components-136%20canonical-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
+[![Components](https://img.shields.io/badge/components-154%20canonical-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
+[![npm version](https://img.shields.io/badge/npm-v1.0.0-cb3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/cooki-ui)
 [![shadcn compatible](https://img.shields.io/badge/shadcn-compatible-black?style=flat-square)](https://www.cooki-ui.design/r/index.json)
 [![License](https://img.shields.io/github/license/Nivethith-AK/Cooki-UI?style=flat-square&color=8b5cf6)](./LICENSE)
 
