@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -35,6 +35,10 @@ export function InteractiveStepper({
   const [value, setValue] = useState(defaultValue);
   const [direction, setDirection] = useState<"up" | "down">("up");
 
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
+
   const sizes = {
     sm: {
       container: "h-9 gap-1.5",
@@ -59,7 +63,7 @@ export function InteractiveStepper({
     lg: "h-5 w-5",
   };
 
-  const s = sizes[size];
+  const s = sizes[size] || sizes.md;
 
   const handleDecrement = () => {
     if (value - step < min) return;
@@ -96,6 +100,16 @@ export function InteractiveStepper({
     <div
       className={cn("inline-flex items-center select-none", s.container, className)}
       aria-label={label}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowUp") {
+          e.preventDefault();
+          handleIncrement();
+        } else if (e.key === "ArrowDown") {
+          e.preventDefault();
+          handleDecrement();
+        }
+      }}
     >
       {/* Decrement Button */}
       <motion.button

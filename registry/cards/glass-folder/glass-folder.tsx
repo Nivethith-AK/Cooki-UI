@@ -24,9 +24,14 @@ export const GlassFolder: React.FC<GlassFolderProps> = ({
 
   return (
     <div
-      onClick={onClick}
+      onClick={() => {
+        setIsHovered((prev) => !prev)
+        onClick?.()
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setTimeout(() => setIsHovered(false), 2000)}
       className={cn(
         'relative group/folder flex flex-col items-center justify-center cursor-pointer select-none',
         className

@@ -48,11 +48,26 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
   const smoothX = useSpring(cursorX, { stiffness: 350, damping: 35 });
   const smoothY = useSpring(cursorY, { stiffness: 350, damping: 35 });
 
-  const onMouseTrack = (e: React.MouseEvent) => {
+  const updatePosition = (clientX: number, clientY: number) => {
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      cursorX.set(e.clientX - rect.left);
-      cursorY.set(e.clientY - rect.top);
+      const relativeX = clientX - rect.left;
+      const relativeY = clientY - rect.top;
+      // Clamp within container
+      const clampedX = Math.max(70, Math.min(rect.width - 70, relativeX));
+      const clampedY = Math.max(90, Math.min(rect.height - 90, relativeY));
+      cursorX.set(clampedX);
+      cursorY.set(clampedY);
+    }
+  };
+
+  const onMouseTrack = (e: React.MouseEvent) => {
+    updatePosition(e.clientX, e.clientY);
+  };
+
+  const onTouchTrack = (e: React.TouchEvent) => {
+    if (e.touches[0]) {
+      updatePosition(e.touches[0].clientX, e.touches[0].clientY);
     }
   };
 
@@ -64,7 +79,9 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
         className
       )}
       onMouseMove={onMouseTrack}
+      onTouchMove={onTouchTrack}
       onMouseLeave={() => setFocusedItem(null)}
+      onTouchEnd={() => setFocusedItem(null)}
     >
       <div className="divide-y divide-zinc-200/60 dark:divide-zinc-800/60">
         {items.map((item) => {
@@ -74,6 +91,7 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
               key={item.id}
               className="p-4 cursor-pointer relative flex items-center justify-between group transition-colors hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50"
               onMouseEnter={() => setFocusedItem(item)}
+              onTouchStart={() => setFocusedItem(item)}
             >
               <div className="flex items-center gap-3 relative z-20">
                 <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
@@ -89,7 +107,7 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
                 )}
               </div>
 
-              <div className="relative z-20 flex items-center justify-center w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-all duration-200 group-hover:scale-105">
+              <div className="relative z-20 flex items-center justify-center w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-all duration-200 group-hover:scale-105 shadow-xs">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
 
@@ -106,7 +124,7 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
 
       {focusedItem && (
         <motion.div
-          className="absolute z-30 pointer-events-none rounded-xl overflow-hidden shadow-2xl border border-white/20 dark:border-zinc-700/50 hidden sm:block w-36 h-48"
+          className="absolute z-30 pointer-events-none rounded-xl overflow-hidden shadow-2xl border border-white/20 dark:border-zinc-700/50 w-28 h-36 sm:w-36 sm:h-48"
           style={{
             left: smoothX,
             top: smoothY,

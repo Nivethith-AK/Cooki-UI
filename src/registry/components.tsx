@@ -5306,8 +5306,8 @@ export function TopologyGraphDemo() {
     renderPreview: (controls: any = {}) => (
       <div className="flex flex-col items-center justify-center p-6 w-full">
         <CountUp
-          value={controls?.value || 84920}
-          prefix={controls?.prefix || '$'}
+          value={Number(controls?.value ?? 84920)}
+          prefix={controls?.prefix !== undefined ? controls.prefix : '$'}
           colorScheme={controls?.colorScheme || 'gradient'}
           interactive
         />
@@ -5384,8 +5384,8 @@ export function ImageRevealDemo() {
     popular: true,
     dateAdded: '2026-10-27',
     renderPreview: () => (
-      <div className="w-full h-64 p-2 flex items-center justify-center">
-        <HamburgerMenuOverlay buttonTop="28px" buttonLeft="28px" />
+      <div className="w-full h-80 min-h-[300px] p-2 flex items-center justify-center">
+        <HamburgerMenuOverlay buttonTop="36px" buttonLeft="36px" />
       </div>
     ),
     usage: `import { HamburgerMenuOverlay } from "@/components/ui/hamburger-menu-overlay"
@@ -5458,11 +5458,17 @@ export function SlidingCardsDemo() {
     popular: true,
     dateAdded: '2026-10-27',
     controls: [
+      { name: 'defaultValue', type: 'number', label: 'Default Value', defaultValue: 4, min: 1, max: 20 },
       { name: 'size', type: 'select', label: 'Size', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
     ],
     renderPreview: (controls: any = {}) => (
       <div className="flex flex-col items-center justify-center gap-3 p-6 w-full">
-        <InteractiveStepper defaultValue={4} min={1} max={20} size={controls?.size || 'md'} />
+        <InteractiveStepper
+          defaultValue={Number(controls?.defaultValue ?? 4)}
+          min={1}
+          max={20}
+          size={controls?.size || 'md'}
+        />
         <span className="text-xs text-zinc-500 font-mono">Cluster Replicas</span>
       </div>
     ),
@@ -5498,10 +5504,13 @@ export function StepperDemo() {
     featured: true,
     popular: true,
     dateAdded: '2026-10-27',
-    renderPreview: () => (
-      <div className="w-full max-w-sm p-2 flex items-center justify-center">
-        <VideoTextMask fontSize="22vw">
-          COOKI
+    controls: [
+      { name: 'text', type: 'text', label: 'Masked Text', defaultValue: 'COOKI' }
+    ],
+    renderPreview: (controls: any = {}) => (
+      <div className="w-full max-w-md p-2 flex items-center justify-center">
+        <VideoTextMask fontSize="180">
+          {controls?.text || 'COOKI'}
         </VideoTextMask>
       </div>
     ),
@@ -5575,7 +5584,7 @@ export function LoaderDemo() {
     popular: true,
     dateAdded: '2026-10-27',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-4 w-full min-h-[140px]">
+      <div className="flex items-center justify-center p-4 w-full min-h-[380px]">
         <FluidActionHub position="inline" />
       </div>
     ),
@@ -5612,7 +5621,7 @@ export function ActionHubDemo() {
     popular: true,
     dateAdded: '2026-10-27',
     renderPreview: () => (
-      <div className="flex items-center justify-center p-6 w-full">
+      <div className="flex items-center justify-center p-6 w-full min-h-[220px] pt-20 pb-8">
         <DynamicIsland position="inline" />
       </div>
     ),

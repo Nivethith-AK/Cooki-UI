@@ -54,7 +54,7 @@ const DEFAULT_NODES: GraphNode[] = [
   {
     id: 'registry',
     label: 'Registry Cache',
-    subtitle: '136+ Endpoints',
+    subtitle: '154 Endpoints',
     icon: <Database size={18} weight="bold" className="text-amber-500" />,
     x: 85,
     y: 50,

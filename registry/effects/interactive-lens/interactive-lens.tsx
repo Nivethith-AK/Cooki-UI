@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MagnifyingGlass, Cpu } from '@phosphor-icons/react'
+import { MagnifyingGlass, ShieldCheck, Cpu } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 export interface InteractiveLensProps {
@@ -28,6 +28,15 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
     setMousePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
+    })
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !e.touches[0]) return
+    const rect = containerRef.current.getBoundingClientRect()
+    setMousePos({
+      x: e.touches[0].clientX - rect.left,
+      y: e.touches[0].clientY - rect.top,
     })
   }
 
@@ -82,10 +91,19 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
-      className={cn('relative inline-block isolate cursor-crosshair overflow-hidden rounded-2xl', className)}
+      onTouchStart={(e) => {
+        setIsHovering(true)
+        handleTouchMove(e)
+      }}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => setIsHovering(false)}
+      onTouchCancel={() => setIsHovering(false)}
+      className={cn('relative inline-block isolate cursor-crosshair overflow-hidden rounded-2xl touch-none', className)}
     >
+      {/* Base Normal Content */}
       <div className="relative z-0">{content}</div>
 
+      {/* Magnified Lens Floating Viewport */}
       <AnimatePresence>
         {(isHovering || isStatic) && (
           <motion.div
@@ -105,6 +123,7 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
             }}
             className="overflow-hidden border-2 border-indigo-500/80 shadow-[0_0_24px_rgba(99,102,241,0.4)] backdrop-blur-xs"
           >
+            {/* Cloned Scaled Content anchored to mouse pos */}
             <div
               style={{
                 position: 'absolute',
@@ -119,6 +138,7 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
               {content}
             </div>
 
+            {/* Glass Reticle Grid Crosshairs */}
             <div className="absolute inset-0 pointer-events-none rounded-full ring-1 ring-inset ring-white/20 bg-gradient-to-tr from-indigo-500/10 via-transparent to-white/20" />
             <div className="absolute inset-x-0 top-1/2 h-[1px] bg-indigo-500/30 -translate-y-1/2 pointer-events-none" />
             <div className="absolute inset-y-0 left-1/2 w-[1px] bg-indigo-500/30 -translate-x-1/2 pointer-events-none" />

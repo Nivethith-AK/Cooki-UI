@@ -60,17 +60,13 @@ export const MagicParticleLoader: React.FC<MagicParticleLoaderProps> = ({
   );
 
   const stepParticle = useCallback(
-    (particle: Particle, index: number) => {
+    (particle: Particle) => {
       particle.speed += particle.accel;
       particle.x += Math.cos(particle.angle) * particle.speed * speed;
       particle.y += Math.sin(particle.angle) * particle.speed * speed;
       particle.angle += Math.PI / 64;
       particle.accel *= 1.01;
       particle.life -= particle.decay;
-
-      if (particle.life <= 0) {
-        particlesRef.current.splice(index, 1);
-      }
     },
     [speed]
   );
@@ -121,20 +117,24 @@ export const MagicParticleLoader: React.FC<MagicParticleLoaderProps> = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const minSize = Math.min(rect.width, rect.height) * 0.5;
+    const centerX = size / 2;
+    const centerY = size / 2;
+    const minSize = size * 0.5;
 
     for (let i = 0; i < particleCount; i++) {
       particlesRef.current.push(createParticle(centerX, centerY, tickRef.current, minSize));
     }
 
-    particlesRef.current.forEach((particle, index) => {
-      stepParticle(particle, index);
-    });
+    // Step particles backwards so removals never skip items
+    for (let i = particlesRef.current.length - 1; i >= 0; i--) {
+      const p = particlesRef.current[i];
+      stepParticle(p);
+      if (p.life <= 0) {
+        particlesRef.current.splice(i, 1);
+      }
+    }
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, size, size);
 
     particlesRef.current.forEach((particle, index) => {
       drawParticle(ctx, particle, index, tickRef.current);
@@ -145,7 +145,7 @@ export const MagicParticleLoader: React.FC<MagicParticleLoaderProps> = ({
     tickRef.current++;
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [createParticle, stepParticle, drawParticle, particleCount, speed]);
+  }, [createParticle, stepParticle, drawParticle, particleCount, speed, size]);
 
   const setupCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -159,7 +159,8 @@ export const MagicParticleLoader: React.FC<MagicParticleLoaderProps> = ({
     canvas.style.width = `${size}px`;
     canvas.style.height = `${size}px`;
 
-    ctx.scale(dpr, dpr);
+    // Reset transform to identity before scaling by DPR
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.globalCompositeOperation = "lighter";
 
     particlesRef.current = [];

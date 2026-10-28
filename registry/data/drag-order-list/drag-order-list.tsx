@@ -48,6 +48,10 @@ export const DragOrderList: React.FC<DragOrderListProps> = ({
 }) => {
   const [list, setList] = useState(items)
 
+  React.useEffect(() => {
+    setList(items)
+  }, [items])
+
   const handleReorder = (newList: DragOrderItemData[]) => {
     setList(newList)
     if (onReorder) onReorder(newList)

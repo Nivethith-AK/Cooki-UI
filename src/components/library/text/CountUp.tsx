@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Helper function to format the number
 const formatValue = (val: number, precision: number, sep: string): string => {
-  return val
+  return Number(val)
     .toFixed(precision)
     .replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 };
@@ -58,7 +58,7 @@ export function CountUp({
   suffix = "",
   easing = "easeOut",
   separator = ",",
-  interactive = false,
+  interactive = true,
   triggerOnView = true,
   className,
   numberClassName,
@@ -67,7 +67,6 @@ export function CountUp({
   customColor,
   onAnimationComplete,
 }: CountUpProps) {
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [displayValue, setDisplayValue] = useState<string>(formatValue(0, decimals, separator));
   const containerRef = useRef<HTMLDivElement>(null);
   const count = useMotionValue(0);
@@ -85,28 +84,27 @@ export function CountUp({
     return () => unsubscribe();
   }, [decimals, separator, count]);
 
+  const runAnimation = () => {
+    count.set(0);
+    return animate(count, value, {
+      ...animationConfig,
+      onComplete: () => {
+        onAnimationComplete?.();
+      },
+    });
+  };
+
   useEffect(() => {
     if (!triggerOnView) {
-      const controls = animate(count, value, {
-        ...animationConfig,
-        onComplete: () => {
-          setHasAnimated(true);
-          if (onAnimationComplete) onAnimationComplete();
-        },
-      });
-      return () => controls.stop();
+      const controls = runAnimation();
+      return () => controls?.stop();
     }
 
+    let controls: any;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          animate(count, value, {
-            ...animationConfig,
-            onComplete: () => {
-              setHasAnimated(true);
-              if (onAnimationComplete) onAnimationComplete();
-            },
-          });
+        if (entry.isIntersecting) {
+          controls = runAnimation();
         }
       },
       { threshold: 0.1 }
@@ -116,38 +114,28 @@ export function CountUp({
 
     return () => {
       observer.disconnect();
+      controls?.stop();
     };
-  }, [value, triggerOnView, hasAnimated]);
+  }, [value, duration, easing, animationStyle, triggerOnView]);
 
   const colorClass =
     colorScheme === "custom" && customColor ? "" : colorSchemes[colorScheme];
 
-  const getHoverAnimation = () => {
-    if (!interactive) return {};
-    return {
-      whileHover: {
-        scale: 1.05,
-        filter: "brightness(1.1)",
-        transition: { duration: 0.2 },
-      },
-      whileTap: {
-        scale: 0.95,
-        filter: "brightness(0.95)",
-        transition: { duration: 0.1 },
-      },
-    };
-  };
-
   return (
     <div
       ref={containerRef}
+      onClick={() => {
+        if (interactive) runAnimation();
+      }}
       className={cn(
-        "inline-flex items-center justify-center font-bold font-mono tracking-tight text-3xl sm:text-4xl text-zinc-900 dark:text-zinc-50",
+        "inline-flex items-center justify-center font-bold font-mono tracking-tight text-3xl sm:text-4xl text-zinc-900 dark:text-zinc-50 select-none cursor-pointer",
         className
       )}
+      title={interactive ? "Click to replay count animation" : undefined}
     >
       <motion.div
-        {...getHoverAnimation()}
+        whileHover={interactive ? { scale: 1.05 } : undefined}
+        whileTap={interactive ? { scale: 0.95 } : undefined}
         className={cn("flex items-center transition-all", colorClass, numberClassName)}
         style={colorScheme === "custom" && customColor ? { color: customColor } : undefined}
       >

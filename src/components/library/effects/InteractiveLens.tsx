@@ -31,6 +31,15 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
     })
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !e.touches[0]) return
+    const rect = containerRef.current.getBoundingClientRect()
+    setMousePos({
+      x: e.touches[0].clientX - rect.left,
+      y: e.touches[0].clientY - rect.top,
+    })
+  }
+
   const defaultChild = (
     <div className="relative p-6 rounded-2xl bg-zinc-100 dark:bg-zinc-900/80 border border-zinc-200 dark:border-white/10 select-none overflow-hidden max-w-[340px]">
       <div className="space-y-3">
@@ -82,7 +91,14 @@ export const InteractiveLens: React.FC<InteractiveLensProps> = ({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
-      className={cn('relative inline-block isolate cursor-crosshair overflow-hidden rounded-2xl', className)}
+      onTouchStart={(e) => {
+        setIsHovering(true)
+        handleTouchMove(e)
+      }}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => setIsHovering(false)}
+      onTouchCancel={() => setIsHovering(false)}
+      className={cn('relative inline-block isolate cursor-crosshair overflow-hidden rounded-2xl touch-none', className)}
     >
       {/* Base Normal Content */}
       <div className="relative z-0">{content}</div>

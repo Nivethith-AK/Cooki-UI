@@ -37,8 +37,8 @@ const defaultItems: MenuItem[] = [
 
 export const HamburgerMenuOverlay: React.FC<HamburgerMenuOverlayProps> = ({
   items = defaultItems,
-  buttonTop = "24px",
-  buttonLeft = "24px",
+  buttonTop = "36px",
+  buttonLeft = "36px",
   buttonSize = "md",
   className,
   onOpen,
