@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sun, Moon, Funnel, Heart, Cpu, GithubLogo, MagnifyingGlass, Terminal } from '@phosphor-icons/react'
+import { Sun, Moon, Funnel, Heart, GithubLogo, MagnifyingGlass, Terminal } from '@phosphor-icons/react'
+import { CookiLogo } from '../brand/CookiLogo'
 import { useStore } from '../../context/StoreContext'
 import { useTheme } from '../../context/ThemeContext'
 
@@ -25,9 +26,7 @@ export const StoreHeader: React.FC = () => {
             aria-label="Cooki UI home"
             className="flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-indigo-600 to-violet-600 shadow-inner">
-              <Cpu size={18} weight="bold" className="text-white" />
-            </div>
+            <CookiLogo size={32} className="h-8 w-8" />
             <span className="font-mono text-sm font-bold tracking-wider text-zinc-900 dark:text-white">
               COOKI UI
             </span>

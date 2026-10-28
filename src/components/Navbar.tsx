@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Terminal, Cpu, ArrowUpRight, List, X, GitBranch, ShieldCheck } from '@phosphor-icons/react'
+import { Terminal, ArrowUpRight, List, X, GitBranch, ShieldCheck } from '@phosphor-icons/react'
+import { CookiLogo } from './brand/CookiLogo'
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -25,8 +26,8 @@ export const Navbar: React.FC = () => {
             href="#overview" 
             className="group flex items-center gap-3 pr-2 text-white transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-full"
           >
-            <div className="relative flex h-8 w-8 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-inner">
-              <Cpu size={18} weight="bold" className="text-zinc-100 transition-transform duration-300 group-hover:scale-110" />
+            <div className="relative">
+              <CookiLogo size={32} className="h-8 w-8 transition-transform duration-300 group-hover:scale-105" />
               <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>

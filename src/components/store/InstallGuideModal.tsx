@@ -5,7 +5,7 @@ import {
   Copy, 
   Check, 
   Terminal, 
-  Cpu, 
+  Robot, 
   Code, 
   ArrowRight,
   BookOpen,
@@ -139,7 +139,7 @@ export const InstallGuideModal: React.FC = () => {
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-white/5'
                 }`}
               >
-                <Cpu size={14} weight="bold" />
+                <Robot size={14} weight="bold" />
                 <span>2. AI Agent MCP Connection (Cursor, Claude, Windsurf)</span>
                 <span className="rounded bg-indigo-500/20 px-1.5 py-0.2 text-[9px] uppercase tracking-wider text-indigo-300">
                   New

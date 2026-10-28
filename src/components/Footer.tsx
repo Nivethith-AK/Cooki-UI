@@ -1,5 +1,6 @@
 import React from 'react'
-import { Cpu, GitBranch, Terminal } from '@phosphor-icons/react'
+import { GitBranch, Terminal } from '@phosphor-icons/react'
+import { CookiLogo } from './brand/CookiLogo'
 
 export const Footer: React.FC = () => {
   return (
@@ -11,9 +12,7 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-zinc-900 dark:text-white font-bold font-sans text-sm">
-              <div className="flex h-6 w-6 items-center justify-center rounded-lg border border-zinc-200 dark:border-white/20 bg-white dark:bg-zinc-800 text-indigo-600 dark:text-white">
-                <Cpu size={14} weight="bold" />
-              </div>
+              <CookiLogo size={24} className="h-6 w-6" />
               <span>COOKI UI</span>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 font-sans text-xs leading-relaxed max-w-xs">
