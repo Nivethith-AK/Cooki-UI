@@ -1,6 +1,6 @@
 {
   "name": "cooki-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Open Component Registry Built for Developers & AI Agents — 154 handcrafted components with spring physics, 3D WebGL, and source ownership.",
   "type": "module",
   "bin": {
