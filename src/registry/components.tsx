@@ -2193,7 +2193,7 @@ export default function ButtonDemo() {
     frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Motion', 'Tailwind CSS'],
     technologies: ['framer-motion', '@phosphor-icons/react', 'pendulum-physics'],
     tags: ['3d', 'badge', 'card', 'lanyard', 'physics', 'interactive'],
-    dependencies: ['framer-motion', '@phosphor-icons/react'],
+    dependencies: ['@phosphor-icons/react', 'clsx', 'tailwind-merge'],
     installCommand: 'npx cooki-ui add hanging-id-card',
     featured: true,
     popular: true,
@@ -2201,15 +2201,18 @@ export default function ButtonDemo() {
     controls: [
       { name: 'name', type: 'text', label: 'Badge Name', defaultValue: 'Alex Vanguard' },
       { name: 'role', type: 'text', label: 'Role Title', defaultValue: 'Staff Runtime Architect' },
-      { name: 'ribbonColor', type: 'select', label: 'Lanyard Color', defaultValue: 'indigo', options: ['indigo', 'cyan', 'emerald', 'crimson'] },
+      { name: 'badgeId', type: 'text', label: 'Badge ID', defaultValue: 'ID-84920' },
+      { name: 'accentColor', type: 'select', label: 'Accent Color', defaultValue: '#6366f1', options: ['#6366f1', '#06b6d4', '#10b981', '#f43f5e', '#f59e0b', '#8b5cf6'] },
+      { name: 'ropeLength', type: 'select', label: 'Rope Length (px)', defaultValue: 110, options: [80, 110, 140, 160] },
     ],
     renderPreview: (controls: any = {}) => (
-      <div className="flex items-center justify-center p-2 w-full h-[400px]">
+      <div className="flex flex-col items-center justify-start w-full min-h-[460px] pt-1">
         <HangingIdCard
           name={controls?.name || 'Alex Vanguard'}
           role={controls?.role || 'Staff Runtime Architect'}
-          ribbonColor={controls?.ribbonColor || 'indigo'}
-          interactive
+          badgeId={controls?.badgeId || 'ID-84920'}
+          accentColor={controls?.accentColor || '#6366f1'}
+          ropeLength={Number(controls?.ropeLength) || 110}
         />
       </div>
     ),
@@ -2217,12 +2220,15 @@ export default function ButtonDemo() {
 
 export function BadgeDemo() {
   return (
-    <HangingIdCard
-      name="Alex Vanguard"
-      role="Staff Runtime Architect"
-      ribbonColor="indigo"
-      interactive
-    />
+    <div className="flex flex-col items-center justify-start min-h-[500px] pt-4">
+      <HangingIdCard
+        name="Alex Vanguard"
+        role="Staff Runtime Architect"
+        badgeId="ID-84920"
+        accentColor="#6366f1"
+        ropeLength={110}
+      />
+    </div>
   )
 }`,
     files: [

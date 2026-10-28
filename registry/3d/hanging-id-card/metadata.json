@@ -3,11 +3,12 @@
   "name": "hanging-id-card",
   "type": "registry:ui",
   "title": "Hanging ID Card",
-  "description": "Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.",
+  "description": "Physics-based conference lanyard and holographic badge with simulated pendulum gravity swing, tactile flip, and realistic strap assembly.",
   "category": "3d",
   "dependencies": [
-    "framer-motion",
-    "@phosphor-icons/react"
+    "@phosphor-icons/react",
+    "clsx",
+    "tailwind-merge"
   ],
   "files": [
     {

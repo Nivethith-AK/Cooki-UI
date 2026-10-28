@@ -260,26 +260,33 @@ export const ComponentDetailModal: React.FC = () => {
                 <div className="space-y-6">
                   
                   {/* Live Sandbox Area with Auto-Centering and Scrollable Safety */}
-                  <div 
-                    className={`relative ${
-                      isFullscreen 
-                        ? 'min-h-[500px]' 
-                        : selectedComponent.category === 'sections' 
-                        ? 'min-h-[420px]' 
-                        : 'min-h-[340px]'
-                    } w-full flex ${
-                      selectedComponent.category === 'sections' ? 'items-start' : 'items-center'
-                    } justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] p-4 sm:p-8 overflow-x-auto overflow-y-visible shadow-inner transition-all`}
-                  >
-                    <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
-                    <div className={`relative isolate z-10 w-full min-w-fit flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 ${
-                      selectedComponent.category === 'sections' ? 'my-0' : 'my-auto'
-                    }`}>
-                      <PreviewErrorBoundary key={selectedComponent.id}>
-                        {selectedComponent.renderPreview(controlValues, isDark)}
-                      </PreviewErrorBoundary>
-                    </div>
-                  </div>
+                  {(() => {
+                    const isTopAnchored = selectedComponent.category === 'sections' || selectedComponent.id === 'hanging-id-card' || selectedComponent.tags?.includes('hanging');
+                    return (
+                      <div 
+                        className={`relative ${
+                          isFullscreen 
+                            ? 'min-h-[520px]' 
+                            : isTopAnchored
+                            ? 'min-h-[480px]' 
+                            : 'min-h-[340px]'
+                        } w-full flex ${
+                          isTopAnchored ? 'items-start pt-2 sm:pt-3' : 'items-center'
+                        } justify-center rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/70 dark:bg-[#060608] ${
+                          isTopAnchored ? 'p-2 sm:p-4' : 'p-4 sm:p-8'
+                        } overflow-x-auto overflow-y-visible shadow-inner transition-all`}
+                      >
+                        <div className="pointer-events-none absolute inset-0 opacity-20 bg-grid-dots" />
+                        <div className={`relative isolate z-10 w-full min-w-fit flex flex-col items-center justify-center text-zinc-900 dark:text-zinc-100 ${
+                          isTopAnchored ? 'my-0' : 'my-auto'
+                        }`}>
+                          <PreviewErrorBoundary key={selectedComponent.id}>
+                            {selectedComponent.renderPreview(controlValues, isDark)}
+                          </PreviewErrorBoundary>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* Customization Controls (If available) */}
                   {selectedComponent.controls && selectedComponent.controls.length > 0 && (

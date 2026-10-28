@@ -1,6 +1,6 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-28T04:31:20.280Z
+Generated: 2026-10-28T05:50:44.672Z
 Components in Registry: 154
 
 ## Architecture Overview
@@ -69,9 +69,9 @@ export default function Example() {
 
 ### Hanging ID Card (`hanging-id-card`)
 - **Category**: 3d
-- **Description**: Interactive 3D conference pass lanyard with cursor-tracking tilt physics and specular gloss.
+- **Description**: Physics-based conference lanyard and holographic badge with simulated pendulum gravity swing, tactile flip, and realistic strap assembly.
 - **Tags**: N/A
-- **Dependencies**: framer-motion, @phosphor-icons/react
+- **Dependencies**: @phosphor-icons/react, clsx, tailwind-merge
 - **Registry Endpoint**: `https://www.cooki-ui.design/r/hanging-id-card.json`
 - **CLI Command**: `npx cooki-ui add hanging-id-card` or `npx shadcn@latest add https://www.cooki-ui.design/r/hanging-id-card.json`
 
