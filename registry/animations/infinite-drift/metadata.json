@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "infinite-drift",
+  "type": "registry:ui",
+  "title": "Infinite Drift",
+  "description": "Kinetic perspective conveyor gallery with parabolic curved bands, inertia gliding, and infinite loop simulation.",
+  "category": "animations",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "tags": ["animations", "gallery", "canvas", "parallax", "drift", "kinetic", "3d"],
+  "files": [
+    {
+      "path": "registry/animations/infinite-drift/infinite-drift.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/infinite-drift.tsx"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "holo-button",
+  "type": "registry:ui",
+  "title": "Holo Button",
+  "description": "Holographic iridescent button with cursor-following diffraction foil gradients, specular edge highlights, and tactile spring physics.",
+  "category": "buttons",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "buttons",
+    "holo",
+    "holographic",
+    "iridescent",
+    "diffraction",
+    "cursor-tracking",
+    "glow"
+  ],
+  "files": [
+    {
+      "path": "registry/buttons/holo-button/holo-button.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/holo-button.tsx"
+    }
+  ]
+}

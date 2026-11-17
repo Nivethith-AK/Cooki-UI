@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "glowing-cards",
+  "type": "registry:ui",
+  "title": "Glowing Cards",
+  "description": "Multi-card interactive spotlight grid with mouse-tracking radial proximity borders and specular illumination.",
+  "category": "cards",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "cards",
+    "glowing",
+    "spotlight",
+    "hover",
+    "border",
+    "proximity",
+    "specular"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/glowing-cards/glowing-cards.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/glowing-cards.tsx"
+    }
+  ]
+}

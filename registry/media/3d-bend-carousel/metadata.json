@@ -1,0 +1,30 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "3d-bend-carousel",
+  "type": "registry:ui",
+  "title": "3D Bend Carousel",
+  "description": "Curved cylindrical card carousel with 3D perspective depth, momentum drag physics, auto-snap, and orientation control.",
+  "category": "media",
+  "dependencies": [
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "3d",
+    "carousel",
+    "media",
+    "gallery",
+    "bend",
+    "cylindrical",
+    "drag",
+    "momentum"
+  ],
+  "files": [
+    {
+      "path": "registry/media/3d-bend-carousel/3d-bend-carousel.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/3d-bend-carousel.tsx"
+    }
+  ]
+}

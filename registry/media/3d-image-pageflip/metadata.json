@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "3d-image-pageflip",
+  "type": "registry:ui",
+  "title": "3D Image Pageflip",
+  "description": "Realistic 3D magazine and book page-turn flip interaction with dynamic shadow rendering, spine shifting, and leaf navigation.",
+  "category": "media",
+  "dependencies": [
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/media/3d-image-pageflip/3d-image-pageflip.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/3d-image-pageflip.tsx"
+    }
+  ]
+}

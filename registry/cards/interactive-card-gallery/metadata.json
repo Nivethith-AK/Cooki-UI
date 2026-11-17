@@ -1,0 +1,27 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "interactive-card-gallery",
+  "type": "registry:ui",
+  "title": "Interactive Card Gallery",
+  "description": "Expanding card gallery grid with smooth perspective zoom, sliding content trays, and frosted glass metadata overlays.",
+  "category": "cards",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "cards",
+    "gallery",
+    "hover",
+    "zoom",
+    "image-cards",
+    "responsive"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/interactive-card-gallery/interactive-card-gallery.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/interactive-card-gallery.tsx"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "aurora-text-effect",
+  "type": "registry:ui",
+  "title": "Aurora Text Effect",
+  "description": "Dynamic shimmering typography mask filled with multi-layer fluid chromatic aurora plasma waves.",
+  "category": "text",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "text",
+    "aurora",
+    "typography",
+    "plasma",
+    "shimmer",
+    "chromatic",
+    "gradient"
+  ],
+  "files": [
+    {
+      "path": "registry/text/aurora-text-effect/aurora-text-effect.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/aurora-text-effect.tsx"
+    }
+  ]
+}

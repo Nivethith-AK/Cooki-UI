@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "morphing-navigation",
+  "type": "registry:ui",
+  "title": "Morphing Navigation",
+  "description": "Adaptive floating navigation bar that morphs between expanded desktop tabs and compact floating glass capsules on scroll.",
+  "category": "navigation",
+  "dependencies": [
+    "framer-motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "navigation",
+    "navbar",
+    "morphing",
+    "glassmorphic",
+    "tabs",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/navigation/morphing-navigation/morphing-navigation.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/morphing-navigation.tsx"
+    }
+  ]
+}

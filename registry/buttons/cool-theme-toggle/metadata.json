@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "cool-theme-toggle",
+  "type": "registry:ui",
+  "title": "Cool Theme Toggle",
+  "description": "Day and night celestial mechanical toggle switch with smooth physics and ambient celestial effects.",
+  "category": "buttons",
+  "dependencies": ["framer-motion", "lucide-react", "clsx", "tailwind-merge"],
+  "tags": ["buttons", "toggle", "theme", "dark-mode", "switch"],
+  "files": [
+    {
+      "path": "registry/buttons/cool-theme-toggle/cool-theme-toggle.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/cool-theme-toggle.tsx"
+    }
+  ]
+}

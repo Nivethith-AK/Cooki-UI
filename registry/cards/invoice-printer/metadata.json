@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "invoice-printer",
+  "type": "registry:ui",
+  "title": "Invoice Printer",
+  "description": "Tactile thermal receipt printer generating physical-style receipts with sound synthesis, extrusion motion, tear-off physics, and barcodes.",
+  "category": "cards",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/cards/invoice-printer/invoice-printer.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/invoice-printer.tsx"
+    }
+  ]
+}

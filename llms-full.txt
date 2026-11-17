@@ -1,7 +1,7 @@
 # Cooki UI — Full Developer & AI Agent Specification
 
-Generated: 2026-10-28T08:52:59.744Z
-Components in Registry: 154
+Generated: 2026-11-17T06:14:58.370Z
+Components in Registry: 170
 
 ## Architecture Overview
 Cooki UI is designed as a source-first, registry-driven component platform. Each component lives in `registry/[category]/[slug]/` with its exact implementation, isolated demo, and shadcn-compatible `metadata.json`.
@@ -143,6 +143,25 @@ export default function Example() {
 
 ---
 
+### AI Loading State (`ai-loading-state`)
+- **Category**: ai
+- **Description**: Multi-pattern autonomous AI reasoning and thought synthesis status indicators with live elapsed timer and dynamic theme presets.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/ai-loading-state.json`
+- **CLI Command**: `npx cooki-ui add ai-loading-state` or `npx shadcn@latest add https://www.cooki-ui.design/r/ai-loading-state.json`
+
+#### Installation & Usage
+```tsx
+import { AiLoadingState } from "@/components/ui/ai-loading-state"
+
+export default function Example() {
+  return <AiLoadingState />
+}
+```
+
+---
+
 ### AI Model Benchmark Card (`ai-model-benchmark-card`)
 - **Category**: ai
 - **Description**: Comparative matrix showcasing leading LLM inference speeds, MMLU accuracy ratings, latency distribution, and token economics.
@@ -157,6 +176,25 @@ import { AiModelBenchmarkCard } from "@/components/ui/ai-model-benchmark-card"
 
 export default function Example() {
   return <AiModelBenchmarkCard />
+}
+```
+
+---
+
+### AI Prompt Bar (`ai-prompt-bar`)
+- **Category**: ai
+- **Description**: Autonomous AI prompt composer with model switcher, attachment drawer, voice dictation, and expanding interactive commands.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/ai-prompt-bar.json`
+- **CLI Command**: `npx cooki-ui add ai-prompt-bar` or `npx shadcn@latest add https://www.cooki-ui.design/r/ai-prompt-bar.json`
+
+#### Installation & Usage
+```tsx
+import { AiPromptBar } from "@/components/ui/ai-prompt-bar"
+
+export default function Example() {
+  return <AiPromptBar />
 }
 ```
 
@@ -276,6 +314,25 @@ export default function Example() {
 
 ---
 
+### Infinite Drift (`infinite-drift`)
+- **Category**: animations
+- **Description**: Kinetic perspective conveyor gallery with parabolic curved bands, inertia gliding, and infinite loop simulation.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/infinite-drift.json`
+- **CLI Command**: `npx cooki-ui add infinite-drift` or `npx shadcn@latest add https://www.cooki-ui.design/r/infinite-drift.json`
+
+#### Installation & Usage
+```tsx
+import { InfiniteDrift } from "@/components/ui/infinite-drift"
+
+export default function Example() {
+  return <InfiniteDrift />
+}
+```
+
+---
+
 ### Orbital Particle Sphere (`orbital-particle-sphere`)
 - **Category**: animations
 - **Description**: 3D perspective particle globe rotating along equatorial and polar orbital planes with cursor velocity inertia and depth illumination.
@@ -328,6 +385,25 @@ import { WaveFrequencyBars } from "@/components/ui/wave-frequency-bars"
 
 export default function Example() {
   return <WaveFrequencyBars />
+}
+```
+
+---
+
+### Animated Bubble Particles (`animated-bubble-particles`)
+- **Category**: backgrounds
+- **Description**: Glassmorphic bubble particle canvas with organic buoyancy, specular reflections, mouse repulsion, and pop burst animations.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/animated-bubble-particles.json`
+- **CLI Command**: `npx cooki-ui add animated-bubble-particles` or `npx shadcn@latest add https://www.cooki-ui.design/r/animated-bubble-particles.json`
+
+#### Installation & Usage
+```tsx
+import { AnimatedBubbleParticles } from "@/components/ui/animated-bubble-particles"
+
+export default function Example() {
+  return <AnimatedBubbleParticles />
 }
 ```
 
@@ -561,6 +637,25 @@ export default function Example() {
 
 ---
 
+### Vector Flow (`vector-flow`)
+- **Category**: backgrounds
+- **Description**: Procedural 2D Perlin noise vector flow field with filament particle trails, vortex physics, and cursor interactions.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/vector-flow.json`
+- **CLI Command**: `npx cooki-ui add vector-flow` or `npx shadcn@latest add https://www.cooki-ui.design/r/vector-flow.json`
+
+#### Installation & Usage
+```tsx
+import { VectorFlow } from "@/components/ui/vector-flow"
+
+export default function Example() {
+  return <VectorFlow />
+}
+```
+
+---
+
 ### Animated Morphing Copy Button (`animated-copy-button`)
 - **Category**: buttons
 - **Description**: Micro-interactive copy-to-clipboard button with spring morphing checkmark transitions and radial expanding ripple waves.
@@ -594,6 +689,25 @@ import { ConfettiButton } from "@/components/ui/confetti-button"
 
 export default function Example() {
   return <ConfettiButton />
+}
+```
+
+---
+
+### Cool Theme Toggle (`cool-theme-toggle`)
+- **Category**: buttons
+- **Description**: Day and night celestial mechanical toggle switch with smooth physics and ambient celestial effects.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/cool-theme-toggle.json`
+- **CLI Command**: `npx cooki-ui add cool-theme-toggle` or `npx shadcn@latest add https://www.cooki-ui.design/r/cool-theme-toggle.json`
+
+#### Installation & Usage
+```tsx
+import { CoolThemeToggle } from "@/components/ui/cool-theme-toggle"
+
+export default function Example() {
+  return <CoolThemeToggle />
 }
 ```
 
@@ -708,6 +822,25 @@ import { HoldToConfirmButton } from "@/components/ui/hold-to-confirm-button"
 
 export default function Example() {
   return <HoldToConfirmButton />
+}
+```
+
+---
+
+### Holo Button (`holo-button`)
+- **Category**: buttons
+- **Description**: Holographic iridescent button with cursor-following diffraction foil gradients, specular edge highlights, and tactile spring physics.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/holo-button.json`
+- **CLI Command**: `npx cooki-ui add holo-button` or `npx shadcn@latest add https://www.cooki-ui.design/r/holo-button.json`
+
+#### Installation & Usage
+```tsx
+import { HoloButton } from "@/components/ui/holo-button"
+
+export default function Example() {
+  return <HoloButton />
 }
 ```
 
@@ -922,6 +1055,44 @@ export default function Example() {
 
 ---
 
+### Glowing Cards (`glowing-cards`)
+- **Category**: cards
+- **Description**: Multi-card interactive spotlight grid with mouse-tracking radial proximity borders and specular illumination.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/glowing-cards.json`
+- **CLI Command**: `npx cooki-ui add glowing-cards` or `npx shadcn@latest add https://www.cooki-ui.design/r/glowing-cards.json`
+
+#### Installation & Usage
+```tsx
+import { GlowingCards } from "@/components/ui/glowing-cards"
+
+export default function Example() {
+  return <GlowingCards />
+}
+```
+
+---
+
+### Interactive Card Gallery (`interactive-card-gallery`)
+- **Category**: cards
+- **Description**: Expanding card gallery grid with smooth perspective zoom, sliding content trays, and frosted glass metadata overlays.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/interactive-card-gallery.json`
+- **CLI Command**: `npx cooki-ui add interactive-card-gallery` or `npx shadcn@latest add https://www.cooki-ui.design/r/interactive-card-gallery.json`
+
+#### Installation & Usage
+```tsx
+import { InteractiveCardGallery } from "@/components/ui/interactive-card-gallery"
+
+export default function Example() {
+  return <InteractiveCardGallery />
+}
+```
+
+---
+
 ### Interactive 3D Tilt Card (`interactive-tilt-card`)
 - **Category**: cards
 - **Description**: Subtle physics tilt card with specular gradient sheen responding to mouse position.
@@ -936,6 +1107,25 @@ import { InteractiveTiltCard } from "@/components/ui/interactive-tilt-card"
 
 export default function Example() {
   return <InteractiveTiltCard />
+}
+```
+
+---
+
+### Invoice Printer (`invoice-printer`)
+- **Category**: cards
+- **Description**: Tactile thermal receipt printer generating physical-style receipts with sound synthesis, extrusion motion, tear-off physics, and barcodes.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/invoice-printer.json`
+- **CLI Command**: `npx cooki-ui add invoice-printer` or `npx shadcn@latest add https://www.cooki-ui.design/r/invoice-printer.json`
+
+#### Installation & Usage
+```tsx
+import { InvoicePrinter } from "@/components/ui/invoice-printer"
+
+export default function Example() {
+  return <InvoicePrinter />
 }
 ```
 
@@ -2062,6 +2252,63 @@ export default function Example() {
 
 ---
 
+### 3D Bend Carousel (`3d-bend-carousel`)
+- **Category**: media
+- **Description**: Curved cylindrical card carousel with 3D perspective depth, momentum drag physics, auto-snap, and orientation control.
+- **Tags**: N/A
+- **Dependencies**: lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/3d-bend-carousel.json`
+- **CLI Command**: `npx cooki-ui add 3d-bend-carousel` or `npx shadcn@latest add https://www.cooki-ui.design/r/3d-bend-carousel.json`
+
+#### Installation & Usage
+```tsx
+import { 3dBendCarousel } from "@/components/ui/3d-bend-carousel"
+
+export default function Example() {
+  return <3dBendCarousel />
+}
+```
+
+---
+
+### 3D Image Pageflip (`3d-image-pageflip`)
+- **Category**: media
+- **Description**: Realistic 3D magazine and book page-turn flip interaction with dynamic shadow rendering, spine shifting, and leaf navigation.
+- **Tags**: N/A
+- **Dependencies**: lucide-react, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/3d-image-pageflip.json`
+- **CLI Command**: `npx cooki-ui add 3d-image-pageflip` or `npx shadcn@latest add https://www.cooki-ui.design/r/3d-image-pageflip.json`
+
+#### Installation & Usage
+```tsx
+import { 3dImagePageflip } from "@/components/ui/3d-image-pageflip"
+
+export default function Example() {
+  return <3dImagePageflip />
+}
+```
+
+---
+
+### 3D Image Ring (`3d-image-ring`)
+- **Category**: media
+- **Description**: Interactive cylindrical revolving image gallery with 3D perspective depth, drag inertia, and parallax tracking.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/3d-image-ring.json`
+- **CLI Command**: `npx cooki-ui add 3d-image-ring` or `npx shadcn@latest add https://www.cooki-ui.design/r/3d-image-ring.json`
+
+#### Installation & Usage
+```tsx
+import { 3dImageRing } from "@/components/ui/3d-image-ring"
+
+export default function Example() {
+  return <3dImageRing />
+}
+```
+
+---
+
 ### Audio Spectrum Equalizer (`audio-spectrum-equalizer`)
 - **Category**: media
 - **Description**: Multi-band DSP real-time audio visualizer with peak hold meters, decibel telemetry, and master gain controls.
@@ -2361,6 +2608,25 @@ import { MinimalRadialMenu } from "@/components/ui/minimal-radial-menu"
 
 export default function Example() {
   return <MinimalRadialMenu />
+}
+```
+
+---
+
+### Morphing Navigation (`morphing-navigation`)
+- **Category**: navigation
+- **Description**: Adaptive floating navigation bar that morphs between expanded desktop tabs and compact floating glass capsules on scroll.
+- **Tags**: N/A
+- **Dependencies**: framer-motion, clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/morphing-navigation.json`
+- **CLI Command**: `npx cooki-ui add morphing-navigation` or `npx shadcn@latest add https://www.cooki-ui.design/r/morphing-navigation.json`
+
+#### Installation & Usage
+```tsx
+import { MorphingNavigation } from "@/components/ui/morphing-navigation"
+
+export default function Example() {
+  return <MorphingNavigation />
 }
 ```
 
@@ -2708,6 +2974,25 @@ export default function Example() {
 
 ---
 
+### Aurora Text Effect (`aurora-text-effect`)
+- **Category**: text
+- **Description**: Dynamic shimmering typography mask filled with multi-layer fluid chromatic aurora plasma waves.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/aurora-text-effect.json`
+- **CLI Command**: `npx cooki-ui add aurora-text-effect` or `npx shadcn@latest add https://www.cooki-ui.design/r/aurora-text-effect.json`
+
+#### Installation & Usage
+```tsx
+import { AuroraTextEffect } from "@/components/ui/aurora-text-effect"
+
+export default function Example() {
+  return <AuroraTextEffect />
+}
+```
+
+---
+
 ### Atmospheric Gaussian Blur Reveal (`blur-reveal`)
 - **Category**: text
 - **Description**: Smooth transition from heavy Gaussian blur to crisp legibility.
@@ -2874,6 +3159,25 @@ import { SplitText } from "@/components/ui/split-text"
 
 export default function Example() {
   return <SplitText />
+}
+```
+
+---
+
+### Text Particle Animation (`text-particle-animation`)
+- **Category**: text
+- **Description**: Interactive HTML5 canvas particle typography with Hooke's law spring physics, mouse hover repulsion, and click shockwave dispersal.
+- **Tags**: N/A
+- **Dependencies**: clsx, tailwind-merge
+- **Registry Endpoint**: `https://www.cooki-ui.design/r/text-particle-animation.json`
+- **CLI Command**: `npx cooki-ui add text-particle-animation` or `npx shadcn@latest add https://www.cooki-ui.design/r/text-particle-animation.json`
+
+#### Installation & Usage
+```tsx
+import { TextParticleAnimation } from "@/components/ui/text-particle-animation"
+
+export default function Example() {
+  return <TextParticleAnimation />
 }
 ```
 

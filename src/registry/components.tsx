@@ -182,6 +182,22 @@ import { MagicParticleLoader } from '../components/library/effects/MagicParticle
 import { FluidActionHub } from '../components/library/navigation/FluidActionHub'
 import { DynamicIsland } from '../components/library/navigation/DynamicIsland'
 import { DynamicNavigation } from '../components/library/navigation/DynamicNavigation'
+import { ThreeDImageRing } from '../components/library/media/ThreeDImageRing'
+import { ThreeDImagePageflip } from '../components/library/media/ThreeDImagePageflip'
+import { AiLoadingState } from '../components/library/ai/AiLoadingState'
+import { InvoicePrinter } from '../components/library/cards/InvoicePrinter'
+import { CoolThemeToggle } from '../components/library/buttons/CoolThemeToggle'
+import { InfiniteDrift } from '../components/library/animations/InfiniteDrift'
+import { AnimatedBubbleParticles } from '../components/library/backgrounds/AnimatedBubbleParticles'
+import { VectorFlow } from '../components/library/backgrounds/VectorFlow'
+import { ThreeDBendCarousel } from '../components/library/media/ThreeDBendCarousel'
+import { MorphingNavigation } from '../components/library/navigation/MorphingNavigation'
+import { GlowingCards, GlowingCard } from '../components/library/cards/GlowingCards'
+import { AuroraTextEffect } from '../components/library/text/AuroraTextEffect'
+import { TextParticleAnimation } from '../components/library/text/TextParticleAnimation'
+import { HoloButton } from '../components/library/buttons/HoloButton'
+import { AiPromptBar } from '../components/library/ai/AiPromptBar'
+import { InteractiveCardGallery } from '../components/library/cards/InteractiveCardGallery'
 
 
 export const COMPONENT_REGISTRY: RegistryItem[] = [
@@ -5674,6 +5690,781 @@ export function DynamicNavDemo() {
         name: 'dynamic-navigation.tsx',
         language: 'tsx',
         code: COMPONENT_SOURCES['dynamic-navigation'] || ''
+      }
+    ]
+  },
+
+  // 155. 3D Image Ring
+  {
+    id: '3d-image-ring',
+    name: '3D Image Ring',
+    slug: '3d-image-ring',
+    category: 'components',
+    subcategory: 'Media',
+    description: 'Interactive 3D cylindrical revolving image gallery with drag rotation, inertia dampening, and perspective distortion.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'tailwind-merge', 'clsx'],
+    tags: ['3d', 'media', 'gallery', 'carousel', 'ring', 'cylinder', 'drag', 'inertia'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add 3d-image-ring',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    controls: [
+      { name: 'radius', type: 'number', label: 'Ring Radius', min: 200, max: 500, step: 20, defaultValue: 300 },
+      { name: 'perspective', type: 'number', label: 'Perspective', min: 600, max: 1600, step: 50, defaultValue: 1000 },
+    ],
+    renderPreview: (props: any = {}) => (
+      <div className="flex items-center justify-center p-2 w-full h-[400px] overflow-hidden">
+        <ThreeDImageRing
+          radius={props.radius || 280}
+          perspective={props.perspective || 1000}
+          className="w-full h-full"
+        />
+      </div>
+    ),
+    usage: `import { ThreeDImageRing } from "@/components/ui/3d-image-ring"
+
+export function ImageRingDemo() {
+  return (
+    <div className="h-[450px] w-full flex items-center justify-center">
+      <ThreeDImageRing radius={300} perspective={1000} />
+    </div>
+  )
+}`,
+    files: [
+      {
+        name: '3d-image-ring.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['3d-image-ring'] || ''
+      }
+    ]
+  },
+
+  // 156. 3D Image Pageflip
+  {
+    id: '3d-image-pageflip',
+    name: '3D Image Pageflip',
+    slug: '3d-image-pageflip',
+    category: 'components',
+    subcategory: 'Media',
+    description: 'Realistic 3D physical book and magazine page flip simulation with dual-leaf folding, page shadows, and keyboard/touch navigation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['3d', 'media', 'pageflip', 'book', 'magazine', 'flip', 'reader', 'gallery'],
+    dependencies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add 3d-image-pageflip',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full h-[380px] overflow-hidden">
+        <ThreeDImagePageflip className="w-full max-w-lg" />
+      </div>
+    ),
+    usage: `import { ThreeDImagePageflip } from "@/components/ui/3d-image-pageflip"
+
+export function PageflipDemo() {
+  return (
+    <ThreeDImagePageflip />
+  )
+}`,
+    files: [
+      {
+        name: '3d-image-pageflip.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['3d-image-pageflip'] || ''
+      }
+    ]
+  },
+
+  // 157. AI Loading State
+  {
+    id: 'ai-loading-state',
+    name: 'AI Loading State',
+    slug: 'ai-loading-state',
+    category: 'components',
+    subcategory: 'AI',
+    description: 'Autonomous AI thought pipeline loader displaying multi-stage cognitive reasoning steps, elapsed execution timers, and pulse animations.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['ai', 'loading', 'thought-pipeline', 'reasoning', 'progress', 'stepper', 'feedback'],
+    dependencies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add ai-loading-state',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full">
+        <AiLoadingState className="w-full max-w-md" />
+      </div>
+    ),
+    usage: `import { AiLoadingState } from "@/components/ui/ai-loading-state"
+
+export function AiLoadingDemo() {
+  return (
+    <AiLoadingState />
+  )
+}`,
+    files: [
+      {
+        name: 'ai-loading-state.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-loading-state'] || ''
+      }
+    ]
+  },
+
+  // 158. Invoice Printer
+  {
+    id: 'invoice-printer',
+    name: 'Invoice Printer',
+    slug: 'invoice-printer',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Thermal receipt printer simulation with progressive feed animation, audio synthesizer feedback, barcode scanner aesthetic, and tear physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['cards', 'invoice', 'receipt', 'printer', 'finance', 'audio-synth', 'checkout'],
+    dependencies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add invoice-printer',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-4 w-full min-h-[380px]">
+        <InvoicePrinter className="w-full max-w-sm" />
+      </div>
+    ),
+    usage: `import { InvoicePrinter } from "@/components/ui/invoice-printer"
+
+export function InvoiceDemo() {
+  return (
+    <InvoicePrinter />
+  )
+}`,
+    files: [
+      {
+        name: 'invoice-printer.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['invoice-printer'] || ''
+      }
+    ]
+  },
+
+  // 159. Cool Theme Toggle
+  {
+    id: 'cool-theme-toggle',
+    name: 'Cool Theme Toggle',
+    slug: 'cool-theme-toggle',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Day and night celestial mechanical toggle switch with smooth physics and ambient celestial effects.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['buttons', 'toggle', 'theme', 'dark-mode', 'switch', 'sun-moon'],
+    dependencies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add cool-theme-toggle',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    controls: [
+      {
+        name: 'size',
+        type: 'select',
+        label: 'Size',
+        options: [
+          { label: 'Small', value: 'sm' },
+          { label: 'Medium', value: 'md' },
+          { label: 'Large', value: 'lg' },
+        ],
+        defaultValue: 'lg',
+      },
+    ],
+    renderPreview: (props: any = {}) => (
+      <div className="flex flex-col items-center justify-center p-8 gap-6 w-full">
+        <CoolThemeToggle size={props.size || 'lg'} />
+        <span className="text-xs text-muted-foreground font-mono">Click to toggle light / dark theme</span>
+      </div>
+    ),
+    usage: `import { CoolThemeToggle } from "@/components/ui/cool-theme-toggle"
+
+export function ThemeToggleDemo() {
+  return (
+    <CoolThemeToggle size="lg" />
+  )
+}`,
+    files: [
+      {
+        name: 'cool-theme-toggle.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['cool-theme-toggle'] || ''
+      }
+    ]
+  },
+
+  // 160. Infinite Drift
+  {
+    id: 'infinite-drift',
+    name: 'Infinite Drift',
+    slug: 'infinite-drift',
+    category: 'components',
+    subcategory: 'Animations',
+    description: 'Kinetic perspective conveyor gallery with parabolic curved bands, inertia gliding, and infinite loop simulation.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'kinetic-gliding', 'clsx', 'tailwind-merge'],
+    tags: ['animations', 'gallery', 'canvas', 'parallax', 'drift', 'kinetic', '3d'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add infinite-drift',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="flex items-center justify-center p-2 w-full h-[360px] overflow-hidden">
+        <InfiniteDrift height={340} imageHeight={80} bandHeight={95} className="w-full rounded-xl" />
+      </div>
+    ),
+    usage: `import { InfiniteDrift } from "@/components/ui/infinite-drift"
+
+export function InfiniteDriftDemo() {
+  return (
+    <InfiniteDrift height={500} />
+  )
+}`,
+    files: [
+      {
+        name: 'infinite-drift.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['infinite-drift'] || ''
+      }
+    ]
+  },
+
+  // 161. Animated Bubble Particles
+  {
+    id: 'animated-bubble-particles',
+    name: 'Animated Bubble Particles',
+    slug: 'animated-bubble-particles',
+    category: 'components',
+    subcategory: 'Backgrounds',
+    description: 'Glassmorphic bubble particle canvas with organic buoyancy, specular reflections, mouse repulsion, and pop burst animations.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'particles', 'physics', 'clsx', 'tailwind-merge'],
+    tags: ['backgrounds', 'particles', 'bubbles', 'canvas', 'interactive', 'physics'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add animated-bubble-particles',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="relative w-full h-[350px] rounded-xl overflow-hidden bg-zinc-950 flex items-center justify-center border border-border/40">
+        <AnimatedBubbleParticles
+          className="absolute inset-0"
+          maxBubbles={32}
+          speed={0.8}
+          enablePop={true}
+          mouseInteraction={true}
+        />
+        <div className="relative z-10 flex flex-col items-center gap-1 p-4 rounded-xl bg-background/70 backdrop-blur-md border border-border/40 text-center max-w-xs pointer-events-auto shadow-xl">
+          <span className="text-xs font-semibold text-foreground">Interactive Bubbles</span>
+          <span className="text-[11px] text-muted-foreground">Hover to push or click to burst bubbles</span>
+        </div>
+      </div>
+    ),
+    usage: `import { AnimatedBubbleParticles } from "@/components/ui/animated-bubble-particles"
+
+export function BubblesDemo() {
+  return (
+    <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-zinc-950">
+      <AnimatedBubbleParticles />
+    </div>
+  )
+}`,
+    files: [
+      {
+        name: 'animated-bubble-particles.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['animated-bubble-particles'] || ''
+      }
+    ]
+  },
+
+  // 162. Vector Flow
+  {
+    id: 'vector-flow',
+    name: 'Vector Flow',
+    slug: 'vector-flow',
+    category: 'components',
+    subcategory: 'Backgrounds',
+    description: 'Procedural 2D Perlin noise vector flow field with filament particle trails, vortex physics, and cursor interactions.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'perlin-noise', 'flow-field', 'canvas'],
+    tags: ['backgrounds', 'flow-field', 'particles', 'perlin-noise', 'vortex', 'interactive'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add vector-flow',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-03',
+    renderPreview: () => (
+      <div className="relative w-full h-[360px] rounded-xl overflow-hidden border border-border/40 bg-zinc-950 flex items-center justify-center select-none">
+        <VectorFlow
+          particleCount={700}
+          interactionMode="vortex"
+          particleSpeed={1.2}
+          interactive={true}
+        />
+        <div className="relative z-10 flex flex-col items-center gap-1.5 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-center pointer-events-none">
+          <span className="text-xs font-semibold tracking-wider font-mono text-white">VECTOR FLOW FIELD</span>
+          <span className="text-[11px] text-white/60">Move cursor to create magnetic vortex currents</span>
+        </div>
+      </div>
+    ),
+    usage: `import { VectorFlow } from "@/components/ui/vector-flow"
+
+export function VectorFlowDemo() {
+  return (
+    <div className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-zinc-950">
+      <VectorFlow />
+    </div>
+  )
+}`,
+    files: [
+      {
+        name: 'vector-flow.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['vector-flow'] || ''
+      }
+    ]
+  },
+
+  // 163. 3D Bend Carousel
+  {
+    id: '3d-bend-carousel',
+    name: '3D Bend Carousel',
+    slug: '3d-bend-carousel',
+    category: 'components',
+    subcategory: 'Media',
+    description: 'Curved cylindrical card carousel with 3D perspective depth, momentum drag physics, auto-snap, and orientation control.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['3d', 'carousel', 'media', 'gallery', 'bend', 'cylindrical', 'drag', 'momentum'],
+    dependencies: ['lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add 3d-bend-carousel',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    controls: [
+      { name: 'bendAngle', type: 'number', label: 'Bend Angle', min: 10, max: 45, step: 5, defaultValue: 25 },
+      { name: 'itemWidth', type: 'number', label: 'Card Width', min: 200, max: 360, step: 20, defaultValue: 260 },
+    ],
+    renderPreview: (props: any = {}) => (
+      <div className="flex items-center justify-center p-2 w-full h-[380px] overflow-hidden">
+        <ThreeDBendCarousel
+          items={[
+            {
+              image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+              title: "Alpine Summit",
+              badge: "Alps",
+              description: "High altitude exploration through monolithic glacial passes."
+            },
+            {
+              image: "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+              title: "Deep Evergreen",
+              badge: "Forest",
+              description: "Dense conifer canopy preserving ancient mist systems."
+            },
+            {
+              image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+              title: "Pacific Coast",
+              badge: "Ocean",
+              description: "Dramatic coastal cliff lines meeting azure tides."
+            },
+            {
+              image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+              title: "Silent Valley",
+              badge: "Mist",
+              description: "Low-hanging cloud shelves across winding river valleys."
+            }
+          ]}
+          height={360}
+          itemWidth={props.itemWidth || 260}
+          aspectRatio={0.7}
+          bendAngle={props.bendAngle || 25}
+          orientation="horizontal"
+          className="w-full rounded-xl"
+        />
+      </div>
+    ),
+    usage: `import ThreeDBendCarousel from "@/components/ui/3d-bend-carousel"
+
+export function BendCarouselDemo() {
+  return (
+    <ThreeDBendCarousel
+      images={[
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
+        "https://images.unsplash.com/photo-1511497584788-87676104235f?w=600"
+      ]}
+      height={400}
+      bendAngle={25}
+    />
+  )
+}`,
+    files: [
+      {
+        name: '3d-bend-carousel.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['3d-bend-carousel'] || ''
+      }
+    ]
+  },
+
+  // 164. Morphing Navigation
+  {
+    id: 'morphing-navigation',
+    name: 'Morphing Navigation',
+    slug: 'morphing-navigation',
+    category: 'components',
+    subcategory: 'Navigation',
+    description: 'Adaptive floating navigation bar that morphs between expanded desktop tabs and compact floating glass capsules on scroll.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    tags: ['navigation', 'navbar', 'morphing', 'glassmorphic', 'tabs', 'framer-motion'],
+    dependencies: ['framer-motion', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add morphing-navigation',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="relative w-full h-[360px] rounded-xl overflow-hidden border border-border/40 bg-zinc-950/40 flex flex-col items-center justify-center p-6">
+        <MorphingNavigation
+          links={[
+            { id: "home", label: "Dashboard", href: "#" },
+            { id: "arch", label: "Architecture", href: "#" },
+            { id: "cpu", label: "Compilers", href: "#" },
+            { id: "sec", label: "Security", href: "#" },
+          ]}
+          theme="glass"
+          disableAutoMorph={false}
+          className="w-full max-w-md"
+        />
+      </div>
+    ),
+    usage: `import { MorphingNavigation } from "@/components/ui/morphing-navigation"
+
+export function NavDemo() {
+  return (
+    <MorphingNavigation
+      links={[
+        { id: "home", label: "Home", href: "/" },
+        { id: "about", label: "About", href: "/about" }
+      ]}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'morphing-navigation.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['morphing-navigation'] || ''
+      }
+    ]
+  },
+
+  // 165. Glowing Cards
+  {
+    id: 'glowing-cards',
+    name: 'Glowing Cards',
+    slug: 'glowing-cards',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Multi-card interactive spotlight grid with mouse-tracking radial proximity borders and specular illumination.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['clsx', 'tailwind-merge'],
+    tags: ['cards', 'glowing', 'spotlight', 'hover', 'border', 'proximity', 'specular'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add glowing-cards',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="w-full flex items-center justify-center p-4">
+        <GlowingCards enableGlow={true} glowRadius={28} gap="1rem" className="w-full max-w-lg">
+          <GlowingCard glowColor="#3b82f6" className="flex flex-col gap-2 p-4">
+            <span className="text-xs font-bold text-foreground">Zero-Copy IO</span>
+            <span className="text-[11px] text-muted-foreground">High-throughput memory mapping</span>
+          </GlowingCard>
+          <GlowingCard glowColor="#8b5cf6" className="flex flex-col gap-2 p-4">
+            <span className="text-xs font-bold text-foreground">WASM Runtime</span>
+            <span className="text-[11px] text-muted-foreground">Isolated formal micro-sandboxes</span>
+          </GlowingCard>
+        </GlowingCards>
+      </div>
+    ),
+    usage: `import { GlowingCards, GlowingCard } from "@/components/ui/glowing-cards"
+
+export function CardsDemo() {
+  return (
+    <GlowingCards>
+      <GlowingCard glowColor="#3b82f6">Card Content</GlowingCard>
+    </GlowingCards>
+  )
+}`,
+    files: [
+      {
+        name: 'glowing-cards.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['glowing-cards'] || ''
+      }
+    ]
+  },
+
+  // 166. Aurora Text Effect
+  {
+    id: 'aurora-text-effect',
+    name: 'Aurora Text Effect',
+    slug: 'aurora-text-effect',
+    category: 'components',
+    subcategory: 'Text',
+    description: 'Dynamic shimmering typography mask filled with multi-layer fluid chromatic aurora plasma waves.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['clsx', 'tailwind-merge'],
+    tags: ['text', 'aurora', 'typography', 'plasma', 'shimmer', 'chromatic', 'gradient'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add aurora-text-effect',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="w-full h-[280px] flex items-center justify-center p-4 bg-background rounded-xl overflow-hidden border border-border/40">
+        <AuroraTextEffect
+          text="AURORA"
+          fontSize="clamp(2.5rem, 6vw, 4.5rem)"
+          className="w-full bg-transparent"
+          textClassName="font-black tracking-widest uppercase select-none"
+        />
+      </div>
+    ),
+    usage: `import { AuroraTextEffect } from "@/components/ui/aurora-text-effect"
+
+export function TextDemo() {
+  return (
+    <AuroraTextEffect text="AURORA" />
+  )
+}`,
+    files: [
+      {
+        name: 'aurora-text-effect.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['aurora-text-effect'] || ''
+      }
+    ]
+  },
+
+  // 167. Text Particle Animation
+  {
+    id: 'text-particle-animation',
+    name: 'Text Particle Animation',
+    slug: 'text-particle-animation',
+    category: 'components',
+    subcategory: 'Text',
+    description: 'Interactive HTML5 canvas particle typography with Hooke\'s law spring physics, mouse hover repulsion, and click shockwave dispersal.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['canvas', 'physics', 'typography'],
+    tags: ['text', 'particles', 'canvas', 'physics', 'interactive', 'typography', 'hover'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add text-particle-animation',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="w-full h-[320px] rounded-xl overflow-hidden border border-border/40 bg-zinc-950 flex flex-col items-center justify-center p-4 select-none">
+        <TextParticleAnimation
+          text="COOKI UI"
+          fontSize={60}
+          fontFamily="monospace"
+          fontWeight={900}
+          resolution={3}
+          pixelSize={2.5}
+          hoverRadius={70}
+          padding={30}
+          height={200}
+        />
+        <span className="text-[11px] text-zinc-500 font-mono mt-1">
+          Hover or click to disturb particle typography
+        </span>
+      </div>
+    ),
+    usage: `import { TextParticleAnimation } from "@/components/ui/text-particle-animation"
+
+export function ParticleTextDemo() {
+  return (
+    <TextParticleAnimation text="COOKI" />
+  )
+}`,
+    files: [
+      {
+        name: 'text-particle-animation.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['text-particle-animation'] || ''
+      }
+    ]
+  },
+
+  // 168. Holo Button
+  {
+    id: 'holo-button',
+    name: 'Holo Button',
+    slug: 'holo-button',
+    category: 'components',
+    subcategory: 'Buttons',
+    description: 'Holographic iridescent button with cursor-following diffraction foil gradients, specular edge highlights, and tactile spring physics.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['clsx', 'tailwind-merge'],
+    tags: ['buttons', 'holo', 'holographic', 'iridescent', 'diffraction', 'cursor-tracking', 'glow'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add holo-button',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    controls: [
+      {
+        name: 'variant',
+        type: 'select',
+        label: 'Variant',
+        options: [
+          { label: 'Primary', value: 'primary' },
+          { label: 'Cyber', value: 'cyber' },
+          { label: 'Rose Gold', value: 'rosegold' },
+          { label: 'Glass', value: 'glass' },
+        ],
+        defaultValue: 'cyber',
+      },
+    ],
+    renderPreview: (props: any = {}) => (
+      <div className="flex flex-wrap items-center justify-center gap-4 p-8 w-full">
+        <HoloButton variant={props.variant || 'cyber'} size="lg">
+          Holographic Button
+        </HoloButton>
+      </div>
+    ),
+    usage: `import { HoloButton } from "@/components/ui/holo-button"
+
+export function HoloDemo() {
+  return (
+    <HoloButton variant="cyber">Holographic Action</HoloButton>
+  )
+}`,
+    files: [
+      {
+        name: 'holo-button.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['holo-button'] || ''
+      }
+    ]
+  },
+
+  // 169. AI Prompt Bar
+  {
+    id: 'ai-prompt-bar',
+    name: 'AI Prompt Bar',
+    slug: 'ai-prompt-bar',
+    category: 'components',
+    subcategory: 'AI',
+    description: 'Autonomous AI prompt composer with model switcher, attachment drawer, voice dictation, and expanding interactive commands.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    tags: ['ai', 'prompt', 'composer', 'input', 'chat', 'model-selector', 'framer-motion'],
+    dependencies: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add ai-prompt-bar',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="w-full flex items-center justify-center p-4 min-h-[300px]">
+        <AiPromptBar
+          placeholder="Ask AI anything or type '/' for actions..."
+          variant="rounded"
+          className="w-full max-w-lg shadow-xl"
+        />
+      </div>
+    ),
+    usage: `import { AiPromptBar } from "@/components/ui/ai-prompt-bar"
+
+export function PromptDemo() {
+  return (
+    <AiPromptBar onSend={(text) => console.log(text)} />
+  )
+}`,
+    files: [
+      {
+        name: 'ai-prompt-bar.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['ai-prompt-bar'] || ''
+      }
+    ]
+  },
+
+  // 170. Interactive Card Gallery
+  {
+    id: 'interactive-card-gallery',
+    name: 'Interactive Card Gallery',
+    slug: 'interactive-card-gallery',
+    category: 'components',
+    subcategory: 'Cards',
+    description: 'Expanding card gallery grid with smooth perspective zoom, sliding content trays, and frosted glass metadata overlays.',
+    frameworks: ['React', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['clsx', 'tailwind-merge'],
+    tags: ['cards', 'gallery', 'hover', 'zoom', 'image-cards', 'responsive'],
+    dependencies: ['clsx', 'tailwind-merge'],
+    installCommand: 'npx cooki-ui add interactive-card-gallery',
+    featured: true,
+    popular: true,
+    dateAdded: '2026-11-17',
+    renderPreview: () => (
+      <div className="w-full flex items-center justify-center p-2">
+        <InteractiveCardGallery
+          cards={[
+            {
+              title: "Atmospheric Optics",
+              description: "Sub-millisecond raymarched atmospheric scattering and volumetric lighting shaders.",
+              imageSrc: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+              badge: "SHADERS",
+              buttonText: "Inspect Shader"
+            },
+            {
+              title: "Neural Isolate",
+              description: "Hermetic container runtime providing deterministic AST analysis and verification.",
+              imageSrc: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+              badge: "RUNTIME",
+              buttonText: "Open Isolate"
+            }
+          ]}
+          columns={2}
+          cardHeight="h-64"
+          className="max-w-md w-full"
+        />
+      </div>
+    ),
+    usage: `import { InteractiveCardGallery } from "@/components/ui/interactive-card-gallery"
+
+export function GalleryDemo() {
+  return (
+    <InteractiveCardGallery
+      cards={[
+        {
+          title: "Project Alpha",
+          description: "High-performance compute shaders",
+          imageSrc: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600"
+        }
+      ]}
+    />
+  )
+}`,
+    files: [
+      {
+        name: 'interactive-card-gallery.tsx',
+        language: 'tsx',
+        code: COMPONENT_SOURCES['interactive-card-gallery'] || ''
       }
     ]
   },

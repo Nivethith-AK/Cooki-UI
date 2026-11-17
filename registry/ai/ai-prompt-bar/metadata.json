@@ -1,0 +1,30 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "ai-prompt-bar",
+  "type": "registry:ui",
+  "title": "AI Prompt Bar",
+  "description": "Autonomous AI prompt composer with model switcher, attachment drawer, voice dictation, and expanding interactive commands.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "ai",
+    "prompt",
+    "composer",
+    "input",
+    "chat",
+    "model-selector",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-prompt-bar/ai-prompt-bar.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-prompt-bar.tsx"
+    }
+  ]
+}

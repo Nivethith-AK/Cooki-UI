@@ -1,0 +1,28 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "text-particle-animation",
+  "type": "registry:ui",
+  "title": "Text Particle Animation",
+  "description": "Interactive HTML5 canvas particle typography with Hooke's law spring physics, mouse hover repulsion, and click shockwave dispersal.",
+  "category": "text",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "tags": [
+    "text",
+    "particles",
+    "canvas",
+    "physics",
+    "interactive",
+    "typography",
+    "hover"
+  ],
+  "files": [
+    {
+      "path": "registry/text/text-particle-animation/text-particle-animation.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/text-particle-animation.tsx"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "ai-loading-state",
+  "type": "registry:ui",
+  "title": "AI Loading State",
+  "description": "Multi-pattern autonomous AI reasoning and thought synthesis status indicators with live elapsed timer and dynamic theme presets.",
+  "category": "ai",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/ai/ai-loading-state/ai-loading-state.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/ai-loading-state.tsx"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "vector-flow",
+  "type": "registry:ui",
+  "title": "Vector Flow",
+  "description": "Procedural 2D Perlin noise vector flow field with filament particle trails, vortex physics, and cursor interactions.",
+  "category": "backgrounds",
+  "dependencies": ["framer-motion", "clsx", "tailwind-merge"],
+  "tags": ["backgrounds", "flow-field", "particles", "perlin-noise", "vortex", "interactive"],
+  "files": [
+    {
+      "path": "registry/backgrounds/vector-flow/vector-flow.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/vector-flow.tsx"
+    }
+  ]
+}

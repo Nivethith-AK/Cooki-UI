@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "3d-image-ring",
+  "type": "registry:ui",
+  "title": "3D Image Ring",
+  "description": "Interactive cylindrical revolving image gallery with 3D perspective depth, drag inertia, and parallax tracking.",
+  "category": "media",
+  "dependencies": [
+    "framer-motion",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "registry/media/3d-image-ring/3d-image-ring.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/3d-image-ring.tsx"
+    }
+  ]
+}

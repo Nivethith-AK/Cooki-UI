@@ -29,11 +29,15 @@ categories.forEach(cat => {
     const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'))
     const sourceCode = fs.readFileSync(srcPath, 'utf8')
 
+    const filesArray = Array.isArray(metadata.files) && metadata.files.length > 0
+      ? metadata.files
+      : [{ path: `registry/${cat}/${comp}/${comp}.tsx`, type: 'registry:ui', target: `components/ui/${comp}.tsx` }]
+
     // Attach raw source content into files array
     const registryItem = {
       ...metadata,
       $schema: 'https://www.cooki-ui.design/schema/registry-item.json',
-      files: metadata.files.map(f => ({
+      files: filesArray.map(f => ({
         ...f,
         content: sourceCode
       }))

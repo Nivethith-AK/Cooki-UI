@@ -122,6 +122,26 @@
       ]
     },
     {
+      "name": "ai-loading-state",
+      "type": "registry:ui",
+      "title": "AI Loading State",
+      "description": "Multi-pattern autonomous AI reasoning and thought synthesis status indicators with live elapsed timer and dynamic theme presets.",
+      "category": "ai",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/ai-loading-state/ai-loading-state.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ai-loading-state.tsx"
+        }
+      ]
+    },
+    {
       "name": "ai-model-benchmark-card",
       "type": "registry:ui",
       "title": "AI Model Benchmark Card",
@@ -136,6 +156,26 @@
           "path": "registry/ai/ai-model-benchmark-card/ai-model-benchmark-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/ai-model-benchmark-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-prompt-bar",
+      "type": "registry:ui",
+      "title": "AI Prompt Bar",
+      "description": "Autonomous AI prompt composer with model switcher, attachment drawer, voice dictation, and expanding interactive commands.",
+      "category": "ai",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/ai/ai-prompt-bar/ai-prompt-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ai-prompt-bar.tsx"
         }
       ]
     },
@@ -246,6 +286,24 @@
       ]
     },
     {
+      "name": "infinite-drift",
+      "type": "registry:ui",
+      "title": "Infinite Drift",
+      "description": "Kinetic perspective conveyor gallery with parabolic curved bands, inertia gliding, and infinite loop simulation.",
+      "category": "animations",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/animations/infinite-drift/infinite-drift.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/infinite-drift.tsx"
+        }
+      ]
+    },
+    {
       "name": "orbital-particle-sphere",
       "type": "registry:ui",
       "title": "Orbital Particle Sphere",
@@ -294,6 +352,24 @@
           "path": "registry/animations/wave-frequency-bars/wave-frequency-bars.tsx",
           "type": "registry:ui",
           "target": "components/ui/wave-frequency-bars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-bubble-particles",
+      "type": "registry:ui",
+      "title": "Animated Bubble Particles",
+      "description": "Glassmorphic bubble particle canvas with organic buoyancy, specular reflections, mouse repulsion, and pop burst animations.",
+      "category": "backgrounds",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/animated-bubble-particles/animated-bubble-particles.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-bubble-particles.tsx"
         }
       ]
     },
@@ -486,6 +562,25 @@
       ]
     },
     {
+      "name": "vector-flow",
+      "type": "registry:ui",
+      "title": "Vector Flow",
+      "description": "Procedural 2D Perlin noise vector flow field with filament particle trails, vortex physics, and cursor interactions.",
+      "category": "backgrounds",
+      "dependencies": [
+        "framer-motion",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/backgrounds/vector-flow/vector-flow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/vector-flow.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-copy-button",
       "type": "registry:ui",
       "title": "Animated Morphing Copy Button",
@@ -518,6 +613,26 @@
           "path": "registry/buttons/confetti-button/confetti-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/confetti-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cool-theme-toggle",
+      "type": "registry:ui",
+      "title": "Cool Theme Toggle",
+      "description": "Day and night celestial mechanical toggle switch with smooth physics and ambient celestial effects.",
+      "category": "buttons",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/cool-theme-toggle/cool-theme-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cool-theme-toggle.tsx"
         }
       ]
     },
@@ -624,6 +739,24 @@
           "path": "registry/buttons/hold-to-confirm-button/hold-to-confirm-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/hold-to-confirm-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "holo-button",
+      "type": "registry:ui",
+      "title": "Holo Button",
+      "description": "Holographic iridescent button with cursor-following diffraction foil gradients, specular edge highlights, and tactile spring physics.",
+      "category": "buttons",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/buttons/holo-button/holo-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/holo-button.tsx"
         }
       ]
     },
@@ -818,6 +951,42 @@
       ]
     },
     {
+      "name": "glowing-cards",
+      "type": "registry:ui",
+      "title": "Glowing Cards",
+      "description": "Multi-card interactive spotlight grid with mouse-tracking radial proximity borders and specular illumination.",
+      "category": "cards",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/glowing-cards/glowing-cards.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glowing-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-card-gallery",
+      "type": "registry:ui",
+      "title": "Interactive Card Gallery",
+      "description": "Expanding card gallery grid with smooth perspective zoom, sliding content trays, and frosted glass metadata overlays.",
+      "category": "cards",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/interactive-card-gallery/interactive-card-gallery.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-card-gallery.tsx"
+        }
+      ]
+    },
+    {
       "name": "interactive-tilt-card",
       "type": "registry:ui",
       "title": "Interactive 3D Tilt Card",
@@ -832,6 +1001,26 @@
           "path": "registry/cards/interactive-tilt-card/interactive-tilt-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/interactive-tilt-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "invoice-printer",
+      "type": "registry:ui",
+      "title": "Invoice Printer",
+      "description": "Tactile thermal receipt printer generating physical-style receipts with sound synthesis, extrusion motion, tear-off physics, and barcodes.",
+      "category": "cards",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/cards/invoice-printer/invoice-printer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/invoice-printer.tsx"
         }
       ]
     },
@@ -1850,6 +2039,63 @@
       ]
     },
     {
+      "name": "3d-bend-carousel",
+      "type": "registry:ui",
+      "title": "3D Bend Carousel",
+      "description": "Curved cylindrical card carousel with 3D perspective depth, momentum drag physics, auto-snap, and orientation control.",
+      "category": "media",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/media/3d-bend-carousel/3d-bend-carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/3d-bend-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "3d-image-pageflip",
+      "type": "registry:ui",
+      "title": "3D Image Pageflip",
+      "description": "Realistic 3D magazine and book page-turn flip interaction with dynamic shadow rendering, spine shifting, and leaf navigation.",
+      "category": "media",
+      "dependencies": [
+        "lucide-react",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/media/3d-image-pageflip/3d-image-pageflip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/3d-image-pageflip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "3d-image-ring",
+      "type": "registry:ui",
+      "title": "3D Image Ring",
+      "description": "Interactive cylindrical revolving image gallery with 3D perspective depth, drag inertia, and parallax tracking.",
+      "category": "media",
+      "dependencies": [
+        "framer-motion",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/media/3d-image-ring/3d-image-ring.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/3d-image-ring.tsx"
+        }
+      ]
+    },
+    {
       "name": "audio-spectrum-equalizer",
       "type": "registry:ui",
       "title": "Audio Spectrum Equalizer",
@@ -2124,6 +2370,25 @@
           "path": "registry/navigation/minimal-radial-menu/minimal-radial-menu.tsx",
           "type": "registry:ui",
           "target": "components/ui/minimal-radial-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "morphing-navigation",
+      "type": "registry:ui",
+      "title": "Morphing Navigation",
+      "description": "Adaptive floating navigation bar that morphs between expanded desktop tabs and compact floating glass capsules on scroll.",
+      "category": "navigation",
+      "dependencies": [
+        "framer-motion",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/navigation/morphing-navigation/morphing-navigation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morphing-navigation.tsx"
         }
       ]
     },
@@ -2446,6 +2711,24 @@
       ]
     },
     {
+      "name": "aurora-text-effect",
+      "type": "registry:ui",
+      "title": "Aurora Text Effect",
+      "description": "Dynamic shimmering typography mask filled with multi-layer fluid chromatic aurora plasma waves.",
+      "category": "text",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/text/aurora-text-effect/aurora-text-effect.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/aurora-text-effect.tsx"
+        }
+      ]
+    },
+    {
       "name": "blur-reveal",
       "type": "registry:ui",
       "title": "Atmospheric Gaussian Blur Reveal",
@@ -2591,6 +2874,24 @@
           "path": "registry/text/split-text/split-text.tsx",
           "type": "registry:ui",
           "target": "components/ui/split-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-particle-animation",
+      "type": "registry:ui",
+      "title": "Text Particle Animation",
+      "description": "Interactive HTML5 canvas particle typography with Hooke's law spring physics, mouse hover repulsion, and click shockwave dispersal.",
+      "category": "text",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/text/text-particle-animation/text-particle-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/text-particle-animation.tsx"
         }
       ]
     },

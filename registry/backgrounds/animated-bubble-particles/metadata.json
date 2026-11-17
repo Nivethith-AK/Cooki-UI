@@ -1,0 +1,17 @@
+{
+  "$schema": "https://www.cooki-ui.design/schema/registry-item.json",
+  "name": "animated-bubble-particles",
+  "type": "registry:ui",
+  "title": "Animated Bubble Particles",
+  "description": "Glassmorphic bubble particle canvas with organic buoyancy, specular reflections, mouse repulsion, and pop burst animations.",
+  "category": "backgrounds",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "tags": ["backgrounds", "particles", "bubbles", "canvas", "interactive", "physics"],
+  "files": [
+    {
+      "path": "registry/backgrounds/animated-bubble-particles/animated-bubble-particles.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/animated-bubble-particles.tsx"
+    }
+  ]
+}
