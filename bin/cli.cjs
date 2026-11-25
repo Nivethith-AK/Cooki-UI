@@ -7,7 +7,7 @@ const http = require('http')
 const readline = require('readline')
 
 const REGISTRY_HOST = 'https://www.cooki-ui.design'
-const VERSION = '1.0.0'
+const VERSION = '1.0.3'
 
 // Utility: HTTP GET helper that follows redirects
 function fetchUrl(url) {
@@ -110,6 +110,60 @@ async function cmdAdd(slug, customTarget) {
     console.log(`\x1b[90mEnsure you have the @/lib/utils cn() helper configured.\x1b[0m\n`)
   } catch (err) {
     console.error(`Error installing "${slug}":`, err.message)
+    process.exit(1)
+  }
+}
+
+async function cmdSearch(query) {
+  if (!query) {
+    console.error('Error: Please specify a search query. Example: npx cooki-ui search button')
+    process.exit(1)
+  }
+  try {
+    const manifest = await getRegistryManifest()
+    const q = query.toLowerCase()
+    const matches = (manifest.items || []).filter(item => 
+      (item.name && item.name.toLowerCase().includes(q)) ||
+      (item.title && item.title.toLowerCase().includes(q)) ||
+      (item.description && item.description.toLowerCase().includes(q)) ||
+      (item.category && item.category.toLowerCase().includes(q)) ||
+      (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))
+    )
+    console.log(`\nCooki UI Search results for "${query}" (${matches.length} matches):\n`)
+    if (matches.length === 0) {
+      console.log('  No matching components found.')
+    } else {
+      matches.forEach(item => {
+        console.log(`  • \x1b[36m${item.name.padEnd(32)}\x1b[0m [${item.category || 'general'}] ${item.title}`)
+        if (item.description) {
+          console.log(`    \x1b[90m${item.description}\x1b[0m`)
+        }
+      })
+      console.log(`\nTo install a component, run: \x1b[32mnpx cooki-ui add <name>\x1b[0m\n`)
+    }
+  } catch (err) {
+    console.error('Error searching registry:', err.message)
+    process.exit(1)
+  }
+}
+
+async function cmdInfo(slug) {
+  if (!slug) {
+    console.error('Error: Please specify a component name. Example: npx cooki-ui info magnetic-button')
+    process.exit(1)
+  }
+  try {
+    const data = await getComponentData(slug)
+    console.log(`\n\x1b[1m\x1b[36m${data.title || slug}\x1b[0m (${data.name})`)
+    if (data.description) console.log(`\x1b[90m${data.description}\x1b[0m\n`)
+    console.log(`  Type:         ${data.type || 'registry:ui'}`)
+    console.log(`  Dependencies: ${data.dependencies && data.dependencies.length > 0 ? data.dependencies.join(', ') : 'none'}`)
+    if (data.files && data.files.length > 0) {
+      console.log(`  Default path: ${data.files[0].target || 'components/ui/' + slug + '.tsx'}`)
+    }
+    console.log(`\nTo install:\n  \x1b[32mnpx cooki-ui add ${slug}\x1b[0m\n`)
+  } catch (err) {
+    console.error(`Error fetching info for "${slug}":`, err.message)
     process.exit(1)
   }
 }
@@ -412,12 +466,16 @@ Usage:
 Commands:
   add <component> [target]    Install component source code into your project
   list [category]             List all available components in the registry
+  search <query>              Search components by keyword or tag
+  info <component>            Display details and dependencies for a component
   mcp                         Start the Model Context Protocol (MCP) stdio server
   help                        Show this help message
 
 Examples:
   npx cooki-ui add magnetic-button
   npx cooki-ui add perspective-card-3d
+  npx cooki-ui search carousel
+  npx cooki-ui info 3d-image-ring
   npx cooki-ui list
   npx cooki-ui list buttons
   npx cooki-ui mcp
@@ -436,6 +494,12 @@ async function main() {
       break
     case 'list':
       await cmdList(args[1])
+      break
+    case 'search':
+      await cmdSearch(args[1])
+      break
+    case 'info':
+      await cmdInfo(args[1])
       break
     case 'mcp':
       startMcpServer()

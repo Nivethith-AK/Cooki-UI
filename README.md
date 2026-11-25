@@ -10,14 +10,14 @@
 # Cooki UI
 
 **The Open Component Registry Built for Developers & AI Agents**  
-154 animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
+170 animated, accessible, production-ready components & backgrounds — delivered as raw source code, owned by you forever.
 
 <br/>
 
 [![GitHub stars](https://img.shields.io/github/stars/Nivethith-AK/Cooki-UI?style=flat-square&label=stars&color=f59e0b)](https://github.com/Nivethith-AK/Cooki-UI)
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.cooki-ui.design)
-[![Components](https://img.shields.io/badge/components-154%20canonical-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
-[![npm version](https://img.shields.io/badge/npm-v1.0.0-cb3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/cooki-ui)
+[![Components](https://img.shields.io/badge/components-170%20canonical-0ea5e9?style=flat-square)](https://www.cooki-ui.design)
+[![npm version](https://img.shields.io/badge/npm-v1.0.3-cb3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/cooki-ui)
 [![shadcn compatible](https://img.shields.io/badge/shadcn-compatible-black?style=flat-square)](https://www.cooki-ui.design/r/index.json)
 [![License](https://img.shields.io/github/license/Nivethith-AK/Cooki-UI?style=flat-square&color=8b5cf6)](./LICENSE)
 
@@ -97,6 +97,12 @@ npx cooki-ui add magnetic-button
 
 # Add 3D Perspective Card
 npx cooki-ui add perspective-card-3d
+
+# Search components by keyword
+npx cooki-ui search gallery
+
+# Inspect component metadata & dependencies
+npx cooki-ui info 3d-image-ring
 
 # Browse all available components
 npx cooki-ui list
@@ -211,7 +217,7 @@ Cooki UI is designed from the ground up for AI coding agents (**Antigravity**, *
 
 | Tool | Description |
 |---|---|
-| `list_components` | Browse all 154 canonical components with categories and tags |
+| `list_components` | Browse all 170 canonical components with categories and tags |
 | `search_components` | Search components by keyword, technology, or UI use-case |
 | `get_component_source` | Fetch raw TypeScript source code ready for disk writes |
 | `get_component_dependencies` | Read package dependencies required for a component |
@@ -244,55 +250,55 @@ Connect your AI coding assistant in 10 seconds. Add this server definition to yo
 
 ---
 
-## Component Library (154 Canonical Components)
+## Component Library (170 Canonical Components)
 
-### 🧊 3D Elements & Holograms
-`audio-waveform-visualizer` · `code-hover-card` · `cube-perspective-3d` · `hanging-id-card` · `particle-vortex-tunnel` · `plasma-globe`
+### 🧊 3D Elements, Media & Holograms
+`3d-bend-carousel` · `3d-image-pageflip` · `3d-image-ring` · `audio-waveform-visualizer` · `code-hover-card` · `cube-perspective-3d` · `hanging-id-card` · `particle-vortex-tunnel` · `plasma-globe`
 
 ### 🤖 AI Interfaces & Telemetry
-`ai-code-diff-viewer` · `ai-prompt-input` · `ai-streaming-bubble` · `ai-token-cost-meter` · `system-architecture-graph`
+`ai-code-diff-viewer` · `ai-loading-state` · `ai-model-benchmark-card` · `ai-prompt-bar` · `ai-prompt-input` · `ai-streaming-bubble` · `ai-token-cost-meter` · `ai-voice-waveform` · `neural-token-stream` · `system-architecture-graph`
 
 ### ⚡ Animations & Kinetic Motion
-`wave-frequency-bars` · `spinning-text` · `glitch-cyber-text` · `kinetic-text-marquee`
+`elastic-kinetic-toggle` · `infinite-drift` · `orbital-particle-sphere` · `radar-ping-beacon` · `wave-frequency-bars`
 
 ### 🌅 Backgrounds & Shaders
-`animated-mesh-background` · `aurora-background` · `beam-grid-background` · `cosmic-dust-background` · `cyber-hive-background` · `dot-background` · `flowing-lines-wave-background` · `grid-background` · `morphing-blob-background` · `particle-constellation-background` · `quantum-field-background` · `starfield-hyperdrive-background`
+`animated-bubble-particles` · `animated-mesh-background` · `aurora-background` · `beam-grid-background` · `cosmic-dust-background` · `cyber-hive-background` · `dot-background` · `flowing-lines-wave-background` · `grid-background` · `morphing-blob-background` · `particle-constellation-background` · `quantum-field-background` · `starfield-hyperdrive-background` · `vector-flow`
 
 ### 🔘 Interactive Buttons & Triggers
-`confetti-button` · `floating-action-button` · `fluid-liquid-button` · `glow-action-button` · `gradient-shimmer-button` · `hold-to-confirm-button` · `liquid-glass-button` · `magnetic-button` · `ripple-button` · `slide-to-confirm`
+`animated-copy-button` · `confetti-button` · `cool-theme-toggle` · `expandable-speed-dial` · `floating-action-button` · `fluid-liquid-button` · `glow-action-button` · `gradient-shimmer-button` · `hold-to-confirm-button` · `holo-button` · `liquid-glass-button` · `magnetic-button` · `neon-pulse-button` · `ripple-button` · `slide-to-confirm`
 
 ### 🎴 Advanced Cards & Surfaces
-`expandable-card` · `glare-hologram-card` · `glass-card` · `interactive-tilt-card` · `orbit-card` · `perspective-card-3d` · `scratch-to-reveal-card` · `spotlight-border-card` · `spotlight-card` · `stack-card-deck` · `terminal-card`
+`code-hover-cards` · `electro-border` · `expandable-card` · `glare-hologram-card` · `glass-card` · `glass-folder` · `glowing-cards` · `interactive-card-gallery` · `interactive-tilt-card` · `invoice-printer` · `orbit-card` · `perspective-card-3d` · `scratch-to-reveal-card` · `sliding-cards` · `spotlight-border-card` · `spotlight-card` · `stack-card-deck` · `terminal-card`
 
 ### 🖱️ Cursor Physics & Pointers
-`fluid-particle-cursor` · `magnetic-cursor-follower` · `magnetic-target-cursor` · `spotlight-reveal-cursor`
+`fluid-particle-cursor` · `interactive-hud-cursor` · `magnetic-cursor-follower` · `magnetic-target-cursor` · `spotlight-reveal-cursor`
 
 ### 📊 Data Visualizations & Dashboards
-`activity-feed-stream` · `circular-gauge-speedometer` · `comparative-feature-table` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `radial-progress-gauge` · `scroll-timeline` · `system-architecture-graph` · `telemetry-metric-card`
+`activity-feed-stream` · `circular-gauge-speedometer` · `code-diff-slider` · `comparative-feature-table` · `connection-graph` · `drag-order-list` · `git-contribution-heatmap` · `live-telemetry-status-grid` · `radial-progress-gauge` · `scroll-timeline` · `system-architecture-graph` · `telemetry-metric-card`
 
 ### 🔮 Shaders & Atmospheric FX
-`ascii-wave` · `border-beam` · `light-pillar-beacon` · `matrix-rain-terminal` · `metaball-gooey-effect` · `noise-grain-overlay` · `spectrum-loader`
+`ascii-wave` · `border-beam` · `interactive-lens` · `light-pillar-beacon` · `magic-particle-loader` · `matrix-rain-terminal` · `metaball-gooey-effect` · `noise-grain-overlay` · `spectrum-loader`
 
 ### 🔔 Feedback & Indicators
 `animated-counter-pill` · `progress-step-loader` · `skeleton-shimmer-card` · `status-radar-badge` · `toast-notification-hub`
 
 ### 📝 Form Controls & Keypads
-`animated-floating-input` · `color-palette-picker` · `color-theme-switcher-pill` · `drag-drop-file-upload` · `dual-range-slider` · `expandable-search-bar` · `multi-select-combobox` · `otp-input` · `password-strength-indicator` · `pin-code-vault-input` · `toggle-pill-switch`
+`animated-floating-input` · `color-palette-picker` · `color-theme-switcher-pill` · `combobox-basic` · `drag-drop-file-upload` · `dual-range-slider` · `expandable-search-bar` · `interactive-stepper` · `multi-select-combobox` · `otp-input` · `password-strength-indicator` · `pin-code-vault-input` · `toggle-pill-switch`
 
 ### 📐 Layout & Dynamic Splitters
-`accordion-faq-group` · `image-comparison-slider` · `infinite-card-carousel` · `interactive-image-compare-lens` · `resizable-split-panel` · `segmented-control-switch`
+`accordion-faq-group` · `image-comparison-slider` · `infinite-card-carousel` · `interactive-feature-carousel` · `interactive-image-compare-lens` · `resizable-split-panel` · `segmented-control-switch`
 
 ### 🧭 Navigation & App Shells
-`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `cyber-command-menu` · `floating-navbar` · `fluid-action-hub` · `fluid-action-panel` · `magnetic-dock` · `magnetic-social-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `sliding-logo-marquee` · `tabs-morph`
+`animated-notification-stack` · `breadcrumb-stepper` · `command-palette` · `cyber-command-menu` · `dynamic-island` · `dynamic-navigation` · `floating-navbar` · `fluid-action-hub` · `fluid-action-panel` · `hamburger-menu-overlay` · `magnetic-dock` · `magnetic-social-dock` · `magnetic-social-share-cluster` · `minimal-radial-menu` · `morphing-navigation` · `sliding-logo-marquee` · `tabs-morph`
 
 ### 🪟 Overlays & Dialogs
-`context-action-menu` · `interactive-dialog-modal` · `sliding-drawer-sheet` · `tooltip-popover`
+`context-action-menu` · `glassmorphic-command-hud` · `interactive-dialog-modal` · `sliding-drawer-sheet` · `tooltip-popover`
 
 ### 💼 High-Converting Sections & Blocks
-`animated-cta-block` · `faq-accordion-section` · `feature-bento-block` · `hero-geometry-glow-section` · `holographic-pricing-table` · `interactive-terminal-block` · `interactive-workflow-pipeline` · `pricing-comparison-block` · `stats-counter-strip-block` · `testimonial-marquee-block`
+`animated-cta-block` · `faq-accordion-section` · `feature-bento-block` · `hero-geometry-glow-section` · `holographic-pricing-table` · `interactive-terminal-block` · `interactive-workflow-pipeline` · `pricing-comparison-block` · `stats-counter-strip-block` · `terminal-diff-block` · `testimonial-marquee-block`
 
-### ✨ Text Effects & Typographic Motion
-`blur-reveal` · `glitch-cyber-text` · `kinetic-text-marquee` · `rolling-text-3d` · `scramble-text` · `shiny-text` · `sliding-number` · `split-text` · `text-reveal` · `typing-text`
+### 🔤 Text Effects & Typographic Motion
+`aurora-text-effect` · `blur-reveal` · `count-up` · `glitch-cyber-text` · `kinetic-text-marquee` · `rolling-text-3d` · `scramble-text` · `shiny-text` · `sliding-number` · `split-text` · `text-particle-animation` · `text-reveal` · `typing-text` · `video-text-mask`
 
 <br/>
 
